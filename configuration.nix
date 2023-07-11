@@ -8,7 +8,17 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      <home-manager/nixos>
     ];
+  
+  home-manager.users.cam = {
+    home.stateVersion = "23.05";
+    programs.git = {
+      enable = true;
+      userName = "Cameron Dugan";
+      userEmail = "cameron.dugan@protonmail.com";
+    };
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -164,11 +174,6 @@
 	  vimAlias = true;
   };
 
-  programs.git = {
-    enable = true;
-    userName = "Cameron Dugan";
-    userEmail = "cameron.dugan@protonmail.com";
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
