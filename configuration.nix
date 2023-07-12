@@ -119,7 +119,19 @@
       winetricks
 
       # Neovim dependencies.
+      fd
+      ripgrep
       luajit
+      luajitPackages.luarocks-nix
+      php82Packages.composer
+      php
+      nodePackages.npm
+      nodejs-slim
+      jdk
+      cargo
+      julia-bin
+      unzip
+      wget
 
       # Developer Software.
 
@@ -137,12 +149,19 @@
 
       # Languages
       go
-      python311
       rustup
       zig
       dotnet-sdk
       rstudio
-
+      # Python
+      python311
+      python311Packages.pip
+      python311Packages.jupyter-client
+      python311Packages.ueberzug
+      python311Packages.pillow
+      python311Packages.cairosvg
+      python311Packages.pnglatex
+      python311Packages.plotly
     ];
   };
 
@@ -176,7 +195,6 @@
      fishPlugins.grc
      grc
      # Other
-     wget
      android-tools
   ];
 
