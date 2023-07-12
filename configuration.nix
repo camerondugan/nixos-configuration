@@ -21,6 +21,18 @@
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
+	show-battery-percentage = true;
+      };
+      "org/gnome/mutter" = {
+        dynamic-workspaces = true;
+      };
+      "org/gnome/desktop/peripherals/touchpad" = {
+	tap-to-click = true;
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        binding = "<Super>t";
+	command = "kgx";
+	name = "Launch Terminal";
       };
     };
   };
