@@ -18,6 +18,11 @@
       userName = "Cameron Dugan";
       userEmail = "cameron.dugan@protonmail.com";
     };
+    dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
   };
 
   # Bootloader.
