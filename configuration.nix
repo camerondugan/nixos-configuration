@@ -57,6 +57,9 @@
 	command = "kgx";
 	name = "Launch Terminal";
       };
+      "org/gnome/shell" = {
+	enabled-extensions = ["appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "caffeine@patapon.info" "dash-to-dock@micxgx.gmail.com" "forge@jmmaranan.com" "workspace-indicator@gnome-shell-extensions.gcampax.github.com"];
+      };
     };
   };
 
