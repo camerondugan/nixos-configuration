@@ -56,6 +56,9 @@
             "org/gnome/desktop/peripherals/touchpad" = {
                 tap-to-click = true;
             };
+            "org/gnome/desktop/peripherals/mouse" = {
+                accel-profile = "flat";
+            };
             "org/gnome/desktop/wm/keybindings" = {
                 switch-to-workspace-left = ["<Super>h"];
                 switch-to-workspace-right = ["<Super>l"];
@@ -202,86 +205,86 @@
             unzip
             wget
 
-# Developer Software.
+            # Developer Software.
 
-# VS Code
-                (vscode-with-extensions.override {
-                 vscodeExtensions = with vscode-extensions; [
-                 bbenoist.nix
-                 ms-python.python
-                 ms-vscode-remote.remote-ssh
-                 vscodevim.vim
-                 ms-toolsai.jupyter
-                 ];
-                 })
+            # VS Code
+            (vscode-with-extensions.override {
+                vscodeExtensions = with vscode-extensions; [
+                    bbenoist.nix
+                    ms-python.python
+                    ms-vscode-remote.remote-ssh
+                    vscodevim.vim
+                    ms-toolsai.jupyter
+                ];
+            })
 
 
-# Languages
-        go
+            # Languages
+            go
             rustup
             zig
             dotnet-sdk
             rstudio
-            ];
+        ];
     };
 
-# 32 Bit Opengl (for older software)
+    # 32 Bit Opengl (for older software)
     hardware.opengl.driSupport32Bit = true;
     hardware.opengl.enable = true;
     hardware.pulseaudio.support32Bit = true;
 
-# Allow unfree packages
+    # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
-# List packages installed in system profile. To search, run:
-# $ nix search wget
+    # List packages installed in system profile. To search, run:
+    # $ nix search wget
     environment.systemPackages = with pkgs; [
-# Game Software.
+    # Game Software.
         lutris
-            bottles
-# Gnome Extensions.
-            gnomeExtensions.forge
-            gnomeExtensions.dash-to-dock
-            gnomeExtensions.blur-my-shell
-            gnomeExtensions.caffeine
-            gnomeExtensions.appindicator
-# Shell
-            wl-clipboard
-            xclip
-            pfetch
-            fishPlugins.done
-            fishPlugins.fzf-fish
-            fishPlugins.forgit
-            fishPlugins.hydro
-            fzf
-            fishPlugins.grc
-            grc
-# Other
-            android-tools
-# Python
-            (python311.withPackages(ps: with ps; [
-                                    pip
-                                    jupyter-client
-                                    ueberzug
-                                    pillow
-                                    cairosvg
-                                    pnglatex
-                                    plotly
-            ]))
-            ];
+        bottles
+        # Gnome Extensions.
+        gnomeExtensions.forge
+        gnomeExtensions.dash-to-dock
+        gnomeExtensions.blur-my-shell
+        gnomeExtensions.caffeine
+        gnomeExtensions.appindicator
+        # Shell
+        wl-clipboard
+        xclip
+        pfetch
+        fishPlugins.done
+        fishPlugins.fzf-fish
+        fishPlugins.forgit
+        fishPlugins.hydro
+        fzf
+        fishPlugins.grc
+        grc
+        # Other
+        android-tools
+        # Python
+        (python311.withPackages(ps: with ps; [
+            pip
+            jupyter-client
+            ueberzug
+            pillow
+            cairosvg
+            pnglatex
+            plotly
+        ]))
+    ];
 
 
-# Some programs need SUID wrappers, can be configured further or are
-# started in user sessions.
-# programs.mtr.enable = true;
-# programs.gnupg.agent = {
-#   enable = true;
-#   enableSSHSupport = true;
-# };
+    # Some programs need SUID wrappers, can be configured further or are
+    # started in user sessions.
+    # programs.mtr.enable = true;
+    # programs.gnupg.agent = {
+    #   enable = true;
+    #   enableSSHSupport = true;
+    # };
 
-# Program Configs
+    # Program Configs
 
-# List services that you want to enable:
+    # List services that you want to enable:
     services.tailscale.enable = true;
     programs.starship.enable = true;
     programs.fish = {
@@ -291,10 +294,10 @@
             set fish_greeting
             fish_vi_key_bindings
             test $TERM != "screen"; and exec tmux
-            '';
+        '';
     };
 
-# Syncthing
+    # Syncthing
     services.syncthing = {
         enable = true;
         user = "cam";
@@ -303,28 +306,28 @@
     };
 
 
-# Enable the OpenSSH daemon.
-# services.openssh.enable = true;
+    # Enable the OpenSSH daemon.
+    # services.openssh.enable = true;
 
-# Open ports in the firewall.
-# networking.firewall.allowedTCPPorts = [ ... ];
-# networking.firewall.allowedUDPPorts = [ ... ];
-# Or disable the firewall altogether.
-# networking.firewall.enable = false;
+    # Open ports in the firewall.
+    # networking.firewall.allowedTCPPorts = [ ... ];
+    # networking.firewall.allowedUDPPorts = [ ... ];
+    # Or disable the firewall altogether.
+    # networking.firewall.enable = false;
 
-# This value determines the NixOS release from which the default
-# settings for stateful data, like file locations and database versions
-# on your system were taken. It‘s perfectly fine and recommended to leave
-# this value at the release version of the first install of this system.
-# Before changing this value read the documentation for this option
-# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+    # This value determines the NixOS release from which the default
+    # settings for stateful data, like file locations and database versions
+    # on your system were taken. It‘s perfectly fine and recommended to leave
+    # this value at the release version of the first install of this system.
+    # Before changing this value read the documentation for this option
+    # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
     system.stateVersion = "23.05"; # Did you read the comment?
 
-# Enable Auto Updates
-        system.autoUpgrade.enable = true;
+    # Enable Auto Updates
+    system.autoUpgrade.enable = true;
     system.autoUpgrade.allowReboot = false;
 
-# Enable Optimization.
+    # Enable Optimization.
     nix.gc.automatic = true;
     nix.settings.auto-optimise-store = true;
 }
