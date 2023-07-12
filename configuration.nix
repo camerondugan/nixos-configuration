@@ -48,6 +48,7 @@
 	move-to-workspace-left = ["<Alt><Super>h"];
 	move-to-workspace-right = ["<Alt><Super>l"];
 	close = ["<Super>c"];
+	toggle-fullscreen = ["<Super>f"];
       };
       "org/gnome/settings-daemon/plugins/media-keys" = {
 	custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
