@@ -35,6 +35,9 @@
 	remove-old-trash-files = true;
 	remove-old-temp-files = true;
       };
+      "org/gnome/desktop/media-handling" = {
+	autorun-x-content-start-app = ["x-content/ostree-repository"];
+      };
       "org/gnome/desktop/peripherals/touchpad" = {
 	tap-to-click = true;
       };
