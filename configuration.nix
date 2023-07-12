@@ -206,8 +206,6 @@
             wget
 
             # Developer Software.
-            gnome.gnome-terminal
-
             # VS Code
             (vscode-with-extensions.override {
                 vscodeExtensions = with vscode-extensions; [
@@ -284,9 +282,7 @@
     # };
 
     # Program Configs
-
-    # List services that you want to enable:
-    services.tailscale.enable = true;
+    programs.gnome-terminal.enable = true;
     programs.starship.enable = true;
     programs.fish = {
         enable = true;
@@ -297,6 +293,9 @@
             test $TERM != "screen"; and exec tmux
         '';
     };
+
+    # List services that you want to enable:
+    services.tailscale.enable = true;
 
     # Syncthing
     services.syncthing = {
