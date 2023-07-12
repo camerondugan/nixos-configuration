@@ -20,10 +20,6 @@
             userEmail = "cameron.dugan@protonmail.com";
         };
 
-        programs.gnome-terminal = {
-            themeVariant = "dark";
-        };
-
         programs.neovim = {
             enable = true;
             viAlias = true;
@@ -63,6 +59,7 @@
             "org/gnome/desktop/peripherals/mouse" = {
                 accel-profile = "flat";
             };
+            "org/gnome/terminal/legacy".theme-variant = "dark";
             "org/gnome/desktop/wm/keybindings" = {
                 switch-to-workspace-left = ["<Super>h"];
                 switch-to-workspace-right = ["<Super>l"];
@@ -87,9 +84,9 @@
                 custom-theme-shrink = true;
                 intellihide-mode = "ALL_WINDOWS";
             };
-            #"org/gnome/shell/extensions/forge" = {
-                #focus-border-toggle = true;
-            #};
+            "org/gnome/shell/extensions/forge" = {
+                focus-border-toggle = true;
+            };
             "org/gnome/shell/extensions/forge/keybindings" = {
                 window-focus-down = [];
                 window-focus-left = [];
