@@ -65,6 +65,9 @@
         custom-theme-shrink = true;
 	intellihide-mode = "ALL_WINDOWS";
       };
+      "org/gnome/shell/extensions/forge" = {
+	focus-border-toggle = true;
+      };
       "org/gnome/shell/extensions/forge/keybindings" = {
 	window-focus-down = [];
 	window-focus-left = [];
