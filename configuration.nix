@@ -29,6 +29,13 @@
       "org/gnome/desktop/peripherals/touchpad" = {
 	tap-to-click = true;
       };
+      "org/gnome/desktop/wm/keybindings" = {
+	minimize = [];
+	switch-to-workspace-left = ["<Super>h"];
+	switch-to-workspace-right = ["<Super>l"];
+	move-to-workspace-left = ["<Alt><Super>h"];
+	move-to-workspace-right = ["<Alt><Super>l"];
+      };
       "org/gnome/settings-daemon/plugins/media-keys" = {
 	custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
       };
