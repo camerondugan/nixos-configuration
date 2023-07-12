@@ -61,6 +61,7 @@
             };
             "org/gnome/terminal/legacy".theme-variant = "dark";
             "org/gnome/desktop/wm/keybindings" = {
+                minimize = [];
                 switch-to-workspace-left = ["<Super>h"];
                 switch-to-workspace-right = ["<Super>l"];
                 move-to-workspace-left = ["<Alt><Super>h"];
