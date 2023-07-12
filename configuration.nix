@@ -13,11 +13,13 @@
   
   home-manager.users.cam = {
     home.stateVersion = "23.05";
+
     programs.git = {
       enable = true;
       userName = "Cameron Dugan";
       userEmail = "cameron.dugan@protonmail.com";
     };
+
     programs.neovim = {
 	    enable = true;
 	    viAlias = true;
@@ -26,6 +28,11 @@
         pkgs.vimPlugins.packer-nvim
       ];
     };
+    
+    programs.tmux = {
+        enable = true;
+    };
+
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
