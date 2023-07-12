@@ -20,6 +20,10 @@
             userEmail = "cameron.dugan@protonmail.com";
         };
 
+        programs.gnome-terminal = {
+            themeVariant = "system";
+        };
+
         programs.neovim = {
             enable = true;
             viAlias = true;
@@ -58,9 +62,6 @@
             };
             "org/gnome/desktop/peripherals/mouse" = {
                 accel-profile = "flat";
-            };
-            "org/gnome/terminal/legacy" = {
-                theme-variant = "dark";
             };
             "org/gnome/desktop/wm/keybindings" = {
                 switch-to-workspace-left = ["<Super>h"];
@@ -285,7 +286,6 @@
     # };
 
     # Program Configs
-    programs.gnome-terminal.enable = true;
     programs.starship.enable = true;
     programs.fish = {
         enable = true;
