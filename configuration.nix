@@ -31,6 +31,10 @@
       "org/gnome/mutter" = {
         dynamic-workspaces = true;
       };
+      "org/gnome/desktop/privacy" = {
+	remove-old-trash-files = true;
+	remove-old-temp-files = true;
+      };
       "org/gnome/desktop/peripherals/touchpad" = {
 	tap-to-click = true;
       };
