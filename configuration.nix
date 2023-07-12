@@ -153,15 +153,6 @@
       zig
       dotnet-sdk
       rstudio
-      # Python
-      python311
-      python311Packages.pip
-      python311Packages.jupyter-client
-      python311Packages.ueberzug
-      python311Packages.pillow
-      python311Packages.cairosvg
-      python311Packages.pnglatex
-      python311Packages.plotly
     ];
   };
 
@@ -196,6 +187,15 @@
      grc
      # Other
      android-tools
+     # Python
+     python311
+     python311Packages.pip
+     python311Packages.jupyter-client
+     python311Packages.ueberzug
+     python311Packages.pillow
+     python311Packages.cairosvg
+     python311Packages.pnglatex
+     python311Packages.plotly
   ];
 
 
