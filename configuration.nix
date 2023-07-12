@@ -188,14 +188,15 @@
      # Other
      android-tools
      # Python
-     python311
-     python311Packages.pip
-     python311Packages.jupyter-client
-     python311Packages.ueberzug
-     python311Packages.pillow
-     python311Packages.cairosvg
-     python311Packages.pnglatex
-     python311Packages.plotly
+     (python311.withPackages(ps: with ps; [
+       pip
+       jupyter-client
+       ueberzug
+       pillow
+       cairosvg
+       pnglatex
+       plotly
+     ]))
   ];
 
 
