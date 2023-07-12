@@ -244,6 +244,8 @@
      gnomeExtensions.caffeine
      gnomeExtensions.appindicator
      # Shell
+     wl-clipboard
+     xclip
      pfetch
      fishPlugins.done
      fishPlugins.fzf-fish
