@@ -59,6 +59,9 @@
             "org/gnome/desktop/peripherals/mouse" = {
                 accel-profile = "flat";
             };
+            "org/gnome/terminal/legacy" = {
+                theme-variant = "dark";
+            };
             "org/gnome/desktop/wm/keybindings" = {
                 switch-to-workspace-left = ["<Super>h"];
                 switch-to-workspace-right = ["<Super>l"];
