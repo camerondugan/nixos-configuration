@@ -107,10 +107,16 @@
 
       # Desktop Software
       brave
+      obsidian
+      libreoffice-fresh
+      zoom-us
+
+      # Gaming
       heroic
       steam
-      libreoffice-fresh
       discord
+      wineWowPackages.stable
+      winetricks
 
       # Neovim dependencies.
       luajit
@@ -140,15 +146,20 @@
     ];
   };
 
+  # 32 Bit Opengl (for older software)
+  hardware.opengl.driSupport32Bit = true;
+  hardware.opengl.enable = true;
+  hardware.pulseaudio.support32Bit = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     # Gaming
+     # Game Software.
      lutris
-     # Gnome.
+     bottles
      # Gnome Extensions.
      gnomeExtensions.forge
      gnomeExtensions.dash-to-dock
@@ -156,6 +167,7 @@
      gnomeExtensions.caffeine
      gnomeExtensions.appindicator
      # Shell
+     pfetch
      fishPlugins.done
      fishPlugins.fzf-fish
      fishPlugins.forgit
@@ -168,12 +180,6 @@
      android-tools
   ];
 
-  programs.neovim = {
-	  enable = true;
-	  viAlias = true;
-	  vimAlias = true;
-  };
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -182,6 +188,13 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  # Program Configs
+  programs.neovim = {
+	  enable = true;
+	  viAlias = true;
+	  vimAlias = true;
+  };
 
   # List services that you want to enable:
   services.tailscale.enable = true;
@@ -219,6 +232,10 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
+
+  # Enable Auto Updates
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = false;
 
   # Enable Optimization.
   nix.gc.automatic = true;
