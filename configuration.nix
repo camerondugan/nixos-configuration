@@ -72,7 +72,7 @@
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
                 binding = "<Super>t";
-                command = "kgx";
+                command = "gnome-terminal";
                 name = "Launch Terminal";
             };
             "org/gnome/shell" = {
@@ -206,6 +206,7 @@
             wget
 
             # Developer Software.
+            gnome.gnome-terminal
 
             # VS Code
             (vscode-with-extensions.override {
