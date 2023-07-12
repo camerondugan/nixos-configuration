@@ -18,6 +18,14 @@
       userName = "Cameron Dugan";
       userEmail = "cameron.dugan@protonmail.com";
     };
+    programs.neovim = {
+	    enable = true;
+	    viAlias = true;
+	    vimAlias = true;
+      plugins = [
+        pkgs.vimPlugins.packer-nvim
+      ];
+    };
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
@@ -268,11 +276,6 @@
   # };
 
   # Program Configs
-  programs.neovim = {
-	  enable = true;
-	  viAlias = true;
-	  vimAlias = true;
-  };
 
   # List services that you want to enable:
   services.tailscale.enable = true;
