@@ -40,6 +40,7 @@
 	switch-to-workspace-right = ["<Super>l"];
 	move-to-workspace-left = ["<Alt><Super>h"];
 	move-to-workspace-right = ["<Alt><Super>l"];
+	close = ["<Super>c"];
       };
       "org/gnome/settings-daemon/plugins/media-keys" = {
 	custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
