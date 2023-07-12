@@ -242,6 +242,7 @@
         # Gnome
         gnome.gnome-themes-extra
         gnome.gnome-terminal
+        gnome.gnome-tweaks
         # Game Software.
         lutris
         bottles
