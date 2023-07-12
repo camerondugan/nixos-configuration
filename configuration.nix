@@ -26,19 +26,6 @@
             vimAlias = true;
             plugins = [
                 pkgs.vimPlugins.packer-nvim
-                pkgs.fd
-                pkgs.ripgrep
-                pkgs.luajit
-                pkgs.luajitPackages.luarocks-nix
-                pkgs.php82Packages.composer
-                pkgs.php
-                pkgs.nodePackages.npm
-                pkgs.jdk
-                pkgs.nodejs-slim
-                pkgs.cargo
-                pkgs.julia-bin
-                pkgs.unzip
-                pkgs.wget
             ];
         };
 
@@ -94,9 +81,9 @@
                 custom-theme-shrink = true;
                 intellihide-mode = "ALL_WINDOWS";
             };
-            "org/gnome/shell/extensions/forge" = {
-                focus-border-toggle = true;
-            };
+            #"org/gnome/shell/extensions/forge" = {
+                #focus-border-toggle = true;
+            #};
             "org/gnome/shell/extensions/forge/keybindings" = {
                 window-focus-down = [];
                 window-focus-left = [];
