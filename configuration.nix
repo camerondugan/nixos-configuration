@@ -126,8 +126,8 @@
       php82Packages.composer
       php
       nodePackages.npm
-      nodejs-slim
       jdk
+      nodejs-slim
       cargo
       julia-bin
       unzip
@@ -221,6 +221,7 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
+      pfetch
       set fish_greeting
       fish_vi_key_bindings
     '';
