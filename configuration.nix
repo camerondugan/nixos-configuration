@@ -189,7 +189,10 @@
             heroic
             steam
             discord
-            wineWowPackages.stable
+            (wineWowPackages.full.override {
+                wineRelease = "staging";
+                mingwSupport = true;
+            })
             winetricks
 
             # Neovim dependencies.
