@@ -103,10 +103,6 @@
     "/crypto_keyfile.bin" = null;
   };
 
-  # Enable swap on luks
-  boot.initrd.luks.devices."luks-0901906b-019c-4d9c-aaf1-5a0a4eaf7ea3".device = "/dev/disk/by-uuid/0901906b-019c-4d9c-aaf1-5a0a4eaf7ea3";
-  boot.initrd.luks.devices."luks-0901906b-019c-4d9c-aaf1-5a0a4eaf7ea3".keyFile = "/crypto_keyfile.bin";
-
   networking.hostName = "Linux"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
