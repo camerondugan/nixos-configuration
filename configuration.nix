@@ -57,6 +57,13 @@
 	command = "kgx";
 	name = "Launch Terminal";
       };
+      "org/gnome/shell/extensions/forge/keybindings" = {
+	window-focus-down = [];
+	window-focus-left = [];
+	window-focus-right = [];
+	window-focus-up = [];
+	window-toggle-float = ["<Alt><Super>f"];
+      };
       "org/gnome/shell" = {
 	enabled-extensions = ["appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "caffeine@patapon.info" "dash-to-dock@micxgx.gmail.com" "forge@jmmaranan.com" "workspace-indicator@gnome-shell-extensions.gcampax.github.com"];
       };
