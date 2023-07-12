@@ -295,7 +295,7 @@
       pfetch
       set fish_greeting
       fish_vi_key_bindings
-      [[ $TERM != "screen" ]] && exec tmux
+      test $TERM != "screen"; and exec tmux
     '';
   };
 
