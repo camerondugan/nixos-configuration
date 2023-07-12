@@ -235,6 +235,7 @@
      gnomeExtensions.blur-my-shell
      gnomeExtensions.caffeine
      gnomeExtensions.appindicator
+     gnomeExtensions.burn-my-windows
      # Shell
      pfetch
      fishPlugins.done
