@@ -21,7 +21,7 @@
         };
 
         programs.gnome-terminal = {
-            themeVariant = "system";
+            themeVariant = "dark";
         };
 
         programs.neovim = {
@@ -244,6 +244,7 @@
     environment.systemPackages = with pkgs; [
         # Gnome
         gnome.gnome-themes-extra
+        gnome.gnome-terminal
         # Game Software.
         lutris
         bottles
