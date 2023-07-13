@@ -31,7 +31,7 @@
         };
 
         programs.tmux = {
-            enable = false;
+            enable = true;
         };
 
         dconf.settings = {
