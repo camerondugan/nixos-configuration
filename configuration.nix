@@ -7,8 +7,9 @@
 {
     imports =
         [ # Include the results of the hardware scan.
-        ./hardware-configuration.nix
+            ./hardware-configuration.nix
             <home-manager/nixos>
+            ./swap.nix
         ];
 
     home-manager.users.cam = {
