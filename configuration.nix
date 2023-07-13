@@ -185,7 +185,7 @@
             obsidian
             libreoffice-fresh
             zoom-us
-            cura
+            appimage-run
 
             # Gaming
             heroic
