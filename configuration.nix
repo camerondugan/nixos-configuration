@@ -259,6 +259,7 @@
         gnomeExtensions.caffeine
         gnomeExtensions.appindicator
         # Shell
+        sshfs
         wl-clipboard
         xclip
         pfetch
@@ -297,10 +298,10 @@
     programs.fish = {
         enable = true;
         interactiveShellInit = ''
+            test $TERM != "screen"; and exec tmux
             pfetch
             set fish_greeting
             fish_vi_key_bindings
-            test $TERM != "screen"; and exec tmux
         '';
     };
 
