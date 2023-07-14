@@ -233,6 +233,7 @@
                     ms-vscode-remote.remote-ssh
                     vscodevim.vim
                     ms-toolsai.jupyter
+                    ms-dotnettools.csharp
                     ionide.ionide-fsharp
                 ];
             })
