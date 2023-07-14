@@ -215,8 +215,16 @@
             wget
 
             # Developer Software.
+
+            # Languages
+            go
+            rustup
+            zig
+            dotnet-sdk
+            dotnet-runtime
             gcc
             rstudio
+
             # VS Code
             (vscode-with-extensions.override {
                 vscodeExtensions = with vscode-extensions; [
@@ -250,11 +258,6 @@
         # Game Software.
         lutris
         bottles
-        # Languages
-        go
-        rustup
-        zig
-        dotnet-sdk
         # Gnome Extensions.
         gnomeExtensions.forge
         gnomeExtensions.dash-to-dock
@@ -287,9 +290,6 @@
         ]))
     ];
 
-    environment.sessionVariables = {
-        DOTNET_ROOT = "${pkgs.dotnet-sdk}";
-    };
 
 
     # Some programs need SUID wrappers, can be configured further or are
