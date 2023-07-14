@@ -287,6 +287,10 @@
         ]))
     ];
 
+    environment.sessionVariables = {
+        DOTNET_ROOT = "${pkgs.dotnet-sdk}";
+    };
+
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
@@ -307,6 +311,7 @@
             fish_vi_key_bindings
         '';
     };
+
 
     # List services that you want to enable:
     services.tailscale.enable = true;
