@@ -221,7 +221,9 @@
             go
             rustup
             zig
-            dotnet-sdk
+            (with dotnetCorePackages; combinePackages [
+                dotnet-sdk
+            ])
             gcc
             rstudio
 
@@ -249,6 +251,10 @@
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
+
+    environment.sessionVariables = {
+        DOTNET_ROOT = "${pkgs.dotnet-sdk}";
+    };
 
     # List packages installed in system profile. To search, run:
     # $ nix search wget
