@@ -215,6 +215,7 @@
             wget
 
             # Developer Software.
+            gcc
             # VS Code
             (vscode-with-extensions.override {
                 vscodeExtensions = with vscode-extensions; [
