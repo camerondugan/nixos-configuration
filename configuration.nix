@@ -224,6 +224,7 @@
             dotnet-sdk
             gcc
             rstudio
+            swiProlog
 
             # VS Code
             (vscode-with-extensions.override {
