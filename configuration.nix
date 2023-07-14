@@ -216,6 +216,7 @@
 
             # Developer Software.
             gcc
+            rstudio
             # VS Code
             (vscode-with-extensions.override {
                 vscodeExtensions = with vscode-extensions; [
@@ -228,12 +229,6 @@
             })
 
 
-            # Languages
-            go
-            rustup
-            zig
-            dotnet-sdk
-            rstudio
         ];
     };
 
@@ -255,6 +250,11 @@
         # Game Software.
         lutris
         bottles
+        # Languages
+        go
+        rustup
+        zig
+        dotnet-sdk
         # Gnome Extensions.
         gnomeExtensions.forge
         gnomeExtensions.dash-to-dock
