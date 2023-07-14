@@ -224,6 +224,7 @@
             dotnet-sdk
             gcc
             rstudio
+            swiPrologWithGui
 
             # VS Code
             (vscode-with-extensions.override {
@@ -280,7 +281,6 @@
         grc
         # Other
         android-tools
-        swiProlog
         # Python
         (python311.withPackages(ps: with ps; [
             pip
