@@ -174,7 +174,9 @@
 
     # Enable hibernation (you installed with swap right?)
     services.logind.lidSwitch = "hibernate";
-    services.logind.powerKey = "hibernate";
+    services.logind.extraConfig = ''
+        HandlePowerKey=hibernate
+    '';
 
     # Enable touchpad support (enabled default in most desktopManager).
     services.xserver.libinput.enable = true;
