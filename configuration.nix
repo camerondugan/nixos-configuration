@@ -175,6 +175,7 @@
     # Enable hibernation. (You installed with swap right?)
     services.logind.lidSwitch = "hibernate";
     services.logind.extraConfig = ''
+        HandlePowerKey=hibernate
         HandleSuspendKey=hibernate
     '';
 
