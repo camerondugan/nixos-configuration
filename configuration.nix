@@ -176,6 +176,7 @@
     services.logind.lidSwitch = "hibernate";
     services.logind.extraConfig = ''
         HandlePowerKey=hibernate
+        HandleSuspendKey=hibernate
     '';
 
     # Enable touchpad support (enabled default in most desktopManager).
