@@ -73,6 +73,9 @@
                 close = ["<Super>c"];
                 toggle-fullscreen = ["<Super>f"];
             };
+            "org/gnome/settings-daemon/plugins/power" = {
+                power-button-action = "nothing";
+            };
             "org/gnome/settings-daemon/plugins/media-keys" = {
                 custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
             };
@@ -175,9 +178,9 @@
     # Enable hibernation. (You installed with swap right?)
     services.logind.lidSwitch = "hibernate";
     services.logind.extraConfig = ''
-        HandlePowerKey=hibernate
         HandleSuspendKey=hibernate
     '';
+
 
     # Enable touchpad support (enabled default in most desktopManager).
     services.xserver.libinput.enable = true;
