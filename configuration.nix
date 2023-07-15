@@ -179,6 +179,8 @@
     services.logind.lidSwitch = "hibernate";
     services.logind.extraConfig = ''
         HandleSuspendKey=hibernate
+        HandlePowerKey=hibernate
+        IdleAction=hibernate
     '';
 
 
