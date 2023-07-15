@@ -172,8 +172,27 @@
         #media-session.enable = true;
     };
 
+    # Enable hibernation (you installed with swap right?)
+    services.logind.lidSwitch = "hibernate";
+    services.logind.powerKey = "hibernate";
+
     # Enable touchpad support (enabled default in most desktopManager).
     services.xserver.libinput.enable = true;
+
+    # List services that you want to enable:
+    services.tailscale.enable = true;
+
+    # Syncthing
+    services.syncthing = {
+        enable = true;
+        user = "cam";
+        dataDir = "/home/cam/Sync";
+        configDir = "/home/cam/Documents/.config/syncthing";
+    };
+
+    # Enable the OpenSSH daemon.
+    # services.openssh.enable = true;
+
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.cam = {
@@ -315,21 +334,6 @@
         '';
     };
 
-
-    # List services that you want to enable:
-    services.tailscale.enable = true;
-
-    # Syncthing
-    services.syncthing = {
-        enable = true;
-        user = "cam";
-        dataDir = "/home/cam/Sync";
-        configDir = "/home/cam/Documents/.config/syncthing";
-    };
-
-
-    # Enable the OpenSSH daemon.
-    # services.openssh.enable = true;
 
     # Open ports in the firewall.
     # networking.firewall.allowedTCPPorts = [ ... ];
