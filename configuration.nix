@@ -172,10 +172,9 @@
         #media-session.enable = true;
     };
 
-    # Enable hibernation (you installed with swap right?)
+    # Enable hibernation. (You installed with swap right?)
     services.logind.lidSwitch = "hibernate";
     services.logind.extraConfig = ''
-        HandlePowerKey=hibernate
         HandleSuspendKey=hibernate
     '';
 
