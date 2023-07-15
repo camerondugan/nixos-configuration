@@ -74,7 +74,7 @@
                 toggle-fullscreen = ["<Super>f"];
             };
             "org/gnome/settings-daemon/plugins/power" = {
-                power-button-action = "nothing";
+                power-button-action = "hibernate";
             };
             "org/gnome/settings-daemon/plugins/media-keys" = {
                 custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
