@@ -186,6 +186,7 @@
     # Yubikey Optional Unlock
     security.pam.u2f = {
         enable = true;
+        debug = true;
         cue = true;
     };
     security.pam.services = {
