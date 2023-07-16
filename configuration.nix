@@ -94,6 +94,7 @@
             };
             "org/gnome/shell/extensions/forge" = {
                 focus-border-toggle = true;
+                float-always-on-top-enabled = false;
             };
             "org/gnome/shell/extensions/forge/keybindings" = {
                 window-focus-down = [];
