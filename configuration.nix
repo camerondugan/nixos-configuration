@@ -184,7 +184,6 @@
     '';
 
     # Yubikey Optional Unlock
-    services.udev.packages = [ pkgs.yubikey-personalization ];
     security.pam.u2f = {
         enable = true;
         cue = true ;
