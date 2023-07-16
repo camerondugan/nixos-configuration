@@ -184,8 +184,11 @@
     '';
 
     # Yubikey Optional Unlock
-    security.pam.u2f.enable = true;
-    security.pam.u2f.cue = true;
+    security.pam.u2f = {
+        enable = true;
+        cue = true;
+        authFile = "/home/$USER/.config/Yubico/u2f_keys";
+    };
     security.pam.services = {
         login.u2fAuth = true;
         sudo.u2fAuth = true;
