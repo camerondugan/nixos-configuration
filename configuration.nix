@@ -187,7 +187,6 @@
     security.pam.u2f = {
         enable = true;
         cue = true;
-        authFile = "/home/$USER/.config/Yubico/u2f_keys";
     };
     security.pam.services = {
         login.u2fAuth = true;
