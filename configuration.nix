@@ -183,6 +183,13 @@
         IdleAction=hibernate
     '';
 
+    # Yubikey Optional Unlock
+    security.pam.u2f.enable = true;
+    security.pam.u2f.cue = true;
+    security.pam.services = {
+        login.u2fAuth = true;
+        sudo.u2fAuth = true;
+    };
 
     # Enable touchpad support (enabled default in most desktopManager).
     services.xserver.libinput.enable = true;
