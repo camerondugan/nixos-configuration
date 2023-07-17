@@ -41,6 +41,7 @@
             "org/gnome/desktop/interface" = {
                 color-scheme = "prefer-dark";
                 show-battery-percentage = true;
+                gtk-theme = "Adwaita-dark";
             };
             "org/gnome/desktop/background" = {
                 picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
