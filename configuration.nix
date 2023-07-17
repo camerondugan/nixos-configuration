@@ -176,6 +176,9 @@
         #media-session.enable = true;
     };
 
+    # Enable Power Saving Cpu Freq
+    services.auto-cpufreq.enable = true;
+
     # Enable hibernation. (You installed with swap right?)
     services.logind.lidSwitch = "hibernate";
     services.logind.extraConfig = ''
