@@ -240,6 +240,8 @@
             })
             winetricks
 
+            # Developer Software.
+
             # Neovim dependencies.
             fd
             ripgrep
@@ -254,8 +256,7 @@
             julia-bin
             unzip
             wget
-
-            # Developer Software.
+            cmake
 
             # Languages
             go
