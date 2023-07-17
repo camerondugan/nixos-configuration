@@ -48,6 +48,10 @@
                 picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-d.svg";
                 primary-color = "#241f31";
             };
+            "org/gnome/desktop/screensaver" = {
+                picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
+                primary-color = "#241f31";
+            };
             "org/gnome/mutter" = {
                 dynamic-workspaces = true;
             };
