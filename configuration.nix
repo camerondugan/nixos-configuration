@@ -25,7 +25,7 @@
         programs.neovim = {
             enable = true;
             defaultEditor = true;
-            package = pkgs.neovim-unwrapped;
+            #package = pkgs.neovim-unwrapped;
             viAlias = true;
             vimAlias = true;
             plugins = [
