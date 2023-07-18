@@ -41,10 +41,15 @@
             "org/gnome/desktop/interface" = {
                 color-scheme = "prefer-dark";
                 show-battery-percentage = true;
+                gtk-theme = "Adwaita-dark";
             };
             "org/gnome/desktop/background" = {
                 picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
                 picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-d.svg";
+                primary-color = "#241f31";
+            };
+            "org/gnome/desktop/screensaver" = {
+                picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
                 primary-color = "#241f31";
             };
             "org/gnome/mutter" = {
@@ -176,6 +181,9 @@
         #media-session.enable = true;
     };
 
+    # Enable Power Saving Cpu Freq
+    services.auto-cpufreq.enable = true;
+
     # Enable hibernation. (You installed with swap right?)
     services.logind.lidSwitch = "hibernate";
     services.logind.extraConfig = ''
@@ -237,6 +245,8 @@
             })
             winetricks
 
+            # Developer Software.
+
             # Neovim dependencies.
             fd
             ripgrep
@@ -251,8 +261,7 @@
             julia-bin
             unzip
             wget
-
-            # Developer Software.
+            cmake
 
             # Languages
             go
