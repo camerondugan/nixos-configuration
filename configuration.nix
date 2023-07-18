@@ -30,6 +30,7 @@
             vimAlias = true;
             plugins = [
                 pkgs.vimPlugins.packer-nvim
+                pkgs.dotnet-sdk
             ];
         };
 
