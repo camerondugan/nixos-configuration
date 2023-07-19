@@ -254,6 +254,7 @@
             php82Packages.composer
             php
             nodePackages.npm
+            ruby
             jdk
             nodejs-slim
 
