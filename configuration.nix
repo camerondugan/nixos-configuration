@@ -245,11 +245,10 @@
             })
             winetricks
 
-            # Developer Software.
-
             # Neovim dependencies.
             fd
             ripgrep
+            julia-bin
             luajit
             luajitPackages.luarocks-nix
             php82Packages.composer
@@ -257,12 +256,14 @@
             nodePackages.npm
             jdk
             nodejs-slim
+
+            # Software Dev
             cargo
-            julia-bin
             unzip
             wget
             cmake
             gnumake
+            pkg-config
 
             # Languages
             go
