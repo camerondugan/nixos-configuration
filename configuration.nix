@@ -262,6 +262,7 @@
             unzip
             wget
             cmake
+            gnumake
 
             # Languages
             go
