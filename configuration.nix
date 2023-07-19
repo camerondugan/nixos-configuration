@@ -271,8 +271,6 @@
             rustup
             zig
             dotnet-sdk
-            dotnet-sdk_7
-            dotnet-sdk_8
             gcc
             rstudio
             swiPrologWithGui
