@@ -264,6 +264,7 @@
             cmake
             gnumake
             pkg-config
+            openssl
 
             # Languages
             go
