@@ -257,6 +257,11 @@
             ruby
             jdk
             nodejs-slim
+            nerdfonts
+            lazygit
+            tree-sitter
+            bottom
+            gdu
 
             # Software Dev
             cargo
@@ -266,6 +271,7 @@
             gnumake
             pkg-config
             openssl
+            raylib
 
             # Languages
             go
@@ -300,6 +306,10 @@
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
+
+    environment.sessionVariables = {
+        DOTNET_ROOT = "${pkgs.dotnet-sdk}";
+    };
 
     # List packages installed in system profile. To search, run:
     # $ nix search wget
@@ -365,6 +375,7 @@
             fish_vi_key_bindings
         '';
     };
+    programs.nix-ld.enable = true;
 
 
     # Open ports in the firewall.
