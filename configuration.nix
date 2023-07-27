@@ -8,7 +8,7 @@
 {
     imports =
         [ # Include the results of the hardware scan.
-            ./hardware-configuration.nix
+        ./hardware-configuration.nix
             <home-manager/nixos>
             ./swap.nix
         ];
@@ -25,7 +25,7 @@
         programs.neovim = {
             enable = true;
             defaultEditor = true;
-            #package = pkgs.neovim-unwrapped;
+#package = pkgs.neovim-unwrapped;
             viAlias = true;
             vimAlias = true;
             plugins = [
@@ -128,7 +128,7 @@
     # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
     # Enable networking
-    networking.networkmanager.enable = true;
+        networking.networkmanager.enable = true;
 
     # Set your time zone.
     time.timeZone = "America/New_York";
@@ -173,12 +173,12 @@
         alsa.enable = true;
         alsa.support32Bit = true;
         pulse.enable = true;
-        # If you want to use JACK applications, uncomment this
-        #jack.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
 
-        # use the example session manager (no others are packaged yet so this is enabled by default,
-        # no need to redefine it in your config for now)
-        #media-session.enable = true;
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
     };
 
     # Enable Power Saving Cpu Freq
@@ -190,7 +190,7 @@
         HandleSuspendKey=hibernate
         HandlePowerKey=hibernate
         IdleAction=hibernate
-    '';
+        '';
 
     # Yubikey Optional Unlock
     security.pam.u2f = {
@@ -216,9 +216,6 @@
         configDir = "/home/cam/Documents/.config/syncthing";
     };
 
-    # Enable the OpenSSH daemon.
-    # services.openssh.enable = true;
-
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.cam = {
@@ -240,9 +237,9 @@
             steam
             discord
             (wineWowPackages.full.override {
-                wineRelease = "staging";
-                mingwSupport = true;
-            })
+                 wineRelease = "staging";
+                 mingwSupport = true;
+             })
             winetricks
 
             # Neovim dependencies.
@@ -284,18 +281,16 @@
 
             # VS Code
             (vscode-with-extensions.override {
-                vscodeExtensions = with vscode-extensions; [
-                    bbenoist.nix
-                    ms-python.python
-                    ms-vscode-remote.remote-ssh
-                    vscodevim.vim
-                    ms-toolsai.jupyter
-                    ms-dotnettools.csharp
-                    ionide.ionide-fsharp
-                ];
-            })
-
-
+                 vscodeExtensions = with vscode-extensions; [
+                     bbenoist.nix
+                     ms-python.python
+                     ms-vscode-remote.remote-ssh
+                     vscodevim.vim
+                     ms-toolsai.jupyter
+                     ms-dotnettools.csharp
+                     ionide.ionide-fsharp
+                 ];
+             })
         ];
     };
 
@@ -306,6 +301,11 @@
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
+
+    # Fix compilation issue and add potential vulterability ig?
+    nixpkgs.config.permittedInsecurePackages = [
+        "openssl-1.1.1u"
+    ];
 
     environment.sessionVariables = {
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
@@ -351,10 +351,7 @@
             cairosvg
             pnglatex
             plotly
-        ]))
-    ];
-
-
+        ]))];
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
@@ -373,10 +370,9 @@
             pfetch
             set fish_greeting
             fish_vi_key_bindings
-        '';
+            '';
     };
     programs.nix-ld.enable = true;
-
 
     # Open ports in the firewall.
     # networking.firewall.allowedTCPPorts = [ ... ];
