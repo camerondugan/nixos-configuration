@@ -280,6 +280,7 @@
             dotnet-sdk
             gcc
             rstudio
+            (rWrapper.override{ packages = with rPackages; [ggplot2 dplyr xts];})
             swiPrologWithGui
 
             # VS Code
