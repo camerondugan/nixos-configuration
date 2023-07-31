@@ -20,12 +20,14 @@
             enable = true;
             userName = "Cameron Dugan";
             userEmail = "cameron.dugan@protonmail.com";
+            extraConfig = {
+                pull.rebase = false;
+            };
         };
 
         programs.neovim = {
             enable = true;
             defaultEditor = true;
-#package = pkgs.neovim-unwrapped;
             viAlias = true;
             vimAlias = true;
             plugins = [
@@ -35,6 +37,11 @@
 
         programs.tmux = {
             enable = true;
+            extraConfig = 
+            ''
+            ...
+            setw -g mouse on
+            '';
         };
 
         dconf.settings = {
