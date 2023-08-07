@@ -236,7 +236,8 @@
             (wineWowPackages.full.override {
                  wineRelease = "staging";
                  mingwSupport = true;
-             })
+            })
+            clonehero
             winetricks
 
             # Neovim dependencies.
