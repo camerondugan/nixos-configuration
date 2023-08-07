@@ -35,15 +35,6 @@
             ];
         };
 
-        programs.tmux = {
-            enable = true;
-            extraConfig = 
-            ''
-            ...
-            setw -g mouse on
-            '';
-        };
-
         dconf.settings = {
             "org/gnome/desktop/interface" = {
                 color-scheme = "prefer-dark";
@@ -229,7 +220,7 @@
         isNormalUser = true;
         description = "Cameron Dugan";
         extraGroups = [ "networkmanager" "wheel" ];
-        shell = pkgs.fish;
+        shell = pkgs.bash;
         packages = with pkgs; [
 
             # Desktop Software
@@ -374,7 +365,6 @@
     programs.fish = {
         enable = true;
         interactiveShellInit = ''
-            test $TERM != "screen"; and exec tmux
             pfetch
             set fish_greeting
             fish_vi_key_bindings
