@@ -220,7 +220,7 @@
         isNormalUser = true;
         description = "Cameron Dugan";
         extraGroups = [ "networkmanager" "wheel" ];
-        shell = pkgs.bash;
+        shell = pkgs.fish;
         packages = with pkgs; [
 
             # Desktop Software
@@ -368,8 +368,8 @@
         interactiveShellInit = ''
             pfetch
             set fish_greeting
-            fish_vi_key_bindings
             '';
+            # fish_vi_key_bindings
     };
     programs.nix-ld.enable = true;
 
