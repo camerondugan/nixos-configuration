@@ -229,6 +229,9 @@
             libreoffice-fresh
             appimage-run
 
+            # QMK
+            qmk
+
             # Gaming
             heroic
             steam
