@@ -278,6 +278,7 @@
             dotnet-sdk
             gcc
             rstudio
+            pandoc
             (rWrapper.override{ packages = with rPackages; [ggplot2 dplyr xts];})
             swiPrologWithGui
 
