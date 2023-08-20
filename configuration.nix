@@ -326,12 +326,13 @@
         lutris
         bottles
         # Gnome Extensions.
-        gnomeExtensions.forge
         gnomeExtensions.dash-to-dock
-        gnomeExtensions.blur-my-shell
-        gnomeExtensions.caffeine
         gnomeExtensions.appindicator
         gnomeExtensions.grand-theft-focus
+        gnomeExtensions.caffeine
+        gnomeExtensions.gsconnect
+        gnomeExtensions.forge
+        gnomeExtensions.blur-my-shell
         # Shell
         sshfs
         wl-clipboard
