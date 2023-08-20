@@ -380,8 +380,12 @@
     programs.nix-ld.enable = true;
 
     # Open ports in the firewall.
-    # networking.firewall.allowedTCPPorts = [ ... ];
-    # networking.firewall.allowedUDPPorts = [ ... ];
+    networking.firewall.allowedTCPPortRanges = [ 
+        { from = 1714; to = 1764; } # KDE Connect
+    ];
+    networking.firewall.allowedUDPPortRanges = [ 
+        { from = 1714; to = 1764; } # KDE Connect
+    ];
     # Or disable the firewall altogether.
     # networking.firewall.enable = false;
 
