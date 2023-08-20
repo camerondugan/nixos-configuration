@@ -90,6 +90,7 @@
             "org/gnome/shell" = {
                 favorite-apps = ["brave-browser.desktop" "obsidian.desktop" "nvim.desktop" "org.gnome.Terminal.desktop" "org.gnome.Music.desktop" "org.gnome.Photos.desktop" "org.gnome.Nautilus.desktop"];
                 enabled-extensions = ["appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "caffeine@patapon.info" "dash-to-dock@micxgx.gmail.com" "forge@jmmaranan.com" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "grand-theft-focus@zalckos.github.com"];
+                
             };
             "org/gnome/shell/extensions/dash-to-dock" = {
                 custom-theme-shrink = true;
