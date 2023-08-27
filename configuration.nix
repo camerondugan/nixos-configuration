@@ -171,12 +171,12 @@
         alsa.enable = true;
         alsa.support32Bit = true;
         pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+        # If you want to use JACK applications, uncomment this
+        #jack.enable = true;
+        
+        # use the example session manager (no others are packaged yet so this is enabled by default,
+        # no need to redefine it in your config for now)
+        #media-session.enable = true;
     };
 
     # Enable Power Saving Cpu Freq
@@ -222,7 +222,6 @@
         extraGroups = [ "networkmanager" "wheel" ];
         shell = pkgs.fish;
         packages = with pkgs; [
-
             # Desktop Software
             brave
             obsidian
@@ -234,13 +233,13 @@
 
             # Gaming
             heroic
-            steam
             discord
             (wineWowPackages.full.override {
                  wineRelease = "staging";
                  mingwSupport = true;
             })
             clonehero
+            protonup-qt
             winetricks
 
             # Neovim dependencies.
@@ -297,9 +296,10 @@
         ];
     };
 
-    # 32 Bit Opengl (for older software)
-    hardware.opengl.driSupport32Bit = true;
+    # Graphics support
     hardware.opengl.enable = true;
+    hardware.opengl.driSupport = true;
+    hardware.opengl.driSupport32Bit = true;
     hardware.pulseaudio.support32Bit = true;
 
     # Allow unfree packages
