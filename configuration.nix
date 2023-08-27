@@ -89,7 +89,8 @@
             };
             "org/gnome/shell" = {
                 favorite-apps = ["brave-browser.desktop" "obsidian.desktop" "nvim.desktop" "org.gnome.Terminal.desktop" "org.gnome.Music.desktop" "org.gnome.Photos.desktop" "org.gnome.Nautilus.desktop"];
-                enabled-extensions = ["appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "caffeine@patapon.info" "dash-to-dock@micxgx.gmail.com" "forge@jmmaranan.com" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "grand-theft-focus@zalckos.github.com"];
+                enabled-extensions = ["appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "caffeine@patapon.info" "dash-to-dock@micxgx.gmail.com" "forge@jmmaranan.com" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "grand-theft-focus@zalckos.github.com" "gsconnect@andyholmes.github.io"];
+                
             };
             "org/gnome/shell/extensions/dash-to-dock" = {
                 custom-theme-shrink = true;
@@ -326,12 +327,13 @@
         lutris
         bottles
         # Gnome Extensions.
-        gnomeExtensions.forge
         gnomeExtensions.dash-to-dock
-        gnomeExtensions.blur-my-shell
-        gnomeExtensions.caffeine
         gnomeExtensions.appindicator
         gnomeExtensions.grand-theft-focus
+        gnomeExtensions.caffeine
+        gnomeExtensions.gsconnect
+        gnomeExtensions.forge
+        gnomeExtensions.blur-my-shell
         # Shell
         sshfs
         wl-clipboard
@@ -378,8 +380,12 @@
     programs.nix-ld.enable = true;
 
     # Open ports in the firewall.
-    # networking.firewall.allowedTCPPorts = [ ... ];
-    # networking.firewall.allowedUDPPorts = [ ... ];
+    networking.firewall.allowedTCPPortRanges = [ 
+        { from = 1714; to = 1764; } # KDE Connect
+    ];
+    networking.firewall.allowedUDPPortRanges = [ 
+        { from = 1714; to = 1764; } # KDE Connect
+    ];
     # Or disable the firewall altogether.
     # networking.firewall.enable = false;
 
