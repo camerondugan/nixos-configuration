@@ -233,6 +233,7 @@
             qmk
 
             # Gaming
+            steam
             heroic
             discord
             (wineWowPackages.full.override {
