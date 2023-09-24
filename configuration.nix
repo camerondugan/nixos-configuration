@@ -127,7 +127,7 @@
     # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
     # Enable networking
-        networking.networkmanager.enable = true;
+    networking.networkmanager.enable = true;
 
     # Set your time zone.
     time.timeZone = "America/New_York";
@@ -183,6 +183,9 @@
     # Enable Power Saving Cpu Freq
     services.auto-cpufreq.enable = true;
 
+    # Flatpak for other software you can't find on nixos
+    services.flatpak.enable = true;
+
     # Enable hibernation. (You installed with swap right?)
     services.logind.lidSwitch = "hibernate";
     services.logind.extraConfig = ''
@@ -228,6 +231,7 @@
             obsidian
             libreoffice-fresh
             appimage-run
+            gnome.gnome-software
 
             # QMK
             qmk
@@ -240,7 +244,7 @@
                  wineRelease = "staging";
                  mingwSupport = true;
             })
-            clonehero
+            #clonehero
             protonup-qt
             winetricks
 
@@ -276,6 +280,7 @@
             go
             rustup
             zig
+            flutter
             dotnet-sdk
             gcc
             rstudio
