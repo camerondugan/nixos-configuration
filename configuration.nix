@@ -232,6 +232,7 @@
             libreoffice-fresh
             appimage-run
             gnome.gnome-software
+            gimp
 
             # QMK
             qmk
@@ -354,6 +355,7 @@
         grc
         # Other
         android-tools
+        android-studio
         # Python
         (python311.withPackages(ps: with ps; [
             pip
