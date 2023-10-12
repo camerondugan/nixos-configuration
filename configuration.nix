@@ -245,7 +245,7 @@
                  wineRelease = "staging";
                  mingwSupport = true;
             })
-            #clonehero
+            # clonehero
             protonup-qt
             winetricks
 
@@ -286,7 +286,6 @@
             rstudio
             pandoc
             (rWrapper.override{ packages = with rPackages; [ggplot2 dplyr xts];})
-            # swiPrologWithGui
 
             # VS Code
             (vscode-with-extensions.override {
@@ -311,13 +310,6 @@
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
-
-    # # Fix compilation issue and add potential vulterability ig?
-    # nixpkgs.config.permittedInsecurePackages = [
-    #     "openssl-1.1.1u"
-    #     "openssl-1.1.1v"
-    #     "openssl-1.1.1w"
-    # ];
 
     environment.sessionVariables = {
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
@@ -382,8 +374,8 @@
         interactiveShellInit = ''
             pfetch
             set fish_greeting
+            fish_vi_key_bindings
             '';
-            # fish_vi_key_bindings
     };
     programs.nix-ld.enable = true;
 
