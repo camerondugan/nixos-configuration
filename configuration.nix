@@ -30,9 +30,9 @@
             defaultEditor = true;
             viAlias = true;
             vimAlias = true;
-            plugins = [
-                pkgs.vimPlugins.packer-nvim
-            ];
+            # plugins = [
+            #     pkgs.vimPlugins.packer-nvim
+            # ];
         };
 
         dconf.settings = {
@@ -84,7 +84,7 @@
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
                 binding = "<Super>t";
-                command = "gnome-terminal";
+                command = "kgx";
                 name = "Launch Terminal";
             };
             "org/gnome/shell" = {
@@ -274,7 +274,7 @@
             cmake
             gnumake
             pkg-config
-            openssl
+            # openssl
             raylib
 
             # Languages
@@ -317,6 +317,7 @@
     nixpkgs.config.permittedInsecurePackages = [
         "openssl-1.1.1u"
         "openssl-1.1.1v"
+        "openssl-1.1.1w"
     ];
 
     environment.sessionVariables = {
