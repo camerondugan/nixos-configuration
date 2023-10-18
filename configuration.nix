@@ -241,14 +241,12 @@
             steam
             heroic
             discord
-            (wineWowPackages.full.override {
-                 wineRelease = "staging";
-                 mingwSupport = true;
-            })
             # clonehero
             protonup-qt
             winetricks
 
+            # Text Editor GUI
+            neovide
             # Neovim dependencies.
             fd
             ripgrep
