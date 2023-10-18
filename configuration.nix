@@ -312,6 +312,8 @@
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
     };
 
+    environment.gnome.excludePackages = [ pkgs.gnome-tour ];
+
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
@@ -319,40 +321,40 @@
         gnome.gnome-themes-extra
         gnome.gnome-tweaks
         # Game Software.
-        lutris
         bottles
+        lutris
         # Gnome Extensions.
-        gnomeExtensions.dash-to-dock
         gnomeExtensions.appindicator
-        gnomeExtensions.grand-theft-focus
-        gnomeExtensions.caffeine
-        gnomeExtensions.gsconnect
-        gnomeExtensions.forge
         gnomeExtensions.blur-my-shell
+        gnomeExtensions.caffeine
+        gnomeExtensions.dash-to-dock
+        gnomeExtensions.forge
+        gnomeExtensions.grand-theft-focus
+        gnomeExtensions.gsconnect
         # Shell
+        fishPlugins.done
+        fishPlugins.forgit
+        fishPlugins.fzf-fish
+        fishPlugins.grc
+        fishPlugins.hydro
+        fzf
+        grc
+        pfetch
         sshfs
         wl-clipboard
         xclip
-        pfetch
-        fishPlugins.done
-        fishPlugins.fzf-fish
-        fishPlugins.forgit
-        fishPlugins.hydro
-        fzf
-        fishPlugins.grc
-        grc
         # Other
         android-tools
         android-studio
         # Python
         (python311.withPackages(ps: with ps; [
-            pip
-            jupyter-client
-            ueberzug
-            pillow
             cairosvg
-            pnglatex
+            jupyter-client
+            pillow
+            pip
             plotly
+            pnglatex
+            ueberzug
         ]))];
 
     # Some programs need SUID wrappers, can be configured further or are
