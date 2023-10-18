@@ -227,74 +227,73 @@
         shell = pkgs.fish;
         packages = with pkgs; [
             # Desktop Software
-            brave
-            obsidian
-            libreoffice-fresh
             appimage-run
-            gnome.gnome-software
+            brave
             gimp
+            gnome.gnome-software
+            libreoffice-fresh
+            obsidian
 
             # QMK
             qmk
 
             # Gaming
-            steam
-            heroic
             discord
+            heroic
+            steam
             # clonehero
             protonup-qt
             winetricks
 
-            # Text Editor GUI
-            neovide
-            # Neovim dependencies.
+            # Neovim extras
+            bottom
             fd
-            ripgrep
+            gdu
             julia-bin
+            lazygit
             luajit
             luajitPackages.luarocks-nix
-            php82Packages.composer
-            php
-            nodePackages.npm
-            ruby
-            jdk
-            nodejs-slim
+            neovide
             nerdfonts
-            lazygit
+            nodejs-slim
+            php82Packages.composer
+            ripgrep
             tree-sitter
-            bottom
-            gdu
 
             # Software Dev
             cargo
-            unzip
-            wget
             cmake
             gnumake
+            jdk
+            nodePackages.npm
+            php
             pkg-config
             raylib
+            ruby
+            unzip
+            wget
 
             # Languages
-            go
-            rustup
-            zig
-            flutter
             dotnet-sdk
+            flutter
             gcc
-            rstudio
+            go
             pandoc
+            rstudio
+            rustup
             (rWrapper.override{ packages = with rPackages; [ggplot2 dplyr xts];})
+            zig
 
             # VS Code
             (vscode-with-extensions.override {
                  vscodeExtensions = with vscode-extensions; [
                      bbenoist.nix
+                     ionide.ionide-fsharp
+                     ms-dotnettools.csharp
                      ms-python.python
+                     ms-toolsai.jupyter
                      ms-vscode-remote.remote-ssh
                      vscodevim.vim
-                     ms-toolsai.jupyter
-                     ms-dotnettools.csharp
-                     ionide.ionide-fsharp
                  ];
              })
         ];
@@ -318,7 +317,6 @@
     environment.systemPackages = with pkgs; [
         # Gnome
         gnome.gnome-themes-extra
-        gnome.gnome-terminal
         gnome.gnome-tweaks
         # Game Software.
         lutris
