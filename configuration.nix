@@ -21,7 +21,7 @@
             stateVersion = "23.05";
             file.".config/hypr/hyprpaper.conf".text = ''
                 preload = /home/cam/Pictures/Wallpapers/Simon Stålenhag Wallpapers-EUROPA MEKANO - ark_search03.jpg
-                wallpaper = monitor,/home/cam/Pictures/Wallpapers/Simon Stålenhag Wallpapers-EUROPA MEKANO - ark_search03.jpg
+                wallpaper = DP-3,/home/cam/Pictures/Wallpapers/Simon Stålenhag Wallpapers-EUROPA MEKANO - ark_search03.jpg
             '';
         };
         xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
@@ -144,6 +144,9 @@
     #     };
     };
 
+    fonts.fonts = with pkgs; [
+        nerdfonts
+    ];
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
@@ -286,7 +289,6 @@
             winetricks
 
 
-
             # Neovim extras
             bottom
             fd
@@ -296,7 +298,6 @@
             luajit
             luajitPackages.luarocks-nix
             neovide
-            nerdfonts
             nodejs-slim
             php82Packages.composer
             ripgrep
