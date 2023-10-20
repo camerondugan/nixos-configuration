@@ -28,7 +28,7 @@
 
         gtk = {
             enable = true;
-            font.name = "RobotoMono Nerd Font 12";
+            # font.name = "RobotoMono Nerd Font 12";
 
             cursorTheme = {
                 name = "Numix-Cursor";
@@ -276,7 +276,11 @@
             gnome-console
             waybar
             hyprpaper
+            dunst                                                                            
+            libnotify                                                                        
+            networkmanagerapplet                                                             
 
+            waybar   
             # QMK
             qmk
 
