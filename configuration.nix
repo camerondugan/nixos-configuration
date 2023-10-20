@@ -30,10 +30,6 @@
                 name = "Numix-Cursor";
                 package = pkgs.numix-cursor-theme;
             };
-            # iconTheme = {
-            #     name = "adwaita";
-            #     package = pkgs.gnome.adwaita-icon-theme;
-            # };
             iconTheme = {
               package = pkgs.libsForQt5.breeze-icons;
               name = "breeze-dark";
@@ -269,7 +265,7 @@
             obsidian
             kitty
             wofi
-            dolphin
+            gnome.nautilus
             waybar
             hyprpaper
 
