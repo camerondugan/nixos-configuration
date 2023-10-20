@@ -12,6 +12,10 @@
             ./swap.nix
         ];
 
+    home-manager = {
+        useGlobalPkgs =true;
+        useUserPackages = true;
+    };
     home-manager.users.cam = {
         home = {
             stateVersion = "23.05";
