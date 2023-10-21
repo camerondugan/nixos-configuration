@@ -218,10 +218,12 @@
         extraGroups = [ "networkmanager" "wheel" "input"];
         shell = pkgs.fish;
         packages = with pkgs; [
+        
             # Desktop Software
             appimage-run
             brave
             gimp
+            inkscape
             gnome.gnome-software
             libreoffice-fresh
             obsidian
@@ -246,7 +248,6 @@
             # clonehero
             protonup-qt
             winetricks
-
 
             # Neovim extras
             bottom
