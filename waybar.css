@@ -7,7 +7,7 @@
 }
 
 window#waybar {
-  background-color: #181825;
+  background-color: rgba(24,24,37,0.5);
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -61,7 +61,7 @@ window#waybar.hidden {
   border-radius: 4px;
   margin: 3px 3px;
   padding: 3px 12px;
-  background-color: #1e1e2e;
+  background-color: rgba(24,24,37,0.75);
   color: #181825;
 }
 
