@@ -29,6 +29,7 @@
         xdg.configFile."waybar/style.css".source = ./waybar.css;
         xdg.configFile."wofi/style.css".source = ./wofi.css;
         xdg.configFile."wofi/config".source = ./wofi.config;
+        xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
 
         gtk = {
             enable = true;
