@@ -283,7 +283,6 @@
             libnotify                                                                        
             networkmanagerapplet                                                             
 
-            waybar   
             # QMK
             qmk
 
