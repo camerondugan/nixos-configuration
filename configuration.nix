@@ -282,6 +282,9 @@
             dunst                                                                            
             libnotify                                                                        
             networkmanagerapplet                                                             
+            xdg-desktop-portal-hyprland
+            polkit
+            dconf
 
             # QMK
             qmk
@@ -369,14 +372,14 @@
         # Game Software.
         bottles
         lutris
-        # Gnome Extensions.
-        gnomeExtensions.appindicator
-        gnomeExtensions.blur-my-shell
-        gnomeExtensions.caffeine
-        gnomeExtensions.dash-to-dock
-        gnomeExtensions.forge
-        gnomeExtensions.grand-theft-focus
-        gnomeExtensions.gsconnect
+        # # Gnome Extensions.
+        # gnomeExtensions.appindicator
+        # gnomeExtensions.blur-my-shell
+        # gnomeExtensions.caffeine
+        # gnomeExtensions.dash-to-dock
+        # gnomeExtensions.forge
+        # gnomeExtensions.grand-theft-focus
+        # gnomeExtensions.gsconnect
         # Shell
         fishPlugins.done
         fishPlugins.forgit
