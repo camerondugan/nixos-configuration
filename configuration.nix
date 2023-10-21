@@ -285,6 +285,7 @@
             rstudio
             rustup
             (rWrapper.override{ packages = with rPackages; [ggplot2 dplyr xts];})
+            godot
             zig
 
             # VS Code
