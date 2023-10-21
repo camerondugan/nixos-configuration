@@ -29,15 +29,18 @@
 
         gtk = {
             enable = true;
-            # font.name = "RobotoMono Nerd Font 12";
-
+            font = {
+                name = "Lato";
+                package = pkgs.lato;
+                size = 13;
+            };
             cursorTheme = {
                 name = "Adwaita";
                 package = pkgs.gnome.adwaita-icon-theme;
             };
             iconTheme = {
-              name = "Adwaita";
-              package = pkgs.gnome.adwaita-icon-theme;
+              name = "Papirus-Dark";
+              package = pkgs.papirus-icon-theme;
             };
             theme = {
                 name = "Colloid-Dark";
