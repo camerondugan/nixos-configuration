@@ -32,12 +32,16 @@
             # font.name = "RobotoMono Nerd Font 12";
 
             cursorTheme = {
-                name = "Numix-Cursor";
-                package = pkgs.numix-cursor-theme;
+                name = "Adwaita";
+                package = pkgs.gnome.adwaita-icon-theme;
             };
             iconTheme = {
-              package = pkgs.libsForQt5.breeze-icons;
-              name = "breeze-dark";
+              name = "Adwaita";
+              package = pkgs.gnome.adwaita-icon-theme;
+            };
+            theme = {
+                name = "Colloid-Dark";
+                package = pkgs.colloid-gtk-theme;
             };
             gtk3.extraConfig = {
                 Settings = ''
@@ -50,6 +54,16 @@
                     '';
             };
         };
+
+        qt = {
+            enable = true;
+            platformTheme = "gnome";
+            style = {
+                name = "adwaita-dark";
+                package = pkgs.adwaita-qt;
+            };
+        };
+
 
         programs.git = {
             enable = true;
@@ -210,7 +224,6 @@
             networkmanagerapplet                                                             
             xdg-desktop-portal-hyprland
             polkit
-            dconf
             pavucontrol
 
             # QMK
@@ -352,6 +365,7 @@
             '';
     };
     programs.hyprland.enable = true;
+    programs.dconf.enable = true;
     programs.nix-ld.enable = true;
 
 
