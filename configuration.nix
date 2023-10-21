@@ -25,6 +25,7 @@
             '';
         };
         xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
+        xdg.configFile."waybar/config".source = ./waybar.conf;
 
         gtk = {
             enable = true;
@@ -68,80 +69,6 @@
             #     pkgs.vimPlugins.packer-nvim
             # ];
         };
-
-    #     dconf.settings = {
-    #         "org/gnome/desktop/interface" = {
-    #             color-scheme = "prefer-dark";
-    #             show-battery-percentage = true;
-    #             gtk-theme = "Adwaita-dark";
-    #         };
-    #         "org/gnome/desktop/background" = {
-    #             picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
-    #             picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-d.svg";
-    #             primary-color = "#241f31";
-    #         };
-    #         "org/gnome/desktop/screensaver" = {
-    #             picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
-    #             primary-color = "#241f31";
-    #         };
-    #         "org/gnome/mutter" = {
-    #             dynamic-workspaces = true;
-    #         };
-    #         "org/gnome/desktop/privacy" = {
-    #             remove-old-trash-files = true;
-    #             remove-old-temp-files = true;
-    #         };
-    #         "org/gnome/desktop/media-handling" = {
-    #             autorun-x-content-start-app = ["x-content/ostree-repository"];
-    #         };
-    #         "org/gnome/desktop/peripherals/touchpad" = {
-    #             tap-to-click = true;
-    #         };
-    #         "org/gnome/desktop/peripherals/mouse" = {
-    #             accel-profile = "flat";
-    #         };
-    #         "org/gnome/terminal/legacy".theme-variant = "dark";
-    #         "org/gnome/desktop/wm/keybindings" = {
-    #             minimize = ["<Super>j"];
-    #             switch-to-workspace-left = ["<Super>h"];
-    #             switch-to-workspace-right = ["<Super>l"];
-    #             move-to-workspace-left = ["<Alt><Super>h"];
-    #             move-to-workspace-right = ["<Alt><Super>l"];
-    #             close = ["<Super>c"];
-    #             toggle-fullscreen = ["<Super>f"];
-    #         };
-    #         "org/gnome/settings-daemon/plugins/power" = {
-    #             power-button-action = "hibernate";
-    #         };
-    #         "org/gnome/settings-daemon/plugins/media-keys" = {
-    #             custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
-    #         };
-    #         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-    #             binding = "<Super>t";
-    #             command = "kgx";
-    #             name = "Launch Terminal";
-    #         };
-    #         "org/gnome/shell" = {
-    #             favorite-apps = ["brave-browser.desktop" "obsidian.desktop" "nvim.desktop" "org.gnome.Terminal.desktop" "org.gnome.Music.desktop" "org.gnome.Photos.desktop" "org.gnome.Nautilus.desktop"];
-    #             enabled-extensions = ["appindicatorsupport@rgcjonas.gmail.com" "blur-my-shell@aunetx" "caffeine@patapon.info" "dash-to-dock@micxgx.gmail.com" "forge@jmmaranan.com" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "grand-theft-focus@zalckos.github.com" "gsconnect@andyholmes.github.io"];
-    #             
-    #         };
-    #         "org/gnome/shell/extensions/dash-to-dock" = {
-    #             custom-theme-shrink = true;
-    #             intellihide-mode = "ALL_WINDOWS";
-    #         };
-    #         "org/gnome/shell/extensions/forge" = {
-    #             focus-border-toggle = true;
-    #             float-always-on-top-enabled = false;
-    #         };
-    #         "org/gnome/shell/extensions/forge/keybindings" = {
-    #             window-focus-down = [];
-    #             window-focus-left = [];
-    #             window-focus-right = [];
-    #             window-focus-up = [];
-    #             window-toggle-float = ["<Alt><Super>f"];
-    #         };
-    #     };
     };
 
     fonts.fonts = with pkgs; [
@@ -263,7 +190,7 @@
     users.users.cam = {
         isNormalUser = true;
         description = "Cameron Dugan";
-        extraGroups = [ "networkmanager" "wheel" ];
+        extraGroups = [ "networkmanager" "wheel" "input"];
         shell = pkgs.fish;
         packages = with pkgs; [
             # Desktop Software
@@ -285,6 +212,7 @@
             xdg-desktop-portal-hyprland
             polkit
             dconf
+            pavucontrol
 
             # QMK
             qmk
