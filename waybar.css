@@ -47,7 +47,10 @@ window#waybar.hidden {
   background-color: #f38ba8;
 }
 
+#cpu,
 #memory,
+#idle_inhibitor,
+#temperature,
 #custom-power,
 #battery,
 #backlight,
@@ -75,19 +78,28 @@ window#waybar.hidden {
   color: #1793d1;
 }
 
+#cpu {
+  background-color: #a6e3a1;
+}
 #memory {
   background-color: #fab387;
+}
+#idle_inhibitor {
+  background-color: #cdd6f4;
+}
+#temperature {
+  background-color: #f38ba8;
 }
 #battery {
   background-color: #f38ba8;
 }
+
 @keyframes blink {
   to {
     background-color: #f38ba8;
     color: #181825;
   }
 }
-
 #battery.warning,
 #battery.critical,
 #battery.urgent {

@@ -124,6 +124,15 @@
         LC_TIME = "en_US.UTF-8";
     };
 
+    # XDG Setup
+    xdg.portal = {
+        enable = true;
+        extraPortals = [
+            pkgs.xdg-desktop-portal-hyprland
+            pkgs.xdg-desktop-portal-gtk
+        ];
+    };
+
     # Enable the X11 windowing system.
     services.xserver.enable = true;
 
@@ -221,7 +230,6 @@
             dunst                                                                            
             libnotify                                                                        
             networkmanagerapplet                                                             
-            xdg-desktop-portal-hyprland
             polkit
             pavucontrol
 
