@@ -203,7 +203,6 @@
             kitty
             wofi
             gnome.nautilus
-            gnome-console
             waybar
             hyprpaper
             dunst                                                                            
