@@ -20,8 +20,8 @@
         home = {
             stateVersion = "23.05";
             file.".config/hypr/hyprpaper.conf".text = ''
-                preload = /home/cam/Pictures/Wallpapers/Ghosts.png
-                wallpaper = DP-3,/home/cam/Pictures/Wallpapers/Simon Stålenhag Wallpapers-EUROPA MEKANO - ark_search03.jpg
+                preload = ~/Pictures/Wallpapers/Ghosts.png
+                wallpaper = DP-3,~/Pictures/Wallpapers/Ghosts.png
             '';
         };
         xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
