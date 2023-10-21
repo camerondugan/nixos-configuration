@@ -26,6 +26,7 @@
         };
         xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
         xdg.configFile."waybar/config".source = ./waybar.conf;
+        xdg.configFile."waybar/style.css".source = ./waybar.css;
 
         gtk = {
             enable = true;
