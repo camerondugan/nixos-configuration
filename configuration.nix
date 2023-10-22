@@ -20,8 +20,8 @@
         home = {
             stateVersion = "23.05";
             file.".config/hypr/hyprpaper.conf".text = ''
-                preload = ~/Pictures/Wallpapers/Ghosts.png
-                wallpaper = DP-3,~/Pictures/Wallpapers/Ghosts.png
+                preload = ~/.nixos/wallpaper.jpg
+                wallpaper = ,~/.nixos/wallpaper.jpg
             '';
         };
         xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
