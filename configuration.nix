@@ -226,11 +226,11 @@
             inkscape
             gnome.gnome-software
             libreoffice-fresh
-            obsidian
             kitty
             wofi
             gnome.nautilus
             waybar
+            wlroots
             hyprpaper
             dunst                                                                            
             libnotify                                                                        
@@ -243,7 +243,6 @@
 
             # Gaming
             discord
-            heroic
             steam
             # clonehero
             protonup-qt
