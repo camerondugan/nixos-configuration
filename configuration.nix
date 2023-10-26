@@ -273,6 +273,7 @@
             ruby
             unzip
             wget
+            steam-run
 
             # Languages
             dotnet-sdk
@@ -375,7 +376,6 @@
             '';
     };
     programs.hyprland.enable = true;
-    programs.xwayland.enable = true;
     programs.dconf.enable = true;
     programs.nix-ld.enable = true;
 
