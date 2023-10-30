@@ -224,7 +224,7 @@
             brave
             gimp
             inkscape
-            gnome.gnome-software
+            blender
             libreoffice-fresh
             kitty
             wofi
