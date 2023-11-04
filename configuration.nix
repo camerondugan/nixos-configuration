@@ -152,6 +152,9 @@
     # Enable CUPS to print documents.
     services.printing.enable = true;
 
+    # Enable mounting service.
+    services.udisks2.enable = true;
+
     services.blueman.enable = true;
 
     # Enable sound with pipewire.
@@ -232,6 +235,7 @@
             waybar
             hyprpaper
             dunst                                                                            
+            udiskie
             libnotify                                                                        
             networkmanagerapplet                                                             
             polkit
