@@ -238,6 +238,7 @@
             hyprpaper
             dunst                                                                            
             udiskie
+            swayidle
             libnotify                                                                        
             networkmanagerapplet                                                             
             polkit
