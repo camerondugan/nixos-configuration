@@ -239,6 +239,7 @@
             dunst                                                                            
             udiskie
             swayidle
+            shotman
             libnotify                                                                        
             networkmanagerapplet                                                             
             polkit
