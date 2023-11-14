@@ -31,19 +31,26 @@
         xdg.configFile."wofi/config".source = ./wofi.config;
         xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
 
+        home.pointerCursor = {
+            name = "Catppuccin-Macchiato-Dark-Cursors";
+            package = pkgs.catppuccin-cursors.macchiatoDark;
+        };
+
         gtk = {
             enable = true;
             cursorTheme = {
-                name = "Adwaita";
-                package = pkgs.gnome.adwaita-icon-theme;
+                name = "Catppuccin-Macchiato-Dark-Cursors";
+                package = pkgs.catppuccin-cursors.macchiatoDark;
             };
             iconTheme = {
               name = "Adwaita";
               package = pkgs.gnome.adwaita-icon-theme;
             };
             theme = {
-                name = "Colloid-Dark";
-                package = pkgs.colloid-gtk-theme;
+                name = "Catppuccin-Macchiato-Standard-Blue-Dark";
+                package = pkgs.catppuccin-gtk.override {
+                    variant = "macchiato";
+                };
             };
             gtk3.extraConfig = {
                 Settings = ''
