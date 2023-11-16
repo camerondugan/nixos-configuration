@@ -143,6 +143,9 @@
         ];
     };
 
+    services.udev.packages = [
+        pkgs.android-udev-rules
+    ];
     # Enable the X11 windowing system.
     services.xserver.enable = true;
 
@@ -227,7 +230,7 @@
     users.users.cam = {
         isNormalUser = true;
         description = "Cameron Dugan";
-        extraGroups = [ "networkmanager" "wheel" "input"];
+        extraGroups = [ "networkmanager" "wheel" "input" "adbusers"];
         shell = pkgs.fish;
         packages = with pkgs; [
         
