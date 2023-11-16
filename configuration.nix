@@ -30,6 +30,7 @@
         xdg.configFile."wofi/style.css".source = ./wofi.css;
         xdg.configFile."wofi/config".source = ./wofi.config;
         xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
+        xdg.configFile."dunst/dunstrc".source = ./dunst.conf;
 
         home.pointerCursor = {
             name = "Catppuccin-Macchiato-Dark-Cursors";
