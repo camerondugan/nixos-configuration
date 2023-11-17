@@ -31,6 +31,8 @@
         xdg.configFile."wofi/config".source = ./wofi.config;
         xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
         xdg.configFile."dunst/dunstrc".source = ./dunst.conf;
+        xdg.configFile."godot/text_editor_themes/godotTheme.tet".source = ./godotTheme.tet;
+
 
         home.pointerCursor = {
             name = "Catppuccin-Macchiato-Dark-Cursors";
@@ -89,9 +91,6 @@
             defaultEditor = true;
             viAlias = true;
             vimAlias = true;
-            # plugins = [
-            #     pkgs.vimPlugins.packer-nvim
-            # ];
         };
     };
 
@@ -240,16 +239,20 @@
             inkscape
             blender
             libreoffice-fresh
-            kitty
-            wofi
-            gnome.nautilus
+
+            # Hyprland Essentials
             waybar
+            wofi
             hyprpaper
-            dunst                                                                            
             udiskie
             swayidle
             shotman
+            dunst                                                                            
             libnotify                                                                        
+            
+            # Terminal
+            kitty
+            gnome.nautilus
             networkmanagerapplet                                                             
             polkit
             pavucontrol
@@ -260,7 +263,6 @@
             # Gaming
             discord
             steam
-            # clonehero
             protonup-qt
             winetricks
 
@@ -383,7 +385,6 @@
     # };
 
     # Program Configs
-    programs.starship.enable = true;
     programs.fish = {
         enable = true;
         interactiveShellInit = ''
