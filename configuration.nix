@@ -398,6 +398,9 @@
     programs.dconf.enable = true;
     programs.nix-ld.enable = true;
 
+    # Battery
+    powerManagement.powertop.enable = true;
+    services.power-profiles-daemon.enable = true;
 
     # Open ports in the firewall.
     networking.firewall.allowedTCPPortRanges = [ 
