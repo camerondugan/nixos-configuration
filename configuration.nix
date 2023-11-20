@@ -243,6 +243,7 @@
             # Hyprland Essentials
             waybar
             wofi
+            playerctl
             hyprpaper
             udiskie
             swayidle
