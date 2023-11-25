@@ -81,31 +81,32 @@ window#waybar.hidden {
 }
 
 #cpu {
-  background-color: #a6e3a1;
+  color: #a6e3a1;
 }
 #memory {
-  background-color: #fab387;
+  color: #fab387;
 }
 #idle_inhibitor {
-  background-color: #cdd6f4;
+  color: #cdd6f4;
 }
 #temperature {
-  background-color: #f38ba8;
+  color: #f38ba8;
 }
 #battery {
-  background-color: #f38ba8;
+  color: #f38ba8;
+  padding-right: 16px;
 }
 
 @keyframes blink {
   to {
-    background-color: #f38ba8;
+    color: #f38ba8;
     color: #181825;
   }
 }
 #battery.warning,
 #battery.critical,
 #battery.urgent {
-  background-color: #ff0048;
+  color: #ff0048;
   color: #181825;
   animation-name: blink;
   animation-duration: 0.5s;
@@ -114,29 +115,29 @@ window#waybar.hidden {
   animation-direction: alternate;
 }
 #battery.charging {
-  background-color: #a6e3a1;
+  color: #a6e3a1;
 }
 
 #backlight {
-  background-color: #fab387;
+  color: #fab387;
 }
 
 #pulseaudio {
-  background-color: #f9e2af;
+  color: #f9e2af;
 }
 
 #network {
-  background-color: #94e2d5;
+  color: #94e2d5;
   padding-right: 17px;
 }
 
 #clock {
   font-family: JetBrainsMono Nerd Font;
-  background-color: #cba6f7;
+  color: #cba6f7;
 }
 
 #custom-power {
-  background-color: #f2cdcd;
+  color: #f2cdcd;
 }
 
 tooltip {

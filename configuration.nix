@@ -266,6 +266,7 @@
             steam
             protonup-qt
             winetricks
+            gamescope
 
             # Neovim extras
             bottom
