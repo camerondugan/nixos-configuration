@@ -231,7 +231,8 @@
         extraGroups = [ "networkmanager" "wheel" "input"];
         shell = pkgs.fish;
         packages = with pkgs; [
-        
+            # Home-Manager
+            home-manager
             # Desktop Software
             appimage-run
             brave
@@ -239,6 +240,7 @@
             inkscape
             blender
             libreoffice-fresh
+            neovide
 
             # Hyprland Essentials
             waybar
@@ -274,16 +276,15 @@
             fd
             gdu
             julia-bin
-            lazygit
             luajit
             luajitPackages.luarocks-nix
-            neovide
             nodejs-slim
             php82Packages.composer
             ripgrep
             tree-sitter
 
             # Software Dev
+            lazygit
             cargo
             cmake
             gnumake
