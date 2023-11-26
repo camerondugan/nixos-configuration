@@ -317,19 +317,6 @@
             (rWrapper.override{ packages = with rPackages; [ggplot2 dplyr xts];})
             godot_4
             zig
-
-            # VS Code
-            (vscode-with-extensions.override {
-                 vscodeExtensions = with vscode-extensions; [
-                     bbenoist.nix
-                     ionide.ionide-fsharp
-                     ms-dotnettools.csharp
-                     ms-python.python
-                     ms-toolsai.jupyter
-                     ms-vscode-remote.remote-ssh
-                     vscodevim.vim
-                 ];
-             })
         ];
     };
 
