@@ -16,6 +16,7 @@
         useGlobalPkgs =true;
         useUserPackages = true;
     };
+
     home-manager.users.cam = {
         home = {
             stateVersion = "23.05";
@@ -24,6 +25,8 @@
                 wallpaper = ,~/.nixos/wallpaper.jpg
             '';
         };
+
+        # Set Config File Locations
         xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
         xdg.configFile."waybar/config".source = ./waybar.conf;
         xdg.configFile."waybar/style.css".source = ./waybar.css;
@@ -33,12 +36,13 @@
         xdg.configFile."dunst/dunstrc".source = ./dunst.conf;
         xdg.configFile."godot/text_editor_themes/godotTheme.tet".source = ./godotTheme.tet;
 
-
+        # Set Cursor Theme
         home.pointerCursor = {
             name = "Catppuccin-Macchiato-Dark-Cursors";
             package = pkgs.catppuccin-cursors.macchiatoDark;
         };
 
+        # Set GTK App Theme
         gtk = {
             enable = true;
             cursorTheme = {
@@ -67,6 +71,7 @@
             };
         };
 
+        # Set QT Theme
         qt = {
             enable = true;
             platformTheme = "gnome";
@@ -75,7 +80,6 @@
                 package = pkgs.adwaita-qt;
             };
         };
-
 
         programs.git = {
             enable = true;
@@ -92,6 +96,10 @@
             viAlias = true;
             vimAlias = true;
         };
+    };
+    # Set Default Applications
+    xdg.mime.defaultApplications = {
+        "inode/directory" = "org.gnome.Nautilus.desktop";
     };
 
     fonts.fonts = with pkgs; [
