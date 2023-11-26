@@ -244,6 +244,7 @@
             waybar
             wofi
             playerctl
+            brightnessctl
             hyprpaper
             udiskie
             swayidle
