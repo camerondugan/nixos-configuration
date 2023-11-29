@@ -38,25 +38,25 @@
 
         # Set Cursor Theme
         home.pointerCursor = {
-            name = "Catppuccin-Macchiato-Dark-Cursors";
-            package = pkgs.catppuccin-cursors.macchiatoDark;
+            name = "Catppuccin-Mocha-Dark-Cursors";
+            package = pkgs.catppuccin-cursors.mochaDark;
         };
 
         # Set GTK App Theme
         gtk = {
             enable = true;
             cursorTheme = {
-                name = "Catppuccin-Macchiato-Dark-Cursors";
-                package = pkgs.catppuccin-cursors.macchiatoDark;
+                name = "Catppuccin-Mocha-Dark-Cursors";
+                package = pkgs.catppuccin-cursors.mochaDark;
             };
             iconTheme = {
               name = "Adwaita";
               package = pkgs.gnome.adwaita-icon-theme;
             };
             theme = {
-                name = "Catppuccin-Macchiato-Standard-Blue-Dark";
+                name = "Catppuccin-Mocha-Standard-Blue-Dark";
                 package = pkgs.catppuccin-gtk.override {
-                    variant = "macchiato";
+                    variant = "mocha";
                 };
             };
             gtk3.extraConfig = {
