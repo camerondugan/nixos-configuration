@@ -156,7 +156,7 @@
     services.xserver.enable = true;
 
     # Enable the GNOME Desktop Environment.
-    services.xserver.displayManager.gdm.enable = true;
+    services.xserver.displayManager.sddm.enable = true;
     services.xserver.displayManager.autoLogin.enable = true;
     services.xserver.displayManager.autoLogin.user = "cam";
     # services.xserver.desktopManager.gnome.enable = true;
@@ -396,6 +396,7 @@
     programs.hyprland.enable = true;
     programs.dconf.enable = true;
     programs.nix-ld.enable = true;
+    programs.steam.remotePlay.openFirewall = true;
 
     # Battery
     powerManagement.powertop.enable = true;
