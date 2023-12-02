@@ -102,7 +102,7 @@
         "inode/directory" = "org.gnome.Nautilus.desktop";
     };
 
-    fonts.fonts = with pkgs; [
+    fonts.packages = with pkgs; [
         nerdfonts
     ];
 
@@ -156,7 +156,7 @@
     services.xserver.enable = true;
 
     # Enable the GNOME Desktop Environment.
-    services.xserver.displayManager.sddm.enable = true;
+    services.xserver.displayManager.gdm.enable = true;
     services.xserver.displayManager.autoLogin.enable = true;
     services.xserver.displayManager.autoLogin.user = "cam";
     # services.xserver.desktopManager.gnome.enable = true;
@@ -173,7 +173,11 @@
     # Enable mounting service.
     services.udisks2.enable = true;
 
+    # Bluetooth
     services.blueman.enable = true;
+
+    # Speedup App Launch
+    services.preload.enable = true;
 
     # Enable sound with pipewire.
     sound.enable = true;

@@ -30,19 +30,19 @@ window#waybar.hidden {
   margin: 2px 3px;
   border-radius: 4px;
   color: #cdd6f4;
-  background-color: #1e1e2e;
+  background-color: #181825;
 }
 
 #workspaces button.active {
-  color: #cdd6f4;
-  background-color: #1e1e2e;
+  color: #1e1e2e;
+  background-color: #b4befe;
 }
 
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
   color: #cdd6f4;
-  background-color: #1e1e2e;
+  background-color: #313244;
 }
 
 #workspaces button.urgent {
