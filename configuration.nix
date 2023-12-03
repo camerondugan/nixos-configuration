@@ -360,7 +360,6 @@
         fishPlugins.grc
         fishPlugins.colored-man-pages
         fishPlugins.hydro
-        fishPlugins.async-prompt
         fzf
         grc
         pfetch
