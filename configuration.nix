@@ -345,7 +345,8 @@
         # Game Software.
         bottles
         lutris
-        # # Gnome Extensions.
+
+        # Gnome Extensions.
         # gnomeExtensions.appindicator
         # gnomeExtensions.blur-my-shell
         # gnomeExtensions.caffeine
@@ -353,6 +354,7 @@
         # gnomeExtensions.forge
         # gnomeExtensions.grand-theft-focus
         # gnomeExtensions.gsconnect
+
         # Shell
         fishPlugins.done
         fishPlugins.forgit
@@ -360,10 +362,13 @@
         fishPlugins.grc
         fishPlugins.colored-man-pages
         fishPlugins.hydro
+
+        # cli tools
         fzf
         grc
         pfetch
         sshfs
+
         wl-clipboard
         xclip
         # Other
