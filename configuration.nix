@@ -277,7 +277,6 @@
             qmk
 
             # Gaming
-            discord
             steam
             protonup-qt
             winetricks
