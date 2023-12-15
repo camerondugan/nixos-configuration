@@ -38,6 +38,11 @@ window#waybar.hidden {
   background-color: #b4befe;
 }
 
+#workspaces button.active:hover {
+  color: #1e1e2e;
+  background-color: #b4befe;
+}
+
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
