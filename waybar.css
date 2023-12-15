@@ -60,7 +60,6 @@ window#waybar.hidden {
 #network,
 #clock,
 #tray {
-  border-radius: 16px;
   margin: 3px 3px;
   padding: 3px 12px;
   background-color: rgba(24, 24, 37, 0.65);
