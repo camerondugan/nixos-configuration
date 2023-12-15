@@ -72,6 +72,10 @@ window#waybar.hidden {
   color: #cdd6f4;
 }
 
+#window:empty {
+  background-color: rgba(0, 0, 0, 0);
+}
+
 #custom-power {
   margin-right: 6px;
 }
