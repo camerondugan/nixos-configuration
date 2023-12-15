@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-  background-color: rgba(24, 24, 37, 0.5);
+  background-color: rgba(24, 24, 37, 0);
   transition-property: background-color;
   transition-duration: 0.5s;
 }
