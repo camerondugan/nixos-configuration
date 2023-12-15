@@ -1,6 +1,6 @@
 * {
   border: none;
-  border-radius: 0;
+  border-radius: 16;
   min-height: 0;
   font-family:
     JetBrainsMono Nerd Font,
@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-  background-color: rgba(24, 24, 37, 0);
+  background-color: rgba(24, 24, 37, 0.5);
   transition-property: background-color;
   transition-duration: 0.5s;
 }
