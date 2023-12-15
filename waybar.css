@@ -30,7 +30,7 @@ window#waybar.hidden {
   margin: 2px 3px;
   border-radius: 16px;
   color: #cdd6f4;
-  background-color: #181825;
+  background-color: #1e1e2e;
 }
 
 #workspaces button.active {
