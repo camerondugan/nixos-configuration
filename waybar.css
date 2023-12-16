@@ -97,13 +97,12 @@ window#waybar.hidden {
   color: #f38ba8;
 }
 #battery {
-  color: #f38ba8;
+  color: #cdd6f4;
   padding-right: 16px;
 }
 
 @keyframes blink {
   to {
-    color: #f38ba8;
     color: #cdd6f4;
   }
 }
@@ -111,8 +110,7 @@ window#waybar.hidden {
 #battery.warning,
 #battery.critical,
 #battery.urgent {
-  color: #ff0048;
-  color: #cdd6f4;
+  color: #f38ba8;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
