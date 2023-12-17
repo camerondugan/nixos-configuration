@@ -54,7 +54,7 @@
               package = pkgs.gnome.adwaita-icon-theme;
             };
             theme = {
-                name = "Catppuccin-Mocha-Compact-Blue-Dark";
+                name = "Catppuccin-Dark-Compact";
                 package = pkgs.catppuccin-gtk.override {
                     accents = ["blue"];
                     variant = "mocha";
