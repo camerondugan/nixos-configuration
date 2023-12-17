@@ -36,12 +36,6 @@
         xdg.configFile."dunst/dunstrc".source = ./dunst.conf;
         xdg.configFile."godot/text_editor_themes/godotTheme.tet".source = ./godotTheme.tet;
 
-        dconf.settings = {
-            "org/gnome/desktop/interface" = {
-                color-scheme = "prefer-dark";
-            };
-        };
-
         # Set Cursor Theme
         home.pointerCursor = {
             name = "Catppuccin-Mocha-Dark-Cursors";
@@ -60,12 +54,9 @@
               package = pkgs.gnome.adwaita-icon-theme;
             };
             theme = {
-                name = "Catppuccin-Mocha-Compact-Blue-Dark";
+                name = "Catppuccin-Mocha-Standard-Blue-Dark";
                 package = pkgs.catppuccin-gtk.override {
-                    accents = ["blue"];
                     variant = "mocha";
-                    size = "compact";
-                    tweaks = ["rimless"];
                 };
             };
             gtk3.extraConfig = {
