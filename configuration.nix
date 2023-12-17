@@ -329,6 +329,9 @@
     hardware.opengl.driSupport32Bit = true;
     hardware.pulseaudio.support32Bit = true;
 
+    # Razer peripherals
+    hardware.openrazer.enable = true;
+
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
@@ -345,15 +348,6 @@
         bottles
         lutris
 
-        # Gnome Extensions.
-        # gnomeExtensions.appindicator
-        # gnomeExtensions.blur-my-shell
-        # gnomeExtensions.caffeine
-        # gnomeExtensions.dash-to-dock
-        # gnomeExtensions.forge
-        # gnomeExtensions.grand-theft-focus
-        # gnomeExtensions.gsconnect
-
         # Shell
         fishPlugins.done
         fishPlugins.forgit
@@ -368,8 +362,14 @@
         pfetch
         sshfs
 
+        # Clipboard
         wl-clipboard
         xclip
+
+        # Razer
+        openrazer-daemon
+        polychromatic
+
         # Other
         android-tools
         android-studio
