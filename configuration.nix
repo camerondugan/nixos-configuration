@@ -57,6 +57,8 @@
                 name = "Catppuccin-Mocha-Standard-Blue-Dark";
                 package = pkgs.catppuccin-gtk.override {
                     variant = "mocha";
+                    size = "compact";
+                    tweaks = ["rimless"];
                 };
             };
             gtk3.extraConfig = {
