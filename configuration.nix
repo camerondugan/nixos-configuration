@@ -162,11 +162,16 @@
     # Enable the X11 windowing system.
     services.xserver.enable = true;
 
-    # Enable the GNOME Desktop Environment.
+    # Enable a display manager.
     services.xserver.displayManager.gdm.enable = true;
+
+    # Login manager
     services.xserver.displayManager.autoLogin.enable = true;
     services.xserver.displayManager.autoLogin.user = "cam";
+
+    # Desktop environment
     # services.xserver.desktopManager.gnome.enable = true;
+    programs.hyprland.enable = true;
 
     # Configure keymap in X11
     services.xserver = {
@@ -410,7 +415,6 @@
             fish_vi_key_bindings
             '';
     };
-    programs.hyprland.enable = true;
     programs.dconf.enable = true;
     programs.nix-ld.enable = true;
     programs.steam.remotePlay.openFirewall = true;
