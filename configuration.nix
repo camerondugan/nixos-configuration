@@ -8,9 +8,9 @@
 {
     imports = [
         ./hardware-configuration.nix
-            <home-manager/nixos>
-            ./swap.nix
-        ];
+        <home-manager/nixos>
+        ./swap.nix
+    ];
 
     home-manager = {
         useGlobalPkgs =true;
@@ -426,8 +426,6 @@
     networking.firewall.allowedUDPPortRanges = [ 
         { from = 1714; to = 1764; } # KDE Connect
     ];
-    # Or disable the firewall altogether.
-    # networking.firewall.enable = false;
 
     # This value determines the NixOS release from which the default
     # settings for stateful data, like file locations and database versions
