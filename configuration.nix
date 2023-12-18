@@ -338,6 +338,7 @@
 
     # Razer peripherals
     hardware.openrazer.enable = true;
+    hardware.openrazer.users = ["cam"];
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
