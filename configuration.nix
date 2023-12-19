@@ -34,6 +34,7 @@
         xdg.configFile."wofi/config".source = ./wofi.config;
         xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
         xdg.configFile."dunst/dunstrc".source = ./dunst.conf;
+        xdg.configFile."swaync/style.css".source = ./dunst.conf;
         xdg.configFile."godot/text_editor_themes/godotTheme.tet".source = ./godotTheme.tet;
 
         # Global Dark Mode
@@ -238,7 +239,7 @@
 
     # List services that you want to enable:
     services.tailscale.enable = true;
-    services.tailscale.useRoutingFeatures = "both";
+    # services.tailscale.useRoutingFeatures = "both";
 
     # Syncthing
     services.syncthing = {
@@ -247,7 +248,6 @@
         dataDir = "/home/cam/Sync";
         configDir = "/home/cam/Documents/.config/syncthing";
     };
-
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.cam = {
@@ -274,7 +274,7 @@
             udiskie
             swayidle
             shotman
-            dunst                                                                            
+            swaynotificationcenter
             libnotify                                                                        
             
             # Terminal
@@ -422,7 +422,8 @@
     powerManagement.powertop.enable = true;
     services.power-profiles-daemon.enable = true;
 
-    # Kde Connect Ports
+    # Kde Connect
+    programs.kdeconnect.enable = true;
     networking.firewall.allowedTCPPortRanges = [ 
         { from = 1714; to = 1764; }
     ];
