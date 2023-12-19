@@ -240,8 +240,6 @@
     services.tailscale.enable = true;
     services.tailscale.useRoutingFeatures = "both";
 
-    programs.kdeconnect.enable = true;
-
     # Syncthing
     services.syncthing = {
         enable = true;
@@ -258,8 +256,6 @@
         extraGroups = [ "networkmanager" "wheel" "input"];
         shell = pkgs.fish;
         packages = with pkgs; [
-            # Home-Manager
-            home-manager
             # Desktop Software
             appimage-run
             brave
@@ -426,12 +422,12 @@
     powerManagement.powertop.enable = true;
     services.power-profiles-daemon.enable = true;
 
-    # Open ports in the firewall.
+    # Kde Connect Ports
     networking.firewall.allowedTCPPortRanges = [ 
-        { from = 1714; to = 1764; } # KDE Connect
+        { from = 1714; to = 1764; }
     ];
     networking.firewall.allowedUDPPortRanges = [ 
-        { from = 1714; to = 1764; } # KDE Connect
+        { from = 1714; to = 1764; }
     ];
 
     # This value determines the NixOS release from which the default
