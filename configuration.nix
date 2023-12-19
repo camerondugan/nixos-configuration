@@ -240,6 +240,8 @@
     services.tailscale.enable = true;
     services.tailscale.useRoutingFeatures = "both";
 
+    programs.kdeconnect.enable = true;
+
     # Syncthing
     services.syncthing = {
         enable = true;
