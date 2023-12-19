@@ -238,6 +238,7 @@
 
     # List services that you want to enable:
     services.tailscale.enable = true;
+    services.tailscale.useRoutingFeatures = "both";
 
     # Syncthing
     services.syncthing = {
