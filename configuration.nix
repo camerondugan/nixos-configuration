@@ -33,8 +33,8 @@
         xdg.configFile."wofi/style.css".source = ./wofi.css;
         xdg.configFile."wofi/config".source = ./wofi.config;
         xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
-        xdg.configFile."dunst/dunstrc".source = ./dunst.conf;
-        xdg.configFile."swaync/style.css".source = ./dunst.conf;
+        # xdg.configFile."dunst/dunstrc".source = ./dunst.conf;
+        xdg.configFile."swaync/style.css".source = ./swaync.css;
         xdg.configFile."godot/text_editor_themes/godotTheme.tet".source = ./godotTheme.tet;
 
         # Global Dark Mode
