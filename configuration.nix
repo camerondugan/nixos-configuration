@@ -264,6 +264,7 @@
             blender
             libreoffice-fresh
             neovide
+            qalculate-gtk
 
             # Hyprland Essentials
             waybar
@@ -319,16 +320,15 @@
             unzip
             wget
             steam-run
+            pandoc
 
             # Languages
             dotnet-sdk
             flutter
             gcc
             go
-            pandoc
             rstudio
             rustup
-            (rWrapper.override{ packages = with rPackages; [ggplot2 dplyr xts];})
             godot_4
             zig
         ];
@@ -385,6 +385,7 @@
         # Other
         android-tools
         android-studio
+
         # Python
         (python311.withPackages(ps: with ps; [
             cairosvg
