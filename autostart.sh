@@ -7,7 +7,8 @@ nm-applet &
 blueman-applet &
 udiskie &
 swaync &
-swayidle -w timeout 600 "hyprctl dispatcher dpms off" timeout 1200 "systemctl hibernate" &
+swayidle -w timeout 600 "hyprctl dispatcher dpms off" timeout 1200 "systemctl hibernate" resume "hyprctl dispatcher dpms on" &
+
 # Razer Hardware
 polychromatic-tray-applet &
 # Pull Git repos
