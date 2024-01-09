@@ -5,7 +5,9 @@
 
 { config, pkgs, ... }:
 
-{
+let unstable = import <nixos-unstable> {config={allowUnfree=true;};};
+in {
+
     imports = [
         ./hardware-configuration.nix
         <home-manager/nixos>
@@ -297,7 +299,7 @@
             protonup-qt
             winetricks
             gamescope
-            r2modman
+            unstable.r2modman
 
             # Neovim extras
             bottom
@@ -403,7 +405,8 @@
             plotly
             pnglatex
             ueberzug
-        ]))];
+        ]))
+    ];
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
