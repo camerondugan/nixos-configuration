@@ -1,9 +1,10 @@
+#! /bin/sh
 # Set unstable and home-manager
-sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz home-manager
 
 # Set to unstable channels
-sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
-# sudo nix-channel --update
+sudo nix-channel --add https://nixos.org/channels/nixos-23.11 nixos
+sudo nix-channel --update
 
 # Download latest config
 nix-shell -p git --run "git clone https://gitlab.com/cameron.dugan/nixos-configuration.git"

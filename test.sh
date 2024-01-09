@@ -1,3 +1,3 @@
 #! /bin/sh
-
-sudo nixos-rebuild switch && hyprctl reload
+sudo nixos-rebuild switch
+hyprctl reload

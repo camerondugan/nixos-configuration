@@ -118,6 +118,16 @@
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
+    # USB Keyboard/Mouse sleeping fix
+    systemd.services.noUsbSleep = {
+        enable = true;
+        wantedBy = ["multi-user.target"];
+        script = ''
+            sleep 30
+            echo on | tee /sys/bus/usb/devices/*/power/level > /dev/null
+        '';
+    };
+
     # Setup keyfile
     boot.initrd.secrets = {
         "/crypto_keyfile.bin" = null;
@@ -152,13 +162,7 @@
     };
 
     # XDG Setup
-    xdg.portal = {
-        enable = true;
-        extraPortals = [
-            pkgs.xdg-desktop-portal-hyprland
-            pkgs.xdg-desktop-portal-gtk
-        ];
-    };
+    xdg.portal.wlr.enable = true;
 
     # Enable the X11 windowing system.
     services.xserver.enable = true;
@@ -293,6 +297,7 @@
             protonup-qt
             winetricks
             gamescope
+            r2modman
 
             # Neovim extras
             bottom
@@ -311,7 +316,7 @@
             cargo
             cmake
             gnumake
-            jdk
+            jdk8 #battlecode
             nodePackages.npm
             php
             pkg-config
@@ -346,6 +351,9 @@
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.permittedInsecurePackages = [
+        "electron-25.9.0"
+    ];
 
     environment.sessionVariables = {
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
