@@ -263,10 +263,11 @@ in {
         shell = pkgs.fish;
         packages = with pkgs; [
             # Desktop Software
-            appimage-run
+            unstable.appimage-run
             brave
             gimp
             inkscape
+            # davinci-resolve
             blender
             libreoffice-fresh
             neovide
@@ -318,7 +319,7 @@ in {
             cargo
             cmake
             gnumake
-            jdk8 #battlecode
+            jdk8 #battlecode (revert to jdk after)
             nodePackages.npm
             php
             pkg-config
@@ -353,9 +354,6 @@ in {
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
-    nixpkgs.config.permittedInsecurePackages = [
-        "electron-25.9.0"
-    ];
 
     environment.sessionVariables = {
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
