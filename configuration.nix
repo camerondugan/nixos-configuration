@@ -267,10 +267,10 @@ in {
             brave
             gimp
             inkscape
-            # davinci-resolve
+            libsForQt5.kdenlive
             blender
             libreoffice-fresh
-            neovide
+            unstable.neovide
             qalculate-gtk
 
             # Hyprland Essentials
