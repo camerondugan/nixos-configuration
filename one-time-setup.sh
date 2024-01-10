@@ -4,6 +4,7 @@ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/rel
 
 # Set to unstable channels
 sudo nix-channel --add https://nixos.org/channels/nixos-23.11 nixos
+sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 sudo nix-channel --update
 
 # Download latest config
