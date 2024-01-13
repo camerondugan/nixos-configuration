@@ -272,6 +272,11 @@ in {
             libreoffice-fresh
             unstable.neovide
             qalculate-gtk
+            anki-bin
+
+            # Terminal Commands
+            zip
+            unzip
 
             # Hyprland Essentials
             waybar
@@ -319,6 +324,7 @@ in {
             cargo
             cmake
             gnumake
+            # jdk
             jdk8 #battlecode (revert to jdk after)
             nodePackages.npm
             php
@@ -327,6 +333,7 @@ in {
             ruby
             unzip
             wget
+            dosbox
             steam-run
             pandoc
 
