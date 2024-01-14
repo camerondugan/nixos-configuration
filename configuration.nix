@@ -278,6 +278,8 @@ in {
             # Terminal Commands
             zip
             unzip
+            rmtrash
+            trash-cli
 
             # Hyprland Essentials
             waybar
@@ -430,6 +432,8 @@ in {
             pfetch
             set fish_greeting
             fish_vi_key_bindings
+            alias rm="rmtrash"
+            alias rmdir="rmdirtrash"
             '';
     };
     programs.dconf.enable = true;

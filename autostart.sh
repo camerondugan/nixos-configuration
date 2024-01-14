@@ -8,6 +8,7 @@ blueman-applet &
 udiskie &
 swaync &
 swayidle -w timeout 600 "hyprctl dispatcher dpms off" timeout 1200 "systemctl hibernate" resume "hyprctl dispatcher dpms on" &
+(yes | trash-empty 14) & # Empty trash more than 2 weeks old
 
 # Razer Hardware
 polychromatic-tray-applet &
