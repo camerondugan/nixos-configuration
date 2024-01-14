@@ -273,6 +273,7 @@ in {
             unstable.neovide
             qalculate-gtk
             anki-bin
+            mpv
 
             # Terminal Commands
             zip
