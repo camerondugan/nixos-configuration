@@ -469,8 +469,12 @@ in {
     system.stateVersion = "23.05"; # Did you read the comment?
 
     # Enable Auto Updates
-    system.autoUpgrade.enable = true;
-    system.autoUpgrade.allowReboot = false;
+    system.autoUpgrade = {
+        enable = true;
+        allowReboot = false;
+        dates = "02:00";
+        randomizedDelaySec = "45min";
+    };
 
     # Enable Optimization.
     nix.gc.automatic = true;
