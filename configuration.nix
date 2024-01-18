@@ -269,8 +269,8 @@ in {
         shell = pkgs.fish;
         packages = with pkgs; [
             # Desktop Software
-            unstable.appimage-run
             firefox
+            xfce.thunar
             gimp
             inkscape
             libsForQt5.kdenlive
@@ -281,6 +281,7 @@ in {
             anki-bin
             mpv
             obs-studio
+            unstable.appimage-run
 
             # Terminal Commands
             zip
@@ -304,7 +305,6 @@ in {
             
             # Terminal
             kitty
-            gnome.nautilus
             networkmanagerapplet                                                             
             polkit
             pavucontrol
