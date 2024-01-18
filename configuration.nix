@@ -264,7 +264,7 @@ in {
         packages = with pkgs; [
             # Desktop Software
             unstable.appimage-run
-            brave
+            firefox
             gimp
             inkscape
             libsForQt5.kdenlive
@@ -274,6 +274,7 @@ in {
             qalculate-gtk
             anki-bin
             mpv
+            obs-studio
 
             # Terminal Commands
             zip
@@ -327,6 +328,7 @@ in {
             cargo
             cmake
             gnumake
+            nasm
             # jdk
             jdk8 #battlecode (revert to jdk after)
             nodePackages.npm
@@ -471,4 +473,5 @@ in {
     nix.gc.options = "--delete-older-than 7d";
     nix.optimise.automatic = true;
     nix.settings.auto-optimise-store = true;
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
