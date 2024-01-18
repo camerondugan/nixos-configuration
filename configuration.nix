@@ -198,6 +198,10 @@ in {
     # Enable mounting service.
     services.udisks2.enable = true;
 
+    # Enable trash service.
+    services.gvfs.enable = true;
+    services.tumbler.enable = true;
+
     # Bluetooth
     services.blueman.enable = true;
 
@@ -271,7 +275,6 @@ in {
             # Desktop Software
             firefox
             xfce.thunar
-            gnome.gvfs # for thunar trash support
             gimp
             inkscape
             libsForQt5.kdenlive
