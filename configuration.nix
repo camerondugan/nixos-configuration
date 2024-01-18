@@ -35,7 +35,6 @@ in {
         xdg.configFile."wofi/style.css".source = ./wofi.css;
         xdg.configFile."wofi/config".source = ./wofi.config;
         xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
-        # xdg.configFile."dunst/dunstrc".source = ./dunst.conf;
         xdg.configFile."swaync/style.css".source = ./swaync.css;
         xdg.configFile."godot/text_editor_themes/godotTheme.tet".source = ./godotTheme.tet;
 
@@ -66,6 +65,8 @@ in {
             theme = {
                 name = "Catppuccin-Mocha-Standard-Blue-Dark";
                 package = pkgs.catppuccin-gtk.override {
+                    accents = [ "blue" ];
+                    size = "standard";
                     variant = "mocha";
                 };
             };
