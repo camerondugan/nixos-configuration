@@ -165,6 +165,10 @@ in {
 
     # XDG Setup
     xdg.portal.wlr.enable = true;
+    xdg.portal.extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-kde
+    ];
 
     # Enable the X11 windowing system.
     services.xserver.enable = true;
