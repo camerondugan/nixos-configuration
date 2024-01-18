@@ -68,6 +68,7 @@ in {
                     accents = [ "blue" ];
                     size = "standard";
                     variant = "mocha";
+                    tweaks = [ "rimless" ];
                 };
             };
             gtk3.extraConfig = {
