@@ -472,8 +472,6 @@ in {
     system.autoUpgrade = {
         enable = true;
         allowReboot = false;
-        dates = "02:00";
-        randomizedDelaySec = "45min";
     };
 
     # Enable Optimization.
