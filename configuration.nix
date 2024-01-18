@@ -279,6 +279,8 @@ in {
             # Terminal Commands
             zip
             unzip
+            rar
+            unrar
             rmtrash
             trash-cli
 
@@ -336,7 +338,6 @@ in {
             pkg-config
             raylib
             ruby
-            unzip
             wget
             dosbox
             steam-run
