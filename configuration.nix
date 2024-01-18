@@ -271,6 +271,7 @@ in {
             # Desktop Software
             firefox
             xfce.thunar
+            gvfs # for thunar trash support
             gimp
             inkscape
             libsForQt5.kdenlive
