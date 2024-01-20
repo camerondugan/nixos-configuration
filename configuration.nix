@@ -317,7 +317,7 @@ in {
             qmk
 
             # Gaming
-            steam
+            unstable.steam
             protonup-qt
             winetricks
             gamescope
@@ -388,7 +388,7 @@ in {
     # $ nix search wget
     environment.systemPackages = with pkgs; [
         # Game Software.
-        bottles
+        unstable.bottles
         lutris
 
         # Shell
