@@ -305,6 +305,7 @@ in {
             shotman
             swaynotificationcenter
             libnotify                                                                        
+            swayosd # manages volume and caps-lock notifications
             
             # Terminal
             kitty
