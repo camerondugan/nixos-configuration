@@ -317,7 +317,7 @@ in {
             qmk
 
             # Gaming
-            unstable.steam
+            steam
             protonup-qt
             winetricks
             gamescope
