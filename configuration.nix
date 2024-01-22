@@ -336,6 +336,7 @@ in {
             tree-sitter
             plantuml
             imv
+            feh
 
             # Software Dev
             lazygit
