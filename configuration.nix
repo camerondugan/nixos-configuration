@@ -97,13 +97,6 @@ in {
             enable = true;
             userName = "Cameron Dugan";
             userEmail = "cameron.dugan@protonmail.com";
-            aliases = {
-                pull = "pull";
-                push = "push";
-                commit = "commit";
-                clone = "clone";
-                gs = "status";
-            };
             extraConfig = {
                 core.editor = "vim";
                 pull.rebase = false;
@@ -456,9 +449,16 @@ in {
             pfetch
             set fish_greeting
             fish_vi_key_bindings
-            alias rm="rmtrash"
-            alias rmdir="rmdirtrash"
             '';
+        shellAbbrs = {
+            rm="rmtrash";
+            rmdir="rmdirtrash";
+            add="git add";
+            commit="git commit";
+            pull="git pull";
+            push="git push";
+            clone="git clone";
+        };
     };
     programs.dconf.enable = true;
     programs.nix-ld.enable = true;
