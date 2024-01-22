@@ -284,7 +284,7 @@ in {
             anki-bin
             mpv
             obs-studio
-            unstable.appimage-run
+            appimage-run
 
             # Terminal Commands
             zip
@@ -388,7 +388,7 @@ in {
     # $ nix search wget
     environment.systemPackages = with pkgs; [
         # Game Software.
-        bottles
+        unstable.bottles
         lutris
 
         # Shell
