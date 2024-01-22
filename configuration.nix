@@ -284,8 +284,7 @@ in {
             anki-bin
             mpv
             obs-studio
-            appimage-run
-            libthai #tmp battlecode
+            unstable.appimage-run
 
             # Terminal Commands
             zip
