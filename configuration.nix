@@ -97,6 +97,13 @@ in {
             enable = true;
             userName = "Cameron Dugan";
             userEmail = "cameron.dugan@protonmail.com";
+            aliases = {
+                pull = "pull";
+                push = "push";
+                commit = "commit";
+                clone = "clone";
+                gs = "status";
+            };
             extraConfig = {
                 pull.rebase = false;
             };
