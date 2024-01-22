@@ -334,6 +334,9 @@ in {
             php82Packages.composer
             ripgrep
             tree-sitter
+            plantuml
+            imv
+            feh
 
             # Software Dev
             lazygit
