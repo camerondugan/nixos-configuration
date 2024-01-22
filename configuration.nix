@@ -284,7 +284,7 @@ in {
             anki-bin
             mpv
             obs-studio
-            unstable.appimage-run
+            appimage-run
 
             # Terminal Commands
             zip
