@@ -105,6 +105,7 @@ in {
                 gs = "status";
             };
             extraConfig = {
+                core.editor = "vim";
                 pull.rebase = false;
             };
         };
