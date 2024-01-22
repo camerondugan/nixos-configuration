@@ -285,6 +285,7 @@ in {
             mpv
             obs-studio
             appimage-run
+            libthai #tmp battlecode
 
             # Terminal Commands
             zip
