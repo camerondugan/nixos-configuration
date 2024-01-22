@@ -355,7 +355,6 @@ in {
             dosbox
             steam-run
             pandoc
-            openssl
 
             # Languages
             dotnet-sdk
