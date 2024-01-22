@@ -449,10 +449,10 @@ in {
             pfetch
             set fish_greeting
             fish_vi_key_bindings
+            alias rm="rmtrash"
+            alias rmdir="rmdirtrash"
             '';
         shellAbbrs = {
-            rm="rmtrash";
-            rmdir="rmdirtrash";
             add="git add";
             commit="git commit";
             pull="git pull";
