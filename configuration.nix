@@ -98,6 +98,7 @@ in {
             userName = "Cameron Dugan";
             userEmail = "cameron.dugan@protonmail.com";
             extraConfig = {
+                core.editor = "vim";
                 pull.rebase = false;
             };
         };
@@ -451,6 +452,13 @@ in {
             alias rm="rmtrash"
             alias rmdir="rmdirtrash"
             '';
+        shellAbbrs = {
+            add="git add";
+            commit="git commit";
+            pull="git pull";
+            push="git push";
+            clone="git clone";
+        };
     };
     programs.dconf.enable = true;
     programs.nix-ld.enable = true;
