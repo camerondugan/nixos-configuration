@@ -315,6 +315,7 @@ in {
             pavucontrol
             youtube-tui
             yt-dlp
+            unsilence
 
             # QMK
             qmk
