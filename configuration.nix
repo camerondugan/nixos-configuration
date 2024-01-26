@@ -315,8 +315,8 @@ in {
             pavucontrol
             youtube-tui
             yt-dlp
-            unsilence
             ffmpeg
+            unsilence
 
             # QMK
             qmk
@@ -434,6 +434,7 @@ in {
             plotly
             pnglatex
             ueberzug
+            pipx
         ]))
     ];
 
