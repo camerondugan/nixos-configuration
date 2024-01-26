@@ -316,6 +316,7 @@ in {
             youtube-tui
             yt-dlp
             unsilence
+            ffmpeg
 
             # QMK
             qmk
