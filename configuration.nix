@@ -313,6 +313,8 @@ in {
             networkmanagerapplet                                                             
             polkit
             pavucontrol
+            youtube-tui
+            yt-dlp
 
             # QMK
             qmk
