@@ -38,6 +38,11 @@ in {
         xdg.configFile."swaync/style.css".source = ./swaync.css;
         xdg.configFile."godot/text_editor_themes/godotTheme.tet".source = ./godotTheme.tet;
 
+        # golang bin
+        home.sessionPath = [
+            "/home/cam/go/bin/"
+        ];
+
         # Global Dark Mode
         dconf.settings = {
             "org/gnome/desktop/interface" = {
