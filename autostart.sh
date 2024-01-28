@@ -12,6 +12,7 @@ swayidle -w timeout 600 "hyprctl dispatcher dpms off" timeout 1200 "systemctl hi
 
 # Remove week old downloads
 find /home/cam/Downloads -mindepth 1 -mtime +7 -delete
+mkdir /home/cam/Downloads/.stfolder
 
 # Razer Hardware
 polychromatic-tray-applet &
