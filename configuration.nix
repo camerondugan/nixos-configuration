@@ -353,13 +353,14 @@ in {
             jdk
             nodePackages.npm
             php
-            pkg-config
             raylib
             ruby
             wget
             dosbox
             steam-run
             pandoc
+            openssl.dev
+            pkg-config
 
             # Languages
             dotnet-sdk
