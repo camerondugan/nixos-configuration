@@ -345,12 +345,12 @@ in {
 
             # Software Dev
             lazygit
+            gdb
             cargo
             cmake
             gnumake
             nasm
-            # jdk
-            jdk8 #battlecode (revert to jdk after)
+            jdk
             nodePackages.npm
             php
             pkg-config
