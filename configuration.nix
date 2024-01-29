@@ -280,7 +280,7 @@ in {
             libsForQt5.kdenlive
             blender
             libreoffice-fresh
-            unstable.neovide
+            neovide
             qalculate-gtk
             anki-bin
             mpv
