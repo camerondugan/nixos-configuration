@@ -468,6 +468,7 @@ in {
             pull="git pull";
             push="git push";
             clone="git clone";
+            cd="z";
         };
     };
     programs.dconf.enable = true;
