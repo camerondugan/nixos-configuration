@@ -294,6 +294,7 @@ in {
             unrar
             rmtrash
             trash-cli
+            zoxide
 
             # Hyprland Essentials
             waybar
@@ -436,6 +437,7 @@ in {
             pnglatex
             ueberzug
             pipx
+            colorama
         ]))
     ];
 
@@ -458,6 +460,7 @@ in {
             fish_add_path /home/cam/go/bin/
             alias rm="rmtrash"
             alias rmdir="rmdirtrash"
+            zoxide init fish | source
             '';
         shellAbbrs = {
             add="git add";
