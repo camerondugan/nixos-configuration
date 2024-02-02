@@ -288,13 +288,14 @@ in {
             appimage-run
 
             # Terminal Commands
-            zip
-            unzip
-            rar
-            unrar
-            rmtrash
-            trash-cli
-            zoxide
+            zip # create .zip
+            unzip # unzip .zip
+            rar # create .rar
+            unrar # unzip .rar
+            rmtrash # trash when rm (needs alias)
+            trash-cli # remove trash (autostart.sh)
+            zoxide # better cd (needs setup)
+            lf # file explorer
 
             # Hyprland Essentials
             waybar
