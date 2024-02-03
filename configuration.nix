@@ -393,6 +393,7 @@ in {
 
     environment.sessionVariables = {
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
+        NODE_PATH = "~/.system_node_modules/lib/node_modules";
     };
 
     environment.gnome.excludePackages = [ pkgs.gnome-tour ];
@@ -461,6 +462,7 @@ in {
             set fish_greeting
             fish_vi_key_bindings
             fish_add_path /home/cam/go/bin/
+            fish_add_path /home/cam/.system_node_modules/bin
             alias rm="rmtrash"
             alias rmdir="rmdirtrash"
             zoxide init fish | source
