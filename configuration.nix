@@ -11,7 +11,7 @@ in {
     imports = [
         ./hardware-configuration.nix
         <home-manager/nixos>
-        ./swap.nix
+        ./this-device.nix
     ];
 
     home-manager = {
@@ -138,7 +138,6 @@ in {
         "/crypto_keyfile.bin" = null;
     };
 
-    networking.hostName = "Linux"; # Define your hostname.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
     # Configure network proxy if necessary
@@ -208,6 +207,9 @@ in {
 
     # Speedup App Launch
     services.preload.enable = true;
+
+    # OpenRGB
+    services.hardware.openrgb.enable = true;
 
     # Enable sound with pipewire.
     sound.enable = true;

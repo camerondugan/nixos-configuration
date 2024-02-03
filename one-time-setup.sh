@@ -18,6 +18,7 @@ echo "{ config, pkgs, ... }:
 # Copy luks to swap.nix
 {" >>~/.nixos/swap.nix
 cat /etc/nixos/configuration.nix.bak | grep 'luks' >>~/.nixos/swap.nix
+cat /etc/nixos/configuration.nix.bak | grep 'hostName' >>~/.nixos/swap.nix
 echo "
 }" >>~/.nixos/swap.nix
 # Use config
