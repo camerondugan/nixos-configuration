@@ -92,6 +92,7 @@ window#waybar.hidden {
 }
 #idle_inhibitor {
   color: #cdd6f4;
+  padding-left: 8px;
 }
 #temperature {
   color: #f38ba8;

@@ -55,8 +55,8 @@ in {
         gtk = {
             enable = true;
             cursorTheme = {
-                name = "Catppuccin-Mocha-Dark-Cursors";
-                package = pkgs.catppuccin-cursors.mochaDark;
+                name = "Catppuccin-Mocha-Light-Cursors";
+                package = pkgs.catppuccin-cursors.mochaLight;
             };
             iconTheme = {
               name = "Adwaita";
