@@ -47,8 +47,8 @@ in {
 
         # Set Cursor Theme
         home.pointerCursor = {
-            name = "Catppuccin-Mocha-Dark-Cursors";
-            package = pkgs.catppuccin-cursors.mochaDark;
+            name = "Catppuccin-Mocha-Light-Cursors";
+            package = pkgs.catppuccin-cursors.mochaLight;
         };
 
         # Set GTK App Theme
