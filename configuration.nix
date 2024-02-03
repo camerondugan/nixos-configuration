@@ -26,6 +26,10 @@ in {
                 preload = ~/.nixos/wallpaper.jpg
                 wallpaper = ,~/.nixos/wallpaper.jpg
             '';
+            sessionPath = [
+                "/home/cam/go/bin/"
+                "/home/cam/.system_node_modules/bin"
+            ];
         };
 
         # Set Config File Locations
@@ -461,8 +465,6 @@ in {
             pfetch
             set fish_greeting
             fish_vi_key_bindings
-            fish_add_path /home/cam/go/bin/
-            fish_add_path /home/cam/.system_node_modules/bin
             alias rm="rmtrash"
             alias rmdir="rmdirtrash"
             zoxide init fish | source

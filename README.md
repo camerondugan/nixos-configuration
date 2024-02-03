@@ -1,5 +1,5 @@
 # My Personal Development and Entertainment System
-
+ 
 This repo is capable of regenerating my entire system except things in my home folder.
 I use Syncthing to keep my home folder up to date.
 I hope this also provides new NixOS users a good starting point for what their configuration can be.
