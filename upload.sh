@@ -1,9 +1,8 @@
 #!/bin/sh
 
-arg1="$*"
-echo "$arg1"
+arg1="$*" # all text after command
 if [ -z "$arg1" ]; then
-	arg1="upload.sh"
+	exit 1
 fi
 
 # Switch
