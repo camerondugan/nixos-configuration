@@ -1,6 +1,7 @@
 #!/bin/sh
 
 arg1="$@"
+echo "$arg1"
 if [ -z "$arg1" ]; then
 	arg1="upload.sh"
 fi
