@@ -17,6 +17,11 @@ mkdir /home/cam/Downloads/.stfolder
 # Razer Hardware
 polychromatic-tray-applet &
 
+# This device only script for autostart (make sure it exists and is runnable)
+touch /home/cam/.nixos/this-device-autostart.sh
+chmod +x /home/cam/.nixos/this-device-autostart.sh
+bash /home/cam/.nixos/this-device-autostart.sh &
+
 # Pull Git repos
 for repo in "/home/${USER}/.nixos" "/home/${USER}/.config/nvim" "/home/${USER}/.config/nvim/lua/user/"; do
 	( (cd "$repo" && git pull) || notify-send "\~/.nixos/autostart.sh: $repo failed to pull or does not exist")
