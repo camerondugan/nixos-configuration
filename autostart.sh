@@ -10,12 +10,15 @@ swaync &
 swayidle -w timeout 600 "hyprctl dispatcher dpms off" timeout 1200 "systemctl hibernate" resume "hyprctl dispatcher dpms on" &
 (yes | trash-empty 14) & # Empty trash more than 2 weeks old
 
+# Razer Hardware
+polychromatic-tray-applet &
+
+# Update flatpaks
+yes | flatpak update &
+
 # Remove week old downloads
 find /home/cam/Downloads -mindepth 1 -mtime +7 -delete
 mkdir /home/cam/Downloads/.stfolder
-
-# Razer Hardware
-polychromatic-tray-applet &
 
 # This device only script for autostart (make sure it exists and is runnable)
 touch /home/cam/.nixos/this-device-autostart.sh
