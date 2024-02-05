@@ -137,6 +137,10 @@ in {
         '';
     };
 
+    # Faster Boot
+    systemd.services.systemd-udev-settle.enable = false;
+    systemd.services.NetworkManager-wait-online.enable = false;
+
     # Setup keyfile
     boot.initrd.secrets = {
         "/crypto_keyfile.bin" = null;
