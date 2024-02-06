@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 arg1="$*" # all text after command
 if [ -z "$arg1" ]; then

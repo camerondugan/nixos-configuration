@@ -373,6 +373,8 @@ in {
             pandoc
             openssl.dev
             pkg-config
+            optipng
+            jpegoptim
 
             # Languages
             dotnet-sdk
