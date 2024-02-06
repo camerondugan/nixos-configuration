@@ -452,6 +452,7 @@ in {
             ueberzug
             pipx
             colorama
+            pynvim
         ]))
     ];
 
