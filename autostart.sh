@@ -3,10 +3,11 @@
 # Essential
 waybar &
 hyprpaper &
-nm-applet &
-blueman-applet &
-udiskie &
-swaync &
+udiskie &                          # auto mount usbs
+swaync &                           # notifs
+blueman-applet &                   # bluetooth man
+nm-applet &                        # network man
+wl-clip-persist --clipboard both & # remember clipboard after app closes
 swayidle -w timeout 600 "hyprctl dispatcher dpms off" timeout 1200 "systemctl hibernate" resume "hyprctl dispatcher dpms on" &
 (yes | trash-empty 14) & # Empty trash more than 2 weeks old
 

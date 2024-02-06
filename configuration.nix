@@ -431,6 +431,7 @@ in {
 
         # Clipboard
         wl-clipboard
+        wl-clip-persist
         xclip
 
         # Razer
