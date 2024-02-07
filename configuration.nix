@@ -380,7 +380,7 @@ in {
             dotnet-sdk
             flutter
             gcc
-            go
+            unstable.go # go is always stable
             rstudio
             rustup
             godot_4
