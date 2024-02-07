@@ -315,6 +315,7 @@ in {
             hyprpaper
             udiskie
             swayidle
+            sway-audio-idle-inhibit
             shotman
             swaynotificationcenter
             libnotify                                                                        
