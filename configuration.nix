@@ -316,6 +316,7 @@ in {
             trash-cli # remove trash (autostart.sh)
             zoxide # better cd (needs setup)
             lf # file explorer
+            sl # Steam Locomotive
 
             # Hyprland Essentials
             waybar
