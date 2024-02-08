@@ -275,6 +275,7 @@ in {
 
     # List services that you want to enable:
     services.tailscale.enable = true;
+    services.geoclue2.enable = true;
 
     # Syncthing
     services.syncthing = {
@@ -507,6 +508,7 @@ in {
     # Battery
     powerManagement.powertop.enable = true;
     services.power-profiles-daemon.enable = true;
+    services.upower.enable = true;
 
     # Kde Connect
     programs.kdeconnect.enable = true;
