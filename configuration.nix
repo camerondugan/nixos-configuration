@@ -292,7 +292,7 @@ in {
             libreoffice-fresh
             neovide
             qalculate-gtk
-            anki-bin
+            anki
             mpv
             obs-studio
             appimage-run
