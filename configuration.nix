@@ -137,6 +137,15 @@ in {
         '';
     };
 
+    # Clightd Service bc nixos one is bonked
+    systemd.services.clightd = {
+        enable = true;
+        wantedBy = ["multi-user.target"];
+        script = ''
+            ${pkgs.clightd}/bin/clightd
+        '';
+    };
+
     # Faster Boot
     systemd.services.systemd-udev-settle.enable = false;
     systemd.services.NetworkManager-wait-online.enable = false;
@@ -442,6 +451,10 @@ in {
         # Other
         android-tools
         android-studio
+
+        # Auto Brightness
+        clight
+        clightd
 
         # Python
         (python311.withPackages(ps: with ps; [
