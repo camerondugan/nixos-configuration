@@ -254,11 +254,11 @@ in {
     services.flatpak.enable = true;
 
     # Enable hibernation. (You installed with swap right?)
-    services.logind.lidSwitch = "hibernate";
+    services.logind.lidSwitch = "hibernate"; # optionally hybrid-sleep (for saving to disk and sleeping)
     services.logind.extraConfig = ''
-        HandleSuspendKey=hibernate
+        HandleSuspendKey=suspend-then-hibernate
         HandlePowerKey=hibernate
-        IdleAction=hibernate
+        IdleAction=suspend-then-hibernate
         '';
 
     # Yubikey Optional Unlock
