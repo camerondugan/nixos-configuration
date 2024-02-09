@@ -138,7 +138,7 @@ in {
         '';
     };
 
-    # Clightd Service bc nixos one is bonked
+    # Clightd Service... NixOS one is bonked
     systemd.services.clightd = {
         enable = true;
         wantedBy = ["multi-user.target"];
@@ -426,13 +426,14 @@ in {
         lutris
 
         # Shell
+        fishPlugins.colored-man-pages
         fishPlugins.done
         fishPlugins.forgit
-        fishPlugins.fzf-fish
-        fishPlugins.puffer
+        fishPlugins.fzf
         fishPlugins.grc
-        fishPlugins.colored-man-pages
-        fishPlugins.hydro
+        fishPlugins.puffer
+        fishPlugins.sponge
+        fishPlugins.z
 
         # cli tools
         fzf
@@ -490,7 +491,8 @@ in {
             fish_vi_key_bindings
             alias rm="rmtrash"
             alias rmdir="rmdirtrash"
-            alias sl="sl -ewG"
+            alias sl="sl -ew"
+            alias i="nix-shell -p"
             zoxide init fish | source
             '';
         shellAbbrs = {
