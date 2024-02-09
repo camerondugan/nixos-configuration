@@ -241,10 +241,6 @@ in {
         pulse.enable = true;
         # If you want to use JACK applications, uncomment this
         #jack.enable = true;
-        
-        # use the example session manager (no others are packaged yet so this is enabled by default,
-        # no need to redefine it in your config for now)
-        #media-session.enable = true;
     };
 
     # Enable Power Saving Cpu Freq
@@ -256,6 +252,7 @@ in {
     # Enable hibernation. (You installed with swap right?)
     services.logind.lidSwitch = "hibernate"; # optionally hybrid-sleep (for saving to disk and sleeping)
     services.logind.extraConfig = ''
+        HibernateDelaySec=15min
         HandleSuspendKey=suspend-then-hibernate
         HandlePowerKey=hibernate
         IdleAction=suspend-then-hibernate
@@ -432,6 +429,7 @@ in {
         fishPlugins.done
         fishPlugins.forgit
         fishPlugins.fzf-fish
+        fishPlugins.puffer
         fishPlugins.grc
         fishPlugins.colored-man-pages
         fishPlugins.hydro
