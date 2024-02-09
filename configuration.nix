@@ -101,6 +101,7 @@ in {
             enable = true;
             userName = "Cameron Dugan";
             userEmail = "cameron.dugan@protonmail.com";
+            lfs.enable = true;
             extraConfig = {
                 core.editor = "vim";
                 pull.rebase = false;
