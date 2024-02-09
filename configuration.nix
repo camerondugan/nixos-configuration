@@ -492,6 +492,7 @@ in {
             fish_vi_key_bindings
             alias rm="rmtrash"
             alias rmdir="rmdirtrash"
+            alias sl="sl -ewG"
             zoxide init fish | source
             '';
         shellAbbrs = {
