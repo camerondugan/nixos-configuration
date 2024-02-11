@@ -251,6 +251,9 @@ in {
     # Flatpak for other software you can't find on nixos
     services.flatpak.enable = true;
 
+    # SSH Enable Incoming
+    services.openssh.enable = true;
+
     # Enable hibernation. (You installed with swap right?)
     services.logind.lidSwitch = "hibernate"; # optionally hybrid-sleep (for saving to disk and sleeping)
     services.logind.extraConfig = ''
