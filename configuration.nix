@@ -310,9 +310,8 @@ in {
             neovide
             qalculate-gtk
             anki
-            mpv
             obs-studio
-            cura
+            prusa-slicer
             appimage-run
 
             # Terminal Commands
@@ -325,6 +324,7 @@ in {
             zoxide # better cd (needs setup)
             lf # file explorer
             sl # Steam Locomotive
+            mpv # View Media
 
             # Hyprland Essentials
             waybar
