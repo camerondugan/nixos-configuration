@@ -32,8 +32,8 @@ nixConf="/home/${USER}/.nixos"
 
 # Pull Git repos
 for repo in "$nixConf" "/home/${USER}/.config/nvim" "/home/${USER}/.config/nvim/lua/user/"; do
-	( (cd "$repo" && git pull) || notify-send "\~/.nixos/autostart.sh: $repo failed to pull or does not exist")
+	( (cd "$repo" && git pull) || notify-send "$repo failed to pull or does not exist: .nixos/autostart.sh")
 done
 
 # Try to use the latest version of repo (just pulled from prev cmd)
-( (cd "$nixConf" && ./test.sh && notify-send "\~/.nixos/autostart.sh: Using latest config") || notify-send "\~/.nixos/autostart.sh: Switch to new config failed or $nixConf does not exist")
+( (cd "$nixConf" && ./test.sh && notify-send "Using latest config: .nixos/autostart.sh") || notify-send "Switch to new config failed or $nixConf does not exist: .nixos/autostart.sh")
