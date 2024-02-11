@@ -436,6 +436,7 @@ in {
         fishPlugins.forgit
         fishPlugins.fzf
         fishPlugins.grc
+        fishPlugins.pisces
         fishPlugins.puffer
         fishPlugins.sponge
         fishPlugins.z
