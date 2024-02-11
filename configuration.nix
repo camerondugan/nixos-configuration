@@ -251,9 +251,6 @@ in {
     # Flatpak for other software you can't find on nixos
     services.flatpak.enable = true;
 
-    # SSH Enable Incoming
-    services.openssh.enable = true;
-
     # Enable hibernation. (You installed with swap right?)
     services.logind.lidSwitch = "hibernate"; # optionally hybrid-sleep (for saving to disk and sleeping)
     services.logind.extraConfig = ''
@@ -277,8 +274,15 @@ in {
     services.xserver.libinput.enable = true;
 
     # List services that you want to enable:
-    services.tailscale.enable = true;
-    services.geoclue2.enable = true;
+    services = {
+        tailscale.enable = true;
+        geoclue2.enable = true;
+    };
+
+    # List Virtualisations you want to enable:
+    virtualisation = {
+        docker.enable = true;
+    };
 
     # Syncthing
     services.syncthing = {
@@ -292,7 +296,7 @@ in {
     users.users.cam = {
         isNormalUser = true;
         description = "Cameron Dugan";
-        extraGroups = [ "networkmanager" "wheel" "input"];
+        extraGroups = [ "networkmanager" "wheel" "input" "docker" ];
         shell = pkgs.fish;
         packages = with pkgs; [
             # Desktop Software
