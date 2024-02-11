@@ -312,6 +312,7 @@ in {
             anki
             mpv
             obs-studio
+            cura
             appimage-run
 
             # Terminal Commands
