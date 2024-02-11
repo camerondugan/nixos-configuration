@@ -28,6 +28,8 @@ in {
             '';
             sessionPath = [
                 "/home/cam/go/bin/"
+                "/home/cam/.go/bin/"
+                "/home/cam/.go/current/bin/"
                 "/home/cam/.system_node_modules/bin"
             ];
         };
@@ -412,11 +414,14 @@ in {
     nixpkgs.config.allowUnfree = true;
 
     environment.sessionVariables = {
+        EDITOR = "nvim";
+        GOBIN = "/home/cam/go/bin";
+        VISUAL = "neovide";
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
         NODE_PATH = "~/.system_node_modules/lib/node_modules";
     };
 
-    environment.gnome.excludePackages = [ pkgs.gnome-tour ];
+    # environment.gnome.excludePackages = [ pkgs.gnome-tour ];
 
     # List packages installed in system profile. To search, run:
     # $ nix search wget
