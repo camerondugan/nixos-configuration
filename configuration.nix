@@ -302,13 +302,14 @@ in {
             # Desktop Software
             firefox
             xfce.thunar
+            libreoffice-fresh
+            qalculate-gtk
+            koreader
             gimp
             inkscape
-            libsForQt5.kdenlive
             blender
-            libreoffice-fresh
+            libsForQt5.kdenlive
             neovide
-            qalculate-gtk
             anki
             obs-studio
             prusa-slicer
