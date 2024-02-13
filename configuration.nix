@@ -392,6 +392,7 @@ in {
             dosbox
             steam-run
             pandoc
+            texlive.combined.scheme-basic
             openssl.dev
             pkg-config
             optipng
