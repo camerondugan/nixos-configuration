@@ -9,10 +9,12 @@ sudo nix-channel --update
 
 # Download latest config
 nix-shell -p git --run "git clone https://gitlab.com/cameron.dugan/nixos-configuration.git"
+
 # Set config as this one
 sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
 sudo ln -s /home/"$USER"/.nixos/configuration.nix /etc/nixos/configuration.nix
-# Setup Swap.nix
+
+# Setup this-device.nix
 {
 	echo "{ config, pkgs, ... }:
 
@@ -23,7 +25,7 @@ sudo ln -s /home/"$USER"/.nixos/configuration.nix /etc/nixos/configuration.nix
 	echo "
 }"
 
-} >>~/.nixos/swap.nix
+} >>~/.nixos/this-device.nix
 # Use config
 sudo nixos-rebuild switch
 # Setup flathub (for extra options but probably won't need)
