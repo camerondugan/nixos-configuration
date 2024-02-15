@@ -42,6 +42,7 @@ in {
         xdg.configFile."wofi/config".source = ./wofi.config;
         xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
         xdg.configFile."swaync/style.css".source = ./swaync.css;
+        xdg.configFile."swaync/config.json".source = ./swaync-conf.json;
         xdg.configFile."godot/text_editor_themes/godotTheme.tet".source = ./godotTheme.tet;
 
         # Global Dark Mode
