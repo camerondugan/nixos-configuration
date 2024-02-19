@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# shellcheck disable=2154
+ntfyLogin="$(cat /home/"$USER"/.nixos/ntfy.secret)"
 
 # Essential
 waybar &
@@ -10,7 +12,7 @@ nm-applet &                        # network man
 wl-clip-persist --clipboard both & # remember clipboard after app closes
 swayidle -w \
 	timeout 600 "hyprctl dispatcher dpms off" \
-	timeout 1150 "notify-send -u critical \"System will shutdown due to inactivity!\"" \
+	timeout 1150 "ntfy pub -u $ntfyLogin ntfy.camerondugan.com/Desktop-Automations $hostname will shutdown due to inactivity!" \
 	timeout 1200 "systemctl suspend-then-hibernate" \
 	resume "sleep 1 && hyprctl dispatcher dpms on" &
 sway-audio-idle-inhibit &
