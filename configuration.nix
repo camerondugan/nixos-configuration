@@ -316,18 +316,6 @@ in {
             prusa-slicer
             appimage-run
 
-            # Terminal Commands
-            zip # create .zip
-            unzip # unzip .zip
-            rar # create .rar
-            unrar # unzip .rar
-            rmtrash # trash when rm (needs alias)
-            trash-cli # remove trash (autostart.sh)
-            zoxide # better cd (needs setup)
-            lf # file explorer
-            sl # Steam Locomotive
-            mpv # View Media
-
             # Hyprland Essentials
             waybar
             wofi
@@ -439,7 +427,6 @@ in {
     environment.systemPackages = with pkgs; [
         # Game Software.
         unstable.bottles
-        lutris
 
         # Shell
         fishPlugins.colored-man-pages
@@ -452,6 +439,19 @@ in {
         fishPlugins.sponge
         fishPlugins.z
 
+        # Terminal Commands
+        zip # create .zip
+        unzip # unzip .zip
+        rar # create .rar
+        unrar # unzip .rar
+        rmtrash # trash when rm (needs alias)
+        trash-cli # remove trash (autostart.sh)
+        zoxide # better cd (needs setup)
+        lf # file explorer
+        sl # Steam Locomotive
+        mpv # View Media
+
+
         # cli tools
         fzf
         grc
@@ -462,10 +462,6 @@ in {
         wl-clipboard
         wl-clip-persist
         xclip
-
-        # Razer
-        openrazer-daemon
-        polychromatic
 
         # Other
         android-tools
