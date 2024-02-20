@@ -316,30 +316,6 @@ in {
             prusa-slicer
             appimage-run
 
-            # Hyprland Essentials
-            waybar
-            wofi
-            playerctl
-            brightnessctl
-            hyprpaper
-            udiskie
-            swayidle
-            sway-audio-idle-inhibit
-            shotman
-            swaynotificationcenter
-            libnotify                                                                        
-            swayosd # manages volume and caps-lock notifications
-            
-            # Terminal
-            kitty
-            networkmanagerapplet                                                             
-            polkit
-            pavucontrol
-            youtube-tui
-            yt-dlp
-            ffmpeg
-            unsilence
-
             # QMK
             qmk
 
@@ -349,6 +325,7 @@ in {
             winetricks
             gamescope
             unstable.r2modman
+            unstable.bottles
 
             # Neovim extras
             bottom
@@ -368,16 +345,9 @@ in {
             # Software Dev
             lazygit
             gdb
-            cargo
-            cmake
-            gnumake
             nasm
             jdk
-            nodePackages.npm
-            php
             raylib
-            ruby
-            wget
             dosbox
             steam-run
             pandoc
@@ -425,8 +395,6 @@ in {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
-        # Game Software.
-        unstable.bottles
 
         # Shell
         fishPlugins.colored-man-pages
@@ -451,12 +419,42 @@ in {
         sl # Steam Locomotive
         mpv # View Media
 
+        # Terminal
+        kitty
+        networkmanagerapplet                                                             
+        polkit
+        pavucontrol
+        youtube-tui
+        yt-dlp
+        ffmpeg
+        unsilence
+        cargo
+        cmake
+        gnumake
+        php
+        nodePackages.npm
+        wget
+        ruby
 
         # cli tools
         fzf
         grc
         pfetch
         sshfs
+
+        # Hyprland Essentials
+        waybar
+        wofi
+        playerctl
+        brightnessctl
+        hyprpaper
+        udiskie
+        swayidle
+        sway-audio-idle-inhibit
+        shotman
+        swaynotificationcenter
+        libnotify                                                                        
+        swayosd # manages volume and caps-lock notifications
 
         # Clipboard
         wl-clipboard
