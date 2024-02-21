@@ -356,6 +356,7 @@ in {
             pkg-config
             optipng
             jpegoptim
+            ntfy-sh
 
             # Languages
             dotnet-sdk
