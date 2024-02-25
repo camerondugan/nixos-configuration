@@ -129,7 +129,7 @@ in {
                 remove-old-temp-files = true;
             };
             "org/gnome/desktop/media-handling" = {
-                autorun-x-content-start-app = ["x-content/ostree-repository"];
+                autorun-never = false;
             };
             "org/gnome/desktop/peripherals/touchpad" = {
                 tap-to-click = true;
@@ -142,8 +142,8 @@ in {
                 minimize = ["<Super>j"];
                 switch-to-workspace-left = ["<Super>h"];
                 switch-to-workspace-right = ["<Super>l"];
-                move-to-workspace-left = ["<Alt><Super>h"];
-                move-to-workspace-right = ["<Alt><Super>l"];
+                move-to-workspace-left = ["<Shift><Super>h"];
+                move-to-workspace-right = ["<Shift><Super>l"];
                 close = ["<Super>c"];
                 toggle-fullscreen = ["<Super>f"];
             };
@@ -152,6 +152,10 @@ in {
             };
             "org/gnome/settings-daemon/plugins/media-keys" = {
                 custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
+                www = ["<Super>w"];
+                search = ["<Super>r"];
+                calculator = ["<Super>m"]; #m = math
+                screensaver = ["<Super><Shift>m"];
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
                 binding = "<Super>t";
