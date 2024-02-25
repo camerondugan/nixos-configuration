@@ -45,39 +45,32 @@ in {
         xdg.configFile."swaync/config.json".source = ./swaync-conf.json;
         xdg.configFile."godot/text_editor_themes/godotTheme.tet".source = ./godotTheme.tet;
 
-        # Global Dark Mode
-        dconf.settings = {
-            "org/gnome/desktop/interface" = {
-                color-scheme = "prefer-dark";
-            };
-        };
-
         # Set Cursor Theme
-        home.pointerCursor = {
-            name = "Catppuccin-Mocha-Light-Cursors";
-            package = pkgs.catppuccin-cursors.mochaLight;
-        };
+        # home.pointerCursor = {
+        #     name = "Catppuccin-Mocha-Light-Cursors";
+        #     package = pkgs.catppuccin-cursors.mochaLight;
+        # };
 
         # Set GTK App Theme
         gtk = {
             enable = true;
-            cursorTheme = {
-                name = "Catppuccin-Mocha-Light-Cursors";
-                package = pkgs.catppuccin-cursors.mochaLight;
-            };
+            # cursorTheme = {
+            #     name = "Catppuccin-Mocha-Light-Cursors";
+            #     package = pkgs.catppuccin-cursors.mochaLight;
+            # };
             iconTheme = {
               name = "Adwaita";
               package = pkgs.gnome.adwaita-icon-theme;
             };
-            theme = {
-                name = "Catppuccin-Mocha-Standard-Blue-Dark";
-                package = pkgs.catppuccin-gtk.override {
-                    accents = [ "blue" ];
-                    size = "standard";
-                    variant = "mocha";
-                    tweaks = [ "rimless" ];
-                };
-            };
+            # theme = {
+            #     name = "Catppuccin-Mocha-Standard-Blue-Dark";
+            #     package = pkgs.catppuccin-gtk.override {
+            #         accents = [ "blue" ];
+            #         size = "standard";
+            #         variant = "mocha";
+            #         tweaks = [ "rimless" ];
+            #     };
+            # };
             gtk3.extraConfig = {
                 Settings = ''
                     gtk-application-prefer-dark-theme=1
@@ -117,6 +110,63 @@ in {
             viAlias = true;
             vimAlias = true;
         };
+
+        dconf.settings = {
+            "org/gnome/desktop/interface" = {
+                color-scheme = "prefer-dark";
+                show-battery-percentage = true;
+                gtk-theme = "Adwaita-dark";
+            };
+            "org/gnome/desktop/background" = {
+                picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
+                picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-d.svg";
+                primary-color = "#241f31";
+            };
+            "org/gnome/desktop/screensaver" = {
+                picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
+                primary-color = "#241f31";
+            };
+            "org/gnome/mutter" = {
+                dynamic-workspaces = true;
+            };
+            "org/gnome/desktop/privacy" = {
+                remove-old-trash-files = true;
+                remove-old-temp-files = true;
+            };
+            "org/gnome/desktop/media-handling" = {
+                autorun-x-content-start-app = ["x-content/ostree-repository"];
+            };
+            "org/gnome/desktop/peripherals/touchpad" = {
+                tap-to-click = true;
+            };
+            "org/gnome/desktop/peripherals/mouse" = {
+                accel-profile = "flat";
+            };
+            "org/gnome/terminal/legacy".theme-variant = "dark";
+            "org/gnome/desktop/wm/keybindings" = {
+                minimize = ["<Super>j"];
+                switch-to-workspace-left = ["<Super>h"];
+                switch-to-workspace-right = ["<Super>l"];
+                move-to-workspace-left = ["<Alt><Super>h"];
+                move-to-workspace-right = ["<Alt><Super>l"];
+                close = ["<Super>c"];
+                toggle-fullscreen = ["<Super>f"];
+            };
+            "org/gnome/settings-daemon/plugins/power" = {
+                power-button-action = "hibernate";
+            };
+            "org/gnome/settings-daemon/plugins/media-keys" = {
+                custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
+            };
+            "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+                binding = "<Super>t";
+                command = "kgx";
+                name = "Launch Terminal";
+            };
+            "org/gnome/shell" = {
+                favorite-apps = ["brave-browser.desktop" "obsidian.desktop" "nvim.desktop" "org.gnome.Terminal.desktop" "org.gnome.Music.desktop" "org.gnome.Photos.desktop" "org.gnome.Nautilus.desktop"];
+            };
+        };
     };
     # Set Default Applications
     xdg.mime.defaultApplications = {
@@ -126,6 +176,8 @@ in {
     fonts.packages = with pkgs; [
         nerdfonts
     ];
+
+
 
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
@@ -187,25 +239,26 @@ in {
     };
 
     # XDG Setup
-    xdg.portal.wlr.enable = true;
-    xdg.portal.extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-        pkgs.xdg-desktop-portal-kde
-    ];
+    # xdg.portal.wlr.enable = true;
+    # xdg.portal.extraPortals = [
+    #     pkgs.xdg-desktop-portal-gtk
+    #     pkgs.xdg-desktop-portal-kde
+    # ];
 
     # Enable the X11 windowing system.
     services.xserver.enable = true;
 
     # Enable a display manager.
     services.xserver.displayManager.gdm.enable = true;
-
-    # Login manager
-    services.xserver.displayManager.autoLogin.enable = true;
-    services.xserver.displayManager.autoLogin.user = "cam";
+    services.xserver.displayManager.gdm.wayland = true;
 
     # Desktop environment
-    # services.xserver.desktopManager.gnome.enable = true;
-    programs.hyprland.enable = true;
+    services.xserver.desktopManager.gnome.enable = true;
+    # programs.hyprland.enable = true;
+
+    # # Login manager
+    # services.xserver.displayManager.autoLogin.enable = true;
+    # services.xserver.displayManager.autoLogin.user = "cam";
 
     # Configure keymap in X11
     services.xserver = {
@@ -391,7 +444,7 @@ in {
         NODE_PATH = "~/.system_node_modules/lib/node_modules";
     };
 
-    # environment.gnome.excludePackages = [ pkgs.gnome-tour ];
+    environment.gnome.excludePackages = [ pkgs.gnome-tour ];
 
     # List packages installed in system profile. To search, run:
     # $ nix search wget
