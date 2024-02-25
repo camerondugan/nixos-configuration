@@ -129,6 +129,8 @@ in {
                 remove-old-temp-files = true;
             };
             "org/gnome/desktop/media-handling" = {
+                # Ask what to do instead of autorunning software from usb
+                autorun-x-content-start-app = ["x-content/ostree-repository"];
                 autorun-never = false;
             };
             "org/gnome/desktop/peripherals/touchpad" = {
@@ -436,6 +438,7 @@ in {
         VISUAL = "neovide";
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
         NODE_PATH = "~/.system_node_modules/lib/node_modules";
+        WEBKIT_FORCE_SANDBOX = "0"; # gnome accounts fix
     };
 
     environment.gnome.excludePackages = [ 
