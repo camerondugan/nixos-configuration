@@ -22,10 +22,6 @@ in {
     home-manager.users.cam = {
         home = {
             stateVersion = "23.05";
-            file.".config/hypr/hyprpaper.conf".text = ''
-                preload = ~/.nixos/wallpaper.jpg
-                wallpaper = ,~/.nixos/wallpaper.jpg
-            '';
             sessionPath = [
                 "/home/cam/go/bin/"
                 "/home/cam/.go/bin/"
@@ -35,14 +31,6 @@ in {
         };
 
         # Set Config File Locations
-        xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
-        xdg.configFile."waybar/config".source = ./waybar.conf;
-        xdg.configFile."waybar/style.css".source = ./waybar.css;
-        xdg.configFile."wofi/style.css".source = ./wofi.css;
-        xdg.configFile."wofi/config".source = ./wofi.config;
-        xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
-        xdg.configFile."swaync/style.css".source = ./swaync.css;
-        xdg.configFile."swaync/config.json".source = ./swaync-conf.json;
         xdg.configFile."godot/text_editor_themes/godotTheme.tet".source = ./godotTheme.tet;
 
         # Set Cursor Theme
@@ -177,8 +165,6 @@ in {
         nerdfonts
     ];
 
-
-
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
@@ -254,7 +240,6 @@ in {
 
     # Desktop environment
     services.xserver.desktopManager.gnome.enable = true;
-    # programs.hyprland.enable = true;
 
     # # Login manager
     # services.xserver.displayManager.autoLogin.enable = true;
@@ -355,9 +340,7 @@ in {
         packages = with pkgs; [
             # Desktop Software
             firefox
-            xfce.thunar
             libreoffice-fresh
-            qalculate-gtk
             koreader
             gimp
             inkscape
@@ -410,6 +393,7 @@ in {
             optipng
             jpegoptim
             ntfy-sh
+            gaphor
 
             # Languages
             dotnet-sdk
@@ -444,7 +428,10 @@ in {
         NODE_PATH = "~/.system_node_modules/lib/node_modules";
     };
 
-    environment.gnome.excludePackages = [ pkgs.gnome-tour ];
+    environment.gnome.excludePackages = [ 
+        pkgs.gnome-tour 
+        pkgs.gnome.gnome-software 
+    ];
 
     # List packages installed in system profile. To search, run:
     # $ nix search wget
@@ -474,7 +461,6 @@ in {
         mpv # View Media
 
         # Terminal
-        kitty
         networkmanagerapplet                                                             
         polkit
         pavucontrol
@@ -495,20 +481,6 @@ in {
         grc
         pfetch
         sshfs
-
-        # Hyprland Essentials
-        waybar
-        wofi
-        playerctl
-        brightnessctl
-        hyprpaper
-        udiskie
-        swayidle
-        sway-audio-idle-inhibit
-        shotman
-        swaynotificationcenter
-        libnotify                                                                        
-        swayosd # manages volume and caps-lock notifications
 
         # Clipboard
         wl-clipboard
