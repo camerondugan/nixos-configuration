@@ -164,6 +164,11 @@ in {
                 command = "kgx";
                 name = "Launch Terminal";
             };
+            "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+                binding = "<Super>n";
+                command = "neovide --multigrid";
+                name = "Launch Neovide";
+            };
             "org/gnome/shell" = {
                 favorite-apps = ["firefox.desktop" "neovide.desktop" "anki.desktop" "org.gnome.Console.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Music.desktop" "gnome-system-monitor.desktop"];
             };
