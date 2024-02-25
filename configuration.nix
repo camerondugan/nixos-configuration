@@ -351,6 +351,11 @@ in {
             obs-studio
             prusa-slicer
             appimage-run
+            gnome-podcasts
+            warp
+            impression
+            gnome-obfuscate
+            eyedropper
 
             # QMK
             qmk
