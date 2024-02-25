@@ -122,6 +122,7 @@ in {
             };
             "org/gnome/mutter" = {
                 dynamic-workspaces = true;
+                edge-tiling = true;
             };
             "org/gnome/desktop/privacy" = {
                 remove-old-trash-files = true;
@@ -202,12 +203,6 @@ in {
     boot.initrd.secrets = {
         "/crypto_keyfile.bin" = null;
     };
-
-    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-    # Configure network proxy if necessary
-    # networking.proxy.default = "http://user:password@proxy:port/";
-    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
     # Enable networking
     networking.networkmanager.enable = true;
