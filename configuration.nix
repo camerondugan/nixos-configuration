@@ -152,7 +152,7 @@ in {
                 name = "Launch Terminal";
             };
             "org/gnome/shell" = {
-                favorite-apps = ["brave-browser.desktop" "obsidian.desktop" "nvim.desktop" "org.gnome.Terminal.desktop" "org.gnome.Music.desktop" "org.gnome.Photos.desktop" "org.gnome.Nautilus.desktop"];
+                favorite-apps = ["firefox.desktop" "neovide.desktop" "anki.desktop" "org.gnome.Console.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Music.desktop" "gnome-system-monitor.desktop"];
             };
         };
     };
