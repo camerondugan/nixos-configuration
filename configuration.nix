@@ -169,7 +169,7 @@ in {
                 dynamic-workspaces = true;
                 edge-tiling = true;
                 attatch-modal-dialogs = false;
-                center-new-windows = true;
+                center-new-windows = false;
                 resize-with-right-button = true;
             };
             "org/gnome/settings-daemon/plugins/power" = {
