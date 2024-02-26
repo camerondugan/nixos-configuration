@@ -112,13 +112,15 @@ in {
                 show-weekdate = false;
             };
             "org/gnome/desktop/background" = {
-                picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
-                picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-d.svg";
-                primary-color = "#241f31";
+                picture-uri = "file:///home/cam/.nixos/wallpaper.jpg";
+                picture-uri-dark = "file:///home/cam/.nixos/wallpaper.jpg";
+                primary-color = "#000000000000";
+                secondary-color = "#000000000000";
             };
             "org/gnome/desktop/screensaver" = {
-                picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
-                primary-color = "#241f31";
+                picture-uri = "file:///home/cam/.nixos/wallpaper.jpg";
+                primary-color = "#000000000000";
+                secondary-color = "#000000000000";
             };
             "org/gnome/mutter" = {
                 dynamic-workspaces = true;
@@ -483,14 +485,13 @@ in {
         rar # create .rar
         unrar # unzip .rar
         rmtrash # trash when rm (needs alias)
-        trash-cli # remove trash (autostart.sh)
         zoxide # better cd (needs setup)
         lf # file explorer
         sl # Steam Locomotive
         mpv # View Media
 
         # Terminal
-        networkmanagerapplet                                                             
+        networkmanagerapplet
         polkit
         pavucontrol
         youtube-tui
