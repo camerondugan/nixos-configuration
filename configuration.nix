@@ -108,6 +108,9 @@ in {
                 clock-show-seconds = false;
                 gtk-theme = "Adwaita-dark";
             };
+            "org/gnome/desktop/sound" = {
+                theme-name = "freedesktop";
+            };
             "org/gnome/desktop/calendar" = {
                 show-weekdate = false;
             };
@@ -121,10 +124,6 @@ in {
                 picture-uri = "file:///home/cam/.nixos/wallpaper.jpg";
                 primary-color = "#000000000000";
                 secondary-color = "#000000000000";
-            };
-            "org/gnome/mutter" = {
-                dynamic-workspaces = true;
-                edge-tiling = true;
             };
             "org/gnome/desktop/privacy" = {
                 remove-old-trash-files = true;
@@ -141,7 +140,17 @@ in {
             "org/gnome/desktop/peripherals/mouse" = {
                 accel-profile = "flat";
             };
-            "org/gnome/terminal/legacy".theme-variant = "dark";
+            "org/gnome/desktop/input-sources" = {
+                xkb-options = [
+                    "terminate:ctr_alt_bksp"
+                    "lv3:ralt_switch"
+                    "ctrl:nocaps"
+                ];
+            };
+            "org/gnome/desktop/wm/preferences" = {
+                focus-mode = "sloppy";
+                auto-raise = true;
+            };
             "org/gnome/desktop/wm/keybindings" = {
                 toggle-fullscreen = ["<Super>f"];
                 minimize = ["<Super>j"];
@@ -152,6 +161,13 @@ in {
                 move-to-workspace-right = ["<Shift><Super>l"];
                 toggle-on-all-workspaces = ["<Super>p"];
                 show-desktop = ["<Super>d"];
+            };
+            "org/gnome/mutter" = {
+                dynamic-workspaces = true;
+                edge-tiling = true;
+                attatch-modal-dialogs = false;
+                center-new-windows = true;
+                resize-with-right-button = true;
             };
             "org/gnome/settings-daemon/plugins/power" = {
                 power-button-action = "hibernate";
@@ -181,6 +197,9 @@ in {
                 binding = "<Super>e";
                 command = "nautilus";
                 name = "Launch File Explorer";
+            };
+            "org/gnome/shell/keybindings" = {
+                focus-active-notification = "<Super>comma";
             };
             "org/gnome/shell" = {
                 favorite-apps = ["firefox.desktop" "neovide.desktop" "anki.desktop" "org.gnome.Console.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Music.desktop" "gnome-system-monitor.desktop"];
