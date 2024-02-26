@@ -107,6 +107,8 @@ in {
                 clock-show-date = false;
                 clock-show-seconds = false;
                 gtk-theme = "Adwaita-dark";
+                font-hinting = "medium";
+                font-antialiasing = "grayscale";
             };
             "org/gnome/desktop/sound" = {
                 theme-name = "freedesktop";
@@ -140,16 +142,17 @@ in {
             "org/gnome/desktop/peripherals/mouse" = {
                 accel-profile = "flat";
             };
-            "org/gnome/desktop/input-sources" = {
-                xkb-options = [
+            "org/gnome/desktop/input-sources" = { 
+                xkb-options = [#make caps ctrl
                     "terminate:ctr_alt_bksp"
                     "lv3:ralt_switch"
-                    "ctrl:nocaps"
+                    "caps:ctrl_modifier" 
                 ];
             };
             "org/gnome/desktop/wm/preferences" = {
                 focus-mode = "sloppy";
                 auto-raise = true;
+                button-layout = "appmenu:minimize,close";
             };
             "org/gnome/desktop/wm/keybindings" = {
                 toggle-fullscreen = ["<Super>f"];
