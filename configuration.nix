@@ -141,19 +141,25 @@ in {
             };
             "org/gnome/terminal/legacy".theme-variant = "dark";
             "org/gnome/desktop/wm/keybindings" = {
+                toggle-fullscreen = ["<Super>f"];
                 minimize = ["<Super>j"];
+                close = ["<Super>c"];
                 switch-to-workspace-left = ["<Super>h"];
                 switch-to-workspace-right = ["<Super>l"];
                 move-to-workspace-left = ["<Shift><Super>h"];
                 move-to-workspace-right = ["<Shift><Super>l"];
-                close = ["<Super>c"];
-                toggle-fullscreen = ["<Super>f"];
+                toggle-on-all-workspaces = ["<Super>p"];
+                show-desktop = ["<Super>d"];
             };
             "org/gnome/settings-daemon/plugins/power" = {
                 power-button-action = "hibernate";
             };
             "org/gnome/settings-daemon/plugins/media-keys" = {
-                custom-keybindings = ["/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"];
+                custom-keybindings = [
+                    "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+                    "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+                    "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+                ];
                 www = ["<Super>w"];
                 search = ["<Super>r"];
                 calculator = ["<Super>m"]; #m = math
@@ -168,6 +174,11 @@ in {
                 binding = "<Super>n";
                 command = "neovide --multigrid";
                 name = "Launch Neovide";
+            };
+            "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+                binding = "<Super>e";
+                command = "nautilus";
+                name = "Launch File Explorer";
             };
             "org/gnome/shell" = {
                 favorite-apps = ["firefox.desktop" "neovide.desktop" "anki.desktop" "org.gnome.Console.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Music.desktop" "gnome-system-monitor.desktop"];

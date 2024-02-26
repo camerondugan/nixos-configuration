@@ -9,7 +9,7 @@ fi
 # Switch
 sudo nix-channel --update
 if sudo nixos-rebuild switch --upgrade --fast --show-trace; then
-	hyprctl reload
+	# hyprctl reload
 	git add . && (
 		git commit -m "$arg1"
 		git push
@@ -18,7 +18,7 @@ if sudo nixos-rebuild switch --upgrade --fast --show-trace; then
 else
 	# Build for next boot
 	if sudo nixos-rebuild boot --upgrade --fast --show-trace; then
-		hyprctl reload
+		# hyprctl reload
 		git add . && (
 			git commit -m "$arg1"
 			git push
