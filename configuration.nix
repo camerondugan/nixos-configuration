@@ -184,7 +184,8 @@ in {
                 www = ["<Super>w"];
                 search = ["<Super>r"];
                 calculator = ["<Super>m"]; #m = math
-                screensaver = ["<Super><Shift>m"];
+                logout = ["<Super><Shift>m"];
+                screensaver = "unset";
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
                 binding = "<Super>t";
@@ -206,6 +207,8 @@ in {
             };
             "org/gnome/shell" = {
                 favorite-apps = ["firefox.desktop" "neovide.desktop" "anki.desktop" "org.gnome.Console.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Music.desktop" "gnome-system-monitor.desktop"];
+                enabled-extensions = ["espresso@coadmunkee.github.com"];
+                disabled-extensions = [];
             };
         };
     };
@@ -560,6 +563,9 @@ in {
             colorama
             pynvim
         ]))
+
+        # Gnome Extensions
+        gnomeExtensions.espresso
     ];
 
     # Some programs need SUID wrappers, can be configured further or are
