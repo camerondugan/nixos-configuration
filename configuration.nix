@@ -202,7 +202,7 @@ in {
                 name = "Launch File Explorer";
             };
             "org/gnome/shell/keybindings" = {
-                focus-active-notification = "<Super>comma";
+                focus-active-notification = ["<Shift><Super>n"];
             };
             "org/gnome/shell" = {
                 favorite-apps = ["firefox.desktop" "neovide.desktop" "anki.desktop" "org.gnome.Console.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Music.desktop" "gnome-system-monitor.desktop"];
