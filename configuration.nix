@@ -210,6 +210,9 @@ in {
                 enabled-extensions = ["espresso@coadmunkee.github.com"];
                 disabled-extensions = [];
             };
+            "org/gnome/shell/extensions/espresso" = {
+                show-notifications = false;
+            };
         };
     };
     # Set Default Applications
