@@ -502,6 +502,7 @@ in {
 
         # GNOME
         gnome.gnome-sound-recorder
+        gwc
 
         # Shell
         fishPlugins.colored-man-pages
