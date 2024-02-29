@@ -409,6 +409,7 @@ in {
             impression
             gnome-obfuscate
             eyedropper
+            audacity
 
             # QMK
             qmk
@@ -502,7 +503,6 @@ in {
 
         # GNOME
         gnome.gnome-sound-recorder
-        gwc
 
         # Shell
         fishPlugins.colored-man-pages
