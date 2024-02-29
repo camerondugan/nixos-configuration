@@ -489,7 +489,6 @@ in {
         VISUAL = "neovide";
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
         NODE_PATH = "~/.system_node_modules/lib/node_modules";
-        PKG_CONFIG_PATH = "${pkgs.glib.dev}/lib/pkgconfig/:";
     };
 
     environment.gnome.excludePackages = [ 
@@ -500,6 +499,9 @@ in {
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
+
+        # GNOME
+        gnome.gnome-sound-recorder
 
         # Shell
         fishPlugins.colored-man-pages
