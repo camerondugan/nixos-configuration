@@ -398,7 +398,7 @@ in {
             gimp
             inkscape
             blender
-            libsForQt5.kdenlive
+            unstable.libsForQt5.kdenlive
             neovide
             anki
             obs-studio
