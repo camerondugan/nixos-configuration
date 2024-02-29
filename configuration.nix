@@ -194,7 +194,7 @@ in {
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
                 binding = "<Super>n";
-                command = "neovide --multigrid";
+                command = "neovide --multigrid --size 1500x1375";
                 name = "Launch Neovide";
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
