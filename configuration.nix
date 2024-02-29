@@ -452,6 +452,11 @@ in {
             jpegoptim
             ntfy-sh
             gaphor
+            glib
+            gobject-introspection
+            dbus-glib
+            gtk4
+            gtk3
 
             # Languages
             dotnet-sdk
@@ -484,7 +489,7 @@ in {
         VISUAL = "neovide";
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
         NODE_PATH = "~/.system_node_modules/lib/node_modules";
-        WEBKIT_FORCE_SANDBOX = "0"; # gnome accounts fix
+        PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig:$PKG_CONFIG_PATH";
     };
 
     environment.gnome.excludePackages = [ 
