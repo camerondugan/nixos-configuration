@@ -489,7 +489,7 @@ in {
         VISUAL = "neovide";
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
         NODE_PATH = "~/.system_node_modules/lib/node_modules";
-        PKG_CONFIG_PATH = "/run/current-system/sw/lib/pkgconfig:$PKG_CONFIG_PATH";
+        PKG_CONFIG_PATH = "${pkgs.glib.dev}/lib/pkgconfig/:";
     };
 
     environment.gnome.excludePackages = [ 
