@@ -31,6 +31,7 @@ in {
         };
 
         # Set Config File Locations
+        xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
         xdg.configFile."godot/text_editor_themes/godotTheme.tet".source = ./godotTheme.tet;
 
         # Set Cursor Theme
@@ -168,7 +169,7 @@ in {
             "org/gnome/mutter" = {
                 dynamic-workspaces = true;
                 edge-tiling = true;
-                attatch-modal-dialogs = false;
+                attach-modal-dialogs = false;
                 center-new-windows = false;
                 resize-with-right-button = true;
             };
@@ -189,13 +190,14 @@ in {
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
                 binding = "<Super>t";
-                command = "kgx";
+                command = "kitty";
                 name = "Launch Terminal";
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
                 binding = "<Super>n";
-                command = "neovide --multigrid --size 1500x1375";
-                name = "Launch Neovide";
+                # command = "neovide --multigrid --size 1500x1375";
+                command = "kitty nvim";
+                name = "Launch nvim in kitty";
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
                 binding = "<Super>e";
@@ -399,7 +401,7 @@ in {
             gimp
             inkscape
             blender
-            libsForQt5.kdenlive
+            unstable.libsForQt5.kdenlive
             neovide
             anki
             obs-studio
@@ -410,6 +412,7 @@ in {
             impression
             gnome-obfuscate
             eyedropper
+            audacity
 
             # QMK
             qmk
@@ -519,6 +522,7 @@ in {
         mpv # View Media
 
         # Terminal
+        kitty
         networkmanagerapplet
         polkit
         pavucontrol
