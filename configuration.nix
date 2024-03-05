@@ -3,7 +3,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let unstable = import <nixos-unstable> {config={allowUnfree=true;};};
 in {
@@ -47,8 +47,8 @@ in {
             #     package = pkgs.catppuccin-cursors.mochaLight;
             # };
             iconTheme = {
-              name = "Adwaita";
-              package = pkgs.gnome.adwaita-icon-theme;
+                name = "Adwaita";
+                package = pkgs.gnome.adwaita-icon-theme;
             };
             # theme = {
             #     name = "Catppuccin-Mocha-Standard-Blue-Dark";
@@ -132,7 +132,7 @@ in {
                 remove-old-temp-files = true;
             };
             "org/gnome/desktop/media-handling" = {
-                # Ask what to do instead of autorunning software from usb
+            # Ask what to do instead of autorunning software from usb
                 autorun-x-content-start-app = ["x-content/ostree-repository"];
                 autorun-never = false;
             };
@@ -178,13 +178,13 @@ in {
             "org/gnome/settings-daemon/plugins/media-keys" = {
                 custom-keybindings = [
                     "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-                    "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
-                    "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+                        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+                        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
                 ];
                 www = ["<Super>w"];
                 search = ["<Super>r"];
                 calculator = ["<Super>m"]; #m = math
-                logout = ["<Super><Shift>m"];
+                    logout = ["<Super><Shift>m"];
                 screensaver = "unset";
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -215,6 +215,7 @@ in {
             };
         };
     };
+
     # Set Default Applications
     xdg.mime.defaultApplications = {
         "inode/directory" = "org.gnome.Nautilus.desktop";
@@ -350,7 +351,7 @@ in {
         HandleSuspendKey=suspend-then-hibernate
         HandlePowerKey=hibernate
         IdleAction=suspend-then-hibernate
-        '';
+    '';
 
     # Yubikey Optional Unlock
     security.pam.u2f = {
@@ -441,22 +442,14 @@ in {
             gdb
             nasm
             jdk
-            raylib
             dosbox
             steam-run
             pandoc
             texlive.combined.scheme-medium
-            openssl.dev
-            pkg-config
             optipng
             jpegoptim
             ntfy-sh
             gaphor
-            glib
-            gobject-introspection
-            dbus-glib
-            gtk4
-            gtk3
 
             # Languages
             dotnet-sdk
