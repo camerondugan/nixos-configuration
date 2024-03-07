@@ -209,7 +209,7 @@ in {
             };
             "org/gnome/shell" = {
                 favorite-apps = ["firefox.desktop" "neovide.desktop" "anki.desktop" "org.gnome.Console.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Music.desktop" "gnome-system-monitor.desktop"];
-                enabled-extensions = ["espresso@coadmunkee.github.com"];
+                enabled-extensions = ["espresso@coadmunkee.github.com" "tiling-assistant@leleat-on-github"];
                 disabled-extensions = [];
             };
             "org/gnome/shell/extensions/espresso" = {
@@ -573,6 +573,7 @@ in {
 
         # Gnome Extensions
         gnomeExtensions.espresso
+        gnomeExtensions.tiling-assistant
     ];
 
     # Some programs need SUID wrappers, can be configured further or are
