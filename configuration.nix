@@ -151,9 +151,9 @@ in {
                 ];
             };
             "org/gnome/desktop/wm/preferences" = {
-                focus-mode = "sloppy";
-                auto-raise = true;
-                button-layout = "appmenu:minimize,close";
+                focus-mode = "sloppy"; #mouse
+                auto-raise = false;
+                button-layout = "appmenu:minimize,maximize,close";
             };
             "org/gnome/desktop/wm/keybindings" = {
                 toggle-fullscreen = ["<Super>f"];

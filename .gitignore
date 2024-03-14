@@ -7,3 +7,8 @@ reloading the following units: dbus.service
 restarting the following units: polkit.service
 starting the following units: accounts-daemon.service
 the following new units were started: auto-cpufreq.service, noUsbSleep.service
+[main 63c6ea5] gi to gi
+ 5 files changed, 25 insertions(+), 10 deletions(-)
+ create mode 100644 ntfy.secret
+ create mode 100755 this-device-autostart.sh
+ create mode 100644 this-device.nix
