@@ -209,7 +209,7 @@ in {
             };
             "org/gnome/shell" = {
                 favorite-apps = ["firefox.desktop" "neovide.desktop" "anki.desktop" "org.gnome.Console.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Music.desktop" "gnome-system-monitor.desktop"];
-                enabled-extensions = ["espresso@coadmunkee.github.com" "tiling-assistant@leleat-on-github"];
+                enabled-extensions = ["espresso@coadmunkee.github.com" "tiling-assistant@leleat-on-github" "rounded-window-corners@yilozt" "Rounded_Corners@lennart-k"];
                 disabled-extensions = [];
             };
             "org/gnome/shell/extensions/espresso" = {
@@ -574,6 +574,8 @@ in {
         # Gnome Extensions
         gnomeExtensions.espresso
         gnomeExtensions.tiling-assistant
+        gnomeExtensions.rounded-corners # monitor corners
+        unstable.gnomeExtensions.rounded-window-corners
     ];
 
     # Some programs need SUID wrappers, can be configured further or are
@@ -599,12 +601,8 @@ in {
             zoxide init fish | source
             '';
         shellAbbrs = {
-            add="git add";
-            commit="git commit";
-            pull="git pull";
-            push="git push";
-            clone="git clone";
-            cd="z";
+            cd="z"; # force use z
+            gi="gi >> .gitignore"; # append to gitignore
         };
     };
     programs.dconf.enable = true;

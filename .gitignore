@@ -1,3 +1,9 @@
-this-device.nix
-this-device-autostart.sh
-*.secret
+stopping the following units: accounts-daemon.service
+activating the configuration...
+setting up /etc...
+reloading user units for cam...
+setting up tmpfiles
+reloading the following units: dbus.service
+restarting the following units: polkit.service
+starting the following units: accounts-daemon.service
+the following new units were started: auto-cpufreq.service, noUsbSleep.service
