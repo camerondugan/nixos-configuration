@@ -151,7 +151,7 @@ in {
                 ];
             };
             "org/gnome/desktop/wm/preferences" = {
-                focus-mode = "sloppy"; #mouse
+                focus-mode = "click"; #sloppy, mouse
                 auto-raise = false;
                 button-layout = "appmenu:minimize,maximize,close";
             };
