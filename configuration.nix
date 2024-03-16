@@ -445,6 +445,7 @@ in {
             gdb
             nasm
             jdk
+            clang
             dosbox
             steam-run
             pandoc
