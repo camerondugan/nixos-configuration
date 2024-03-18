@@ -594,11 +594,16 @@ in {
         interactiveShellInit = ''
             pfetch
             set fish_greeting
+
             fish_vi_key_bindings
+            bind --mode insert \cW 'fish_clipboard_copy' # disable ctrl+w
+            bind --mode insert \b 'backward-kill-bigword' # rebind to ctrl+backspace
+
             alias rm="rmtrash"
             alias rmdir="rmdirtrash"
             alias sl="sl -ew"
             alias i="nix-shell -p"
+
             zoxide init fish | source
             '';
         shellAbbrs = {
