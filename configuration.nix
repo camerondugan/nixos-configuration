@@ -105,7 +105,7 @@ in {
                 color-scheme = "prefer-dark";
                 show-battery-percentage = true;
                 clock-show-weekday = true;
-                clock-show-date = false;
+                clock-show-date = true;
                 clock-show-seconds = false;
                 gtk-theme = "Adwaita-dark";
                 font-hinting = "medium";
