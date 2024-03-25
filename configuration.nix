@@ -351,8 +351,9 @@ in {
     services.logind.extraConfig = ''
         HibernateDelaySec=15min
         HandleSuspendKey=suspend-then-hibernate
-        HandlePowerKey=hibernate
+        HandleLidSwitch=suspend-then-hibernate
         IdleAction=suspend-then-hibernate
+        HandlePowerKey=hibernate
     '';
 
     # Yubikey Optional Unlock
