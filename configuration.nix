@@ -124,6 +124,7 @@ in {
                 secondary-color = "#000000000000";
             };
             "org/gnome/desktop/screensaver" = {
+                lock-delay = 30;
                 picture-uri = "file:///home/cam/.nixos/wallpaper.jpg";
                 primary-color = "#000000000000";
                 secondary-color = "#000000000000";
@@ -133,7 +134,7 @@ in {
                 remove-old-temp-files = true;
             };
             "org/gnome/desktop/media-handling" = {
-            # Ask what to do instead of autorunning software from usb
+            # Ask what to do instead of auto running software from USB
                 autorun-x-content-start-app = ["x-content/ostree-repository"];
                 autorun-never = false;
             };
@@ -358,7 +359,7 @@ in {
     services.logind.extraConfig = ''
         HibernateDelaySec=15min
         HandleSuspendKey=suspend-then-hibernate
-        HandlePowerKey=hibernate
+        HandleLidSwitch=suspend-then-hibernate
         IdleAction=suspend-then-hibernate
     '';
 
