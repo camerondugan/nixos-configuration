@@ -156,19 +156,20 @@ in {
                 button-layout = "appmenu:minimize,maximize,close";
             };
             "org/gnome/desktop/wm/keybindings" = {
-                toggle-fullscreen = ["<Super>f"];
-                minimize = ["<Super>j"];
+                minimize = []; #["<Super>j"];
                 close = ["<Super>c"];
-                switch-to-workspace-left = ["<Super>h"];
-                switch-to-workspace-right = ["<Super>l"];
-                move-to-workspace-left = ["<Shift><Super>h"];
-                move-to-workspace-right = ["<Shift><Super>l"];
-                toggle-on-all-workspaces = ["<Super>p"];
+                # Disabled bc pop-shell
+                # switch-to-workspace-left = ["<Super>h"];
+                # switch-to-workspace-right = ["<Super>l"];
+                # move-to-workspace-left = ["<Shift><Super>h"];
+                # move-to-workspace-right = ["<Shift><Super>l"];
+                # toggle-fullscreen = ["<Super>f"];
+                # toggle-on-all-workspaces = ["<Super>p"];
                 show-desktop = ["<Super>d"];
             };
             "org/gnome/mutter" = {
                 dynamic-workspaces = true;
-                edge-tiling = true;
+                edge-tiling = false;
                 attach-modal-dialogs = false;
                 center-new-windows = false;
                 resize-with-right-button = true;
@@ -184,8 +185,8 @@ in {
                 ];
                 www = ["<Super>w"];
                 search = ["<Super>r"];
-                calculator = ["<Super>m"]; #m = math
-                    logout = ["<Super><Shift>m"];
+                #calculator = ["<Super>m"]; #m = math
+                logout = ["<Super><Shift>m"];
                 screensaver = "unset";
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -209,11 +210,17 @@ in {
             };
             "org/gnome/shell" = {
                 favorite-apps = ["firefox.desktop" "neovide.desktop" "anki.desktop" "org.gnome.Console.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Music.desktop" "gnome-system-monitor.desktop"];
-                enabled-extensions = ["espresso@coadmunkee.github.com" "tiling-assistant@leleat-on-github" "rounded-window-corners@yilozt" "Rounded_Corners@lennart-k"];
+                enabled-extensions = ["espresso@coadmunkee.github.com" "rounded-window-corners@yilozt" "Rounded_Corners@lennart-k" "pop-shell@system76.com"];
                 disabled-extensions = [];
             };
             "org/gnome/shell/extensions/espresso" = {
                 show-notifications = false;
+            };
+            "org/gnome/shell/extensions/pop-shell" = {
+                tile-by-default = true;
+                show-title = false;
+                smart-gaps = true;
+                stacking-with-mouse = false;
             };
         };
     };
@@ -560,15 +567,7 @@ in {
 
         # Python
         (python311.withPackages(ps: with ps; [
-            cairosvg
-            jupyter-client
-            pillow
             pip
-            plotly
-            pnglatex
-            ueberzug
-            pipx
-            colorama
             pynvim
         ]))
 
@@ -576,7 +575,7 @@ in {
         gnomeExtensions.espresso
         gnomeExtensions.tiling-assistant
         gnomeExtensions.rounded-corners # monitor corners
-        unstable.gnomeExtensions.rounded-window-corners
+        gnomeExtensions.pop-shell
     ];
 
     # Some programs need SUID wrappers, can be configured further or are
