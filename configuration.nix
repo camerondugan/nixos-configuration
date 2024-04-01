@@ -160,7 +160,7 @@ in {
                 minimize = []; #["<Super>j"];
                 close = ["<Super>c"];
                 # Disabled bc pop-shell
-                switch-to-workspace-left = [["<Shift><Super>h"]];
+                switch-to-workspace-left = ["<Shift><Super>h"];
                 switch-to-workspace-right = ["<Shift><Super>l"];
                 move-to-workspace-left = ["<Control><Super>h"];
                 move-to-workspace-right = ["<Control><Super>l"];
