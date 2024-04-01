@@ -160,8 +160,8 @@ in {
                 minimize = []; #["<Super>j"];
                 close = ["<Super>c"];
                 # Disabled bc pop-shell
-                switch-to-workspace-left = ["<Shift><Super>h"];
-                switch-to-workspace-right = ["<Shift><Super>l"];
+                switch-to-workspace-left = ["<Alt><Super>h"];
+                switch-to-workspace-right = ["<Alt><Super>l"];
                 move-to-workspace-left = ["<Control><Super>h"];
                 move-to-workspace-right = ["<Control><Super>l"];
                 toggle-fullscreen = ["<Super>f"];
@@ -228,6 +228,7 @@ in {
                 stacking-with-mouse = false;
             };
         };
+
     };
 
     # Set Default Applications
