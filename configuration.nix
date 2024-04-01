@@ -31,7 +31,7 @@ in {
         };
 
         # Set Config File Locations
-        xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
+        # xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
         xdg.configFile."godot/text_editor_themes/godotTheme.tet".source = ./godotTheme.tet;
 
         # Set Cursor Theme
@@ -166,7 +166,12 @@ in {
                 # move-to-workspace-right = ["<Shift><Super>l"];
                 # toggle-fullscreen = ["<Super>f"];
                 # toggle-on-all-workspaces = ["<Super>p"];
+                toggle-message-tray = ["<Super>v"];
                 show-desktop = ["<Super>d"];
+            };
+            "org/gnome/Console" = {
+                use-system-font = false;
+                custom-font = "JetBrainsMono Nerd Font Mono 10";
             };
             "org/gnome/mutter" = {
                 dynamic-workspaces = true;
@@ -181,8 +186,8 @@ in {
             "org/gnome/settings-daemon/plugins/media-keys" = {
                 custom-keybindings = [
                     "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-                        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
-                        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+                    "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+                    "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
                 ];
                 www = ["<Super>w"];
                 search = ["<Super>r"];
@@ -192,14 +197,13 @@ in {
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
                 binding = "<Super>t";
-                command = "kitty";
+                command = "kgx";
                 name = "Launch Terminal";
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
                 binding = "<Super>n";
-                # command = "neovide --multigrid --size 1500x1375";
-                command = "kitty nvim";
-                name = "Launch nvim in kitty";
+                command = "neovide --multigrid --size 1500x1375";
+                name = "Launch nvim GUI";
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
                 binding = "<Super>e";
@@ -531,7 +535,7 @@ in {
         mpv # View Media
 
         # Terminal
-        kitty
+        # kitty
         networkmanagerapplet
         polkit
         pavucontrol
