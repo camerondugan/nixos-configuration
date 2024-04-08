@@ -432,6 +432,7 @@ in {
 
             # Gaming
             steam
+            discord
             protonup-qt
             winetricks
             gamescope
