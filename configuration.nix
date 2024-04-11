@@ -5,8 +5,9 @@
 
 { pkgs, ... }:
 
-let unstable = import <nixos-unstable> {config={allowUnfree=true;};};
-in {
+# let unstable = import <nixos-unstable> {config={allowUnfree=true;};};
+#in
+{ 
 
     imports = [
         ./hardware-configuration.nix
@@ -215,7 +216,7 @@ in {
             };
             "org/gnome/shell" = {
                 favorite-apps = ["firefox.desktop" "neovide.desktop" "anki.desktop" "org.gnome.Console.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Music.desktop" "gnome-system-monitor.desktop"];
-                enabled-extensions = ["espresso@coadmunkee.github.com" "rounded-window-corners@yilozt" "Rounded_Corners@lennart-k" "pop-shell@system76.com"];
+                enabled-extensions = ["espresso@coadmunkee.github.com" "rounded-window-corners@yilozt" "Rounded_Corners@lennart-k" "pop-shell@system76.com" "pip-on-top@rafostar.github.com"];
                 disabled-extensions = [];
             };
             "org/gnome/shell/extensions/espresso" = {
@@ -349,8 +350,7 @@ in {
         alsa.enable = true;
         alsa.support32Bit = true;
         pulse.enable = true;
-        # If you want to use JACK applications, uncomment this
-        #jack.enable = true;
+        jack.enable = true;
     };
 
     # Enable Power Saving Cpu Freq
@@ -414,7 +414,7 @@ in {
             gimp
             inkscape
             blender
-            unstable.libsForQt5.kdenlive
+            libsForQt5.kdenlive
             neovide
             anki
             obs-studio
@@ -436,8 +436,8 @@ in {
             protonup-qt
             winetricks
             gamescope
-            unstable.r2modman
-            unstable.bottles
+            #r2modman
+            bottles
 
             # Neovim extras
             bottom
@@ -473,7 +473,7 @@ in {
             dotnet-sdk
             flutter
             gcc
-            unstable.go # go is always stable
+            go
             rstudio
             rustup
             godot_4
@@ -580,9 +580,9 @@ in {
 
         # Gnome Extensions
         gnomeExtensions.espresso
-        gnomeExtensions.tiling-assistant
         gnomeExtensions.rounded-corners # monitor corners
-        gnomeExtensions.pop-shell
+        gnomeExtensions.pop-shell # tiling windows
+        gnomeExtensions.pip-on-top # keeps firefox pip above in wayland
     ];
 
     # Some programs need SUID wrappers, can be configured further or are
