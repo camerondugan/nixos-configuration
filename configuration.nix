@@ -392,6 +392,9 @@
         docker.enable = true;
     };
 
+    # Firmware Updater
+    services.fwupd.enable = true;
+
     # Syncthing
     services.syncthing = {
         enable = true;
