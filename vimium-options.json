@@ -1,11 +1,23 @@
 {
-  "keyMappings": "# Insert your preferred key mappings here.\nmap H previousTab\nmap L nextTab\nmap K goBack\nmap J goForward\nmap :q removeTab",
+  "keyMappings": "# Insert your preferred key mappings here.\nmap H previousTab\nmap L nextTab\nmap K goBack\nmap J goForward\nmap :q removeTab\nmap ZZ removeTab\nmap ZQ removeTab",
   "searchUrl": "https://duckduckgo.com/?q=",
-  "settingsVersion": "2.0.6",
+  "settingsVersion": "2.1.2",
   "exclusionRules": [
     {
       "passKeys": "F",
       "pattern": "https?://www.youtube.com/watch*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://server.tail982d6.ts.net:8011/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://server:8011/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://monkeytype.com/*"
     }
   ]
 }
