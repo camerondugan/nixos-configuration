@@ -105,6 +105,7 @@
             "org/gnome/desktop/interface" = {
                 color-scheme = "prefer-dark";
                 show-battery-percentage = true;
+                clock-format = "12h";
                 clock-show-weekday = true;
                 clock-show-date = true;
                 clock-show-seconds = false;
@@ -113,7 +114,8 @@
                 font-antialiasing = "grayscale";
             };
             "org/gnome/desktop/sound" = {
-                theme-name = "freedesktop";
+                event-sounds = true;
+                theme-name = "__custom";
             };
             "org/gnome/desktop/calendar" = {
                 show-weekdate = false;
@@ -181,6 +183,9 @@
                 center-new-windows = false;
                 resize-with-right-button = true;
             };
+            "org/gtk/settings/file-chooser" = {
+                clock-format = "12h";
+            };
             "org/gnome/settings-daemon/plugins/power" = {
                 power-button-action = "hibernate";
             };
@@ -220,6 +225,7 @@
                 disabled-extensions = [];
             };
             "org/gnome/shell/extensions/espresso" = {
+                show-indicator = false;
                 show-notifications = false;
             };
             "org/gnome/shell/extensions/pop-shell" = {
@@ -340,7 +346,7 @@
     # OpenRGB
     services.hardware.openrgb.enable = true;
 
-    # Enable sound with pipewire.
+    # Enable sound with pipe wire.
     sound.enable = true;
     hardware.pulseaudio.enable = false;
     hardware.bluetooth.enable = true;
@@ -353,10 +359,10 @@
         jack.enable = true;
     };
 
-    # Enable Power Saving Cpu Freq
+    # Enable Power Saving CPU Freq
     services.auto-cpufreq.enable = true;
 
-    # Flatpak for other software you can't find on nixos
+    # Flatpak for other software you can't find on NixOS
     services.flatpak.enable = true;
 
     # Enable hibernation. (You installed with swap right?)
@@ -411,59 +417,41 @@
         shell = pkgs.fish;
         packages = with pkgs; [
             # Desktop Software
-            firefox
-            libreoffice-fresh
-            koreader
-            gimp
-            inkscape
-            blender
-            libsForQt5.kdenlive
-            neovide
-            anki
-            obs-studio
-            prusa-slicer
-            appimage-run
-            gnome-podcasts
-            warp
-            impression
-            gnome-obfuscate
-            eyedropper
-            audacity
-
-            # QMK
-            qmk
+            firefox # Browser
+            libreoffice-fresh # Office Suite
+            koreader # Book Reader
+            gimp # 2d Art
+            inkscape # Vector Art
+            blender # 3D Toolkit
+            libsForQt5.kdenlive # Video Editor
+            neovide # nvim GUI
+            anki # Study Tool
+            obs-studio # Video Recording
+            prusa-slicer # 3d printer slicer
+            appimage-run # Run app image from terminal
+            gnome-podcasts # Podcast Player
+            warp # file transfer
+            impression # ISO USB writer
+            gnome-obfuscate # Document Censor
+            eyedropper # Color Picker
+            audacity # Audio Editor
 
             # Gaming
-            steam
-            discord
-            protonup-qt
-            winetricks
-            gamescope
+            steam # Game Store
+            discord # Chat
+            protonup-qt # Proton Downloader
+            winetricks # Wine tooling
+            gamescope # View port emulation
             #r2modman
-            bottles
+            bottles # Runs Windows Games
 
-            # Neovim extras
-            bottom
-            fd
-            gdu
-            julia-bin
-            luajit
-            luajitPackages.luarocks-nix
-            nodejs-slim
-            php82Packages.composer
-            ripgrep
-            tree-sitter
-            plantuml
-            imv
-            feh
-
-            # Software Dev
+            # Software Dev Tools
             lazygit
+            ripgrep
+            plantuml
+            fd
             gdb
             nasm
-            jdk
-            clang
-            dosbox
             steam-run
             pandoc
             texlive.combined.scheme-medium
@@ -471,8 +459,17 @@
             jpegoptim
             ntfy-sh
             gaphor
+            bottom
+            gdu
+            luajit
+            luajitPackages.luarocks-nix
+            nodejs-slim
+            php82Packages.composer
+            tree-sitter
+            imv
+            feh
 
-            # Languages
+            # Languages (no particular order)
             dotnet-sdk
             flutter
             gcc
@@ -481,6 +478,9 @@
             rustup
             godot_4
             zig
+            jdk
+            clang
+            julia-bin
         ];
     };
 
@@ -556,7 +556,7 @@
         wget
         ruby
 
-        # cli tools
+        # Command Line tools
         fzf
         grc
         pfetch
@@ -585,7 +585,7 @@
         gnomeExtensions.espresso
         gnomeExtensions.rounded-corners # monitor corners
         gnomeExtensions.pop-shell # tiling windows
-        gnomeExtensions.pip-on-top # keeps firefox pip above in wayland
+        gnomeExtensions.pip-on-top # keeps Firefox pip above in Wayland
     ];
 
     # Some programs need SUID wrappers, can be configured further or are
