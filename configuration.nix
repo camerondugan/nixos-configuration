@@ -1,6 +1,4 @@
-# Edit this configuration file to define what should be installed on
-
-# your system.  Help is available in the configuration.nix(5) man page
+# Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { pkgs, ... }:
@@ -8,6 +6,8 @@
 # let unstable = import <nixos-unstable> {config={allowUnfree=true;};};
 #in
 { 
+    # Allow unfree packages
+    nixpkgs.config.allowUnfree = true;
 
     imports = [
         ./hardware-configuration.nix
@@ -248,39 +248,61 @@
     ];
 
     # Bootloader.
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
-
-    # USB Keyboard/Mouse sleeping fix
-    systemd.services.noUsbSleep = {
-        enable = true;
-        wantedBy = ["multi-user.target"];
-        script = ''
-            sleep 30
-            echo on | tee /sys/bus/usb/devices/*/power/level > /dev/null
-        '';
+    boot.loader = {
+        systemd-boot.enable = true;
+        efi.canTouchEfiVariables = true;
     };
 
-    # Clightd Service... NixOS one is bonked
-    systemd.services.clightd = {
-        enable = true;
-        wantedBy = ["multi-user.target"];
-        script = ''
-            ${pkgs.clightd}/bin/clightd
-        '';
-    };
+    systemd.services = {
+        # USB Keyboard/Mouse sleeping fix
+        noUsbSleep = {
+            enable = true;
+            wantedBy = ["multi-user.target"];
+            script = ''
+                sleep 30
+                echo on | tee /sys/bus/usb/devices/*/power/level > /dev/null
+            '';
+        };
 
-    # Faster Boot
-    systemd.services.systemd-udev-settle.enable = false;
-    systemd.services.NetworkManager-wait-online.enable = false;
+        # Clightd Service... NixOS one is bonked
+        clightd = {
+            enable = true;
+            wantedBy = ["multi-user.target"];
+            script = ''
+                ${pkgs.clightd}/bin/clightd
+            '';
+        };
+
+        autoStartScript = {
+            enable = true;
+            wantedBy = ["default.target"];
+            script = ''
+                ./home/cam/.nixos/autostart.sh
+            '';
+        };
+
+        # Faster Boot
+        systemd-udev-settle.enable = false;
+        NetworkManager-wait-online.enable = false;
+    };
 
     # Setup keyfile
     boot.initrd.secrets = {
         "/crypto_keyfile.bin" = null;
     };
 
-    # Enable networking
-    networking.networkmanager.enable = true;
+    networking = {
+        # Enable networking
+        networkmanager.enable = true;
+        firewall = {
+            allowedTCPPortRanges = [ 
+                { from = 1714; to = 1764; }
+            ];
+            allowedUDPPortRanges = [ 
+                { from = 1714; to = 1764; }
+            ];
+        };
+    };
 
     # Set your time zone.
     time.timeZone = "America/New_York";
@@ -300,79 +322,9 @@
         LC_TIME = "en_US.UTF-8";
     };
 
-    # XDG Setup
-    # xdg.portal.wlr.enable = true;
-    # xdg.portal.extraPortals = [
-    #     pkgs.xdg-desktop-portal-gtk
-    #     pkgs.xdg-desktop-portal-kde
-    # ];
-
-    # Enable the X11 windowing system.
-    services.xserver.enable = true;
-
-    # Enable a display manager.
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.displayManager.gdm.wayland = true;
-
-    # Desktop environment
-    services.xserver.desktopManager.gnome.enable = true;
-
-    # # Login manager
-    # services.xserver.displayManager.autoLogin.enable = true;
-    # services.xserver.displayManager.autoLogin.user = "cam";
-
-    # Configure keymap in X11
-    services.xserver = {
-        layout = "us";
-        xkbVariant = "";
-    };
-
-    # Enable CUPS to print documents.
-    services.printing.enable = true;
-
-    # Enable mounting service.
-    services.udisks2.enable = true;
-
-    # Enable trash service.
-    services.gvfs.enable = true;
-    services.tumbler.enable = true;
-
-    # Bluetooth
-    services.blueman.enable = true;
-
-    # Speedup App Launch
-    services.preload.enable = true;
-
-    # OpenRGB
-    services.hardware.openrgb.enable = true;
-
     # Enable sound with pipe wire.
     sound.enable = true;
-    hardware.pulseaudio.enable = false;
-    hardware.bluetooth.enable = true;
     security.rtkit.enable = true;
-    services.pipewire = {
-        enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-        jack.enable = true;
-    };
-
-    # Enable Power Saving CPU Freq
-    services.auto-cpufreq.enable = true;
-
-    # Flatpak for other software you can't find on NixOS
-    services.flatpak.enable = true;
-
-    # Enable hibernation. (You installed with swap right?)
-    services.logind.lidSwitch = "hibernate"; # optionally hybrid-sleep (for saving to disk and sleeping)
-    services.logind.extraConfig = ''
-        HibernateDelaySec=15min
-        HandleSuspendKey=suspend-then-hibernate
-        HandleLidSwitch=suspend-then-hibernate
-        IdleAction=suspend-then-hibernate
-    '';
 
     # Yubikey Optional Unlock
     security.pam.u2f = {
@@ -384,29 +336,9 @@
         sudo.u2fAuth = true;
     };
 
-    # Enable touchpad support (enabled default in most desktopManager).
-    services.xserver.libinput.enable = true;
-
-    # List services that you want to enable:
-    services = {
-        tailscale.enable = true;
-        geoclue2.enable = true;
-    };
-
     # List Virtualisations you want to enable:
     virtualisation = {
         docker.enable = true;
-    };
-
-    # Firmware Updater
-    services.fwupd.enable = true;
-
-    # Syncthing
-    services.syncthing = {
-        enable = true;
-        user = "cam";
-        dataDir = "/home/cam/Sync";
-        configDir = "/home/cam/Documents/.config/syncthing";
     };
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -484,18 +416,20 @@
         ];
     };
 
-    # Graphics support
-    hardware.opengl.enable = true;
-    hardware.opengl.driSupport = true;
-    hardware.opengl.driSupport32Bit = true;
-    hardware.pulseaudio.support32Bit = true;
+    hardware = {
+        pulseaudio.enable = false;
+        bluetooth.enable = true;
 
-    # Razer peripherals
-    hardware.openrazer.enable = true;
-    hardware.openrazer.users = ["cam"];
+        # Graphics support
+        opengl.enable = true;
+        opengl.driSupport = true;
+        opengl.driSupport32Bit = true;
+        pulseaudio.support32Bit = true;
 
-    # Allow unfree packages
-    nixpkgs.config.allowUnfree = true;
+        # Razer peripherals
+        openrazer.enable = true;
+        openrazer.users = ["cam"];
+    };
 
     environment.sessionVariables = {
         EDITOR = "nvim";
@@ -601,22 +535,25 @@
     programs.fish = {
         enable = true;
         interactiveShellInit = ''
-            pfetch
-            set fish_greeting
+          pfetch
+          set fish_greeting
 
-            fish_vi_key_bindings
-            bind --mode insert \cW 'fish_clipboard_copy' # disable ctrl+w
-            bind --mode insert \b 'backward-kill-bigword' # rebind to ctrl+backspace
+          fish_vi_key_bindings
+          bind --mode insert \cW 'fish_clipboard_copy' # disable ctrl+w
+          bind --mode insert \b 'backward-kill-bigword' # rebind to ctrl+backspace
 
-            alias rm="rmtrash"
-            alias rmdir="rmdirtrash"
-            alias sl="sl -ew"
-            alias i="nix-shell -p"
+          alias rm="rmtrash"
+          alias rmdir="rmdirtrash"
+          alias sl="sl -ew"
+          alias i="nix-shell -p"
 
-            zoxide init fish | source
-            '';
+          zoxide init fish | source
+        '';
         shellAbbrs = {
-            cd="z"; # force use z
+            # Force use of better commands
+            cd="z";
+            grep="rg";
+
             gi="gi >> .gitignore"; # append to gitignore
         };
     };
@@ -624,39 +561,117 @@
     programs.nix-ld.enable = true;
     programs.steam.remotePlay.openFirewall = true;
 
-    # Battery
-    powerManagement.powertop.enable = true;
-    services.power-profiles-daemon.enable = true;
-    services.upower.enable = true;
+
+    services = {
+        xserver = {
+                # Enable the X11 windowing system.
+                enable = true;
+
+                # Enable a display manager.
+                displayManager.gdm.enable = true;
+                displayManager.gdm.wayland = true;
+
+                # Desktop environment
+                desktopManager.gnome.enable = true;
+
+                # Login manager
+                displayManager.autoLogin.enable = true;
+                displayManager.autoLogin.user = "cam";
+
+                # Configure keymap in X11
+                layout = "us";
+                xkbVariant = "";
+
+                # Enable touchpad support (enabled default in most desktopManager).
+                libinput.enable = true;
+        };
+
+        # Enable CUPS to print documents.
+        printing.enable = true;
+
+        # Enable mounting service.
+        udisks2.enable = true;
+
+        # Enable trash service.
+        gvfs.enable = true;
+        tumbler.enable = true;
+
+        # Bluetooth
+        blueman.enable = true;
+
+        # Speedup App Launch
+        preload.enable = true;
+
+        pipewire = {
+            enable = true;
+            alsa.enable = true;
+            alsa.support32Bit = true;
+            pulse.enable = true;
+            jack.enable = true;
+        };
+
+
+        # Flatpak for other software you can't find on NixOS
+        flatpak.enable = true;
+
+        # Enable hibernation. (You installed with swap right?)
+        logind.extraConfig = ''
+            HibernateDelaySec=15min
+            HandleSuspendKey=hibernate
+            HandleLidSwitch=hibernate
+            IdleAction=hibernate
+        '';
+
+        # List services that you want to enable:
+        tailscale.enable = true;
+        geoclue2.enable = true;
+
+        # Firmware Updater
+        fwupd.enable = true;
+
+        # OpenRGB
+        hardware.openrgb.enable = true;
+
+        # Syncthing
+        syncthing = {
+            enable = true;
+            user = "cam";
+            dataDir = "/home/cam/Sync";
+            configDir = "/home/cam/Documents/.config/syncthing";
+        };
+
+        # Energy Saving
+        power-profiles-daemon.enable = true;
+        upower.enable = true;
+        auto-cpufreq.enable = true;
+    };
 
     # Kde Connect
     programs.kdeconnect.enable = true;
-    networking.firewall.allowedTCPPortRanges = [ 
-        { from = 1714; to = 1764; }
-    ];
-    networking.firewall.allowedUDPPortRanges = [ 
-        { from = 1714; to = 1764; }
-    ];
+    system = {
 
-    # This value determines the NixOS release from which the default
-    # settings for stateful data, like file locations and database versions
-    # on your system were taken. It‘s perfectly fine and recommended to leave
-    # this value at the release version of the first install of this system.
-    # Before changing this value read the documentation for this option
-    # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-    system.stateVersion = "23.05"; # Did you read the comment?
+        # Before changing this value read the documentation for this option
+        # (e.g. man configuration.nix). Also remember to change home-manager's
+        # version.
 
-    # Enable Auto Updates
-    system.autoUpgrade = {
-        enable = true;
-        allowReboot = false;
+        stateVersion = "23.05"; # Did you read the comment?
+
+        # Enable Auto Updates
+        autoUpgrade = {
+            enable = true;
+            allowReboot = false;
+        };
     };
 
     # Enable Optimization.
-    nix.gc.automatic = true;
-    nix.gc.dates = "weekly";
-    nix.gc.options = "--delete-older-than 7d";
+    nix.gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 7d";
+    };
     nix.optimise.automatic = true;
-    nix.settings.auto-optimise-store = true;
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix.settings = {
+        auto-optimise-store = true;
+        experimental-features = [ "nix-command" "flakes" ];
+    };
 }
