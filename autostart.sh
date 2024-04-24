@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# shellcheck disable=2154
 # NTFY:
 # ntfyLogin="$(cat /home/"$USER"/.nixos/ntfy.secret)"
 
@@ -42,7 +41,7 @@ done
 # Try to use the latest version of repo (just pulled from prev cmd)
 ( (cd "$nixConf" && ./test.sh && notify-send "Using latest config: .nixos/autostart.sh") || notify-send "Switch to new config failed or $nixConf does not exist: .nixos/autostart.sh")
 
-# This device only script for autostart (make sure it exists and is runnable)
+# This device only script for auto start (make sure it exists and is run-able)
 touch /home/cam/.nixos/this-device-autostart.sh
 chmod +x /home/cam/.nixos/this-device-autostart.sh
 bash /home/cam/.nixos/this-device-autostart.sh &
