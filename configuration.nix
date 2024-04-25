@@ -254,24 +254,25 @@
     };
 
     systemd.services = {
-        # USB Keyboard/Mouse sleeping fix
-        noUsbSleep = {
-            enable = true;
-            wantedBy = ["multi-user.target"];
-            script = ''
-                sleep 30
-                echo on | tee /sys/bus/usb/devices/*/power/level > /dev/null
-            '';
-        };
+# TODO: Move these to this-device config
+        # # USB Keyboard/Mouse sleeping fix
+        # noUsbSleep = {
+        #     enable = true;
+        #     wantedBy = ["multi-user.target"];
+        #     script = ''
+        #         sleep 30
+        #         echo on | tee /sys/bus/usb/devices/*/power/level > /dev/null
+        #     '';
+        # };
 
-        # Clightd Service... NixOS one is bonked
-        clightd = {
-            enable = true;
-            wantedBy = ["multi-user.target"];
-            script = ''
-                ${pkgs.clightd}/bin/clightd
-            '';
-        };
+        # # Clightd Service... NixOS one is bonked
+        # clightd = {
+        #     enable = true;
+        #     wantedBy = ["multi-user.target"];
+        #     script = ''
+        #         ${pkgs.clightd}/bin/clightd
+        #     '';
+        # };
 
         autoStartScript = {
             enable = true;
@@ -473,8 +474,8 @@
         sl # Steam Locomotive
         mpv # View Media
 
-        # Terminal
-        # kitty
+        # Terminal Commands
+        tmate
         networkmanagerapplet
         polkit
         pavucontrol
@@ -489,16 +490,14 @@
         nodePackages.npm
         wget
         ruby
-
-        # Command Line tools
         fzf
         grc
         pfetch
         sshfs
 
         # Clipboard
-        wl-clipboard
-        wl-clip-persist
+        # wl-clipboard
+        # wl-clip-persist
         xclip
 
         # Other
