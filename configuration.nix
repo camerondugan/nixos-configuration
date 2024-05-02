@@ -473,8 +473,6 @@
         lf # file explorer
         sl # Steam Locomotive
         mpv # View Media
-
-        # Terminal Commands
         tmate
         networkmanagerapplet
         polkit
