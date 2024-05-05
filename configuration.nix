@@ -371,7 +371,7 @@
 
             # Gaming
             steam # Game Store
-            discord # Chat
+            webcord # Chat
             protonup-qt # Proton Downloader
             winetricks # Wine tooling
             gamescope # View port emulation
