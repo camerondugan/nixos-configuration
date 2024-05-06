@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 arg1="$*" # all text after command
-if [ -z "$arg1" ]; then
+if [ "$arg1" = "" ]; then
 	echo "Please use \"./upload.sh description of changes\""
 	exit 1
 fi
@@ -22,7 +22,7 @@ if sudo nixos-rebuild switch --upgrade --fast --show-trace; then
 	# hyprctl reload
 	git add . && (
 		git commit -m "$arg1"
-		git push
+		git push gitlab
 		git push github
 	)
 else
@@ -31,7 +31,7 @@ else
 		# hyprctl reload
 		git add . && (
 			git commit -m "$arg1"
-			git push
+			git push gitlab
 			git push github
 		)
 	fi
