@@ -163,10 +163,10 @@
                 minimize = []; #["<Super>j"];
                 close = ["<Super>c"];
                 # Disabled bc pop-shell
-                switch-to-workspace-left = ["<Alt><Super>h"];
-                switch-to-workspace-right = ["<Alt><Super>l"];
-                move-to-workspace-left = ["<Control><Super>h"];
-                move-to-workspace-right = ["<Control><Super>l"];
+                switch-to-workspace-left = ["<Control><Super>h"];
+                switch-to-workspace-right = ["<Control><Super>l"];
+                move-to-workspace-left = ["<Alt><Super>h"];
+                move-to-workspace-right = ["<Alt><Super>l"];
                 toggle-fullscreen = ["<Super>f"];
                 # toggle-on-all-workspaces = ["<Super>p"];
                 toggle-message-tray = ["<Super>v"];
