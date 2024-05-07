@@ -351,6 +351,8 @@
         packages = with pkgs; [
             # Desktop Software
             firefox # Browser
+            beeper # Chat
+            webcord # Discord
             libreoffice-fresh # Office Suite
             koreader # Book Reader
             gimp # 2d Art
@@ -371,7 +373,6 @@
 
             # Gaming
             steam # Game Store
-            webcord # Chat
             protonup-qt # Proton Downloader
             winetricks # Wine tooling
             gamescope # View port emulation
