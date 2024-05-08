@@ -382,6 +382,7 @@
             # Software Dev Tools
             lazygit
             ripgrep
+            httplz
             plantuml
             fd
             gdb
