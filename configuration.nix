@@ -221,7 +221,7 @@
             };
             "org/gnome/shell" = {
                 favorite-apps = ["firefox.desktop" "neovide.desktop" "anki.desktop" "org.gnome.Console.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Music.desktop" "gnome-system-monitor.desktop"];
-                enabled-extensions = ["espresso@coadmunkee.github.com" "rounded-window-corners@yilozt" "Rounded_Corners@lennart-k" "pop-shell@system76.com" "pip-on-top@rafostar.github.com"];
+                enabled-extensions = ["espresso@coadmunkee.github.com" "rounded-window-corners@yilozt" "Rounded_Corners@lennart-k" "pop-shell@system76.com" "pip-on-top@rafostar.github.com" "trayIconsReloaded@selfmade.pl" "hide-minimized@danigm.net" "blur-my-shell@aunetx" "app-hider@lynith.dev"];
                 disabled-extensions = [];
             };
             "org/gnome/shell/extensions/espresso" = {
@@ -514,10 +514,15 @@
         ]))
 
         # Gnome Extensions
-        gnomeExtensions.espresso
-        gnomeExtensions.rounded-corners # monitor corners
-        gnomeExtensions.pop-shell # tiling windows
+        gnomeExtensions.app-hider # add hide option to app menu
+        gnomeExtensions.blur-my-shell # better ui
+        gnomeExtensions.espresso # keeps screen on in full screen
+        gnomeExtensions.hide-minimized # stay minimized in overview
         gnomeExtensions.pip-on-top # keeps Firefox pip above in Wayland
+        gnomeExtensions.pop-shell # tiling windows
+        gnomeExtensions.rounded-corners # monitor corners
+        gnomeExtensions.tray-icons-reloaded # tray icons
+
     ];
 
     # Some programs need SUID wrappers, can be configured further or are
