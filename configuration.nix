@@ -561,8 +561,8 @@
             cd="z";
             grep="rg";
             gi="gi >> .gitignore"; # append to gitignore
-            tat="tmux a -t "; # Attach to session
-            tnt="tmux n -t "; # Create new session
+            tat="tmux a -t"; # Attach to session
+            tnt="tmux new -t"; # Create new session
             td="tmux detach"; # Exit session while saving it
         };
     };
@@ -618,7 +618,6 @@
             pulse.enable = true;
             jack.enable = true;
         };
-
 
         # Flatpak for other software you can't find on NixOS
         flatpak.enable = true;
