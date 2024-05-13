@@ -224,6 +224,10 @@
                 enabled-extensions = ["espresso@coadmunkee.github.com" "rounded-window-corners@yilozt" "Rounded_Corners@lennart-k" "pop-shell@system76.com" "pip-on-top@rafostar.github.com" "trayIconsReloaded@selfmade.pl" "hide-minimized@danigm.net" "blur-my-shell@aunetx" "app-hider@lynith.dev"];
                 disabled-extensions = [];
             };
+            "org/gnome/shell/extensions/blur-my-shell" = {
+                color-and-noise = true;
+                hacks-level = 0;
+            };
             "org/gnome/shell/extensions/espresso" = {
                 show-indicator = false;
                 show-notifications = false;
