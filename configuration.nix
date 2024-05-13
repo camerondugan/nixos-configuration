@@ -32,7 +32,7 @@
         };
 
         # Set Config File Locations
-        # xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
+        xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
         xdg.configFile."godot/text_editor_themes/godotTheme.tet".source = ./godotTheme.tet;
 
         # Set Cursor Theme
@@ -203,7 +203,7 @@
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
                 binding = "<Super>t";
-                command = "kgx";
+                command = "kitty";
                 name = "Launch Terminal";
             };
             "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
@@ -380,6 +380,8 @@
             bottles # Runs Windows Games
 
             # Software Dev Tools
+            kitty
+            tmux
             lazygit
             ripgrep
             httplz
