@@ -377,8 +377,8 @@
 
             # Gaming
             steam # Game Store
+            itch # Game Store
             protonup-qt # Proton Downloader
-            winetricks # Wine tooling
             gamescope # View port emulation
             #r2modman
             bottles # Runs Windows Games
