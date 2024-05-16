@@ -220,9 +220,35 @@
                 focus-active-notification = ["<Shift><Super>n"];
             };
             "org/gnome/shell" = {
-                favorite-apps = ["firefox.desktop" "neovide.desktop" "anki.desktop" "org.gnome.Console.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Music.desktop" "gnome-system-monitor.desktop"];
-                enabled-extensions = ["espresso@coadmunkee.github.com" "rounded-window-corners@yilozt" "Rounded_Corners@lennart-k" "pop-shell@system76.com" "pip-on-top@rafostar.github.com" "trayIconsReloaded@selfmade.pl" "blur-my-shell@aunetx" "app-hider@lynith.dev"];
+                favorite-apps = [
+                    "firefox.desktop"
+                    "neovide.desktop"
+                    "anki.desktop"
+                    "org.gnome.Console.desktop"
+                    "org.gnome.Nautilus.desktop"
+                    "org.gnome.Music.desktop"
+                    "gnome-system-monitor.desktop"
+                ];
+                enabled-extensions = [
+                    "espresso@coadmunkee.github.com"
+                    "rounded-window-corners@yilozt"
+                    "Rounded_Corners@lennart-k"
+                    "pop-shell@system76.com"
+                    "pip-on-top@rafostar.github.com"
+                    "trayIconsReloaded@selfmade.pl"
+                    "blur-my-shell@aunetx"
+                    "burn-my-windows@schneegans.github.com"
+                    "dash-to-dock@micxgx.gmail.com"
+                    "just-perfection-desktop@just-perfection"
+                    "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
+                ];
                 disabled-extensions = [];
+            };
+            "org/gnome/shell/extensions/auto-move-windows" = {
+                application-list = ["steam.desktop:2"];
+            };
+            "org/gnome/shell/extensions/just-perfection" = {
+                theme = true;
             };
             "org/gnome/shell/extensions/blur-my-shell" = {
                 color-and-noise = true;
@@ -522,7 +548,10 @@
 
         # Gnome Extensions
         gnomeExtensions.app-hider # add hide option to app menu
+        gnomeExtensions.just-perfection # tweaks
+        gnomeExtensions.dash-to-dock # dock
         gnomeExtensions.blur-my-shell # better ui
+        gnomeExtensions.burn-my-windows # better open/close animation
         gnomeExtensions.espresso # keeps screen on in full screen
         gnomeExtensions.pip-on-top # keeps Firefox pip above in Wayland
         gnomeExtensions.pop-shell # tiling windows

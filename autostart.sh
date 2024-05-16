@@ -24,7 +24,7 @@
 # polychromatic-tray-applet &
 
 # Update flatpaks
-yes | flatpak update &
+flatpak update --noninteractive --assumeyes &
 
 # Remove week old downloads
 (
