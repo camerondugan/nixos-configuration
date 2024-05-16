@@ -400,6 +400,7 @@
             gnome-obfuscate # Document Censor
             eyedropper # Color Picker
             audacity # Audio Editor
+            freecad # 3D modeler
 
             # Gaming
             steam # Game Store
