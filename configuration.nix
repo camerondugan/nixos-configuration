@@ -582,12 +582,13 @@
           alias rm="rmtrash"
           alias rmdir="rmdirtrash"
           alias sl="sl -ew"
-          alias i="nix-shell -p"
+          fish_add_path /home/cam/.cargo/bin
           zoxide init fish | source
         '';
         shellAbbrs = {
             # Force use of better commands
             cd="z";
+            np = "nix-shell -p";
             grep="rg";
             gi="gi >> .gitignore"; # append to gitignore
             tat="tmux a -t"; # Attach to session
