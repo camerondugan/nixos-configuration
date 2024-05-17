@@ -224,7 +224,7 @@
                     "firefox.desktop"
                     "neovide.desktop"
                     "anki.desktop"
-                    "org.gnome.Console.desktop"
+                    "kitty.desktop"
                     "org.gnome.Nautilus.desktop"
                     "org.gnome.Music.desktop"
                     "gnome-system-monitor.desktop"
