@@ -25,6 +25,7 @@
             stateVersion = "23.05";
             sessionPath = [
                 "/home/cam/go/bin/"
+                "/home/cam/.cargo/bin/"
                 "/home/cam/.go/bin/"
                 "/home/cam/.go/current/bin/"
                 "/home/cam/.system_node_modules/bin"
@@ -197,7 +198,7 @@
                 ];
                 www = ["<Super>w"];
                 search = ["<Super>r"];
-                #calculator = ["<Super>m"]; #m = math
+                calculator = ["<Super>m"]; #m = math
                 logout = ["<Super><Shift>m"];
                 screensaver = "unset";
             };
@@ -367,7 +368,6 @@
         sudo.u2fAuth = true;
     };
 
-    # List Virtualisations you want to enable:
     virtualisation = {
         docker.enable = true;
     };
