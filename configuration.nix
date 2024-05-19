@@ -370,13 +370,28 @@
 
     virtualisation = {
         docker.enable = true;
+        libvirtd = {
+          enable = true;
+          qemu = {
+            package = pkgs.qemu_kvm;
+            runAsRoot = true;
+            swtpm.enable = true;
+            ovmf = {
+              enable = true;
+              packages = [(pkgs.OVMF.override {
+                secureBoot = true;
+                tpmSupport = true;
+              }).fd];
+            };
+          };
+        };
     };
 
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.cam = {
         isNormalUser = true;
         description = "Cameron Dugan";
-        extraGroups = [ "networkmanager" "wheel" "input" "docker" ];
+        extraGroups = [ "networkmanager" "wheel" "input" "docker" "libvertd" ];
         shell = pkgs.fish;
         packages = with pkgs; [
             # Desktop Software
@@ -407,6 +422,7 @@
             itch # Game Store
             protonup-qt # Proton Downloader
             gamescope # View port emulation
+            gnome.gnome-boxes # boxes
             #r2modman
             bottles # Runs Windows Games
 
