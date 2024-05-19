@@ -391,7 +391,7 @@
     users.users.cam = {
         isNormalUser = true;
         description = "Cameron Dugan";
-        extraGroups = [ "networkmanager" "wheel" "input" "docker" "libvertd" ];
+        extraGroups = [ "networkmanager" "wheel" "input" "docker" "libvirtd" "kvm" "qemu-libvirtd" ];
         shell = pkgs.fish;
         packages = with pkgs; [
             # Desktop Software
