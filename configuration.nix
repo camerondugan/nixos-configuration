@@ -263,8 +263,6 @@
                 tile-by-default = true;
                 show-title = false;
                 smart-gaps = false;
-                gap-inner = 5;
-                gap-outer = 5;
                 stacking-with-mouse = false;
             };
         };
