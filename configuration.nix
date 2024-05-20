@@ -423,7 +423,6 @@
             protonup-qt # Proton Downloader
             gamescope # View port emulation
             gnome.gnome-boxes # boxes
-            #r2modman
             bottles # Runs Windows Games
 
             # Software Dev Tools
@@ -499,9 +498,10 @@
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
-
         # GNOME
         gnome.gnome-sound-recorder
+        gnome.sushi
+        polkit_gnome
 
         # Shell
         fishPlugins.colored-man-pages
@@ -526,7 +526,6 @@
         mpv # View Media
         tmate
         networkmanagerapplet
-        polkit
         pavucontrol
         youtube-tui
         yt-dlp
@@ -682,9 +681,6 @@
 
         # Firmware Updater
         fwupd.enable = true;
-
-        # OpenRGB
-        hardware.openrgb.enable = true;
 
         # Syncthing
         syncthing = {
