@@ -262,7 +262,9 @@
             "org/gnome/shell/extensions/pop-shell" = {
                 tile-by-default = true;
                 show-title = false;
-                smart-gaps = true;
+                smart-gaps = false;
+                gap-inner = 5;
+                gap-outer = 5;
                 stacking-with-mouse = false;
             };
         };
@@ -416,6 +418,7 @@
             eyedropper # Color Picker
             audacity # Audio Editor
             freecad # 3D modeler
+            junction
 
             # Gaming
             steam # Game Store
