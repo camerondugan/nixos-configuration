@@ -616,7 +616,7 @@
     programs.steam.enable = true;
     programs.steam.package = pkgs.steam.override {
         extraPkgs = pkgs:
-            with pkgs; [
+            with pkgs; [ # x11 dependencies
                 xorg.libXcursor
                 xorg.libXi
                 xorg.libXinerama
