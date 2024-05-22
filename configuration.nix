@@ -240,7 +240,6 @@
                     "blur-my-shell@aunetx"
                     "burn-my-windows@schneegans.github.com"
                     "dash-to-dock@micxgx.gmail.com"
-                    "just-perfection-desktop@just-perfection"
                     "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
                 ];
                 disabled-extensions = [];
@@ -564,7 +563,6 @@
 
         # Gnome Extensions
         gnomeExtensions.app-hider # add hide option to app menu
-        gnomeExtensions.just-perfection # tweaks
         gnomeExtensions.dash-to-dock # dock
         gnomeExtensions.blur-my-shell # better ui
         gnomeExtensions.burn-my-windows # better open/close animation
