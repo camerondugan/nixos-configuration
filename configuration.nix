@@ -629,7 +629,9 @@
                 keyutils
         ];
     };
+    programs.steam.gamescopeSession.enable = true;
     programs.steam.remotePlay.openFirewall = true;
+    programs.steam.dedicatedServer.openFirewall = true;
 
 
     services = {
