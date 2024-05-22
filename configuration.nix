@@ -419,7 +419,6 @@
             junction
 
             # Gaming
-            steam # Game Store
             itch # Game Store
             protonup-qt # Proton Downloader
             gamescope # View port emulation
@@ -614,6 +613,22 @@
     };
     programs.dconf.enable = true;
     programs.nix-ld.enable = true;
+    programs.steam.enable = true;
+    programs.steam.package = pkgs.steam.override {
+        extraPkgs = pkgs:
+            with pkgs; [
+                xorg.libXcursor
+                xorg.libXi
+                xorg.libXinerama
+                xorg.libXScrnSaver
+                libpng
+                libpulseaudio
+                libvorbis
+                stdenv.cc.cc.lib
+                libkrb5
+                keyutils
+        ];
+    };
     programs.steam.remotePlay.openFirewall = true;
 
 
