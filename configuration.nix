@@ -50,8 +50,8 @@
             #     package = pkgs.catppuccin-cursors.mochaLight;
             # };
             iconTheme = {
-                name = "Adwaita";
-                package = pkgs.gnome.adwaita-icon-theme;
+                name = "Breeze-Dark";
+                package = pkgs.libsForQt5.breeze-icons;
             };
 
             theme = {
@@ -644,11 +644,14 @@
                 enable = true;
 
                 # Enable a display manager.
-                displayManager.gdm.enable = true;
-                displayManager.gdm.wayland = true;
+                # displayManager.gdm.enable = true;
+                # displayManager.gdm.wayland = true;
 
                 # Desktop environment
+                displayManager.sddm.enable = true;
                 desktopManager.plasma5.enable = true;
+                displayManager.defaultSession = "plasmawayland";
+
 
                 # Login manager
                 displayManager.autoLogin.enable = true;
