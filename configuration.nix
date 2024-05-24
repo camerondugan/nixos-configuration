@@ -53,6 +53,12 @@
                 name = "Adwaita";
                 package = pkgs.gnome.adwaita-icon-theme;
             };
+
+            theme = {
+                name = "Breeze-Dark";
+                package = pkgs.libsForQt5.breeze-gtk;
+            };
+
             # theme = {
             #     name = "Catppuccin-Mocha-Standard-Blue-Dark";
             #     package = pkgs.catppuccin-gtk.override {
@@ -110,7 +116,6 @@
                 clock-show-weekday = true;
                 clock-show-date = true;
                 clock-show-seconds = false;
-                gtk-theme = "Adwaita-dark";
                 font-hinting = "medium";
                 font-antialiasing = "grayscale";
             };
@@ -573,6 +578,7 @@
         gnomeExtensions.tray-icons-reloaded # tray icons
 
     ];
+
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
