@@ -642,7 +642,7 @@
                 displayManager.gdm.wayland = true;
 
                 # Desktop environment
-                desktopManager.gnome.enable = true;
+                desktopManager.plasma5.enable = true;
 
                 # Login manager
                 displayManager.autoLogin.enable = true;
