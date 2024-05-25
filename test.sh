@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 sudo nix-channel --update
-sudo nixos-rebuild switch --show-trace --fast
 
 # Paths for GTK Settings.ini and .bak
 GTK3SETTINGSPATH="/home/$USER/.config/gtk-3.0/settings.ini"
@@ -11,6 +10,9 @@ GTK4SETTINGSBAKPATH="/home/$USER/.config/gtk-4.0/settings.bak"
 # Clear out gtk settings for home-manager:
 mv -f "$GTK3SETTINGSPATH" "$GTK3SETTINGSBAKPATH"
 mv -f "$GTK4SETTINGSPATH" "$GTK4SETTINGSBAKPATH"
+
+# Run test
+sudo nixos-rebuild switch --show-trace --fast
 
 # Restore gtk3 settings if not generated for us
 if [ ! -f "$GTK3SETTINGSPATH" ]; then

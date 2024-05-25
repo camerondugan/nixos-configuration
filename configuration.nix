@@ -107,170 +107,6 @@
             viAlias = true;
             vimAlias = true;
         };
-
-        dconf.settings = {
-            "org/gnome/desktop/interface" = {
-                color-scheme = "prefer-dark";
-                show-battery-percentage = true;
-                clock-format = "12h";
-                clock-show-weekday = true;
-                clock-show-date = true;
-                clock-show-seconds = false;
-                font-hinting = "medium";
-                font-antialiasing = "grayscale";
-            };
-            "org/gnome/desktop/sound" = {
-                event-sounds = true;
-                theme-name = "__custom";
-            };
-            "org/gnome/desktop/calendar" = {
-                show-weekdate = false;
-            };
-            "org/gnome/desktop/background" = {
-                picture-uri = "file:///home/cam/.nixos/wallpaper.jpg";
-                picture-uri-dark = "file:///home/cam/.nixos/wallpaper.jpg";
-                primary-color = "#000000000000";
-                secondary-color = "#000000000000";
-            };
-            "org/gnome/desktop/screensaver" = {
-                lock-delay = 30;
-                picture-uri = "file:///home/cam/.nixos/wallpaper.jpg";
-                primary-color = "#000000000000";
-                secondary-color = "#000000000000";
-            };
-            "org/gnome/desktop/privacy" = {
-                remove-old-trash-files = true;
-                remove-old-temp-files = true;
-            };
-            "org/gnome/desktop/media-handling" = {
-            # Ask what to do instead of auto running software from USB
-                autorun-x-content-start-app = ["x-content/ostree-repository"];
-                autorun-never = false;
-            };
-            "org/gnome/desktop/peripherals/touchpad" = {
-                tap-to-click = true;
-            };
-            "org/gnome/desktop/peripherals/mouse" = {
-                accel-profile = "flat";
-            };
-            "org/gnome/desktop/input-sources" = { 
-                xkb-options = [#make caps ctrl
-                    "terminate:ctr_alt_bksp"
-                    "lv3:ralt_switch"
-                    "caps:ctrl_modifier" 
-                ];
-            };
-            "org/gnome/desktop/wm/preferences" = {
-                focus-mode = "click"; #sloppy, mouse
-                auto-raise = false;
-                button-layout = "appmenu:minimize,maximize,close";
-            };
-            "org/gnome/desktop/wm/keybindings" = {
-                minimize = []; #["<Super>j"];
-                close = ["<Super>c"];
-                # Disabled bc pop-shell
-                switch-to-workspace-left = ["<Control><Super>h"];
-                switch-to-workspace-right = ["<Control><Super>l"];
-                move-to-workspace-left = ["<Alt><Super>h"];
-                move-to-workspace-right = ["<Alt><Super>l"];
-                toggle-fullscreen = ["<Super>f"];
-                # toggle-on-all-workspaces = ["<Super>p"];
-                toggle-message-tray = ["<Super>v"];
-                show-desktop = ["<Super>d"];
-            };
-            "org/gnome/Console" = {
-                use-system-font = false;
-                custom-font = "JetBrainsMono Nerd Font Mono 10";
-            };
-            "org/gnome/mutter" = {
-                dynamic-workspaces = true;
-                edge-tiling = false;
-                attach-modal-dialogs = false;
-                center-new-windows = false;
-                resize-with-right-button = true;
-            };
-            "org/gtk/settings/file-chooser" = {
-                clock-format = "12h";
-            };
-            "org/gnome/settings-daemon/plugins/power" = {
-                power-button-action = "hibernate";
-            };
-            "org/gnome/settings-daemon/plugins/media-keys" = {
-                custom-keybindings = [
-                    "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-                    "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
-                    "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
-                ];
-                www = ["<Super>w"];
-                search = ["<Super>r"];
-                calculator = ["<Super>m"]; #m = math
-                logout = ["<Super><Shift>m"];
-                screensaver = "unset";
-            };
-            "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-                binding = "<Super>t";
-                command = "kitty";
-                name = "Launch Terminal";
-            };
-            "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-                binding = "<Super>n";
-                command = "neovide --multigrid --size 1500x1375";
-                name = "Launch nvim GUI";
-            };
-            "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
-                binding = "<Super>e";
-                command = "nautilus";
-                name = "Launch File Explorer";
-            };
-            "org/gnome/shell/keybindings" = {
-                focus-active-notification = ["<Shift><Super>n"];
-            };
-            "org/gnome/shell" = {
-                favorite-apps = [
-                    "firefox.desktop"
-                    "neovide.desktop"
-                    "anki.desktop"
-                    "kitty.desktop"
-                    "org.gnome.Nautilus.desktop"
-                    "org.gnome.Music.desktop"
-                    "gnome-system-monitor.desktop"
-                ];
-                enabled-extensions = [
-                    "espresso@coadmunkee.github.com"
-                    "rounded-window-corners@yilozt"
-                    "Rounded_Corners@lennart-k"
-                    "pop-shell@system76.com"
-                    "pip-on-top@rafostar.github.com"
-                    "trayIconsReloaded@selfmade.pl"
-                    "blur-my-shell@aunetx"
-                    "burn-my-windows@schneegans.github.com"
-                    "dash-to-dock@micxgx.gmail.com"
-                    "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
-                ];
-                disabled-extensions = [];
-            };
-            "org/gnome/shell/extensions/auto-move-windows" = {
-                application-list = ["steam.desktop:2"];
-            };
-            "org/gnome/shell/extensions/just-perfection" = {
-                theme = true;
-            };
-            "org/gnome/shell/extensions/blur-my-shell" = {
-                color-and-noise = true;
-                hacks-level = 0;
-            };
-            "org/gnome/shell/extensions/espresso" = {
-                show-indicator = false;
-                show-notifications = false;
-            };
-            "org/gnome/shell/extensions/pop-shell" = {
-                tile-by-default = true;
-                show-title = false;
-                smart-gaps = false;
-                stacking-with-mouse = false;
-            };
-        };
-
     };
 
     # Set Default Applications
@@ -413,10 +249,8 @@
             obs-studio # Video Recording
             prusa-slicer # 3d printer slicer
             appimage-run # Run app image from terminal
-            gnome-podcasts # Podcast Player
             warp # file transfer
             impression # ISO USB writer
-            gnome-obfuscate # Document Censor
             eyedropper # Color Picker
             audacity # Audio Editor
             freecad # 3D modeler
@@ -426,7 +260,7 @@
             itch # Game Store
             protonup-qt # Proton Downloader
             gamescope # View port emulation
-            gnome.gnome-boxes # boxes
+            # gnome.gnome-boxes # boxes
             bottles # Runs Windows Games
 
             # Software Dev Tools
@@ -473,17 +307,13 @@
 
     hardware = {
         pulseaudio.enable = false;
-        bluetooth.enable = true;
+        # bluetooth.enable = true; # only for de that doesn't include
 
         # Graphics support
         opengl.enable = true;
         opengl.driSupport = true;
         opengl.driSupport32Bit = true;
         pulseaudio.support32Bit = true;
-
-        # Razer peripherals
-        openrazer.enable = true;
-        openrazer.users = ["cam"];
     };
 
     environment.sessionVariables = {
@@ -494,18 +324,18 @@
         NODE_PATH = "~/.system_node_modules/lib/node_modules";
     };
 
-    environment.gnome.excludePackages = [ 
-        pkgs.gnome-tour 
-        pkgs.gnome.gnome-software 
-    ];
+    # environment.gnome.excludePackages = [ 
+    #     pkgs.gnome-tour 
+    #     pkgs.gnome.gnome-software 
+    # ];
 
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
-        # GNOME
-        gnome.gnome-sound-recorder
-        gnome.sushi
-        polkit_gnome
+        # # GNOME
+        # gnome.gnome-sound-recorder
+        # gnome.sushi
+        # polkit_gnome
 
         # Shell
         fishPlugins.colored-man-pages
@@ -567,15 +397,15 @@
         ]))
 
         # Gnome Extensions
-        gnomeExtensions.app-hider # add hide option to app menu
-        gnomeExtensions.dash-to-dock # dock
-        gnomeExtensions.blur-my-shell # better ui
-        gnomeExtensions.burn-my-windows # better open/close animation
-        gnomeExtensions.espresso # keeps screen on in full screen
-        gnomeExtensions.pip-on-top # keeps Firefox pip above in Wayland
-        gnomeExtensions.pop-shell # tiling windows
-        gnomeExtensions.rounded-corners # monitor corners
-        gnomeExtensions.tray-icons-reloaded # tray icons
+        # gnomeExtensions.app-hider # add hide option to app menu
+        # gnomeExtensions.dash-to-dock # dock
+        # gnomeExtensions.blur-my-shell # better ui
+        # gnomeExtensions.burn-my-windows # better open/close animation
+        # gnomeExtensions.espresso # keeps screen on in full screen
+        # gnomeExtensions.pip-on-top # keeps Firefox pip above in Wayland
+        # gnomeExtensions.pop-shell # tiling windows
+        # gnomeExtensions.rounded-corners # monitor corners
+        # gnomeExtensions.tray-icons-reloaded # tray icons
 
     ];
 
@@ -644,14 +474,11 @@
                 enable = true;
 
                 # Enable a display manager.
-                # displayManager.gdm.enable = true;
-                # displayManager.gdm.wayland = true;
+                displayManager.gdm.enable = true;
+                displayManager.gdm.wayland = true;
 
-                # Desktop environment
-                displayManager.sddm.enable = true;
+                # Desktop environment (can't wait until cosmic)
                 desktopManager.plasma5.enable = true;
-                displayManager.defaultSession = "plasmawayland";
-
 
                 # Login manager
                 displayManager.autoLogin.enable = true;
