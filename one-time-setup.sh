@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 # Set unstable and home-manager
 sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz home-manager
+sudo nix-channel --add https://github.com/pjones/plasma-manager/archive/trunk.tar.gz plasma-manager
 
 # Set to unstable channels
 sudo nix-channel --add https://nixos.org/channels/nixos-23.11 nixos
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+
+# pull down new versions of stuff
 sudo nix-channel --update
 
 # Download latest config
