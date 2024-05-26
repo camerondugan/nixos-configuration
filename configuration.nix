@@ -307,7 +307,7 @@
 
     hardware = {
         pulseaudio.enable = false;
-        # bluetooth.enable = true; # only for de that doesn't include
+        bluetooth.enable = true; # only for de that doesn't include
 
         # Graphics support
         opengl.enable = true;
