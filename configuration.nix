@@ -80,15 +80,15 @@
             };
         };
 
-        # Set QT Theme
-        qt = {
-            enable = true;
-            platformTheme = "gnome";
-            style = {
-                name = "adwaita-dark";
-                package = pkgs.adwaita-qt;
-            };
-        };
+        # Set QT Theme (when on gnome)
+        # qt = {
+        #     enable = true;
+        #     platformTheme = "gnome";
+        #     style = {
+        #         name = "adwaita-dark";
+        #         package = pkgs.adwaita-qt;
+        #     };
+        # };
 
         programs.git = {
             enable = true;
