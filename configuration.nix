@@ -502,8 +502,8 @@
         gvfs.enable = true;
         tumbler.enable = true;
 
-        # Bluetooth
-        blueman.enable = true;
+        # Bluetooth (for when no bluetooth ui provided)
+        # blueman.enable = true;
 
         # Speedup App Launch
         preload.enable = true;
