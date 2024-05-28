@@ -474,8 +474,8 @@
                 enable = true;
 
                 # Enable a display manager.
-                displayManager.gdm.enable = true;
-                displayManager.gdm.wayland = true;
+                displayManager.sddm.enable = true;
+                displayManager.sddm.wayland.enable = true;
 
                 # Desktop environment (can't wait until cosmic)
                 desktopManager.plasma5.enable = true;
