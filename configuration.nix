@@ -578,6 +578,7 @@
     };
     nix.optimise.automatic = true;
     nix.settings = {
+        trusted-users = [ "root" "cam" ];
         auto-optimise-store = true;
         experimental-features = [ "nix-command" "flakes" ];
     };
