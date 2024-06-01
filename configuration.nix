@@ -434,6 +434,7 @@
           alias sl="sl -ew"
           fish_add_path /home/cam/.cargo/bin
           zoxide init fish | source
+          direnv hook fish | source
         '';
         shellAbbrs = {
             # Force use of better commands
