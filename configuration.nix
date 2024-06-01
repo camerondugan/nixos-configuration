@@ -257,13 +257,15 @@
             junction
 
             # Gaming
-            itch # Game Store
+            #itch # not working currently in 24.5... Game Store
             protonup-qt # Proton Downloader
             gamescope # View port emulation
             # gnome.gnome-boxes # boxes
             bottles # Runs Windows Games
 
             # Software Dev Tools
+            direnv
+            devenv
             kitty
             tmux
             lazygit
@@ -279,7 +281,6 @@
             optipng
             jpegoptim
             ntfy-sh
-            gaphor
             bottom
             gdu
             luajit
@@ -473,24 +474,27 @@
                 # Enable the X11 windowing system.
                 enable = true;
 
-                # Enable a display manager.
-                displayManager.sddm.enable = true;
-                displayManager.sddm.wayland.enable = true;
-
-                # Desktop environment (can't wait until cosmic)
-                desktopManager.plasma5.enable = true;
-
-                # Login manager
-                displayManager.autoLogin.enable = true;
-                displayManager.autoLogin.user = "cam";
-
                 # Configure keymap in X11
-                layout = "us";
-                xkbVariant = "";
-
-                # Enable touchpad support (enabled default in most desktopManager).
-                libinput.enable = true;
+                xkb= {
+                    layout = "us";
+                    variant = "";
+                };
         };
+
+        # Desktop environment (can't wait until cosmic)
+        desktopManager.plasma6.enable = true;
+
+        # Enable a display manager.
+        displayManager.sddm.enable = true;
+        displayManager.sddm.wayland.enable = true;
+
+
+        # Login manager
+        displayManager.autoLogin.enable = true;
+        displayManager.autoLogin.user = "cam";
+
+        # Enable touchpad support (enabled default in most desktopManager).
+        libinput.enable = true;
 
         # Enable CUPS to print documents.
         printing.enable = true;
