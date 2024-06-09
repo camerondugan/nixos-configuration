@@ -18,6 +18,7 @@
     home-manager = {
         useGlobalPkgs =true;
         useUserPackages = true;
+	backupFileExtension = "home-manager-backup";
     };
 
     home-manager.users.cam = {
