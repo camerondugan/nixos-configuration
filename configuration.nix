@@ -180,7 +180,7 @@
     # Set your time zone.
     time.timeZone = "America/New_York";
 
-    # Select internationalisation properties.
+    # Select internationalization properties.
     i18n.defaultLocale = "en_US.UTF-8";
 
     i18n.extraLocaleSettings = {
@@ -248,6 +248,9 @@
             neovide # nvim GUI
             anki # Study Tool
             obs-studio # Video Recording
+            obs-studio-plugins.obs-backgroundremoval
+            obs-studio-plugins.obs-composite-blur
+            obs-studio-plugins.obs-3d-effect
             prusa-slicer # 3d printer slicer
             appimage-run # Run app image from terminal
             warp # file transfer
@@ -255,7 +258,6 @@
             eyedropper # Color Picker
             audacity # Audio Editor
             freecad # 3D modeler
-            junction
 
             # Gaming
             #itch # not working currently in 24.5... Game Store
@@ -366,7 +368,6 @@
         youtube-tui
         yt-dlp
         ffmpeg
-        unsilence
         cargo
         cmake
         gnumake
@@ -408,7 +409,6 @@
         # gnomeExtensions.pop-shell # tiling windows
         # gnomeExtensions.rounded-corners # monitor corners
         # gnomeExtensions.tray-icons-reloaded # tray icons
-
     ];
 
 
