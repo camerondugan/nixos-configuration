@@ -108,6 +108,16 @@
             viAlias = true;
             vimAlias = true;
         };
+
+        programs.obs-studio = {
+            enable = true;
+            plugins = with pkgs.obs-studio-plugins; [
+                obs-backgroundremoval
+                obs-3d-effect
+                obs-scale-to-sound
+                obs-composite-blur
+            ];
+        };
     };
 
     # Set Default Applications
@@ -247,10 +257,6 @@
             libsForQt5.kdenlive # Video Editor
             neovide # nvim GUI
             anki # Study Tool
-            obs-studio # Video Recording
-            obs-studio-plugins.obs-backgroundremoval
-            obs-studio-plugins.obs-composite-blur
-            obs-studio-plugins.obs-3d-effect
             prusa-slicer # 3d printer slicer
             appimage-run # Run app image from terminal
             warp # file transfer
