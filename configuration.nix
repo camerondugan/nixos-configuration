@@ -11,114 +11,11 @@
 
     imports = [
         ./hardware-configuration.nix
-        <home-manager/nixos>
         ./this-device.nix
+        # Remove below entries if you don't want/need them
+        ./home-manager.nix
+        ./coder.nix
     ];
-
-    home-manager = {
-        useGlobalPkgs =true;
-        useUserPackages = true;
-	backupFileExtension = "home-manager-backup";
-    };
-
-    home-manager.users.cam = {
-        home = {
-            stateVersion = "23.05";
-            sessionPath = [
-                "/home/cam/go/bin/"
-                "/home/cam/.cargo/bin/"
-                "/home/cam/.go/bin/"
-                "/home/cam/.go/current/bin/"
-                "/home/cam/.system_node_modules/bin"
-            ];
-        };
-
-        # Set Config File Locations
-        xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
-        xdg.configFile."godot/text_editor_themes/godotTheme.tet".source = ./godotTheme.tet;
-
-        # Set Cursor Theme
-        # home.pointerCursor = {
-        #     name = "Catppuccin-Mocha-Light-Cursors";
-        #     package = pkgs.catppuccin-cursors.mochaLight;
-        # };
-
-        # Set GTK App Theme
-        gtk = {
-            enable = true;
-            # cursorTheme = {
-            #     name = "Catppuccin-Mocha-Light-Cursors";
-            #     package = pkgs.catppuccin-cursors.mochaLight;
-            # };
-            iconTheme = {
-                name = "Breeze-Dark";
-                package = pkgs.libsForQt5.breeze-icons;
-            };
-
-            theme = {
-                name = "Breeze-Dark";
-                package = pkgs.libsForQt5.breeze-gtk;
-            };
-
-            # theme = {
-            #     name = "Catppuccin-Mocha-Standard-Blue-Dark";
-            #     package = pkgs.catppuccin-gtk.override {
-            #         accents = [ "blue" ];
-            #         size = "standard";
-            #         variant = "mocha";
-            #         tweaks = [ "rimless" ];
-            #     };
-            # };
-            gtk3.extraConfig = {
-                Settings = ''
-                    gtk-application-prefer-dark-theme=1
-                    '';
-            };
-            gtk4.extraConfig = {
-                Settings = ''
-                    gtk-application-prefer-dark-theme=1
-                    '';
-            };
-        };
-
-        # Set QT Theme (when on gnome)
-        # qt = {
-        #     enable = true;
-        #     platformTheme = "gnome";
-        #     style = {
-        #         name = "adwaita-dark";
-        #         package = pkgs.adwaita-qt;
-        #     };
-        # };
-
-        programs.git = {
-            enable = true;
-            userName = "Cameron Dugan";
-            userEmail = "cameron.dugan@protonmail.com";
-            lfs.enable = true;
-            extraConfig = {
-                core.editor = "vim";
-                pull.rebase = false;
-            };
-        };
-
-        programs.neovim = {
-            enable = true;
-            defaultEditor = true;
-            viAlias = true;
-            vimAlias = true;
-        };
-
-        programs.obs-studio = {
-            enable = true;
-            plugins = with pkgs.obs-studio-plugins; [
-                obs-backgroundremoval
-                obs-3d-effect
-                obs-scale-to-sound
-                obs-composite-blur
-            ];
-        };
-    };
 
     # Set Default Applications
     xdg.mime.defaultApplications = {
@@ -126,7 +23,7 @@
     };
 
     fonts.packages = with pkgs; [
-        nerdfonts
+        jetbrains-mono
     ];
 
     # Bootloader.
@@ -136,7 +33,7 @@
     };
 
     systemd.services = {
-# TODO: Move these to this-device config
+        # TODO: Move these to this-device config
         # # USB Keyboard/Mouse sleeping fix
         # noUsbSleep = {
         #     enable = true;
@@ -178,11 +75,11 @@
         # Enable networking
         networkmanager.enable = true;
         firewall = {
-            allowedTCPPortRanges = [ 
-                { from = 1714; to = 1764; }
+            allowedTCPPortRanges = [
+                { from = 1714; to = 1764; } # kdeconnect
             ];
-            allowedUDPPortRanges = [ 
-                { from = 1714; to = 1764; }
+            allowedUDPPortRanges = [
+                { from = 1714; to = 1764; } # kdeconnect
             ];
         };
     };
@@ -238,7 +135,7 @@
         };
     };
 
-    # Define a user account. Don't forget to set a password with ‘passwd’.
+    # Define a user account.
     users.users.cam = {
         isNormalUser = true;
         description = "Cameron Dugan";
@@ -347,53 +244,10 @@
         # gnome.sushi
         # polkit_gnome
 
-        # Shell
-        fishPlugins.colored-man-pages
-        fishPlugins.done
-        fishPlugins.forgit
-        fishPlugins.fzf
-        fishPlugins.grc
-        fishPlugins.pisces
-        fishPlugins.puffer
-        fishPlugins.sponge
-        fishPlugins.z
-
-        # Terminal Commands
-        zip # create .zip
-        unzip # unzip .zip
-        rar # create .rar
-        unrar # unzip .rar
-        rmtrash # trash when rm (needs alias)
-        zoxide # better cd (needs setup)
-        lf # file explorer
-        sl # Steam Locomotive
-        mpv # View Media
-        tmate
-        networkmanagerapplet
-        pavucontrol
-        youtube-tui
-        yt-dlp
-        ffmpeg
-        cargo
-        cmake
-        gnumake
-        php
-        nodePackages.npm
-        wget
-        ruby
-        fzf
-        grc
-        pfetch
-        sshfs
-
         # Clipboard
         # wl-clipboard
         # wl-clip-persist
         xclip
-
-        # Other
-        android-tools
-        android-studio
 
         # Auto Brightness
         clight
@@ -425,37 +279,9 @@
     #   enable = true;
     #   enableSSHSupport = true;
     # };
-
-    # Program Configs
-    programs.starship.enable = true;
-    programs.fish = {
-        enable = true;
-        interactiveShellInit = ''
-          pfetch
-          set fish_greeting
-          fish_vi_key_bindings
-          bind --mode insert \cW 'fish_clipboard_copy' # disable ctrl+w
-          bind --mode insert \b 'backward-kill-bigword' # rebind to ctrl+backspace
-          alias rm="rmtrash"
-          alias rmdir="rmdirtrash"
-          alias sl="sl -ew"
-          fish_add_path /home/cam/.cargo/bin
-          zoxide init fish | source
-          direnv hook fish | source
-        '';
-        shellAbbrs = {
-            # Force use of better commands
-            cd="z";
-            np = "nix-shell -p";
-            grep="rg";
-            gi="gi >> .gitignore"; # append to gitignore
-            tat="tmux a -t"; # Attach to session
-            tnt="tmux new -t"; # Create new session
-            td="tmux detach"; # Exit session while saving it
-        };
-    };
     programs.dconf.enable = true;
     programs.nix-ld.enable = true;
+
     programs.steam.enable = true;
     programs.steam.package = pkgs.steam.override {
         extraPkgs = pkgs:
@@ -531,7 +357,7 @@
         # Flatpak for other software you can't find on NixOS
         flatpak.enable = true;
 
-        # Enable hibernation. (You installed with swap right?)
+        # Enable hibernation with no DE. (You installed with swap right?)
         logind.extraConfig = ''
             HibernateDelaySec=15min
             HandleSuspendKey=hibernate
