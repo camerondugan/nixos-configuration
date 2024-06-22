@@ -23,7 +23,7 @@
     };
 
     fonts.packages = with pkgs; [
-        nerdfonts
+        jetbrains-mono
     ];
 
     # Bootloader.
@@ -33,7 +33,7 @@
     };
 
     systemd.services = {
-# TODO: Move these to this-device config
+        # TODO: Move these to this-device config
         # # USB Keyboard/Mouse sleeping fix
         # noUsbSleep = {
         #     enable = true;
@@ -87,7 +87,7 @@
     # Set your time zone.
     time.timeZone = "America/New_York";
 
-    # Select internationalisation properties.
+    # Select internationalization properties.
     i18n.defaultLocale = "en_US.UTF-8";
 
     i18n.extraLocaleSettings = {
@@ -154,7 +154,6 @@
             libsForQt5.kdenlive # Video Editor
             neovide # nvim GUI
             anki # Study Tool
-            obs-studio # Video Recording
             prusa-slicer # 3d printer slicer
             appimage-run # Run app image from terminal
             warp # file transfer
@@ -270,7 +269,6 @@
         # gnomeExtensions.pop-shell # tiling windows
         # gnomeExtensions.rounded-corners # monitor corners
         # gnomeExtensions.tray-icons-reloaded # tray icons
-
     ];
 
 
