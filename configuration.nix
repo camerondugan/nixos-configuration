@@ -558,6 +558,9 @@
         power-profiles-daemon.enable = true;
         upower.enable = true;
         auto-cpufreq.enable = true;
+
+        # ollama
+        ollama.enable = true;
     };
 
     # Kde Connect
