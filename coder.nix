@@ -17,6 +17,7 @@
           fish_add_path /home/cam/.cargo/bin
           zoxide init fish | source
           direnv hook fish | source
+          enable_transience
         '';
         shellAbbrs = {
             # Force use of better commands
