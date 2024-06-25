@@ -8,6 +8,8 @@
 { 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
+    # Use desktop optimized kernel
+    boot.kernelPackages = pkgs.linuxPackages_zen;
 
     imports = [
         ./hardware-configuration.nix
