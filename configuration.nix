@@ -77,6 +77,7 @@
         # Enable networking
         networkmanager.enable = true;
         firewall = {
+            # allowedTCPPorts = [ 11434 ]; # ollama
             allowedTCPPortRanges = [
                 { from = 1714; to = 1764; } # kdeconnect
             ];
@@ -217,26 +218,18 @@
     hardware = {
         pulseaudio.enable = false;
         bluetooth.enable = true; # only for de that doesn't include
-
-        # Graphics support
-        opengl.enable = true;
-        opengl.driSupport = true;
-        opengl.driSupport32Bit = true;
-        pulseaudio.support32Bit = true;
+        graphics.enable = true;
+        graphics.enable32Bit = true;
     };
 
-    environment.sessionVariables = {
+    environment.variables = {
         EDITOR = "nvim";
         GOBIN = "/home/cam/go/bin";
         VISUAL = "neovide";
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";
         NODE_PATH = "~/.system_node_modules/lib/node_modules";
+        NIXPKGS_ALLOW_UNFREE = 1;
     };
-
-    # environment.gnome.excludePackages = [ 
-    #     pkgs.gnome-tour 
-    #     pkgs.gnome.gnome-software 
-    # ];
 
     # List packages installed in system profile. To search, run:
     # $ nix search wget
@@ -385,10 +378,10 @@
         # Energy Saving
         power-profiles-daemon.enable = true;
         upower.enable = true;
-        auto-cpufreq.enable = true;
 
         # ollama
         ollama.enable = true;
+        ollama.host = "0.0.0.0";
     };
 
     # Kde Connect
