@@ -171,6 +171,7 @@
             gamescope # View port emulation
             # gnome.gnome-boxes # boxes
             bottles # Runs Windows Games
+            gamemode
 
             # Software Dev Tools
             direnv
