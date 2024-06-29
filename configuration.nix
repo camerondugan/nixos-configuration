@@ -171,7 +171,6 @@
             gamescope # View port emulation
             # gnome.gnome-boxes # boxes
             bottles # Runs Windows Games
-            gamemode
 
             # Software Dev Tools
             direnv
@@ -297,6 +296,7 @@
     programs.steam.gamescopeSession.enable = true;
     programs.steam.remotePlay.openFirewall = true;
     programs.steam.dedicatedServer.openFirewall = true;
+    programs.gamemode.enable = true;
 
 
     services = {
