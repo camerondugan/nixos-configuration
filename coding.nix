@@ -76,5 +76,46 @@
         android-tools
         android-studio
 
+        # Software Dev Tools
+        direnv
+        devenv
+        kitty
+        tmux
+        lazygit
+        ripgrep
+        httplz
+        gdb
+        steam-run
+        optipng
+        jpegoptim
+        ntfy-sh
+
+        # Nvim required
+        bottom
+        gdu
+        luajit
+        luajitPackages.luarocks-nix
+        nodejs-slim
+        php82Packages.composer
+        tree-sitter
+        imv
+
+        # Languages (no particular order)
+        dotnet-sdk
+        flutter
+        gcc
+        go
+        rstudio
+        rustup
+        zig
+        jdk
+        clang
+        julia-bin
+        godot_4
+        # Python
+        (python311.withPackages(ps: with ps; [
+            pip
+            pynvim
+        ]))
     ];
 }

@@ -1,8 +1,6 @@
 # Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { pkgs, ... }:
-
 # let unstable = import <nixos-unstable> {config={allowUnfree=true;};};
 #in
 { 
@@ -14,9 +12,10 @@
     imports = [
         ./hardware-configuration.nix
         ./this-device.nix
-        # Remove below entries if you don't want/need them
+        # Add the commented entries to this-device.nix if this specific machine needs it.
+        # ./gaming.nix 
+        # ./coding.nix
         ./home-manager.nix
-        ./coder.nix
     ];
 
     # Set Default Applications
@@ -35,18 +34,7 @@
     };
 
     systemd.services = {
-        # TODO: Move these to this-device config
-        # # USB Keyboard/Mouse sleeping fix
-        # noUsbSleep = {
-        #     enable = true;
-        #     wantedBy = ["multi-user.target"];
-        #     script = ''
-        #         sleep 30
-        #         echo on | tee /sys/bus/usb/devices/*/power/level > /dev/null
-        #     '';
-        # };
-
-        # # Clightd Service... NixOS one is bonked
+        # # Clightd NixOS one is bonked, no idea how to make it work
         # clightd = {
         #     enable = true;
         #     wantedBy = ["multi-user.target"];
@@ -54,7 +42,6 @@
         #         ${pkgs.clightd}/bin/clightd
         #     '';
         # };
-
         autoStartScript = {
             enable = true;
             wantedBy = ["default.target"];
@@ -164,60 +151,12 @@
             eyedropper # Color Picker
             audacity # Audio Editor
             freecad # 3D modeler
-
-            # Gaming
-            #itch # not working currently in 24.5... Game Store
-            protonup-qt # Proton Downloader
-            gamescope # View port emulation
-            # gnome.gnome-boxes # boxes
-            bottles # Runs Windows Games
-
-            # Software Dev Tools
-            direnv
-            devenv
-            kitty
-            tmux
-            lazygit
-            ripgrep
-            httplz
-            plantuml
-            fd
-            gdb
-            nasm
-            steam-run
-            pandoc
-            texlive.combined.scheme-medium
-            optipng
-            jpegoptim
-            ntfy-sh
-            bottom
-            gdu
-            luajit
-            luajitPackages.luarocks-nix
-            nodejs-slim
-            php82Packages.composer
-            tree-sitter
-            imv
-            feh
-
-            # Languages (no particular order)
-            dotnet-sdk
-            flutter
-            gcc
-            go
-            rstudio
-            rustup
-            godot_4
-            zig
-            jdk
-            clang
-            julia-bin
         ];
     };
 
     hardware = {
         pulseaudio.enable = false;
-        bluetooth.enable = true; # only for de that doesn't include
+        bluetooth.enable = true;
         graphics.enable = true;
         graphics.enable32Bit = true;
     };
@@ -234,11 +173,6 @@
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = with pkgs; [
-        # # GNOME
-        # gnome.gnome-sound-recorder
-        # gnome.sushi
-        # polkit_gnome
-
         # Clipboard
         # wl-clipboard
         # wl-clip-persist
@@ -247,57 +181,12 @@
         # Auto Brightness
         clight
         clightd
-
-        # Python
-        (python311.withPackages(ps: with ps; [
-            pip
-            pynvim
-        ]))
-
-        # Gnome Extensions
-        # gnomeExtensions.app-hider # add hide option to app menu
-        # gnomeExtensions.dash-to-dock # dock
-        # gnomeExtensions.blur-my-shell # better ui
-        # gnomeExtensions.burn-my-windows # better open/close animation
-        # gnomeExtensions.espresso # keeps screen on in full screen
-        # gnomeExtensions.pip-on-top # keeps Firefox pip above in Wayland
-        # gnomeExtensions.pop-shell # tiling windows
-        # gnomeExtensions.rounded-corners # monitor corners
-        # gnomeExtensions.tray-icons-reloaded # tray icons
     ];
-
 
     # Some programs need SUID wrappers, can be configured further or are
     # started in user sessions.
-    # programs.mtr.enable = true;
-    # programs.gnupg.agent = {
-    #   enable = true;
-    #   enableSSHSupport = true;
-    # };
     programs.dconf.enable = true;
     programs.nix-ld.enable = true;
-
-    programs.steam.enable = true;
-    programs.steam.package = pkgs.steam.override {
-        extraPkgs = pkgs:
-            with pkgs; [ # x11 dependencies
-                xorg.libXcursor
-                xorg.libXi
-                xorg.libXinerama
-                xorg.libXScrnSaver
-                libpng
-                libpulseaudio
-                libvorbis
-                stdenv.cc.cc.lib
-                libkrb5
-                keyutils
-        ];
-    };
-    programs.steam.gamescopeSession.enable = true;
-    programs.steam.remotePlay.openFirewall = true;
-    programs.steam.dedicatedServer.openFirewall = true;
-    programs.gamemode.enable = true;
-
 
     services = {
         xserver = {
@@ -328,13 +217,6 @@
 
         # Enable CUPS to print documents.
         printing.enable = true;
-
-        # Enable mounting service.
-        udisks2.enable = true;
-
-        # Enable trash service.
-        gvfs.enable = true;
-        tumbler.enable = true;
 
         # Bluetooth (for when no bluetooth ui provided)
         # blueman.enable = true;
