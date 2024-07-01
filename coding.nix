@@ -22,7 +22,7 @@
         shellAbbrs = {
             # Force use of better commands
             cd="z";
-            np = "nix-shell -p";
+            np = "nix-shell --run fish -p";
             grep="rg";
             gi="gi >> .gitignore"; # append to gitignore
             tat="tmux a -t"; # Attach to session
