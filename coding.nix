@@ -3,6 +3,13 @@
 {
     # Program Configs
     programs.starship.enable = true;
+    programs.tmux = {
+        enable = true;
+        plugins = with pkgs; [
+            tmuxPlugins.resurrect
+            tmuxPlugins.continuum
+        ];
+    };
     programs.fish = {
         enable = true;
         interactiveShellInit = ''
@@ -80,7 +87,6 @@
         direnv
         devenv
         kitty
-        tmux
         lazygit
         ripgrep
         httplz

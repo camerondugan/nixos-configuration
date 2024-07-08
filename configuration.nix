@@ -255,6 +255,7 @@
             enable = true;
             user = "cam";
             dataDir = "/home/cam/Sync";
+            configDir = "/home/cam/Documents/.config/syncthing";
         };
 
         # Energy Saving
