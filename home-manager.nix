@@ -8,8 +8,9 @@
     home-manager = {
         useGlobalPkgs =true;
         useUserPackages = true;
-        backupFileExtension = "hmbak";
+        backupFileExtension = "backup";
     };
+
 
     home-manager.users.cam = {
         home = {

@@ -89,6 +89,7 @@
         kitty
         lazygit
         ripgrep
+        fd
         httplz
         gdb
         steam-run
@@ -119,7 +120,7 @@
         julia-bin
         godot_4
         # Python
-        (python311.withPackages(ps: with ps; [
+        (python3.withPackages(ps: with ps; [
             pip
             pynvim
         ]))

@@ -18,6 +18,7 @@
         ./home-manager.nix
     ];
 
+
     # Set Default Applications
     xdg.mime.defaultApplications = {
         "inode/directory" = "org.gnome.Nautilus.desktop";
@@ -99,6 +100,7 @@
     # Yubikey Optional Unlock
     security.pam.u2f = {
         enable = true;
+        #settings.cue = true ;
         cue = true ;
     };
     security.pam.services = {
@@ -134,7 +136,6 @@
         packages = with pkgs; [
             # Desktop Software
             firefox # Browser
-            beeper # Chat
             webcord # Discord
             libreoffice-fresh # Office Suite
             koreader # Book Reader
@@ -150,15 +151,16 @@
             impression # ISO USB writer
             eyedropper # Color Picker
             audacity # Audio Editor
-            freecad # 3D modeler
         ];
     };
 
     hardware = {
         pulseaudio.enable = false;
         bluetooth.enable = true;
-        graphics.enable = true;
-        graphics.enable32Bit = true;
+        opengl.driSupport = true;
+        opengl.driSupport32Bit = true;
+        # graphics.enable = true;
+        # graphics.enable32Bit = true;
     };
 
     environment.variables = {
@@ -264,7 +266,8 @@
 
         # ollama
         ollama.enable = true;
-        ollama.host = "0.0.0.0";
+        ollama.listenAddress = "0.0.0.0:11434";
+        # ollama.host = "0.0.0.0";
     };
 
     # Kde Connect
