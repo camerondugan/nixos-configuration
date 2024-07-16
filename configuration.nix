@@ -143,7 +143,6 @@
             inkscape # Vector Art
             blender # 3D Toolkit
             libsForQt5.kdenlive # Video Editor
-            neovide # nvim GUI
             anki # Study Tool
             prusa-slicer # 3d printer slicer
             appimage-run # Run app image from terminal
