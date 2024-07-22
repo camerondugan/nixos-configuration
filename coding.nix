@@ -38,6 +38,11 @@
         };
     };
 
+    # QMK permissions for my keyboard
+    services.udev.extraRules = ''
+    KERNEL=="ttyACM0", MODE:="666"
+    '';
+
     environment.systemPackages = with pkgs; [
         # Shell
         fishPlugins.colored-man-pages
@@ -96,6 +101,9 @@
         optipng
         jpegoptim
         ntfy-sh
+
+        # Keyboard programming
+        qmk
 
         # Nvim required
         bottom

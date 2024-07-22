@@ -94,7 +94,7 @@
     };
 
     # Enable sound with pipe wire.
-    sound.enable = true;
+    # sound.enable = true;
     security.rtkit.enable = true;
 
     # Yubikey Optional Unlock
@@ -156,10 +156,10 @@
     hardware = {
         pulseaudio.enable = false;
         bluetooth.enable = true;
-        opengl.driSupport = true;
-        opengl.driSupport32Bit = true;
-        # graphics.enable = true;
-        # graphics.enable32Bit = true;
+        # opengl.driSupport = true;
+        # opengl.driSupport32Bit = true;
+        graphics.enable = true;
+        graphics.enable32Bit = true;
     };
 
     environment.variables = {
@@ -265,8 +265,8 @@
 
         # ollama
         ollama.enable = true;
-        ollama.listenAddress = "0.0.0.0:11434";
-        # ollama.host = "0.0.0.0";
+        # ollama.listenAddress = "0.0.0.0:11434";
+        ollama.host = "0.0.0.0";
     };
 
     # Kde Connect
