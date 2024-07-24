@@ -17,7 +17,7 @@ mv -f "$GTKRC2PATH" "$GTKRC2BAKPATH"
 # Run test
 # sudo nixos-rebuild switch --show-trace --fast
 # Cosmic temporary thing:
-sudo nixos-rebuild boot --flake '/home/cam/.nixos/' --accept-flake-config --impuresudo nixos-rebui
+sudo nixos-rebuild boot --flake '/home/cam/.nixos/' --accept-flake-config --impure
 
 # Restore gtk3 settings if not generated for us
 if [ ! -f "$GTK3SETTINGSPATH" ]; then
