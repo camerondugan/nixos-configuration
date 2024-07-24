@@ -13,7 +13,6 @@
     programs.fish = {
         enable = true;
         interactiveShellInit = ''
-          pfetch
           set fish_greeting
           fish_vi_key_bindings
           bind --mode insert \cW 'fish_clipboard_copy' # disable ctrl+w
@@ -27,7 +26,6 @@
             # force safer rm
             rm="rmtrash";
             rmdir="rmdirtrash";
-            # 
             sl="sl -ew";
         };
         shellAbbrs = { # Shows to the user the longer command
@@ -37,6 +35,9 @@
             np = "nix-shell --run fish -p";
             grep="rg";
             gi="gi >> .gitignore"; # append to gitignore
+            # Kitty specific
+            s="kitten ssh";
+            # TMUX
             tat="tmux a -t"; # Attach to session
             tnt="tmux new -t"; # Create new session
             td="tmux detach"; # Exit session while saving it
@@ -86,7 +87,6 @@
         ruby
         fzf
         grc
-        pfetch
         sshfs
 
         # Android

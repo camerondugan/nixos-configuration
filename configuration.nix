@@ -8,6 +8,7 @@
     nixpkgs.config.allowUnfree = true;
     # Use desktop optimized kernel
     boot.kernelPackages = pkgs.linuxPackages_zen;
+    services.cachix-agent.enable = true;
 
     imports = [
         /home/cam/.nixos/hardware-configuration.nix
@@ -187,6 +188,7 @@
     # started in user sessions.
     programs.dconf.enable = true;
     programs.nix-ld.enable = true;
+    programs.fish.enable = true;
 
     services = {
         xserver = {
@@ -256,8 +258,6 @@
         syncthing = {
             enable = true;
             user = "cam";
-            dataDir = "/home/cam/Sync";
-            configDir = "/home/cam/Documents/.config/syncthing";
         };
 
         # Energy Saving
