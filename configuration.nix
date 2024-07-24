@@ -10,12 +10,12 @@
     boot.kernelPackages = pkgs.linuxPackages_zen;
 
     imports = [
-        ./hardware-configuration.nix
-        ./this-device.nix
+        /home/cam/.nixos/hardware-configuration.nix
+        /home/cam/.nixos/this-device.nix
         # Add the commented entries to this-device.nix if this specific machine needs it.
         # ./gaming.nix 
         # ./coding.nix
-        ./home-manager.nix
+        /home/cam/.nixos/home-manager.nix
     ];
 
 
@@ -100,8 +100,7 @@
     # Yubikey Optional Unlock
     security.pam.u2f = {
         enable = true;
-        #settings.cue = true ;
-        cue = true ;
+        settings.cue = true ;
     };
     security.pam.services = {
         login.u2fAuth = true;
@@ -202,11 +201,13 @@
         };
 
         # Desktop environment (can't wait until cosmic)
-        desktopManager.plasma6.enable = true;
+        # desktopManager.plasma6.enable = true;
+        desktopManager.cosmic.enable = true;
 
         # Enable a display manager.
-        displayManager.sddm.enable = true;
-        displayManager.sddm.wayland.enable = true;
+        # displayManager.sddm.enable = true;
+        # displayManager.sddm.wayland.enable = true;
+        displayManager.cosmic-greeter.enable = true;
 
 
         # Login manager

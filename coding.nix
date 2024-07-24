@@ -18,16 +18,21 @@
           fish_vi_key_bindings
           bind --mode insert \cW 'fish_clipboard_copy' # disable ctrl+w
           bind --mode insert \b 'backward-kill-bigword' # rebind to ctrl+backspace
-          alias rm="rmtrash"
-          alias rmdir="rmdirtrash"
-          alias sl="sl -ew"
           fish_add_path /home/cam/.cargo/bin
           zoxide init fish | source
           direnv hook fish | source
           enable_transience
         '';
-        shellAbbrs = {
+        shellAliases = { # doesn't show these changes to user
+            # force safer rm
+            rm="rmtrash";
+            rmdir="rmdirtrash";
+            # 
+            sl="sl -ew";
+        };
+        shellAbbrs = { # Shows to the user the longer command
             # Force use of better commands
+            lg="lazygit";
             cd="z";
             np = "nix-shell --run fish -p";
             grep="rg";
