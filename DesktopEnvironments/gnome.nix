@@ -1,6 +1,7 @@
 { pkgs }:
 # note, I no longer use gnome, this is definitely out of date.
 {
+    programs.dconf.enable = true;
     environment.systemPackages = with pkgs; [
         # GNOME
         gnome.gnome-boxes # boxes

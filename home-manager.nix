@@ -22,8 +22,10 @@
         };
 
         # Set Config File Locations
-        xdg.configFile."kitty/kitty.conf".source = ./kitty.conf;
-        xdg.configFile."godot/text_editor_themes/godotTheme.tet".source = ./godotTheme.tet;
+        xdg.configFile."kitty/kitty.conf".source =
+            ./SoftwareBundles/CoderFiles/kitty.conf;
+        xdg.configFile."godot/text_editor_themes/godotTheme.tet".source =
+            ./SoftwareBundles/CoderFiles/godotTheme.tet;
 
         # Set Cursor Theme
         # home.pointerCursor = {

@@ -12,9 +12,9 @@
     imports = [
         /home/cam/.nixos/hardware-configuration.nix
         /home/cam/.nixos/home-manager.nix
-        /home/cam/.nixos/this-device.nix
-        /home/cam/.nixos/distributedBuild.nix
-        # Add the commented entries to this-device.nix if this specific machine needs it.
+        /home/cam/.nixos/SoftwareBundles/distributedBuilds.nix
+        /home/cam/.nixos/ThisDevice/configuration.nix
+        # Add the commented entries to ThisDevice/configuration.nix if this specific machine needs it.
         # ./gaming.nix 
         # ./coding.nix
     ];
@@ -171,8 +171,6 @@
         NIXPKGS_ALLOW_UNFREE = 1;
     };
 
-    # List packages installed in system profile. To search, run:
-    # $ nix search wget
     environment.systemPackages = with pkgs; [
         # Clipboard
         # wl-clipboard
@@ -184,9 +182,6 @@
         clightd
     ];
 
-    # Some programs need SUID wrappers, can be configured further or are
-    # started in user sessions.
-    programs.dconf.enable = true;
     programs.nix-ld.enable = true;
     programs.fish.enable = true;
 
@@ -266,7 +261,6 @@
 
         # ollama
         ollama.enable = true;
-        # ollama.listenAddress = "0.0.0.0:11434";
         ollama.host = "0.0.0.0";
     };
 
@@ -277,7 +271,6 @@
         # Before changing this value read the documentation for this option
         # (e.g. man configuration.nix). Also remember to change home-manager's
         # version.
-
         stateVersion = "23.05"; # Did you read the comment?
 
         # Enable Auto Updates
@@ -290,8 +283,8 @@
     # Enable Optimization.
     nix.gc = {
         automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 7d";
+        dates = "daily";
+        options = "--delete-older-than 3d";
     };
     nix.optimise.automatic = true;
     nix.settings = {

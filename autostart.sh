@@ -44,6 +44,6 @@ done
 ( (cd "$nixConf" && ./test.sh && notify-send "Using latest config: .nixos/autostart.sh") || notify-send "Switch to new config failed or $nixConf does not exist: .nixos/autostart.sh")
 
 # This device only script for auto start (make sure it exists and is run-able)
-touch /home/cam/.nixos/this-device-autostart.sh
-chmod +x /home/cam/.nixos/this-device-autostart.sh
-bash /home/cam/.nixos/this-device-autostart.sh &
+touch /home/cam/.nixos/ThisDevice/autostart.sh
+chmod +x /home/cam/.nixos/ThisDevice/autostart.sh
+bash /home/cam/.nixos/ThisDevice/autostart.sh &
