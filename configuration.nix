@@ -8,15 +8,15 @@
     nixpkgs.config.allowUnfree = true;
     # Use desktop optimized kernel
     boot.kernelPackages = pkgs.linuxPackages_zen;
-    services.cachix-agent.enable = true;
 
     imports = [
         /home/cam/.nixos/hardware-configuration.nix
+        /home/cam/.nixos/home-manager.nix
         /home/cam/.nixos/this-device.nix
+        /home/cam/.nixos/distributedBuild.nix
         # Add the commented entries to this-device.nix if this specific machine needs it.
         # ./gaming.nix 
         # ./coding.nix
-        /home/cam/.nixos/home-manager.nix
     ];
 
 
@@ -88,10 +88,10 @@
         LC_MEASUREMENT = "en_US.UTF-8";
         LC_MONETARY = "en_US.UTF-8";
         LC_NAME = "en_US.UTF-8";
-        LC_NUMERIC = "en_US.UTF-8";
+        # LC_NUMERIC = "en_US.UTF-8";
         LC_PAPER = "en_US.UTF-8";
         LC_TELEPHONE = "en_US.UTF-8";
-        LC_TIME = "en_US.UTF-8";
+        # LC_TIME = "en_US.UTF-8";
     };
 
     # Enable sound with pipe wire.

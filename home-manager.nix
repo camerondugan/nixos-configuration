@@ -5,12 +5,9 @@
         <home-manager/nixos>
     ];
 
-    home-manager = {
-        useGlobalPkgs =true;
-        useUserPackages = true;
-        backupFileExtension = "backup";
-    };
-
+    home-manager.useGlobalPkgs =true;
+    home-manager.useUserPackages = true;
+    home-manager.backupFileExtension = "hmbk";
 
     home-manager.users.cam = {
         home = {
@@ -35,42 +32,42 @@
         # };
 
         # Set GTK App Theme
-        gtk = {
-            enable = true;
-            # cursorTheme = {
-            #     name = "Catppuccin-Mocha-Light-Cursors";
-            #     package = pkgs.catppuccin-cursors.mochaLight;
-            # };
-            iconTheme = {
-                name = "Breeze-Dark";
-                package = pkgs.libsForQt5.breeze-icons;
-            };
-
-            theme = {
-                name = "Breeze-Dark";
-                package = pkgs.libsForQt5.breeze-gtk;
-            };
-            # theme = {
-            #     name = "Catppuccin-Mocha-Standard-Blue-Dark";
-            #     package = pkgs.catppuccin-gtk.override {
-            #         accents = [ "blue" ];
-            #         size = "standard";
-            #         variant = "mocha";
-            #         tweaks = [ "rimless" ];
-            #     };
-            # };
-
-            gtk3.extraConfig = {
-                Settings = ''
-                    gtk-application-prefer-dark-theme=1
-                    '';
-            };
-            gtk4.extraConfig = {
-                Settings = ''
-                    gtk-application-prefer-dark-theme=1
-                    '';
-            };
-        };
+        # gtk = {
+        #     enable = true;
+        #     # cursorTheme = {
+        #     #     name = "Catppuccin-Mocha-Light-Cursors";
+        #     #     package = pkgs.catppuccin-cursors.mochaLight;
+        #     # };
+        #     iconTheme = {
+        #         name = "Breeze-Dark";
+        #         package = pkgs.libsForQt5.breeze-icons;
+        #     };
+        #
+        #     theme = {
+        #         name = "Breeze-Dark";
+        #         package = pkgs.libsForQt5.breeze-gtk;
+        #     };
+        #     # theme = {
+        #     #     name = "Catppuccin-Mocha-Standard-Blue-Dark";
+        #     #     package = pkgs.catppuccin-gtk.override {
+        #     #         accents = [ "blue" ];
+        #     #         size = "standard";
+        #     #         variant = "mocha";
+        #     #         tweaks = [ "rimless" ];
+        #     #     };
+        #     # };
+        #
+        #     gtk3.extraConfig = {
+        #         Settings = ''
+        #             gtk-application-prefer-dark-theme=1
+        #             '';
+        #     };
+        #     gtk4.extraConfig = {
+        #         Settings = ''
+        #             gtk-application-prefer-dark-theme=1
+        #             '';
+        #     };
+        # };
 
         # Set QT Theme (when on gnome)
         # qt = {

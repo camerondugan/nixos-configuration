@@ -15,7 +15,7 @@
   outputs = { self, nixpkgs, nixos-cosmic }: {
     nixosConfigurations = {
       # NOTE: change "host" to your system's hostname
-      Laptop = nixpkgs.lib.nixosSystem {
+      Desktop = nixpkgs.lib.nixosSystem {
         modules = [
           nixos-cosmic.nixosModules.default
           ./configuration.nix
