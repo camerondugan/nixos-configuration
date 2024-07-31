@@ -1,42 +1,37 @@
-{ config, pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   imports = [
-    ../SoftwareBundles/gamer.nix
     ../SoftwareBundles/coder.nix
-    #./cosmic.nix
   ];
+  networking.hostName = "ThinkPad";
 
-  networking.hostName = "Desktop"; # Define your hostname.
-  boot.initrd.luks.devices."luks-d61365ad-2360-44ee-af96-eabea1511510".device = "/dev/disk/by-uuid/d61365ad-2360-44ee-af96-eabea1511510";
+  # Enable swap on luks
+  boot.initrd.luks.devices."luks-c45223a2-5f52-46a0-b4d3-e81266eee5e3".device = "/dev/disk/by-uuid/c45223a2-5f52-46a0-b4d3-e81266eee5e3";
+  boot.initrd.luks.devices."luks-c45223a2-5f52-46a0-b4d3-e81266eee5e3".keyFile = "/crypto_keyfile.bin";
 
-  # mount drive
-  fileSystems."/mnt/FireCuda" = {
-    device = "/dev/nvme1n1p1";
-    fsType = "auto";
+  hardware.trackpoint.device = "TPPS/2 Elan TrackPoint";
+
+  # SSD
+  services.fstrim.enable = true;
+  services.thermald.enable = true;
+
+  # # Start the driver at boot
+  # systemd.services.fprintd = {
+  #   wantedBy = [ "multi-user.target" ];
+  #   serviceConfig.Type = "simple";
+  # };
+  #
+  # services.fprintd = {
+  #   enable = true;
+  #   tod.enable = true;
+  #   tod.driver = pkgs.libfprint-2-tod1-vfs0090; # driver for 2016 ThinkPads
+  # };
+
+  #ACPI Call
+  boot = {
+    kernelModules = [ "acpi_call" ];
+    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   };
 
-  environment.systemPackages = with pkgs; [
-    clonehero
-  ];
-
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
-
-  # make gamescope fullscreen by default
-  programs.gamescope.args = ["-f"];
-
-  systemd.tmpfiles.rules = [
-    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-  ];
-  #nixpkgs.config.rocmSupport = true;
-  #nixpkgs.config.rocmTargets = ["gfx1031"];
-  hardware.graphics.extraPackages = [ pkgs.rocm-opencl-icd ];
-  hardware.amdgpu.opencl.enable = true;
-  services.ollama.package = pkgs.ollama-rocm;
-  services.ollama.acceleration = "rocm";
-  services.ollama.environmentVariables = {
-    HCC_AMDGPU_TARGET = "gfx1031";
-  };
-  services.ollama.rocmOverrideGfx = "10.3.1";
 }
