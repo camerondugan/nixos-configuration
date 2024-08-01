@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../SoftwareBundles/distributedBuilds.nix
     ../SoftwareBundles/coder.nix
   ];
   networking.hostName = "ThinkPad";
@@ -27,6 +28,10 @@
   #   tod.enable = true;
   #   tod.driver = pkgs.libfprint-2-tod1-vfs0090; # driver for 2016 ThinkPads
   # };
+
+  environment.systemPackages = with pkgs; [
+    steam
+  ];
 
   #ACPI Call
   boot = {

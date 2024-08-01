@@ -10,10 +10,9 @@
     boot.kernelPackages = pkgs.linuxPackages_zen;
 
     imports = [
-        /home/cam/.nixos/hardware-configuration.nix
-        /home/cam/.nixos/home-manager.nix
-        /home/cam/.nixos/SoftwareBundles/distributedBuilds.nix
-        /home/cam/.nixos/ThisDevice/configuration.nix
+        ./hardware-configuration.nix
+        ./home-manager.nix
+        ./ThisDevice/configuration.nix
         # Add the commented entries to ThisDevice/configuration.nix if this specific machine needs it.
         # ./gaming.nix 
         # ./coding.nix
@@ -198,13 +197,13 @@
         };
 
         # Desktop environment (can't wait until cosmic)
-        # desktopManager.plasma6.enable = true;
-        desktopManager.cosmic.enable = true;
+        desktopManager.plasma6.enable = true;
+        # desktopManager.cosmic.enable = true;
 
         # Enable a display manager.
-        # displayManager.sddm.enable = true;
-        # displayManager.sddm.wayland.enable = true;
-        displayManager.cosmic-greeter.enable = true;
+        displayManager.sddm.enable = true;
+        displayManager.sddm.wayland.enable = true;
+        # displayManager.cosmic-greeter.enable = true;
 
 
         # Login manager
@@ -253,6 +252,8 @@
         syncthing = {
             enable = true;
             user = "cam";
+            dataDir = "/home/cam"; # wiki bad
+            configDir = "/home/cam/.config/syncthing"; # my config better
         };
 
         # Energy Saving
@@ -266,8 +267,8 @@
 
     # Kde Connect
     programs.kdeconnect.enable = true;
-    system = {
 
+    system = {
         # Before changing this value read the documentation for this option
         # (e.g. man configuration.nix). Also remember to change home-manager's
         # version.
