@@ -13,16 +13,11 @@
         ./hardware-configuration.nix
         ./home-manager.nix
         ./ThisDevice/configuration.nix
+        ./DesktopEnvironments/plasma.nix
         # Add the commented entries to ThisDevice/configuration.nix if this specific machine needs it.
         # ./gaming.nix 
         # ./coding.nix
     ];
-
-
-    # Set Default Applications
-    xdg.mime.defaultApplications = {
-        "inode/directory" = "org.gnome.Nautilus.desktop";
-    };
 
     fonts.packages = with pkgs; [
         ( nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
@@ -50,10 +45,6 @@
                 ./home/cam/.nixos/autostart.sh
             '';
         };
-
-        # Faster Boot
-        systemd-udev-settle.enable = false;
-        NetworkManager-wait-online.enable = false;
     };
 
     # Setup keyfile
@@ -195,16 +186,6 @@
                     variant = "";
                 };
         };
-
-        # Desktop environment (can't wait until cosmic)
-        desktopManager.plasma6.enable = true;
-        # desktopManager.cosmic.enable = true;
-
-        # Enable a display manager.
-        displayManager.sddm.enable = true;
-        displayManager.sddm.wayland.enable = true;
-        # displayManager.cosmic-greeter.enable = true;
-
 
         # Login manager
         displayManager.autoLogin.enable = true;

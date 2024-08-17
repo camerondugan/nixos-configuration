@@ -1,12 +1,27 @@
-{ pkgs }:
-# note, I no longer use gnome, this is definitely out of date.
+{ pkgs, ... }:
 {
+    services = {
+        # Desktop environment (can't wait until cosmic)
+        xserver.desktopManager.gnome.enable = true;
+        # desktopManager.cosmic.enable = true;
+
+        # Enable a display manager.
+        xserver.displayManager.gdm.enable = true;
+        # xserver.displayManager.gdm.wayland.enable = true;
+        # displayManager.cosmic-greeter.enable = true;
+    };
+
+    # Set Default Applications
+    xdg.mime.defaultApplications = {
+        "inode/directory" = "org.gnome.Nautilus.desktop";
+    };
+
     programs.dconf.enable = true;
     environment.systemPackages = with pkgs; [
         # GNOME
         gnome.gnome-boxes # boxes
         gnome.gnome-sound-recorder
-        gnome.sushi
+        sushi
         polkit_gnome
         # Gnome Extensions
         gnomeExtensions.app-hider # add hide option to app menu

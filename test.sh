@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-sudo nix-channel --update
-
 # Paths for GTK Settings.ini and .bak
 GTK3SETTINGSPATH="/home/$USER/.config/gtk-3.0/settings.ini"
 GTK3SETTINGSBAKPATH="/home/$USER/.config/gtk-3.0/settings.bak"
@@ -15,7 +13,7 @@ mv -f "$GTK4SETTINGSPATH" "$GTK4SETTINGSBAKPATH"
 mv -f "$GTKRC2PATH" "$GTKRC2BAKPATH"
 
 # Run test
-sudo nixos-rebuild switch --show-trace --fast --build-host cam@desktop
+sudo nixos-rebuild switch
 # Cosmic temporary thing:
 #sudo nixos-rebuild boot --flake '/home/cam/.nixos/' --accept-flake-config --impure
 
