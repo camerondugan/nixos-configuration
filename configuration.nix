@@ -13,7 +13,7 @@
         ./hardware-configuration.nix
         ./home-manager.nix
         ./ThisDevice/configuration.nix
-        ./DesktopEnvironments/plasma.nix
+        ./DesktopEnvironments/hyprland.nix
         # Add the commented entries to ThisDevice/configuration.nix if this specific machine needs it.
         # ./gaming.nix 
         # ./coding.nix
@@ -126,7 +126,6 @@
         packages = with pkgs; [
             # Desktop Software
             firefox # Browser
-            webcord # Discord
             libreoffice-fresh # Office Suite
             koreader # Book Reader
             gimp # 2d Art

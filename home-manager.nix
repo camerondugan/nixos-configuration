@@ -2,14 +2,21 @@
 
 {
     imports = [
+        <catppuccin/modules/nixos>
         <home-manager/nixos>
     ];
+    # enable catppuccin
+    catppuccin.enable = true;
+    catppuccin.flavor = "mocha";
 
     home-manager.useGlobalPkgs =true;
     home-manager.useUserPackages = true;
     home-manager.backupFileExtension = "hmbk";
 
     home-manager.users.cam = {
+        imports = [
+            <catppuccin/modules/home-manager>
+        ];
         home = {
             stateVersion = "23.05";
             sessionPath = [
@@ -28,58 +35,12 @@
             ./SoftwareBundles/CoderFiles/godotTheme.tet;
 
         # Set Cursor Theme
-        # home.pointerCursor = {
-        #     name = "Catppuccin-Mocha-Light-Cursors";
-        #     package = pkgs.catppuccin-cursors.mochaLight;
-        # };
-
-        # Set GTK App Theme
-        # gtk = {
-        #     enable = true;
-        #     # cursorTheme = {
-        #     #     name = "Catppuccin-Mocha-Light-Cursors";
-        #     #     package = pkgs.catppuccin-cursors.mochaLight;
-        #     # };
-        #     iconTheme = {
-        #         name = "Breeze-Dark";
-        #         package = pkgs.libsForQt5.breeze-icons;
-        #     };
-        #
-        #     theme = {
-        #         name = "Breeze-Dark";
-        #         package = pkgs.libsForQt5.breeze-gtk;
-        #     };
-        #     # theme = {
-        #     #     name = "Catppuccin-Mocha-Standard-Blue-Dark";
-        #     #     package = pkgs.catppuccin-gtk.override {
-        #     #         accents = [ "blue" ];
-        #     #         size = "standard";
-        #     #         variant = "mocha";
-        #     #         tweaks = [ "rimless" ];
-        #     #     };
-        #     # };
-        #
-        #     gtk3.extraConfig = {
-        #         Settings = ''
-        #             gtk-application-prefer-dark-theme=1
-        #             '';
-        #     };
-        #     gtk4.extraConfig = {
-        #         Settings = ''
-        #             gtk-application-prefer-dark-theme=1
-        #             '';
-        #     };
-        # };
-
-        # Set QT Theme (when on gnome)
-        # qt = {
-        #     enable = true;
-        #     platformTheme = "gnome";
-        #     style = {
-        #         name = "adwaita-dark";
-        #         package = pkgs.adwaita-qt;
-        #     };
-        # };
+        home.pointerCursor = {
+            name = "Catppuccin-Mocha-Light-Cursors";
+            package = pkgs.catppuccin-cursors.mochaLight;
+            gtk.enable = true;
+            x11.enable = true;
+        };
 
         programs.git = {
             enable = true;
