@@ -130,6 +130,7 @@
             koreader # Book Reader
             gimp # 2d Art
             inkscape # Vector Art
+            webcord # Discord
             blender # 3D Toolkit
             libsForQt5.kdenlive # Video Editor
             anki # Study Tool
@@ -247,6 +248,8 @@
 
     # Kde Connect
     programs.kdeconnect.enable = true;
+
+    programs.noisetorch.enable = true;
 
     system = {
         # Before changing this value read the documentation for this option
