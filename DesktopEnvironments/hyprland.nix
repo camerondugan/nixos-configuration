@@ -1,11 +1,18 @@
 {pkgs,...}:
 {
     environment.systemPackages = with pkgs; [
-        wofi
-        playerctl
-        brightnessctl
-        pamixer
-        hyprpaper
+        wofi # app launcher
+        playerctl # media player shortcuts
+        brightnessctl # screen brightness shortcuts
+        pamixer # audio shortcuts
+        swayosd # audio shortcut visuals
+        hyprpaper # wallpaper
+        hyprnotify # notifications
+        wl-clip-persist # remember clipboard after app close
+        udiskie # auto-mount removable drives
+        ianny # eyestrain prevention
+        cosmic-files # file browsing
+        brave # web browser (Firefox has a copy/paste bug)
     ];
     programs = {
         hyprland.enable = true;
@@ -13,16 +20,17 @@
         hyprlock.enable = true;
         dconf.enable = true;
     };
-    services = {
-        hypridle.enable = true;
-
-        # Enable mounting service.
-        udisks2.enable = true;
-
-        # Enable trash service.
-        gvfs.enable = true;
-        tumbler.enable = true;
+    security = {
+        polkit.enable = true;
     };
+    networking.networkmanager.enable = true;
+    services = {
+        hypridle.enable = true; # Screen lock and shutdown
+        blueman.enable = true; # Bluetooth
+        udisks2.enable = true; # Enable mounting service.
+    };
+
+    # Config Files
     home-manager.users.cam = {
         xdg.configFile."hypr/hyprland.conf".source = ./HyprlandFiles/hyprland.conf;
         xdg.configFile."waybar/config".source = ./HyprlandFiles/waybar.conf;
@@ -34,45 +42,5 @@
             wallpaper = ,~/.nixos/Assets/wallpaper.jpg
             splash = true
         '';
-
-        # Set GTK App Theme
-        dconf.enable = true;
-        dconf.settings = {
-            "org/gnome/desktop/interface" = {
-                color-scheme = "prefer-dark";
-            };
-        };
-        gtk = {
-            enable = true;
-            catppuccin.enable = true;
-            cursorTheme = {
-                name = "catppuccin-mocha-light-cursors";
-                package = pkgs.catppuccin-cursors.mochaLight;
-            };
-            iconTheme = {
-              name = "Adwaita";
-              package = pkgs.adwaita-icon-theme;
-            };
-            gtk3.extraConfig = {
-                Settings = ''
-                    gtk-application-prefer-dark-theme=1
-                    '';
-            };
-            gtk4.extraConfig = {
-                Settings = ''
-                    gtk-application-prefer-dark-theme=1
-                    '';
-            };
-        };
-
-        # Set QT Theme
-        qt = {
-            enable = true;
-            platformTheme.name = "adwaita";
-            style = {
-                name = "adwaita-dark";
-                package = pkgs.adwaita-qt;
-            };
-        };
     };
 }

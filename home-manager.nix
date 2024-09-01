@@ -11,7 +11,7 @@
 
     home-manager.useGlobalPkgs =true;
     home-manager.useUserPackages = true;
-    home-manager.backupFileExtension = "hmbk";
+    home-manager.backupFileExtension = "hbak";
 
     home-manager.users.cam = {
         imports = [
@@ -40,6 +40,52 @@
             package = pkgs.catppuccin-cursors.mochaLight;
             gtk.enable = true;
             x11.enable = true;
+        };
+
+        # Theme Setup
+        # Set GTK App Theme
+        dconf.enable = true;
+        dconf.settings = {
+            "org/gnome/desktop/interface" = {
+                color-scheme = "prefer-dark";
+            };
+        };
+        gtk = {
+            enable = true;
+            theme = {
+                name = "catppuccin-mocha-blue-standard";
+                package = pkgs.catppuccin-gtk.override {
+                    variant = "mocha";
+                };
+            };
+            cursorTheme = {
+                name = "catppuccin-mocha-light-cursors";
+                package = pkgs.catppuccin-cursors.mochaLight;
+            };
+            iconTheme = {
+              name = "Adwaita";
+              package = pkgs.adwaita-icon-theme;
+            };
+            gtk3.extraConfig = {
+                Settings = ''
+                    gtk-application-prefer-dark-theme=1
+                    '';
+            };
+            gtk4.extraConfig = {
+                Settings = ''
+                    gtk-application-prefer-dark-theme=1
+                    '';
+            };
+        };
+
+        # Set QT Theme
+        qt = {
+            enable = true;
+            platformTheme.name = "adwaita";
+            style = {
+                name = "adwaita-dark";
+                package = pkgs.adwaita-qt;
+            };
         };
 
         programs.git = {
