@@ -91,7 +91,8 @@
     # Yubikey Optional Unlock
     security.pam.u2f = {
         enable = true;
-        settings.cue = true ;
+        # settings.cue = true ;
+        cue = true ;
     };
     security.pam.services = {
         login.u2fAuth = true;
@@ -146,10 +147,10 @@
     hardware = {
         pulseaudio.enable = false;
         bluetooth.enable = true;
-        # opengl.driSupport = true;
-        # opengl.driSupport32Bit = true;
-        graphics.enable = true;
-        graphics.enable32Bit = true;
+        opengl.driSupport = true;
+        opengl.driSupport32Bit = true;
+        # graphics.enable = true;
+        # graphics.enable32Bit = true;
     };
 
     environment.variables = {
@@ -171,9 +172,6 @@
         clight
         clightd
     ];
-
-    programs.nix-ld.enable = true;
-    programs.fish.enable = true;
 
     services = {
         xserver = {
@@ -243,7 +241,8 @@
 
         # ollama
         ollama.enable = true;
-        ollama.host = "0.0.0.0";
+        # ollama.host = "0.0.0.0";
+        ollama.listenAddress = "0.0.0.0:11434";
     };
 
     # Kde Connect

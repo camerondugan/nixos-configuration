@@ -7,7 +7,7 @@
         pamixer # audio shortcuts
         swayosd # audio shortcut visuals
         hyprpaper # wallpaper
-        hyprnotify # notifications
+        # hyprnotify # notifications
         wl-clip-persist # remember clipboard after app close
         udiskie # auto-mount removable drives
         ianny # eyestrain prevention
@@ -20,9 +20,7 @@
         hyprlock.enable = true;
         dconf.enable = true;
     };
-    security = {
-        polkit.enable = true;
-    };
+    services.gnome.gnome-keyring.enable = true;
     networking.networkmanager.enable = true;
     services = {
         hypridle.enable = true; # Screen lock and shutdown
