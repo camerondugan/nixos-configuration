@@ -141,6 +141,7 @@
             impression # ISO USB writer
             eyedropper # Color Picker
             audacity # Audio Editor
+            comma # better temporary shell
         ];
     };
 

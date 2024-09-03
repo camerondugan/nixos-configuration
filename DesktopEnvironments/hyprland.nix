@@ -12,7 +12,6 @@
         udiskie # auto-mount removable drives
         ianny # eyestrain prevention
         cosmic-files # file browsing
-        brave # web browser (Firefox has a copy/paste bug)
     ];
     programs = {
         hyprland.enable = true;
