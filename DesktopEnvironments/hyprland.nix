@@ -13,6 +13,7 @@
         ianny # eyestrain prevention
         cosmic-files # file browsing
     ];
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
     programs = {
         hyprland.enable = true;
         waybar.enable = true;
@@ -22,6 +23,8 @@
     services.gnome.gnome-keyring.enable = true;
     networking.networkmanager.enable = true;
     services = {
+        pipewire.enable = true;
+        pipewire.wireplumber.enable = true;
         hypridle.enable = true; # Screen lock and shutdown
         blueman.enable = true; # Bluetooth
         udisks2.enable = true; # Enable mounting service.

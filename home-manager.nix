@@ -11,7 +11,7 @@
 
     home-manager.useGlobalPkgs =true;
     home-manager.useUserPackages = true;
-    home-manager.backupFileExtension = "hbak";
+    home-manager.backupFileExtension = "hmbackup";
 
     home-manager.users.cam = {
         imports = [
