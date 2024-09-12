@@ -74,10 +74,7 @@
         tmate
         networkmanagerapplet
         pavucontrol
-        youtube-tui
-        yt-dlp
         ffmpeg
-        unsilence
         cargo
         cmake
         gnumake
@@ -89,9 +86,9 @@
         grc
         sshfs
 
-        # Android
-        android-tools
-        android-studio
+        # # Android
+        # android-tools
+        # android-studio
 
         # Software Dev Tools
         direnv
@@ -100,12 +97,7 @@
         lazygit
         ripgrep
         fd
-        httplz
         gdb
-        steam-run
-        optipng
-        jpegoptim
-        ntfy-sh
 
         # Keyboard programming
         qmk
@@ -130,7 +122,6 @@
         zig
         jdk
         clang
-        julia-bin
         godot_4
         # Python
         (python3.withPackages(ps: with ps; [

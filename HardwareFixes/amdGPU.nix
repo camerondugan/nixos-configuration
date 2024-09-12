@@ -3,6 +3,8 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   # Use AMDVLK when applications prefer
 
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages = with pkgs; [
     amdvlk
   ];

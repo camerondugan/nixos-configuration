@@ -9,11 +9,11 @@
         hyprpaper # wallpaper
         # hyprnotify # notifications
         wl-clip-persist # remember clipboard after app close
+        grimblast # screenshot utility
         udiskie # auto-mount removable drives
         ianny # eyestrain prevention
         cosmic-files # file browsing
     ];
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
     programs = {
         hyprland.enable = true;
         waybar.enable = true;
@@ -30,6 +30,9 @@
         udisks2.enable = true; # Enable mounting service.
     };
 
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+    environment.sessionVariables.MOZ_ENABLE_WAYLAND = 1;
+
     # Config Files
     home-manager.users.cam = {
         xdg.configFile."hypr/hyprland.conf".source = ./HyprlandFiles/hyprland.conf;
@@ -40,7 +43,6 @@
         xdg.configFile."hypr/hyprpaper.conf".text = ''
             preload = ~/.nixos/Assets/wallpaper.jpg
             wallpaper = ,~/.nixos/Assets/wallpaper.jpg
-            splash = true
         '';
     };
 }
