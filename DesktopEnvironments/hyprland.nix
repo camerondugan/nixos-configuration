@@ -21,6 +21,7 @@
         dconf.enable = true;
     };
     services.gnome.gnome-keyring.enable = true;
+    security.pam.services.cam.enableGnomeKeyring = true;
     networking.networkmanager.enable = true;
     services = {
         pipewire.enable = true;

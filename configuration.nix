@@ -195,6 +195,13 @@
 
         # Enable CUPS to print documents.
         printing.enable = true;
+        # Auto discover printers
+        avahi = {
+          enable = true;
+          nssmdns4 = true;
+          openFirewall = true;
+        };
+
 
         # Bluetooth (for when no bluetooth ui provided)
         # blueman.enable = true;
