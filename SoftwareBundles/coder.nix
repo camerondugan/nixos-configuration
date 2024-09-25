@@ -8,7 +8,12 @@
         plugins = with pkgs; [
             tmuxPlugins.resurrect
             tmuxPlugins.continuum
+            tmuxPlugins.catppuccin
         ];
+        shortcut = "b";
+        keyMode = "vi";
+        customPaneNavigationAndResize = true;
+        escapeTime = 0; # why? tmux why!!!
     };
     programs.fish = {
         enable = true;
@@ -72,8 +77,6 @@
         sl # Steam Locomotive
         mpv # View Media
         tmate
-        networkmanagerapplet
-        pavucontrol
         ffmpeg
         cargo
         cmake
@@ -82,7 +85,6 @@
         nodePackages.npm
         wget
         ruby
-        fzf
         grc
         sshfs
 
@@ -104,7 +106,7 @@
 
         # Nvim required
         bottom
-        gdu
+        fzf
         luajit
         luajitPackages.luarocks-nix
         nodejs-slim
@@ -116,10 +118,6 @@
         dotnet-sdk
         flutter
         gcc
-        go
-        rstudio
-        rustup
-        zig
         jdk
         clang
         godot_4

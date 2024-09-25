@@ -1,6 +1,6 @@
 # Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 # let unstable = import <nixos-unstable> {config={allowUnfree=true;};};
 #in
 { 
@@ -101,21 +101,6 @@
 
     virtualisation = {
         docker.enable = true;
-        libvirtd = {
-          enable = true;
-          qemu = {
-            package = pkgs.qemu_kvm;
-            runAsRoot = true;
-            swtpm.enable = true;
-            ovmf = {
-              enable = true;
-              packages = [(pkgs.OVMF.override {
-                secureBoot = true;
-                tpmSupport = true;
-              }).fd];
-            };
-          };
-        };
     };
 
     # Define a user account.
@@ -273,7 +258,7 @@
 
     # Enable Optimization.
     nix.gc = {
-        automatic = true;
+        automatic = lib.mkDefault true;
         dates = "daily";
         options = "--delete-older-than 3d";
     };
