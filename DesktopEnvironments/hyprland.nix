@@ -13,6 +13,8 @@
         udiskie # auto-mount removable drives
         ianny # eyestrain prevention
         cosmic-files # file browsing
+        pavucontrol
+        networkmanagerapplet
     ];
     programs = {
         hyprland.enable = true;

@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
-{
+
+{ 
     imports = [
         <catppuccin/modules/nixos>
         <home-manager/nixos>
@@ -98,13 +99,6 @@
                 core.editor = "vim";
                 pull.rebase = false;
             };
-        };
-
-        programs.neovim = {
-            enable = true;
-            defaultEditor = true;
-            viAlias = true;
-            vimAlias = true;
         };
 
         programs.obs-studio = {
