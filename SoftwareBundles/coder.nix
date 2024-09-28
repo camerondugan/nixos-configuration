@@ -1,13 +1,16 @@
 { pkgs, ... }:
 
-{
+let
+    unstable = import <nixos-unstable> {};
+in {
     # Program Configs
     programs.neovim = {
         enable = true;
         defaultEditor = true;
         withRuby = true;
         withPython3 = true;
-        withNodeJS = true;
+        withNodeJs = true;
+        package = unstable.neovim-unwrapped;
     };
     programs.starship.enable = true;
     programs.tmux = {
