@@ -1,5 +1,7 @@
 { pkgs, ... }:
 
+let unstable = import <unstable> {config={allowUnfree=true;};};
+in
 {
     imports = [
         <catppuccin/modules/nixos>
@@ -105,6 +107,7 @@
             defaultEditor = true;
             viAlias = true;
             vimAlias = true;
+            package = unstable.pkgs.neovim-unwrapped;
         };
 
         programs.obs-studio = {

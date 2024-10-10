@@ -47,11 +47,6 @@
         };
     };
 
-    # Setup keyfile
-    boot.initrd.secrets = {
-        "/crypto_keyfile.bin" = null;
-    };
-
     networking = {
         # Enable networking
         networkmanager.enable = true;
@@ -258,10 +253,10 @@
         stateVersion = "23.05"; # Did you read the comment?
 
         # Enable Auto Updates
-        autoUpgrade = {
-            enable = true;
-            allowReboot = false;
-        };
+        # autoUpgrade = {
+        #     enable = true;
+        #     allowReboot = false;
+        # };
     };
 
     # Enable Optimization.
