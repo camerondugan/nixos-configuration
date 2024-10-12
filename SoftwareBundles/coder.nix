@@ -1,14 +1,29 @@
 { pkgs, ... }:
 
-{
+let
+    unstable = import <nixos-unstable> {};
+in {
     # Program Configs
+    programs.neovim = {
+        enable = true;
+        defaultEditor = true;
+        withRuby = true;
+        withPython3 = true;
+        withNodeJs = true;
+        package = unstable.neovim-unwrapped;
+    };
     programs.starship.enable = true;
     programs.tmux = {
         enable = true;
         plugins = with pkgs; [
             tmuxPlugins.resurrect
             tmuxPlugins.continuum
+            tmuxPlugins.catppuccin
         ];
+        shortcut = "b";
+        keyMode = "vi";
+        customPaneNavigationAndResize = true;
+        escapeTime = 0; # why? tmux why!!!
     };
     programs.fish = {
         enable = true;
@@ -72,12 +87,7 @@
         sl # Steam Locomotive
         mpv # View Media
         tmate
-        networkmanagerapplet
-        pavucontrol
-        youtube-tui
-        yt-dlp
         ffmpeg
-        unsilence
         cargo
         cmake
         gnumake
@@ -85,13 +95,12 @@
         nodePackages.npm
         wget
         ruby
-        fzf
         grc
         sshfs
 
-        # Android
-        android-tools
-        android-studio
+        # # Android
+        # android-tools
+        # android-studio
 
         # Software Dev Tools
         direnv
@@ -100,19 +109,14 @@
         lazygit
         ripgrep
         fd
-        httplz
         gdb
-        steam-run
-        optipng
-        jpegoptim
-        ntfy-sh
 
         # Keyboard programming
         qmk
 
         # Nvim required
         bottom
-        gdu
+        fzf
         luajit
         luajitPackages.luarocks-nix
         nodejs-slim
@@ -124,13 +128,8 @@
         dotnet-sdk
         flutter
         gcc
-        go
-        rstudio
-        rustup
-        zig
         jdk
         clang
-        julia-bin
         godot_4
         # Python
         (python3.withPackages(ps: with ps; [

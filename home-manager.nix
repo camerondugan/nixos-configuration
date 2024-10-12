@@ -102,14 +102,6 @@ in
             };
         };
 
-        programs.neovim = {
-            enable = true;
-            defaultEditor = true;
-            viAlias = true;
-            vimAlias = true;
-            package = unstable.pkgs.neovim-unwrapped;
-        };
-
         programs.obs-studio = {
             enable = true;
             plugins = with pkgs.obs-studio-plugins; [

@@ -7,10 +7,11 @@ sudo nix-channel --add https://github.com/pjones/plasma-manager/archive/trunk.ta
 sudo nix-channel --add https://github.com/catppuccin/nix/archive/main.tar.gz catppuccin
 
 # Set to unstable channels
-sudo nix-channel --add https://nixos.org/channels/nixos-24.05 stable
 sudo nix-channel --add https://nixos.org/channels/nixos-24.05 nixos
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable unstable
+
 # sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+# sudo nix-channel --add https://nixos.org/channels/nixos-24.05 stable
 
 # pull down new versions of stuff
 sudo nix-channel --update
