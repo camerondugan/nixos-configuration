@@ -1,7 +1,5 @@
 { pkgs, ... }:
 
-let unstable = import <unstable> {config={allowUnfree=true;};};
-in
 {
     imports = [
         <catppuccin/modules/nixos>
