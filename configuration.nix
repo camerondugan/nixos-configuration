@@ -106,7 +106,7 @@
         shell = pkgs.fish;
         packages = with pkgs; [
             # Desktop Software
-            firefox # Browser
+            google-chrome # Browser
             libreoffice-fresh # Office Suite
             koreader # Book Reader
             gimp # 2d Art

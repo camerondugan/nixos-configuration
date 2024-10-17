@@ -131,6 +131,7 @@ in {
         jdk
         clang
         godot_4
+        aseprite
         # Python
         (python3.withPackages(ps: with ps; [
             pip

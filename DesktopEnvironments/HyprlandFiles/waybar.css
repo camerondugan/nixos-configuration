@@ -9,9 +9,10 @@
 }
 
 window#waybar {
-  background-color: transparent;
+  background-color: #11111b;
   transition-property: background-color;
   transition-duration: 0.5s;
+  border-radius: 0;
 }
 
 window#waybar.hidden {
