@@ -111,6 +111,20 @@ in {
         fd
         gdb
 
+        # LSPs
+        codespell
+        docker-compose-language-service
+        gopls
+        jdt-language-server
+        lemminx
+        luajitPackages.luacheck
+        lua-language-server
+        nil
+        rust-analyzer
+        taplo
+        typos-lsp
+        yaml-language-server
+
         # Keyboard programming
         qmk
 
@@ -130,6 +144,7 @@ in {
         gcc
         jdk
         clang
+        go
         godot_4
         aseprite
         # Python
