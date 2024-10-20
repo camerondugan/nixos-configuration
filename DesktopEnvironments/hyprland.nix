@@ -24,7 +24,7 @@
     };
 
     # kde connect
-    xdg.portal.extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.kdePackages.xdg-desktop-portal-kde ];
     programs.kdeconnect.enable = true;
     networking.firewall.interfaces.enp42s0.allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
     networking.firewall.interfaces.enp42s0.allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];

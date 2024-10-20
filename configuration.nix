@@ -14,6 +14,7 @@
         ./home-manager.nix
         ./ThisDevice/configuration.nix
         ./DesktopEnvironments/hyprland.nix
+        ./HardwareFixes/betterCaps.nix
         # Add the commented entries to ThisDevice/configuration.nix if this specific machine needs it.
         # ./gaming.nix 
         # ./coding.nix
