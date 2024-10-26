@@ -109,6 +109,8 @@
             # Desktop Software
             google-chrome # Browser
             libreoffice-fresh # Office Suite
+            papers # pdf
+            image-roll # images
             koreader # Book Reader
             gimp # 2d Art
             inkscape # Vector Art

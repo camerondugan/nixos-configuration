@@ -56,6 +56,7 @@ in {
             tat="tmux a -t"; # Attach to session
             tnt="tmux new -t"; # Create new session
             td="tmux detach"; # Exit session while saving it
+            cat="bat"; # better cat
         };
     };
 
@@ -86,6 +87,7 @@ in {
         lf # file explorer
         sl # Steam Locomotive
         mpv # View Media
+        bat # better cat
         tmate
         ffmpeg
         cargo

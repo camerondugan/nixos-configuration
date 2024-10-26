@@ -12,7 +12,7 @@
         grimblast # screenshot utility
         udiskie # auto-mount removable drives
         ianny # eyestrain prevention
-        cosmic-files # file browsing
+        fm # file manager
         pavucontrol
         networkmanagerapplet
     ];
@@ -30,6 +30,7 @@
     networking.firewall.interfaces.enp42s0.allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
 
     services.gnome.gnome-keyring.enable = true;
+    services.gvfs.enable = true; # trash
     security.pam.services.cam.enableGnomeKeyring = true;
     networking.networkmanager.enable = true;
 
