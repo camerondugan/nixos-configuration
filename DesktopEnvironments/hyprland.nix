@@ -52,8 +52,8 @@
         xdg.configFile."wofi/style.css".source = ./HyprlandFiles/wofi.css;
         xdg.configFile."wofi/config".source = ./HyprlandFiles/wofi.conf;
         xdg.configFile."hypr/hyprland.conf".source = ./HyprlandFiles/hyprland.conf;
-        xdg.configFile."hypr/hypridle.conf".source =
-            ./HyprlandFiles/hypridle.conf;
+        xdg.configFile."hypr/hyprlock.conf".source = ./HyprlandFiles/hyprlock.conf;
+        xdg.configFile."hypr/hypridle.conf".source = ./HyprlandFiles/hypridle.conf;
         xdg.configFile."hypr/hyprpaper.conf".text = ''
             preload = ~/.nixos/Assets/wallpaper.jpg
             wallpaper = ,~/.nixos/Assets/wallpaper.jpg
