@@ -29,8 +29,8 @@
         };
 
         # Set Config File Locations
-        xdg.configFile."kitty/kitty.conf".source =
-            ./SoftwareBundles/CoderFiles/kitty.conf;
+        xdg.configFile."wezterm/wezterm.lua".source =
+            ./SoftwareBundles/CoderFiles/wezterm.lua;
         xdg.configFile."godot/text_editor_themes/godotTheme.tet".source =
             ./SoftwareBundles/CoderFiles/godotTheme.tet;
 
@@ -98,6 +98,29 @@
                 core.editor = "vim";
                 pull.rebase = false;
             };
+        };
+
+        programs.tmux = {
+            enable = true;
+            shortcut = "space";
+            baseIndex = 1;
+            keyMode = "vi";
+            customPaneNavigationAndResize = true;
+            escapeTime = 0; # why? tmux why!!!
+            plugins = with pkgs.tmuxPlugins; [
+                resurrect
+                {
+                    plugin = continuum;
+                    extraConfig = ''
+                    set -g @continuum-restore 'on'
+                    set -g @continuum-boot 'on'
+                    set -g @continuum-save-interval '5'
+                    '';
+                }
+            ];
+            extraConfig = ''
+                set -g mouse on
+            '';
         };
 
         programs.obs-studio = {

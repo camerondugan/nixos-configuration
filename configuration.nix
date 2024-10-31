@@ -133,6 +133,12 @@
         bluetooth.enable = true;
         opengl.driSupport = true;
         opengl.driSupport32Bit = true;
+        opengl.extraPackages = with pkgs; [
+            intel-media-driver
+            intel-vaapi-driver
+            libvdpau-va-gl
+        ];
+        opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
         # graphics.enable = true;
         # graphics.enable32Bit = true;
     };
@@ -227,7 +233,19 @@
         };
 
         # Energy Saving
-        power-profiles-daemon.enable = true;
+        auto-cpufreq.enable = true;
+        auto-cpufreq.settings = {
+          battery = {
+             governor = "powersave";
+             turbo = "never";
+          };
+          charger = {
+             governor = "performance";
+             turbo = "auto";
+          };
+        };
+
+        # power-profiles-daemon.enable = true;
         upower.enable = true;
 
         # ollama
@@ -235,6 +253,7 @@
         # ollama.host = "0.0.0.0";
         ollama.listenAddress = "0.0.0.0:11434";
     };
+    powerManagement.enable = true;
 
     # Kde Connect
     programs.kdeconnect.enable = true;

@@ -2,6 +2,7 @@
 {
     environment.systemPackages = with pkgs; [
         wofi # app launcher
+        wezterm # terminal
         playerctl # media player shortcuts
         brightnessctl # screen brightness shortcuts
         pamixer # audio shortcuts

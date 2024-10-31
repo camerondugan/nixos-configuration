@@ -13,18 +13,6 @@ in {
         package = unstable.neovim-unwrapped;
     };
     programs.starship.enable = true;
-    programs.tmux = {
-        enable = true;
-        plugins = with pkgs; [
-            tmuxPlugins.resurrect
-            tmuxPlugins.continuum
-            tmuxPlugins.catppuccin
-        ];
-        shortcut = "b";
-        keyMode = "vi";
-        customPaneNavigationAndResize = true;
-        escapeTime = 0; # why? tmux why!!!
-    };
     programs.fish = {
         enable = true;
         interactiveShellInit = ''
@@ -50,8 +38,6 @@ in {
             np = "nix-shell --run fish -p";
             grep="rg";
             gi="gi >> .gitignore"; # append to gitignore
-            # Kitty specific
-            s="kitten ssh";
             # TMUX
             tat="tmux a -t"; # Attach to session
             tnt="tmux new -t"; # Create new session
@@ -107,7 +93,6 @@ in {
         # Software Dev Tools
         direnv
         devenv
-        kitty
         lazygit
         ripgrep
         fd
