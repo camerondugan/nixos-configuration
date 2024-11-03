@@ -132,6 +132,7 @@ in {
         jdk
         clang
         go
+        rustc
         godot_4
         aseprite
         # Python

@@ -107,7 +107,8 @@
         shell = pkgs.fish;
         packages = with pkgs; [
             # Desktop Software
-            google-chrome # Browser
+            firefox # Main Browser
+            google-chrome # Backup Browser
             libreoffice-fresh # Office Suite
             papers # pdf
             image-roll # images
@@ -141,6 +142,7 @@
         opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ intel-vaapi-driver ];
         # graphics.enable = true;
         # graphics.enable32Bit = true;
+        enableAllFirmware = true;
     };
 
     environment.variables = {

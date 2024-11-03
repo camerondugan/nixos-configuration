@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let
+    usr = "cam";
+in 
 {
     imports = [
         <catppuccin/modules/nixos>
@@ -20,11 +23,11 @@
         home = {
             stateVersion = "23.05";
             sessionPath = [
-                "/home/cam/go/bin/"
-                "/home/cam/.cargo/bin/"
-                "/home/cam/.go/bin/"
-                "/home/cam/.go/current/bin/"
-                "/home/cam/.system_node_modules/bin"
+                "/home/${usr}/go/bin/"
+                "/home/${usr}/.cargo/bin/"
+                "/home/${usr}/.go/bin/"
+                "/home/${usr}/.go/current/bin/"
+                "/home/${usr}/.system_node_modules/bin"
             ];
         };
 
@@ -101,20 +104,25 @@
         };
 
         programs.tmux = {
-            enable = true;
+            enable = false;
             shortcut = "space";
             baseIndex = 1;
             keyMode = "vi";
             customPaneNavigationAndResize = true;
-            escapeTime = 0; # why? tmux why!!!
+            escapeTime = 0;
             plugins = with pkgs.tmuxPlugins; [
-                resurrect
+                {
+                    plugin = resurrect;
+                    extraConfig = ''
+                        set -g @resurrect-capture-pane-contents 'on'
+                        set -g @resurrect-processes '"~nvim"'
+                    '';
+                }
                 {
                     plugin = continuum;
                     extraConfig = ''
-                    set -g @continuum-restore 'on'
-                    set -g @continuum-boot 'on'
-                    set -g @continuum-save-interval '5'
+                        set -g @continuum-restore 'on'
+                        set -g @continuum-save-interval '5'
                     '';
                 }
             ];

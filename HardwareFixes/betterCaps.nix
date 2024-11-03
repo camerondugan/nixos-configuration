@@ -9,6 +9,14 @@
         settings = {
           main = {
             capslock = "overload(control, esc)";
+            # a = "overload(meta, a)";
+            # ";" = "overload(meta, ;)";
+            # s = "overload(alt, s)";
+            # l = "overload(alt, l)";
+            # d = "overload(shift, d)";
+            # k = "overload(shift, k)";
+            # f = "overload(control, f)";
+            # j = "overload(control, j)";
             # "1" = "!";
             # "2" = "@";
             # "3" = "#";

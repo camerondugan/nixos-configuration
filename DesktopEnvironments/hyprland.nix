@@ -9,7 +9,7 @@
         swayosd # audio shortcut visuals
         hyprpaper # wallpaper
         # hyprnotify # notifications
-        wl-clip-persist # remember clipboard after app close
+        #wl-clip-persist # remember clipboard after app close
         grimblast # screenshot utility
         udiskie # auto-mount removable drives
         ianny # eyestrain prevention
