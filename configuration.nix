@@ -146,7 +146,7 @@
     };
 
     environment.variables = {
-        EDITOR = "nvim";
+        EDITOR = "hx";
         GOBIN = "/home/cam/go/bin";
         VISUAL = "neovide";
         DOTNET_ROOT = "${pkgs.dotnet-sdk}";

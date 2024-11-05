@@ -71,6 +71,14 @@ config.keys = {
     key = 'v', mods = 'CTRL',
     action = wezterm.action.PasteFrom('PrimarySelection')
   },
+  {
+    key = 'N', mods = 'CTRL',
+    action = wezterm.action.SpawnTab('CurrentPaneDomain')
+  },
+  {
+    key = 'D', mods = 'CTRL',
+    action = wezterm.action.CloseCurrentTab({ confirm = false }),
+  },
 }
 -- config.enable_kitty_keyboard = true;
 

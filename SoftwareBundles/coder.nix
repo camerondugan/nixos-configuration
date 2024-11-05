@@ -6,7 +6,7 @@ in {
     # Program Configs
     programs.neovim = {
         enable = true;
-        defaultEditor = true;
+        # defaultEditor = true;
         withRuby = true;
         withPython3 = true;
         withNodeJs = true;
@@ -43,6 +43,7 @@ in {
             tnt="tmux new -t"; # Create new session
             td="tmux detach"; # Exit session while saving it
             cat="bat"; # better cat
+            ls="lsd"; # Better ls
         };
     };
 
@@ -63,6 +64,9 @@ in {
         fishPlugins.sponge
         fishPlugins.z
 
+        # Editors
+        helix
+
         # Terminal Commands
         zip # create .zip
         unzip # unzip .zip
@@ -70,6 +74,7 @@ in {
         unrar # unzip .rar
         rmtrash # trash when rm (needs alias)
         zoxide # better cd (needs setup)
+        lsd # better ls
         lf # file explorer
         sl # Steam Locomotive
         mpv # View Media
@@ -140,5 +145,17 @@ in {
             pip
             pynvim
         ]))
+
+        # LSP
+        marksman
+        delve
+        python312Packages.python-lsp-server
+        libclang
+        clang-tools
+        nodePackages.bash-language-server
+        # Formatter
+        gdtoolkit
+        # Debug
+        lldb
     ];
 }
