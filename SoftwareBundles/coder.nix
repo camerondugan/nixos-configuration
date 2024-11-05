@@ -44,6 +44,7 @@ in {
             td="tmux detach"; # Exit session while saving it
             cat="bat"; # better cat
             ls="lsd"; # Better ls
+            ehx="nix run github:usagi-flow/evil-helix";
         };
     };
 
