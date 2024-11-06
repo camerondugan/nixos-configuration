@@ -110,6 +110,7 @@ in {
     lemminx
     luajitPackages.luacheck
     lua-language-server
+    stylua
     nil
     rust-analyzer
     taplo
