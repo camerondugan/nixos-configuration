@@ -1,11 +1,9 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   services.keyd = {
     enable = true;
     keyboards = {
       default = {
-        ids = [ "*" ];
+        ids = ["*"];
         settings = {
           main = {
             capslock = "overload(control, esc)";
@@ -27,7 +25,7 @@
             # "8" = "*";
             # "9" = "(";
             # "0" = ")";
-          }; 
+          };
           shift = {
             # "1" = "1";
             # "2" = "2";

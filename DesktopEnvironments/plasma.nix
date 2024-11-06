@@ -1,18 +1,17 @@
-{pkgs, ...}:
-{
+{pkgs, ...}: {
   imports = [
-      <home-manager/nixos>
-      # <plasma-manager/modules>
+    <home-manager/nixos>
+    # <plasma-manager/modules>
   ];
   services = {
-        # Desktop environment (can't wait until cosmic)
-        desktopManager.plasma6.enable = true;
-        # desktopManager.cosmic.enable = true;
+    # Desktop environment (can't wait until cosmic)
+    desktopManager.plasma6.enable = true;
+    # desktopManager.cosmic.enable = true;
 
-        # Enable a display manager.
-        displayManager.sddm.enable = true;
-        displayManager.sddm.wayland.enable = true;
-        # displayManager.cosmic-greeter.enable = true;
+    # Enable a display manager.
+    displayManager.sddm.enable = true;
+    displayManager.sddm.wayland.enable = true;
+    # displayManager.cosmic-greeter.enable = true;
   };
   # give kde rounded corners if enabled?
   environment.systemPackages = with pkgs; [
