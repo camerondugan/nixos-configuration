@@ -6,7 +6,7 @@
     brightnessctl # screen brightness shortcuts
     pamixer # audio shortcuts
     swayosd # audio shortcut visuals
-    hyprpaper # wallpaper
+    wpaperd # wallpaper
     # hyprnotify # notifications
     #wl-clip-persist # remember clipboard after app close
     grimblast # screenshot utility
@@ -64,6 +64,7 @@
     xdg.configFile."hypr/hyprland.conf".source = ./HyprlandFiles/hyprland.conf;
     xdg.configFile."hypr/hyprlock.conf".source = ./HyprlandFiles/hyprlock.conf;
     xdg.configFile."hypr/hypridle.conf".source = ./HyprlandFiles/hypridle.conf;
+    xdg.configFile."wpaperd/config.toml".source = ./HyprlandFiles/wpaper.conf;
     xdg.configFile."hypr/hyprpaper.conf".text = ''
       preload = ~/.nixos/Assets/wallpaper.jpg
       wallpaper = ,~/.nixos/Assets/wallpaper.jpg
