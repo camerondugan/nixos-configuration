@@ -55,19 +55,4 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   environment.sessionVariables.MOZ_ENABLE_WAYLAND = 1;
 
-  # Config Files
-  home-manager.users.cam = {
-    xdg.configFile."waybar/config".source = ./HyprlandFiles/waybar.conf;
-    xdg.configFile."waybar/style.css".source = ./HyprlandFiles/waybar.css;
-    xdg.configFile."wofi/style.css".source = ./HyprlandFiles/wofi.css;
-    xdg.configFile."wofi/config".source = ./HyprlandFiles/wofi.conf;
-    xdg.configFile."hypr/hyprland.conf".source = ./HyprlandFiles/hyprland.conf;
-    xdg.configFile."hypr/hyprlock.conf".source = ./HyprlandFiles/hyprlock.conf;
-    xdg.configFile."hypr/hypridle.conf".source = ./HyprlandFiles/hypridle.conf;
-    xdg.configFile."wpaperd/config.toml".source = ./HyprlandFiles/wpaper.conf;
-    xdg.configFile."hypr/hyprpaper.conf".text = ''
-      preload = ~/.nixos/Assets/wallpaper.jpg
-      wallpaper = ,~/.nixos/Assets/wallpaper.jpg
-    '';
-  };
 }

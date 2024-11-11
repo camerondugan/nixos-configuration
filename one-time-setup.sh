@@ -4,7 +4,7 @@
 sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz home-manager # stable
 sudo nix-channel --add https://github.com/pjones/plasma-manager/archive/trunk.tar.gz plasma-manager
 # setup catppuccin theming
-sudo nix-channel --add https://github.com/catppuccin/nix/archive/main.tar.gz catppuccin
+# sudo nix-channel --add https://github.com/catppuccin/nix/archive/main.tar.gz catppuccin
 
 # Set to unstable channels
 sudo nix-channel --add https://nixos.org/channels/nixos-24.05 nixos

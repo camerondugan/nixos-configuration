@@ -16,10 +16,10 @@
   # give kde rounded corners if enabled?
   environment.systemPackages = with pkgs; [
     kde-rounded-corners
-    catppuccin-kde
-    catppuccin-sddm-corners
-    catppuccin-qt5ct
-    catppuccin-cursors
+    # catppuccin-kde
+    # catppuccin-sddm-corners
+    # catppuccin-qt5ct
+    # catppuccin-cursors
   ];
 
   # home-manager = {

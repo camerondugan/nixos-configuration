@@ -8,6 +8,12 @@
 # let unstable = import <nixos-unstable> {config={allowUnfree=true;};};
 #in
 {
+  nix = {
+    package = pkgs.nixVersions.stable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   # Use desktop optimized kernel
@@ -15,8 +21,6 @@
 
   imports = [
     ./hardware-configuration.nix
-    ./home-manager.nix
-    ./ThisDevice/configuration.nix
     ./DesktopEnvironments/hyprland.nix
     ./HardwareFixes/betterCaps.nix
     # Add the commented entries to ThisDevice/configuration.nix if this specific machine needs it.
@@ -97,8 +101,8 @@
   # Yubikey Optional Unlock
   security.pam.u2f = {
     enable = true;
-    # settings.cue = true ;
-    cue = true;
+    settings.cue = true ;
+    # cue = true;
   };
   security.pam.services = {
     login.u2fAuth = true;
@@ -136,27 +140,28 @@
       eyedropper # Color Picker
       audacity # Audio Editor
       comma # better temporary shell
+      home-manager # manage home config
     ];
   };
 
   hardware = {
     pulseaudio.enable = false;
     bluetooth.enable = true;
-    opengl.driSupport = true;
-    opengl.driSupport32Bit = true;
-    opengl.extraPackages = with pkgs; [
+    # opengl.driSupport = true;
+    # opengl.driSupport32Bit = true;
+    graphics.enable = true;
+    graphics.enable32Bit = true;
+    graphics.extraPackages = with pkgs; [
       intel-media-driver
       intel-vaapi-driver
       libvdpau-va-gl
     ];
-    opengl.extraPackages32 = with pkgs.pkgsi686Linux; [intel-vaapi-driver];
-    # graphics.enable = true;
-    # graphics.enable32Bit = true;
+    graphics.extraPackages32 = with pkgs.pkgsi686Linux; [intel-vaapi-driver];
     enableAllFirmware = true;
   };
 
   environment.variables = {
-    GOBIN = "/home/cam/go/bin";
+    GOBIN = "~/go/bin";
     VISUAL = "neovide";
     DOTNET_ROOT = "${pkgs.dotnet-sdk}";
     NODE_PATH = "~/.system_node_modules/lib/node_modules";
@@ -260,8 +265,8 @@
 
     # ollama
     ollama.enable = true;
-    # ollama.host = "0.0.0.0";
-    ollama.listenAddress = "0.0.0.0:11434";
+    ollama.host = "0.0.0.0";
+    # ollama.listenAddress = "0.0.0.0:11434";
   };
   powerManagement.enable = true;
 

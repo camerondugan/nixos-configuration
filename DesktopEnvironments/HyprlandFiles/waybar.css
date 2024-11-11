@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-  background-color: #11111b;
+  background-color: rgba(17,17,27,.5);
   transition-property: background-color;
   transition-duration: 0.5s;
   border-radius: 0;
@@ -24,6 +24,7 @@ window#waybar.hidden {
 }
 
 #workspaces button {
+  opacity: 0.9;
   all: initial; /* Remove GTK theme values (waybar #1351) */
   min-width: 0; /* Fix weird spacing in materia (waybar #450) */
   box-shadow: inset 0 -3px transparent; /* Use box-shadow instead of border so the text isn't offset */
@@ -69,14 +70,18 @@ window#waybar.hidden {
 #tray {
   margin: 3px 3px;
   padding: 3px 12px;
-  background-color: rgba(24, 24, 37, 0.85);
+  background-color: rgba(24, 24, 37, 0.80);
   color: #cdd6f4;
 }
 #custom-power {
+  opacity: 0.9;
+  opacity: 1.0;
   margin-right: 6px;
 }
 
 #custom-logo {
+  opacity: 0.9;
+  opacity: 1.0;
   padding-right: 7px;
   padding-left: 7px;
   margin-left: 5px;
@@ -86,19 +91,24 @@ window#waybar.hidden {
 }
 
 #cpu {
+  opacity: 0.9;
   color: #a6e3a1;
 }
 #memory {
+  opacity: 0.9;
   color: #fab387;
 }
 #idle_inhibitor {
+  opacity: 0.9;
   color: #cdd6f4;
   padding-left: 8px;
 }
 #temperature {
+  opacity: 0.9;
   color: #f38ba8;
 }
 #battery {
+  opacity: 0.9;
   color: #cdd6f4;
   padding-right: 16px;
 }

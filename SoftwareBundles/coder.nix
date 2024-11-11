@@ -1,6 +1,7 @@
-{pkgs, ...}: let
-  unstable = import <unstable> {};
-in {
+{pkgs, ...}: # let
+# unstable = import <unstable> {};
+#in {
+{
   # Program Configs
   programs.neovim = {
     enable = true;
@@ -8,7 +9,7 @@ in {
     withRuby = true;
     withPython3 = true;
     withNodeJs = true;
-    package = unstable.neovim-unwrapped;
+    package = pkgs.neovim-unwrapped; #unstable.neovim-unwrapped;
   };
   programs.starship.enable = true;
   programs.fish = {
@@ -158,7 +159,7 @@ in {
     clang-tools
     nodePackages.bash-language-server
     # Formatter
-    gdtoolkit
+    gdtoolkit_4
     # Debug
     lldb
   ];
