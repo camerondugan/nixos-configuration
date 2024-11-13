@@ -6,7 +6,13 @@
   imports = [
     ../SoftwareBundles/coder.nix
     ../SoftwareBundles/gamer.nix
+    ../HardwareFixes/tlp.nix
+    ../HardwareFixes/ssd.nix
   ];
+
+  services = {
+    thermald.enable = true;
+  };
 
   swapDevices = [
     {

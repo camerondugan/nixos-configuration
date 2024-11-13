@@ -123,13 +123,13 @@
       # Desktop Software
       firefox # Main Browser
       google-chrome # Backup Browser
+      vesktop # Discord
       libreoffice-fresh # Office Suite
       papers # pdf
       image-roll # images
       koreader # Book Reader
       gimp # 2d Art
       inkscape # Vector Art
-      webcord # Discord
       blender # 3D Toolkit
       libsForQt5.kdenlive # Video Editor
       anki # Study Tool
@@ -245,19 +245,6 @@
       user = "cam";
       dataDir = "/home/cam"; # wiki bad
       configDir = "/home/cam/.config/syncthing"; # my config better
-    };
-
-    # Energy Saving
-    auto-cpufreq.enable = true;
-    auto-cpufreq.settings = {
-      battery = {
-        governor = "powersave";
-        turbo = "never";
-      };
-      charger = {
-        governor = "performance";
-        turbo = "auto";
-      };
     };
 
     # power-profiles-daemon.enable = true;

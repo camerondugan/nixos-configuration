@@ -124,7 +124,7 @@
     # Nvim required
     bottom
     fzf
-    luajit
+    lua
     luajitPackages.luarocks-nix
     nodejs-slim
     php82Packages.composer
