@@ -10,6 +10,8 @@
     ../HardwareFixes/ssd.nix
   ];
 
+  networking.hostName = "ThinkPadX1Carbon";
+
   services = {
     thermald.enable = true;
   };
