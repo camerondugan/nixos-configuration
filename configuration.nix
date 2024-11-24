@@ -47,11 +47,6 @@
         };
     };
 
-    # Setup keyfile
-    boot.initrd.secrets = {
-        "/crypto_keyfile.bin" = null;
-    };
-
     networking = {
         # Enable networking
         networkmanager.enable = true;
@@ -111,7 +106,7 @@
         shell = pkgs.fish;
         packages = with pkgs; [
             # Desktop Software
-            firefox # Browser
+            google-chrome # Browser
             libreoffice-fresh # Office Suite
             koreader # Book Reader
             gimp # 2d Art
@@ -250,10 +245,10 @@
         stateVersion = "23.05"; # Did you read the comment?
 
         # Enable Auto Updates
-        autoUpgrade = {
-            enable = true;
-            allowReboot = false;
-        };
+        # autoUpgrade = {
+        #     enable = true;
+        #     allowReboot = false;
+        # };
     };
 
     # Enable Optimization.

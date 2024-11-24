@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
-
-{ 
+{
     imports = [
         <catppuccin/modules/nixos>
         <home-manager/nixos>

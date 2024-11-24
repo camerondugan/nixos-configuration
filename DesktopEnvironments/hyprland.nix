@@ -22,9 +22,17 @@
         hyprlock.enable = true;
         dconf.enable = true;
     };
+
+    # kde connect
+    xdg.portal.extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+    programs.kdeconnect.enable = true;
+    networking.firewall.interfaces.enp42s0.allowedUDPPortRanges = [ { from = 1714; to = 1764; } ];
+    networking.firewall.interfaces.enp42s0.allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
+
     services.gnome.gnome-keyring.enable = true;
     security.pam.services.cam.enableGnomeKeyring = true;
     networking.networkmanager.enable = true;
+
     services = {
         pipewire.enable = true;
         pipewire.wireplumber.enable = true;
@@ -38,11 +46,13 @@
 
     # Config Files
     home-manager.users.cam = {
-        xdg.configFile."hypr/hyprland.conf".source = ./HyprlandFiles/hyprland.conf;
         xdg.configFile."waybar/config".source = ./HyprlandFiles/waybar.conf;
         xdg.configFile."waybar/style.css".source = ./HyprlandFiles/waybar.css;
         xdg.configFile."wofi/style.css".source = ./HyprlandFiles/wofi.css;
         xdg.configFile."wofi/config".source = ./HyprlandFiles/wofi.conf;
+        xdg.configFile."hypr/hyprland.conf".source = ./HyprlandFiles/hyprland.conf;
+        xdg.configFile."hypr/hypridle.conf".source =
+            ./HyprlandFiles/hypridle.conf;
         xdg.configFile."hypr/hyprpaper.conf".text = ''
             preload = ~/.nixos/Assets/wallpaper.jpg
             wallpaper = ,~/.nixos/Assets/wallpaper.jpg
