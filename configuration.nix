@@ -20,7 +20,6 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   imports = [
-    ./hardware-configuration.nix
     ./DesktopEnvironments/hyprland.nix
     ./HardwareFixes/betterCaps.nix
     # Add the commented entries to ThisDevice/configuration.nix if this specific machine needs it.
@@ -37,6 +36,7 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+
 
   systemd.services = {
     # # Clightd NixOS one is bonked, no idea how to make it work
@@ -124,7 +124,7 @@
       firefox # Main Browser
       google-chrome # Backup Browser
       vesktop # Discord
-      libreoffice-fresh # Office Suite
+      libreoffice # Office Suite
       papers # pdf
       image-roll # images
       koreader # Book Reader

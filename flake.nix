@@ -21,6 +21,15 @@
         ];
       };
     nixosConfigurations = {
+      desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          ./Desktop/configuration.nix
+          home-manager.nixosModules.home-manager
+        ];
+
+      };
       thinkpad = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
