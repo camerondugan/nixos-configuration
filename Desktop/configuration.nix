@@ -14,8 +14,8 @@
   networking.hostName = "Desktop";
 
   fileSystems."/FireCuda" = {
-    device = "/dev/nvme0n1p1";
-    # options = ["nofail" "uid=1000" "gid=100" "dmask=007" "fmask=117" "user" "u+rwx" "g+rwx" "o+rwx"];
+    device = "/dev/nvme1n1p1";
+    options = ["nofail"]; # "uid=1000" "gid=100" "dmask=007" "fmask=117" "user" "u+rwx" "g+rwx" "o+rwx"];
   };
 
 
