@@ -1,23 +1,55 @@
-{ pkgs, ... }:
-
-{
-  users.users.cam.extraGroups = ["uinput"];
-  environment.systemPackages = with pkgs; [
-    kanata
-  ];
-  services = {
-      kanata.enable = true;
-      kanata.keyboards."default".config = ''
-      ;; Caps to escape/control configuration for Kanata
-      (defsrc
-        caps
-      )
-      (defalias
-        escctrl (tap-hold 100 100 esc lctl)
-      )
-      (deflayer base
-        @escctrl
-      )
-      '';
+{pkgs, ...}: {
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        ids = ["*"];
+        settings = {
+          main = {
+            capslock = "overload(control, esc)";
+            # a = "overload(meta, a)";
+            # ";" = "overload(meta, ;)";
+            # s = "overload(alt, s)";
+            # l = "overload(alt, l)";
+            # d = "overload(shift, d)";
+            # k = "overload(shift, k)";
+            # f = "overload(control, f)";
+            # j = "overload(control, j)";
+            # "1" = "!";
+            # "2" = "@";
+            # "3" = "#";
+            # "4" = "$";
+            # "5" = "%";
+            # "6" = "^";
+            # "7" = "&";
+            # "8" = "*";
+            # "9" = "(";
+            # "0" = ")";
+          };
+          shift = {
+            # "1" = "1";
+            # "2" = "2";
+            # "3" = "3";
+            # "4" = "4";
+            # "5" = "5";
+            # "6" = "6";
+            # "7" = "7";
+            # "8" = "8";
+            # "9" = "9";
+            # "0" = "0";
+          };
+          # otherlayer = {};
+        };
+      };
+    };
   };
+
+  # Optional, but makes sure that when you type the make palm rejection work with keyd
+  # https://github.com/rvaiya/keyd/issues/723
+  environment.etc."libinput/local-overrides.quirks".text = ''
+    [Serial Keyboards]
+    MatchUdevType=keyboard
+    MatchName=keyd virtual keyboard
+    AttrKeyboardIntegration=internal
+  '';
 }

@@ -48,59 +48,75 @@
     services.udev.extraRules = ''
     KERNEL=="ttyACM0", MODE:="666"
     '';
+    shellAliases = {
+      # doesn't show these changes to user
+      # force safer rm
+      rm = "rmtrash";
+      rmdir = "rmdirtrash";
+      sl = "sl -ew";
+    };
+    shellAbbrs = {
+      # Shows to the user the longer command
+      # Force use of better commands
+      lg = "lazygit";
+      cd = "z";
+      np = "nix-shell --run fish -p";
+      grep = "rg";
+      gi = "gi >> .gitignore"; # append to gitignore
+      # TMUX
+      tat = "tmux a -t"; # Attach to session
+      tnt = "tmux new -t"; # Create new session
+      td = "tmux detach"; # Exit session while saving it
+      cat = "bat"; # better cat
+      ls = "lsd"; # Better ls
+      ehx = "nix run github:usagi-flow/evil-helix";
+    };
+  };
 
-    environment.systemPackages = with pkgs; [
-        # Shell
-        fishPlugins.colored-man-pages
-        fishPlugins.done
-        fishPlugins.forgit
-        fishPlugins.fzf
-        fishPlugins.grc
-        fishPlugins.pisces
-        fishPlugins.puffer
-        fishPlugins.sponge
-        fishPlugins.z
+  # QMK permissions for my keyboard
+  services.udev.extraRules = ''
+    KERNEL=="ttyACM0", MODE:="666"
+  '';
 
-        # Bin Cache
-        cachix
+  environment.systemPackages = with pkgs; [
+    # Shell
+    fishPlugins.colored-man-pages
+    fishPlugins.done
+    fishPlugins.forgit
+    fishPlugins.fzf
+    fishPlugins.grc
+    fishPlugins.pisces
+    fishPlugins.puffer
+    fishPlugins.sponge
+    fishPlugins.z
 
-        # Terminal Commands
-        zip # create .zip
-        unzip # unzip .zip
-        rar # create .rar
-        unrar # unzip .rar
-        rmtrash # trash when rm (needs alias)
-        zoxide # better cd (needs setup)
-        lf # file explorer
-        sl # Steam Locomotive
-        mpv # View Media
-        tmate
-        networkmanagerapplet
-        pavucontrol
-        ffmpeg
-        cargo
-        cmake
-        gnumake
-        php
-        nodePackages.npm
-        wget
-        ruby
-        fzf
-        grc
-        sshfs
+    # Terminal Commands
+    zip # create .zip
+    unzip # unzip .zip
+    rar # create .rar
+    unrar # unzip .rar
+    rmtrash # trash when rm (needs alias)
+    zoxide # better cd (needs setup)
+    lsd # better ls
+    lf # file explorer
+    sl # Steam Locomotive
+    mpv # View Media
+    bat # better cat
+    tmate
+    ffmpeg
+    cargo
+    cmake
+    gnumake
+    php
+    nodePackages.npm
+    wget
+    ruby
+    grc
+    sshfs
 
-        # # Android
-        # android-tools
-        # android-studio
-
-        # Software Dev Tools
-        direnv
-        devenv
-        kitty
-        lazygit
-        ripgrep
-        fd
-        gdb
+    # # Android
+    # android-tools
+    # android-studio
 
         # Keyboard programming
         qmk

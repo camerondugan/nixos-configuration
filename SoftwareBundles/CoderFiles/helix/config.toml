@@ -1,0 +1,56 @@
+# theme = "catppuccin_mocha"
+
+[editor]
+line-number = "relative"
+bufferline = "multiple"
+
+[editor.cursor-shape]
+insert = "bar"
+
+[keys.normal]
+esc = ["collapse_selection", "keep_primary_selection"]
+
+# Increase similarity to vim
+
+# # Quick iteration on config changes
+C-o = ":config-open"
+C-t = ":config-reload"
+C-r = "redo"
+C-s = ":w"
+
+# Muscle memory
+"{" = ["goto_prev_paragraph", "collapse_selection"]
+"}" = ["goto_next_paragraph", "collapse_selection", "move_line_down"]
+0 = "goto_line_start"
+"$" = "goto_line_end"
+G = "goto_file_end"
+V = ["select_mode", "extend_to_line_bounds"]
+D = ["collapse_selection", "extend_to_line_end", "yank", "delete_selection"]
+x = "delete_selection"
+
+# Would be nice to add ya and yi, but the surround commands can't be chained
+Y = ["extend_to_line_end", "flip_selections", "yank", "collapse_selection"]
+
+i = ["collapse_selection", "insert_mode"]
+a = ["append_mode", "collapse_selection"]
+
+# Search for word under cursor
+"*" = ["move_char_right", "move_prev_word_start", "move_next_word_end", "search_selection", "search_next"]
+"#" = ["move_char_right", "move_prev_word_start", "move_next_word_end", "search_selection", "search_prev"]
+
+[keys.select]
+# Muscle memory
+"{" = ["extend_to_line_bounds", "goto_prev_paragraph"]
+"}" = ["extend_to_line_bounds", "goto_next_paragraph"]
+0 = "goto_line_start"
+"$" = "goto_line_end"
+G = "goto_file_end"
+D = ["extend_to_line_bounds", "delete_selection", "normal_mode"]
+C = ["goto_line_start", "extend_to_line_bounds", "change_selection"]
+
+# Visual-mode specific muscle memory
+i = "select_textobject_inner"
+a = "select_textobject_around"
+
+# Escape the madness! No more fighting with the cursor! Or with multiple cursors!
+esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]

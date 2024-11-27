@@ -1,0 +1,9 @@
+[[language]]
+name = "gdscript"
+file-types = ["gd"]
+language-servers = ["gdscript"]
+
+[language-server.gdscript]
+command = "nc"
+args = [ "127.0.0.1", "6005" ] 
+language-id = "gdscript"
