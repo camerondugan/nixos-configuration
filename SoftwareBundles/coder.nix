@@ -1,29 +1,14 @@
 { pkgs, ... }:
 
-let
-    unstable = import <unstable> {};
-in {
+{
     # Program Configs
-    programs.neovim = {
-        enable = true;
-        defaultEditor = true;
-        withRuby = true;
-        withPython3 = true;
-        withNodeJs = true;
-        package = unstable.neovim-unwrapped;
-    };
     programs.starship.enable = true;
     programs.tmux = {
         enable = true;
         plugins = with pkgs; [
             tmuxPlugins.resurrect
             tmuxPlugins.continuum
-            tmuxPlugins.catppuccin
         ];
-        shortcut = "b";
-        keyMode = "vi";
-        customPaneNavigationAndResize = true;
-        escapeTime = 0; # why? tmux why!!!
     };
     programs.fish = {
         enable = true;
@@ -76,6 +61,9 @@ in {
         fishPlugins.sponge
         fishPlugins.z
 
+        # Bin Cache
+        cachix
+
         # Terminal Commands
         zip # create .zip
         unzip # unzip .zip
@@ -87,6 +75,8 @@ in {
         sl # Steam Locomotive
         mpv # View Media
         tmate
+        networkmanagerapplet
+        pavucontrol
         ffmpeg
         cargo
         cmake
@@ -95,6 +85,7 @@ in {
         nodePackages.npm
         wget
         ruby
+        fzf
         grc
         sshfs
 
@@ -111,26 +102,12 @@ in {
         fd
         gdb
 
-        # LSPs
-        codespell
-        docker-compose-language-service
-        gopls
-        jdt-language-server
-        lemminx
-        luajitPackages.luacheck
-        lua-language-server
-        nil
-        rust-analyzer
-        taplo
-        typos-lsp
-        yaml-language-server
-
         # Keyboard programming
         qmk
 
         # Nvim required
         bottom
-        fzf
+        gdu
         luajit
         luajitPackages.luarocks-nix
         nodejs-slim
@@ -142,11 +119,13 @@ in {
         dotnet-sdk
         flutter
         gcc
+        go
+        rstudio
+        rustup
+        zig
         jdk
         clang
-        go
         godot_4
-        aseprite
         # Python
         (python3.withPackages(ps: with ps; [
             pip
