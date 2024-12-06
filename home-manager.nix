@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, runCommand, ... }:
 
 let
     usr = "cam";
@@ -39,11 +39,15 @@ in
     xdg.configFile."godot/text_editor_themes/godotTheme.tet".source =
         ./SoftwareBundles/CoderFiles/godotTheme.tet;
     # Hyprland Config Files
-    xdg.configFile."waybar/config".source = ./DesktopEnvironments/HyprlandFiles/waybar.conf;
+    xdg.configFile."waybar/config".source    = ./DesktopEnvironments/HyprlandFiles/waybar.conf;
     xdg.configFile."waybar/style.css".source = ./DesktopEnvironments/HyprlandFiles/waybar.css;
+
     xdg.configFile."wofi/style.css".source = ./DesktopEnvironments/HyprlandFiles/wofi.css;
     xdg.configFile."wofi/config".source = ./DesktopEnvironments/HyprlandFiles/wofi.conf;
     xdg.configFile."hypr/hyprland.conf".source = ./DesktopEnvironments/HyprlandFiles/hyprland.conf;
+
+    # xdg.configFile."hypr/hyprland.conf".onChange = "hyprctl reload";
+
     xdg.configFile."hypr/hyprlock.conf".source = ./DesktopEnvironments/HyprlandFiles/hyprlock.conf;
     xdg.configFile."hypr/hypridle.conf".source = ./DesktopEnvironments/HyprlandFiles/hypridle.conf;
     xdg.configFile."wpaperd/config.toml".source = ./DesktopEnvironments/HyprlandFiles/wpaper.conf;
@@ -101,7 +105,7 @@ in
     # Set QT Theme
     qt = {
         enable = true;
-        platformTheme = "adwaita";
+        platformTheme.name = "adwaita";
         style = {
             name = "adwaita-dark";
             package = pkgs.adwaita-qt;

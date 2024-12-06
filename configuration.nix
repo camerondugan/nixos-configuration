@@ -28,7 +28,7 @@
   ];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
+    nerd-fonts.jetbrains-mono
   ];
 
   # Bootloader.
@@ -36,6 +36,9 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+  
+  # Boot Graphics.
+  boot.plymouth.enable = true;
 
 
   systemd.services = {
