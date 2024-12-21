@@ -24,18 +24,17 @@ nix-shell -p git --run "git clone https://gitlab.com/cameron.dugan/nixos-configu
 sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
 sudo ln -s /home/"$USER"/.nixos/configuration.nix /etc/nixos/configuration.nix
 
-# Setup this-device.nix
-{
-	echo "{ config, pkgs, ... }:
-
+## Setup this-device.nix
+#{
+#	echo "{ config, pkgs, ... }:
+#
 # Copy luks to swap.nix
-{"
-	grep 'luks' /etc/nixos/configuration.nix.bak
-	grep 'hostName' /etc/nixos/configuration.nix.bak
-	echo "
-}"
-
-} >>~/.nixos/this-device.nix
+#{"
+#	grep 'luks' /etc/nixos/configuration.nix.bak
+#	grep 'hostName' /etc/nixos/configuration.nix.bak
+#h	echo "
+#}"
+#} >>~/.nixos/this-device.nix
 
 echo """# copy your /etc/nixos/hardware-configuration.nix to .nixos/YourDeviceName
 # add YourDevice as a config in .nixos/flake.nix
