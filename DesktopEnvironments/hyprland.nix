@@ -12,9 +12,11 @@
     grimblast # screenshot utility
     udiskie # auto-mount removable drives
     ianny # eyestrain prevention
-    fm # file manager
     pavucontrol
     networkmanagerapplet
+    nautilus # file manager
+    seahorse # secret manager
+    gnome-keyring # keyring
   ];
   programs = {
     hyprland.enable = true;
@@ -42,6 +44,7 @@
   services.gnome.gnome-keyring.enable = true;
   services.gvfs.enable = true; # trash
   security.pam.services.cam.enableGnomeKeyring = true;
+  security.pam.services.hyprland.enableGnomeKeyring = true;
   networking.networkmanager.enable = true;
 
   services = {
