@@ -28,7 +28,11 @@
   ];
 
   fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+      ];
+    })
   ];
 
   # Bootloader.
@@ -36,10 +40,9 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
-  
+
   # Boot Graphics.
   boot.plymouth.enable = true;
-
 
   systemd.services = {
     # # Clightd NixOS one is bonked, no idea how to make it work
@@ -104,7 +107,7 @@
   # Yubikey Optional Unlock
   security.pam.u2f = {
     enable = true;
-    settings.cue = true ;
+    settings.cue = true;
     # cue = true;
   };
   security.pam.services = {
