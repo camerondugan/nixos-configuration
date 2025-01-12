@@ -10,11 +10,6 @@
     # displayManager.cosmic-greeter.enable = true;
   };
 
-  # Set Default Applications
-  xdg.mime.defaultApplications = {
-    "inode/directory" = "org.gnome.Nautilus.desktop";
-  };
-
   programs.dconf.enable = true;
   environment.systemPackages = with pkgs; [
     # GNOME
@@ -22,6 +17,7 @@
     gnome.gnome-sound-recorder
     sushi
     polkit_gnome
+    gnome-tweaks
     # Gnome Extensions
     gnomeExtensions.app-hider # add hide option to app menu
     gnomeExtensions.dash-to-dock # dock

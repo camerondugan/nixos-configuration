@@ -20,11 +20,12 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   imports = [
-    ./DesktopEnvironments/hyprland.nix
+    DesktopEnvironments/gnome.nix
+    #DesktopEnvironments/hyprland.nix
     ./HardwareFixes/betterCaps.nix
     # Add the commented entries to ThisDevice/configuration.nix if this specific machine needs it.
-    # ./gaming.nix
-    # ./coding.nix
+    # gaming.nix
+    # coding.nix
   ];
 
   fonts.packages = with pkgs; [
