@@ -33,6 +33,7 @@ in {
   # Set Config File Locations
   xdg.configFile."wezterm/wezterm.lua".source =
     ./SoftwareBundles/CoderFiles/wezterm.lua;
+  xdg.configFile."ghostty/config".source = ./SoftwareConfig/ghostty.conf;
   xdg.configFile."godot/text_editor_themes/godotTheme.tet".source =
     ./SoftwareBundles/CoderFiles/godotTheme.tet;
   # Hyprland Config Files
@@ -78,8 +79,7 @@ in {
       font-antialiasing = "grayscale";
     };
     "org/gnome/desktop/sound" = {
-      event-sounds = true;
-      theme-name = "__custom";
+      event-sounds = "false";
     };
     "org/gnome/desktop/calendar" = {
       show-weekdate = false;
@@ -185,7 +185,7 @@ in {
       smart-gaps = true;
       stacking-with-mouse = false;
     };
-    "/org/gnome/shell/extensions/dash-to-dock" = {
+    "org/gnome/shell/extensions/dash-to-dock" = {
       intellihide-mode = "FOCUS_APPLICATION_WINDOWS";
     };
   };

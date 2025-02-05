@@ -1,4 +1,3 @@
-# Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   pkgs,
@@ -20,8 +19,8 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   imports = [
-    DesktopEnvironments/gnome.nix
-    #DesktopEnvironments/hyprland.nix
+    # DesktopEnvironments/gnome.nix
+    DesktopEnvironments/hyprland.nix
     ./HardwareFixes/betterCaps.nix
     # Add the commented entries to ThisDevice/configuration.nix if this specific machine needs it.
     # gaming.nix
@@ -29,11 +28,7 @@
   ];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-      ];
-    })
+    nerd-fonts.jetbrains-mono
   ];
 
   # Bootloader.
@@ -198,7 +193,7 @@
       };
     };
 
-    # Login manager
+    # Auto Login
     displayManager.autoLogin.enable = true;
     displayManager.autoLogin.user = "cam";
 
@@ -217,8 +212,8 @@
     # Bluetooth (for when no bluetooth ui provided)
     # blueman.enable = true;
 
-    # Speedup App Launch
-    preload.enable = true;
+    # Speedup app launch for HDD
+    # preload.enable = true;
 
     pipewire = {
       enable = true;
@@ -231,17 +226,8 @@
     # Flatpak for other software you can't find on NixOS
     flatpak.enable = true;
 
-    # Enable hibernation with no DE. (You installed with swap right?)
-    logind.extraConfig = ''
-      HibernateDelaySec=15min
-      HandleSuspendKey=hibernate
-      HandleLidSwitch=hibernate
-      IdleAction=hibernate
-    '';
-
     # List services that you want to enable:
     tailscale.enable = true;
-    geoclue2.enable = true;
 
     # Firmware Updater
     fwupd.enable = true;

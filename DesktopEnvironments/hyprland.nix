@@ -2,11 +2,13 @@
   environment.systemPackages = with pkgs; [
     wofi # app launcher
     wezterm # terminal
+    ghostty # backup term
     playerctl # media player shortcuts
     brightnessctl # screen brightness shortcuts
     pamixer # audio shortcuts
     swayosd # audio shortcut visuals
     wpaperd # wallpaper
+    waybar # top bar
     # hyprnotify # notifications
     #wl-clip-persist # remember clipboard after app close
     grimblast # screenshot utility
@@ -20,7 +22,6 @@
   ];
   programs = {
     hyprland.enable = true;
-    waybar.enable = true;
     hyprlock.enable = true;
     dconf.enable = true;
   };
