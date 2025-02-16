@@ -143,6 +143,8 @@
       audacity # Audio Editor
       comma # better temporary shell
       home-manager # manage home config
+      neovim # Text editor
+      direnv # needed for shell
     ];
   };
 

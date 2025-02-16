@@ -1,9 +1,10 @@
 {pkgs, ...}: {
   nixpkgs.config.rocmSupport = true;
-  boot.initrd.kernelModules = ["amdgpu"];
-  # Use AMDVLK when applications prefer
+  boot.initrd.kernelModules = [ "amdgpu" ];
 
+  # Use AMDVLK when applications prefer
   hardware.opengl.enable = true;
+  hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages = with pkgs; [
     amdvlk
