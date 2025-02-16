@@ -20,11 +20,15 @@
     seahorse # secret manager
     gnome-keyring # keyring
   ];
+
   programs = {
     hyprland.enable = true;
     hyprlock.enable = true;
     dconf.enable = true;
   };
+
+  # Login Manager
+  services.xserver.displayManager.gdm.enable = true;
 
   # kde connect
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk pkgs.kdePackages.xdg-desktop-portal-kde];

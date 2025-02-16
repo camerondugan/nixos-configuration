@@ -74,7 +74,7 @@ in {
       clock-show-weekday = true;
       clock-show-date = true;
       clock-show-seconds = false;
-      gtk-theme = "Adwaita-dark";
+      # gtk-theme = "Adwaita-dark";
       font-hinting = "medium";
       font-antialiasing = "grayscale";
     };
@@ -192,21 +192,19 @@ in {
 
   gtk = {
     enable = true;
-    #     # theme = {
-    #         # name = "catppuccin-mocha-blue-standard";
-    #         # package = pkgs.catppuccin-gtk.override {
-    #         #     variant = "mocha";
-    #         # };
-    #     # };
+    theme = {
+        name = "WhiteSur-Dark";
+        package = pkgs.whitesur-gtk-theme;
+    };
     cursorTheme = {
       name = "DMZ-White";
       package = pkgs.vanilla-dmz;
     };
-    #     iconTheme = {
-    #       name = "Adwaita";
-    #       # package = pkgs.adwaita-icon-theme;
-    #       package = pkgs.gnome.adwaita-icon-theme;
-    #     };
+    iconTheme = {
+      name = "Adwaita";
+      # package = pkgs.adwaita-icon-theme;
+      package = pkgs.adwaita-icon-theme;
+    };
     gtk3.extraConfig = {
       Settings = ''
         gtk-application-prefer-dark-theme=1
