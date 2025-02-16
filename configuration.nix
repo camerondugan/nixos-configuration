@@ -28,7 +28,7 @@
   ];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
+    nerd-fonts.jetbrains-mono
   ];
 
   # Bootloader.
@@ -141,6 +141,8 @@
       audacity # Audio Editor
       comma # better temporary shell
       home-manager # manage home config
+      neovim # Text editor
+      direnv # needed for shell
     ];
   };
 

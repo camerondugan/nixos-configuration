@@ -38,7 +38,14 @@
           home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
         ];
-
+      };
+      razer = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          ./Razer/configuration.nix
+          home-manager.nixosModules.home-manager
+        ];
       };
     };
   };

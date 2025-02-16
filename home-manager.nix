@@ -101,7 +101,7 @@ in
     # Set QT Theme
     qt = {
         enable = true;
-        platformTheme = "adwaita";
+        platformTheme.name = "adwaita";
         style = {
             name = "adwaita-dark";
             package = pkgs.adwaita-qt;
