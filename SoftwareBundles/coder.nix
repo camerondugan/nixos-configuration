@@ -74,6 +74,7 @@
         mpv # View Media
         bat # better cat
         fzf # fuzzy finder
+        ripgrep # RIP grep
         devenv # developer env
         lazygit
         tmate
