@@ -43,6 +43,11 @@
             td="tmux detach"; # Exit session while saving it
         };
     };
+    programs.neovim = {
+        enable = true;
+        viAlias = true;
+        vimAlias = true;
+    };
 
     # QMK permissions for my keyboard
     services.udev.extraRules = ''
@@ -105,6 +110,10 @@
         php82Packages.composer
         tree-sitter
         imv
+        # Lsp support
+        lua-language-server
+	stylua
+        nixd
 
         # Languages (no particular order)
         dotnet-sdk

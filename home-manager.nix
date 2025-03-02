@@ -43,8 +43,7 @@ in {
   xdg.configFile."wofi/style.css".source = ./DesktopEnvironments/HyprlandFiles/wofi.css;
   xdg.configFile."wofi/config".source = ./DesktopEnvironments/HyprlandFiles/wofi.conf;
   xdg.configFile."hypr/hyprland.conf".source = ./DesktopEnvironments/HyprlandFiles/hyprland.conf;
-
-  # xdg.configFile."hypr/hyprland.conf".onChange = "hyprctl reload";
+  xdg.configFile."hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload";
 
   xdg.configFile."hypr/hyprlock.conf".source = ./DesktopEnvironments/HyprlandFiles/hyprlock.conf;
   xdg.configFile."hypr/hypridle.conf".source = ./DesktopEnvironments/HyprlandFiles/hypridle.conf;
@@ -233,7 +232,7 @@ in {
     userEmail = "cameron.dugan@protonmail.com";
     lfs.enable = true;
     extraConfig = {
-      core.editor = "vim";
+      core.editor = "vim +startinsert";
       pull.rebase = false;
     };
   };
