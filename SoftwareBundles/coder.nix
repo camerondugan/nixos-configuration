@@ -114,6 +114,8 @@
         lua-language-server
 	stylua
         nixd
+        nil
+        typos-lsp
 
         # Languages (no particular order)
         dotnet-sdk

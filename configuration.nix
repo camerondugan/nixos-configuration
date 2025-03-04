@@ -149,7 +149,6 @@
   };
 
   hardware = {
-    pulseaudio.enable = false;
     bluetooth.enable = true;
     # opengl.driSupport = true;
     # opengl.driSupport32Bit = true;
@@ -194,6 +193,8 @@
         variant = "";
       };
     };
+
+    pulseaudio.enable = false;
 
     # Auto Login
     displayManager.autoLogin.enable = true;
