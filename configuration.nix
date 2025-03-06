@@ -20,7 +20,8 @@
 
   imports = [
     # DesktopEnvironments/gnome.nix
-    DesktopEnvironments/hyprland.nix
+    # DesktopEnvironments/hyprland.nix
+    DesktopEnvironments/cosmic.nix
     ./HardwareFixes/betterCaps.nix
     # Add the commented entries to ThisDevice/configuration.nix if this specific machine needs it.
     # gaming.nix

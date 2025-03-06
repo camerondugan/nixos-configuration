@@ -1,6 +1,6 @@
 {
   config,
-  lib,
+  pkgs,
   ...
 }: {
   imports = [
@@ -21,6 +21,7 @@
 
   services = {
     thermald.enable = true;
+    ollama.package = pkgs.ollama-cuda;
   };
 
   # swapDevices = [

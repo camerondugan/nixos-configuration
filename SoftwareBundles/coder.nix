@@ -65,6 +65,9 @@
         fishPlugins.puffer
         fishPlugins.sponge
         fishPlugins.z
+        
+        # Terminal Emulator
+        ghostty
 
         # Terminal Commands
         zip # create .zip

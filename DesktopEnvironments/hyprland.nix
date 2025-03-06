@@ -2,7 +2,7 @@
   environment.systemPackages = with pkgs; [
     wofi # app launcher
     wezterm # terminal
-    ghostty # backup term
+    kitty # backup term
     playerctl # media player shortcuts
     brightnessctl # screen brightness shortcuts
     pamixer # audio shortcuts
