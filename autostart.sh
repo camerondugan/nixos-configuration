@@ -1,9 +1,6 @@
 #!/bin/sh
 # ^^^^Rare thing happened here^^^^
 
-# NTFY:
-# ntfyLogin="$(cat /home/"$USER"/.nixos/ntfy.secret)"
-
 # # Essential for window managers
 # waybar &
 # hyprpaper &
