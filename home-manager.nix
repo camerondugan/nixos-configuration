@@ -1,22 +1,6 @@
 {pkgs, ...}: let
   usr = "cam";
 in {
-  # imports = [
-  #     # <catppuccin/modules/nixos>
-  #     <home-manager/nixos>
-  # ];
-  # enable catppuccin
-  # catppuccin.enable = true;
-  # catppuccin.flavor = "mocha";
-
-  # home-manager.useGlobalPkgs =true;
-  # home-manager.useUserPackages = true;
-  # home-manager.backupFileExtension = "hmbackup";
-  # home-manager.stateVersion = "23.05";
-
-  # imports = [
-  #     <catppuccin/modules/home-manager>
-  # ];
   home = {
     username = "cam";
     homeDirectory = "/home/cam";
@@ -29,29 +13,32 @@ in {
       "/home/${usr}/.system_node_modules/bin"
     ];
   };
+  xdg = {
+    configFile = {
+      # Set Config File Locations
+      "wezterm/wezterm.lua".source =
+        ./Software/CoderFiles/wezterm.lua;
+      "ghostty/config".source = ./SoftwareConfig/ghostty.conf;
+      "godot/text_editor_themes/godotTheme.tet".source =
+        ./Software/CoderFiles/godotTheme.tet;
+      # Hyprland Config Files
+      "waybar/config".source = ./DesktopEnvironments/HyprlandFiles/waybar.conf;
+      "waybar/style.css".source = ./DesktopEnvironments/HyprlandFiles/waybar.css;
 
-  # Set Config File Locations
-  xdg.configFile."wezterm/wezterm.lua".source =
-    ./SoftwareBundles/CoderFiles/wezterm.lua;
-  xdg.configFile."ghostty/config".source = ./SoftwareConfig/ghostty.conf;
-  xdg.configFile."godot/text_editor_themes/godotTheme.tet".source =
-    ./SoftwareBundles/CoderFiles/godotTheme.tet;
-  # Hyprland Config Files
-  xdg.configFile."waybar/config".source = ./DesktopEnvironments/HyprlandFiles/waybar.conf;
-  xdg.configFile."waybar/style.css".source = ./DesktopEnvironments/HyprlandFiles/waybar.css;
+      "wofi/style.css".source = ./DesktopEnvironments/HyprlandFiles/wofi.css;
+      "wofi/config".source = ./DesktopEnvironments/HyprlandFiles/wofi.conf;
+      "hypr/hyprland.conf".source = ./DesktopEnvironments/HyprlandFiles/hyprland.conf;
+      "hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload";
 
-  xdg.configFile."wofi/style.css".source = ./DesktopEnvironments/HyprlandFiles/wofi.css;
-  xdg.configFile."wofi/config".source = ./DesktopEnvironments/HyprlandFiles/wofi.conf;
-  xdg.configFile."hypr/hyprland.conf".source = ./DesktopEnvironments/HyprlandFiles/hyprland.conf;
-  xdg.configFile."hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload";
-
-  xdg.configFile."hypr/hyprlock.conf".source = ./DesktopEnvironments/HyprlandFiles/hyprlock.conf;
-  xdg.configFile."hypr/hypridle.conf".source = ./DesktopEnvironments/HyprlandFiles/hypridle.conf;
-  xdg.configFile."wpaperd/config.toml".source = ./DesktopEnvironments/HyprlandFiles/wpaper.conf;
-  xdg.configFile."hypr/hyprpaper.conf".text = ''
-    preload = ~/.nixos/Assets/wallpaper.jpg
-    wallpaper = ,~/.nixos/Assets/wallpaper.jpg
-  '';
+      "hypr/hyprlock.conf".source = ./DesktopEnvironments/HyprlandFiles/hyprlock.conf;
+      "hypr/hypridle.conf".source = ./DesktopEnvironments/HyprlandFiles/hypridle.conf;
+      "wpaperd/config.toml".source = ./DesktopEnvironments/HyprlandFiles/wpaper.conf;
+      "hypr/hyprpaper.conf".text = ''
+        preload = ~/.nixos/Assets/wallpaper.jpg
+        wallpaper = ,~/.nixos/Assets/wallpaper.jpg
+      '';
+    };
+  };
 
   # Set Cursor Theme
   home.pointerCursor = {
@@ -112,7 +99,7 @@ in {
     "org/gnome/desktop/wm/keybindings" = {
       minimize = []; #["<Super>j"];
       close = ["<Super>q"];
-      # Disabled bc pop-shell
+      # Disabled because pop-shell
       switch-to-workspace-left = ["<Alt><Super>h"];
       switch-to-workspace-right = ["<Alt><Super>l"];
       move-to-workspace-left = ["<Control><Super>h"];
@@ -192,8 +179,8 @@ in {
   gtk = {
     enable = true;
     theme = {
-        name = "WhiteSur-Dark";
-        package = pkgs.whitesur-gtk-theme;
+      name = "WhiteSur-Dark";
+      package = pkgs.whitesur-gtk-theme;
     };
     cursorTheme = {
       name = "DMZ-White";
@@ -201,7 +188,6 @@ in {
     };
     iconTheme = {
       name = "Adwaita";
-      # package = pkgs.adwaita-icon-theme;
       package = pkgs.adwaita-icon-theme;
     };
     gtk3.extraConfig = {
@@ -225,53 +211,54 @@ in {
       package = pkgs.adwaita-qt;
     };
   };
-
-  programs.git = {
-    enable = true;
-    userName = "Cameron Dugan";
-    userEmail = "cameron.dugan@protonmail.com";
-    lfs.enable = true;
-    extraConfig = {
-      core.editor = "vim +startinsert";
-      pull.rebase = false;
+  programs = {
+    git = {
+      enable = true;
+      userName = "Cameron Dugan";
+      userEmail = "cameron.dugan@protonmail.com";
+      lfs.enable = true;
+      extraConfig = {
+        core.editor = "vim +startinsert";
+        pull.rebase = false;
+      };
     };
-  };
 
-  programs.tmux = {
-    enable = false;
-    shortcut = "space";
-    baseIndex = 1;
-    keyMode = "vi";
-    customPaneNavigationAndResize = true;
-    escapeTime = 0;
-    plugins = with pkgs.tmuxPlugins; [
-      {
-        plugin = resurrect;
-        extraConfig = ''
-          set -g @resurrect-capture-pane-contents 'on'
-          set -g @resurrect-processes '"~nvim"'
-        '';
-      }
-      {
-        plugin = continuum;
-        extraConfig = ''
-          set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '5'
-        '';
-      }
-    ];
-    extraConfig = ''
-      set -g mouse on
-    '';
-  };
+    tmux = {
+      enable = false;
+      shortcut = "space";
+      baseIndex = 1;
+      keyMode = "vi";
+      customPaneNavigationAndResize = true;
+      escapeTime = 0;
+      plugins = with pkgs.tmuxPlugins; [
+        {
+          plugin = resurrect;
+          extraConfig = ''
+            set -g @resurrect-capture-pane-contents 'on'
+            set -g @resurrect-processes '"~nvim"'
+          '';
+        }
+        {
+          plugin = continuum;
+          extraConfig = ''
+            set -g @continuum-restore 'on'
+            set -g @continuum-save-interval '5'
+          '';
+        }
+      ];
+      extraConfig = ''
+        set -g mouse on
+      '';
+    };
 
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      obs-backgroundremoval
-      obs-3d-effect
-      obs-scale-to-sound
-      obs-composite-blur
-    ];
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        obs-backgroundremoval
+        obs-3d-effect
+        obs-scale-to-sound
+        obs-composite-blur
+      ];
+    };
   };
 }

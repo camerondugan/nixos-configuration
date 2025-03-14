@@ -1,14 +1,9 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{...}: {
   imports = [
     ./hardware-configuration.nix
-    ../SoftwareBundles/coder.nix
-    ../SoftwareBundles/gamer.nix
+    ../Software/coder.nix
+    ../Software/gamer.nix
     ../HardwareFixes/tlp.nix
-    ../HardwareFixes/ssd.nix
   ];
 
   networking.hostName = "ThinkPadX1Carbon";

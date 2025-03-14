@@ -1,9 +1,13 @@
 {pkgs, ...}: {
-  programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true;
-  programs.steam.remotePlay.openFirewall = true;
-  programs.steam.dedicatedServer.openFirewall = true;
-  programs.gamemode.enable = true;
+  programs = {
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+    gamemode.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     # itch # not working currently in stable or unstable... # Game store
