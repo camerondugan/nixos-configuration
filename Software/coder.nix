@@ -133,8 +133,7 @@
     zig
     jdk
     clang
-    godot_4
-    # godot
+    godot
     # Python
     (python3.withPackages (ps:
       with ps; [

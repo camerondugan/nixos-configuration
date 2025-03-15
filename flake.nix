@@ -11,11 +11,11 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
     nixos-hardware,
     nixos-cosmic,
+    ...
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
