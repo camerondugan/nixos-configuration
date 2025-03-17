@@ -155,6 +155,9 @@
 
     # power-profiles-daemon.enable = true;
     upower.enable = true;
+
+    # AD Block + DNS
+    blocky.enable = true;
   };
 
   powerManagement.enable = true;
