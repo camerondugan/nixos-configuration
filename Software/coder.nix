@@ -2,13 +2,6 @@
   # Program Config
   programs = {
     starship.enable = true;
-    tmux = {
-      enable = true;
-      plugins = with pkgs; [
-        tmuxPlugins.resurrect
-        tmuxPlugins.continuum
-      ];
-    };
     fish = {
       enable = true;
       interactiveShellInit = ''
@@ -20,6 +13,12 @@
         zoxide init fish | source
         direnv hook fish | source
         enable_transience
+        if status is-interactive
+            # Configure auto-attach/exit to your likings (default is off).
+            # set ZELLIJ_AUTO_ATTACH true
+            # set ZELLIJ_AUTO_EXIT true
+            eval (zellij setup --generate-auto-start fish | string collect)
+        end
       '';
       shellAliases = {
         # doesn't show these changes to user
@@ -38,10 +37,6 @@
         gi = "gi >> .gitignore"; # append to gitignore
         # Kitty specific
         s = "kitten ssh";
-        # TMUX
-        tat = "tmux a -t"; # Attach to session
-        tnt = "tmux new -t"; # Create new session
-        td = "tmux detach"; # Exit session while saving it
       };
     };
     neovim = {

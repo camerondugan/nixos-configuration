@@ -101,6 +101,7 @@
       comma # better temporary shell
       home-manager # manage home config
       neovim # The best text editor (no bias)
+      zellij # Tmux but newer
       direnv # environment by directory
     ];
   };
@@ -157,7 +158,7 @@
     upower.enable = true;
 
     # AD Block + DNS
-    blocky.enable = true;
+    # blocky.enable = true;
   };
 
   powerManagement.enable = true;
