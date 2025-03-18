@@ -66,6 +66,7 @@
 
     # Terminal Emulator
     ghostty
+    helix
 
     # Terminal Commands
     zip # create .zip

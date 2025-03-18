@@ -37,6 +37,8 @@ in {
         preload = ~/.nixos/Assets/wallpaper.jpg
         wallpaper = ,~/.nixos/Assets/wallpaper.jpg
       '';
+      "helix/config.toml".source = ./Software/CoderFiles/helix/config.toml;
+      "helix/languages.toml".source = ./Software/CoderFiles/helix/languages.toml;
     };
   };
 
@@ -221,34 +223,6 @@ in {
         core.editor = "vim +startinsert";
         pull.rebase = false;
       };
-    };
-
-    tmux = {
-      enable = false;
-      shortcut = "space";
-      baseIndex = 1;
-      keyMode = "vi";
-      customPaneNavigationAndResize = true;
-      escapeTime = 0;
-      plugins = with pkgs.tmuxPlugins; [
-        {
-          plugin = resurrect;
-          extraConfig = ''
-            set -g @resurrect-capture-pane-contents 'on'
-            set -g @resurrect-processes '"~nvim"'
-          '';
-        }
-        {
-          plugin = continuum;
-          extraConfig = ''
-            set -g @continuum-restore 'on'
-            set -g @continuum-save-interval '5'
-          '';
-        }
-      ];
-      extraConfig = ''
-        set -g mouse on
-      '';
     };
 
     obs-studio = {

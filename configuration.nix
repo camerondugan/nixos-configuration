@@ -64,7 +64,7 @@
   security = {
     # Enable sound with pipe wire.
     rtkit.enable = true;
-
+    
     # Yubikey Optional Unlock
     pam.u2f = {
       enable = true;
