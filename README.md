@@ -2,17 +2,15 @@
 
 This repository is capable of regenerating my entire system except things in my
 home folder. I use SyncThing to keep my home folder up to date. I hope this also
-provides new NixOS users a good starting point for what their configuration can
-be.
+provides other NixOS users a starting point for what their configuration can be.
 
 ## Setup
 
 1. Download the GUI NixOS install ISO and flash it to a USB
 2. Install NixOS on your machine with swap, hibernate, and preferably encrypted
-   disk
-3. Boot into your new NixOS machine and download the one-time-setup.sh file
-4. Make it executable and run it.
-5. Wait for it to finish.
+   disk, but for getting started and easy debugging starting unencrypted is ok too.
+3. ??? <you may need to search this part on your own>
+4. Profit
 
 ## Important Notes
 

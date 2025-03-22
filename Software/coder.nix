@@ -13,6 +13,7 @@
         zoxide init fish | source
         direnv hook fish | source
         enable_transience
+        set EDITOR $(which hx)
         if status is-interactive
             # Configure auto-attach/exit to your likings (default is off).
             # set ZELLIJ_AUTO_ATTACH true
@@ -43,7 +44,6 @@
       enable = true;
       viAlias = true;
       vimAlias = true;
-      defaultEditor = true;
     };
   };
 

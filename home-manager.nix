@@ -220,7 +220,7 @@ in {
       userEmail = "cameron.dugan@protonmail.com";
       lfs.enable = true;
       extraConfig = {
-        core.editor = "vim +startinsert";
+        core.editor = "hx";
         pull.rebase = false;
       };
     };
