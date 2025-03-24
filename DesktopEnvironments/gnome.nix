@@ -13,8 +13,8 @@
   programs.dconf.enable = true;
   environment.systemPackages = with pkgs; [
     # GNOME
-    gnome.gnome-boxes # boxes
-    gnome.gnome-sound-recorder
+    gnome-boxes # boxes
+    gnome-sound-recorder
     sushi
     polkit_gnome
     gnome-tweaks
