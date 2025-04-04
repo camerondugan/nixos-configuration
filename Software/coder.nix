@@ -178,7 +178,7 @@
     racket
     regols
     rescript-language-server
-    robotframework-tidy
+    # robotframework-tidy
     solargraph
     lldb
     metals

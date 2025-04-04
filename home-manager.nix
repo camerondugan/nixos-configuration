@@ -229,9 +229,7 @@ in {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
         obs-backgroundremoval
-        obs-3d-effect
-        obs-scale-to-sound
-        obs-composite-blur
+        obs-webkitgtk
       ];
     };
   };
