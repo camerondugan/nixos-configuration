@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.follows = "nixos-cosmic/nixpkgs"; # reduces cosmic build time
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -12,6 +13,7 @@
 
   outputs = {
     nixpkgs,
+    determinate,
     home-manager,
     nixos-hardware,
     nixos-cosmic,
@@ -33,6 +35,7 @@
         modules = [
           ./configuration.nix
           ./Desktop/configuration.nix
+          determinate.nixosModules.default
           home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.common-pc
           nixos-hardware.nixosModules.common-pc-ssd
@@ -50,6 +53,7 @@
         modules = [
           ./configuration.nix
           ./ThinkPadX1Carbon/configuration.nix
+          determinate.nixosModules.default
           home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
           nixos-cosmic.nixosModules.default
@@ -64,6 +68,7 @@
         modules = [
           ./configuration.nix
           ./Razer/configuration.nix
+          determinate.nixosModules.default
           home-manager.nixosModules.home-manager
           nixos-cosmic.nixosModules.default
           {
