@@ -2,3 +2,10 @@
 # editor specific config. The only config I have is for languages which are not
 # setup by default to have an lsp. This is to maintain compatability across
 # environments and for bragging rights. Have fun with no config editing!
+theme = "base16_transparent"
+
+[editor]
+line-number = "relative"
+
+[editor.cursor-shape]
+insert = "bar"

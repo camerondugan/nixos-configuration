@@ -76,7 +76,7 @@
     rmtrash # trash when rm (needs alias)
     zoxide # better cd (needs setup)
     lsd # better ls
-    lf # file explorer
+    yazi # file explorer
     sl # Steam Locomotive
     mpv # View Media
     bat # better cat

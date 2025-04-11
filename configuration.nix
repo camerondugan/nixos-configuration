@@ -176,11 +176,11 @@
   };
 
   # Enable Optimization.
-  nix.gc = {
-    automatic = lib.mkDefault true;
-    dates = "daily";
-    options = "--delete-older-than 3d";
-  };
+  # nix.gc = {
+  #   automatic = lib.mkDefault true;
+  #   dates = "daily";
+  #   options = "--delete-older-than 3d";
+  # };
 
   nix.optimise.automatic = true;
 
