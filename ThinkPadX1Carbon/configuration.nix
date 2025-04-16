@@ -3,7 +3,7 @@
     ./hardware-configuration.nix
     ../Software/coder.nix
     ../Software/gamer.nix
-    ../HardwareFixes/tlp.nix
+    # ../HardwareFixes/tlp.nix
   ];
 
   networking.hostName = "ThinkPadX1Carbon";

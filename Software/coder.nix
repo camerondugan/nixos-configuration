@@ -83,6 +83,7 @@
     fzf # fuzzy finder
     ripgrep # RIP grep
     devenv # developer env
+    git
     lazygit
     tmate
     ffmpeg

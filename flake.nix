@@ -6,7 +6,7 @@
     nixpkgs.follows = "nixos-cosmic/nixpkgs"; # reduces cosmic build time
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
     nixos-hardware.url = "github:Nixos/nixos-hardware/master";
   };
 
@@ -37,7 +37,21 @@
           nixos-hardware.nixosModules.common-pc
           nixos-hardware.nixosModules.common-pc-ssd
           nixos-hardware.nixosModules.common-cpu-amd
-          nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+          nixos-hardware.nixosmodules.common-gpu-nvidia-nonprime
+          nixos-cosmic.nixosModules.default
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
+        ];
+      };
+      framework13 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          ./Framework13/configuration.nix
+          home-manager.nixosModules.home-manager
+          nixos-hardware.nixosModules.framework-13-7040-amd
           nixos-cosmic.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
