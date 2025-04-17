@@ -37,7 +37,7 @@
           nixos-hardware.nixosModules.common-pc
           nixos-hardware.nixosModules.common-pc-ssd
           nixos-hardware.nixosModules.common-cpu-amd
-          nixos-hardware.nixosmodules.common-gpu-nvidia-nonprime
+          nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
           nixos-cosmic.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
