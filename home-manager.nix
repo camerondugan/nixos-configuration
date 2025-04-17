@@ -219,6 +219,8 @@ in {
       userName = "Cameron Dugan";
       userEmail = "cameron.dugan@protonmail.com";
       lfs.enable = true;
+      difftastic.enable = true;
+      difftastic.enableAsDifftool = true;
       extraConfig = {
         core.editor = "hx";
         pull.rebase = false;
