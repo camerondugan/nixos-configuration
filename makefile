@@ -1,7 +1,7 @@
 all: add switch home
 
 switch: add
-	sudo nixos-rebuild switch --flake .#desktop # you should replace desktop with your config from flake.nix
+	sudo nixos-rebuild switch --flake .#framework13 # you should replace framework13 with your config from flake.nix
 
 update: add
 	nix flake update
