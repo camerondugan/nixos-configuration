@@ -2,7 +2,10 @@
 # editor specific config. The only config I have is for languages which are not
 # setup by default to have an lsp. This is to maintain compatability across
 # environments and for bragging rights. Have fun with no config editing!
-theme = "catppuccin_frappe"
+theme = "solarized_light"
+[keys.normal.space.t]
+"l"= ":theme solarized_light"
+"d"= ":theme solarized_dark"
 
 [editor]
 line-number = "relative"
