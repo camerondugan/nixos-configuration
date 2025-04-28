@@ -62,6 +62,8 @@
     };
   };
 
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   security = {
     # Enable sound with pipe wire.
     rtkit.enable = true;
@@ -161,7 +163,6 @@
     # AD Block + DNS
     # blocky.enable = true;
   };
-
   powerManagement.enable = true;
 
   # Kde Connect
