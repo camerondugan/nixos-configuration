@@ -37,6 +37,7 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Boot Graphics.
   boot.plymouth.enable = true;
