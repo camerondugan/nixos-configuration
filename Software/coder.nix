@@ -36,6 +36,7 @@
         np = "nix-shell --run fish -p";
         grep = "rg";
         gi = "gi >> .gitignore"; # append to gitignore
+        ns = "nix-shell";
         # Kitty specific
         s = "kitten ssh";
       };
