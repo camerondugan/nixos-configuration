@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, helix-flake, ...}: let
   usr = "cam";
 in {
   home = {
@@ -214,6 +214,11 @@ in {
     };
   };
   programs = {
+    helix = {
+      enable = true;
+      package = helix-flake.packages.${pkgs.system}.default;
+    };
+
     git = {
       enable = true;
       userName = "Cameron Dugan";

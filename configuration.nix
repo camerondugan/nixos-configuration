@@ -3,9 +3,13 @@
 }: {
   nix = {
     settings = {
-      substituters = ["https://cosmic.cachix.org/"];
+      substituters = [
+        "https://cosmic.cachix.org/"
+        "https://helix.cachix.org/"
+      ];
       trusted-public-keys = [
         "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+        "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
       ];
     };
     extraOptions = ''
@@ -33,6 +37,7 @@
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
   };
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Boot Graphics.
   boot.plymouth.enable = true;
@@ -57,6 +62,8 @@
       ];
     };
   };
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   security = {
     # Enable sound with pipe wire.
@@ -157,7 +164,6 @@
     # AD Block + DNS
     # blocky.enable = true;
   };
-
   powerManagement.enable = true;
 
   # Kde Connect

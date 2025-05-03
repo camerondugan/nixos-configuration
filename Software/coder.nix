@@ -36,6 +36,7 @@
         np = "nix-shell --run fish -p";
         grep = "rg";
         gi = "gi >> .gitignore"; # append to gitignore
+        ns = "nix-shell";
         # Kitty specific
         s = "kitten ssh";
       };
@@ -114,7 +115,6 @@
     tree-sitter
     imv
     # Lsp support
-    lua-language-server
     stylua
     nixd # Nix
     nil
@@ -125,81 +125,29 @@
     bash-language-server
     texlab
     bibtex-tidy
-    bitbake-language-server
-    blueprint-compiler
     netcoredbg
-    haskell-language-server
-    clojure-lsp
-    cmake-language-server
-    codeql
     clang-tools
-    crystalline
-    cuelsp
-    cue
     dfmt
-    serve-d
-    dhall-lsp-server
     docker-compose-language-service
     dot-language-server
-    earthlyls
-    elixir-ls
-    elvish
-    erlang-ls
-    fortls
-    fsautocomplete
     typescript-language-server
-    gleam
-    ember-language-server
     prettierd
     gopls
     delve
     haskell-language-server
     terraform-ls
-    hyprls
-    inko
-    jdt-language-server
     jq-lsp
-    julia
-    koka
-    kotlin-language-server
-    koto-ls
     texlab
-    lean
     marksman
-    mesonlsp
-    mint
     nls
-    nimlangserver
-    openscad-lsp
-    perlnavigator
-    pest-ide-tools
-    intelephense
     ruff
-    R
-    racket
-    regols
-    rescript-language-server
-    # robotframework-tidy
-    solargraph
     lldb
-    metals
-    vscode-langservers-extracted
     slint-lsp
     snakefmt
-    svelte-language-server
     sourcekit-lsp
-    swift-format
     templ
     txtpbfmt
     terraform-ls
-    taplo
-    ts_query_ls
-    tinymist
-    vala-language-server
-    vhdl-ls
-    vue-language-server
-    sv-lang
-    wgsl-analyzer
     yaml-language-server
     zls
     lldb

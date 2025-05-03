@@ -8,6 +8,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
     nixos-hardware.url = "github:Nixos/nixos-hardware/master";
+    helix-flake.url = "github:helix-editor/helix";
+    helix-flake.inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
   };
 
   outputs = {
@@ -15,6 +17,7 @@
     home-manager,
     nixos-hardware,
     nixos-cosmic,
+    helix,
     ...
   }: let
     system = "x86_64-linux";
@@ -26,6 +29,10 @@
       modules = [
         ./home-manager.nix
       ];
+
+      extraSpecialArgs = {
+        helix-flake = helix;
+      };
     };
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
