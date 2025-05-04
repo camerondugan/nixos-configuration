@@ -1,4 +1,5 @@
 { pkgs,
+  lib,
   ...
 }: {
   nix = {
@@ -19,9 +20,9 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    # DesktopEnvironments/gnome.nix
+    DesktopEnvironments/gnome.nix
     # DesktopEnvironments/hyprland.nix
-    DesktopEnvironments/cosmic.nix
+    # DesktopEnvironments/cosmic.nix
     ./HardwareFixes/betterCaps.nix
     # Add the commented entries to ThisDevice/configuration.nix if this specific machine needs it.
     # gaming.nix
@@ -180,11 +181,11 @@
   };
 
   # Enable Optimization.
-  # nix.gc = {
-  #   automatic = lib.mkDefault true;
-  #   dates = "daily";
-  #   options = "--delete-older-than 3d";
-  # };
+  nix.gc = {
+    automatic = lib.mkDefault true;
+    dates = "daily";
+    options = "--delete-older-than 7d";
+  };
 
   nix.optimise.automatic = true;
 

@@ -134,7 +134,7 @@ in {
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
       ];
-      www = ["<Super>w"];
+      www = ["<Super>b"];
       search = ["<Super>r"];
       #calculator = ["<Super>m"]; #m = math
       logout = ["<Super><Shift>m"];
