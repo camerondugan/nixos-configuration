@@ -113,7 +113,7 @@ in {
     };
     "org/gnome/Console" = {
       use-system-font = false;
-      custom-font = "JetBrainsMono Nerd Font Mono 10";
+      custom-font = "JetBrainsMono Nerd Font Mono 12";
     };
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
