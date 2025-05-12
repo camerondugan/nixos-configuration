@@ -113,7 +113,7 @@ in {
     };
     "org/gnome/Console" = {
       use-system-font = false;
-      custom-font = "JetBrainsMono Nerd Font Mono 10";
+      custom-font = "JetBrainsMono Nerd Font Mono 12";
     };
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
@@ -134,7 +134,7 @@ in {
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
       ];
-      www = ["<Super>w"];
+      www = ["<Super>b"];
       search = ["<Super>r"];
       #calculator = ["<Super>m"]; #m = math
       logout = ["<Super><Shift>m"];
