@@ -28,7 +28,7 @@ in {
       "wofi/style.css".source = ./DesktopEnvironments/HyprlandFiles/wofi.css;
       "wofi/config".source = ./DesktopEnvironments/HyprlandFiles/wofi.conf;
       "hypr/hyprland.conf".source = ./DesktopEnvironments/HyprlandFiles/hyprland.conf;
-      # "hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload"; # useful for hyprland
+      "hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload"; # useful for hyprland
 
       "hypr/hyprlock.conf".source = ./DesktopEnvironments/HyprlandFiles/hyprlock.conf;
       "hypr/hypridle.conf".source = ./DesktopEnvironments/HyprlandFiles/hypridle.conf;

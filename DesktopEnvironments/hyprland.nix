@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   environment = {
     systemPackages = with pkgs; [
-      wofi # app launcher
+      sirula # app launcher
       wezterm # terminal
       kitty # backup term
       playerctl # media player shortcuts
