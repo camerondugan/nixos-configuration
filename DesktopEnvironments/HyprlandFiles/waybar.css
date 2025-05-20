@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-  background-color: rgba(17,17,27,.5);
+  background-color: rgba(17,17,27,.9);
   transition-property: background-color;
   transition-duration: 0.5s;
   border-radius: 0;
@@ -70,8 +70,8 @@ window#waybar.hidden {
 #tray {
   margin: 3px 3px;
   padding: 3px 12px;
-  background-color: rgba(24, 24, 37, 0.80);
-  color: #cdd6f4;
+  /* background-color: rgba(24, 24, 37, 0.80); */
+  /* color: #cdd6f4; */
 }
 #custom-power {
   opacity: 0.9;

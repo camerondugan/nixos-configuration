@@ -7,6 +7,7 @@
       playerctl # media player shortcuts
       brightnessctl # screen brightness shortcuts
       pamixer # audio shortcuts
+      swaynotificationcenter # notifications
       swayosd # audio shortcut visuals
       wpaperd # wallpaper
       waybar # top bar
