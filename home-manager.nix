@@ -15,21 +15,24 @@ in {
   };
   xdg = {
     configFile = {
+      # Helix
+      "helix/config.toml".source = ./Software/CoderFiles/helix/config.toml;
+      "helix/languages.toml".source = ./Software/CoderFiles/helix/languages.toml;
+
       # Set Config File Locations
       "wezterm/wezterm.lua".source =
         ./Software/CoderFiles/wezterm.lua;
       "ghostty/config".source = ./SoftwareConfig/ghostty.conf;
       "godot/text_editor_themes/godotTheme.tet".source =
         ./Software/CoderFiles/godotTheme.tet;
-      # Hyprland Config Files
-      "waybar/config".source = ./DesktopEnvironments/HyprlandFiles/waybar.conf;
-      "waybar/style.css".source = ./DesktopEnvironments/HyprlandFiles/waybar.css;
 
-      "wofi/style.css".source = ./DesktopEnvironments/HyprlandFiles/wofi.css;
-      "wofi/config".source = ./DesktopEnvironments/HyprlandFiles/wofi.conf;
+      # Set Sirula Config
+      "sirula/config.toml".source = ./SoftwareConfig/sirula-conf.toml;
+      "sirula/style.css".source = ./SoftwareConfig/sirula-style.css;
+
+      # Hyprland Config Files
       "hypr/hyprland.conf".source = ./DesktopEnvironments/HyprlandFiles/hyprland.conf;
       "hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload"; # useful for hyprland
-
       "hypr/hyprlock.conf".source = ./DesktopEnvironments/HyprlandFiles/hyprlock.conf;
       "hypr/hypridle.conf".source = ./DesktopEnvironments/HyprlandFiles/hypridle.conf;
       "wpaperd/config.toml".source = ./DesktopEnvironments/HyprlandFiles/wpaper.conf;
@@ -37,8 +40,12 @@ in {
         preload = ~/.nixos/Assets/wallpaper.jpg
         wallpaper = ,~/.nixos/Assets/wallpaper.jpg
       '';
-      "helix/config.toml".source = ./Software/CoderFiles/helix/config.toml;
-      "helix/languages.toml".source = ./Software/CoderFiles/helix/languages.toml;
+
+      "waybar/config".source = ./DesktopEnvironments/HyprlandFiles/waybar.conf;
+      "waybar/style.css".source = ./DesktopEnvironments/HyprlandFiles/waybar.css;
+
+      "wofi/style.css".source = ./DesktopEnvironments/HyprlandFiles/wofi.css;
+      "wofi/config".source = ./DesktopEnvironments/HyprlandFiles/wofi.conf; 
     };
   };
 
@@ -184,10 +191,10 @@ in {
       name = "WhiteSur-Dark";
       package = pkgs.whitesur-gtk-theme;
     };
-    cursorTheme = {
-      name = "DMZ-White";
-      package = pkgs.vanilla-dmz;
-    };
+    # cursorTheme = {
+    #   name = "DMZ-White";
+    #   package = pkgs.vanilla-dmz;
+    # };
     iconTheme = {
       name = "Adwaita";
       package = pkgs.adwaita-icon-theme;
