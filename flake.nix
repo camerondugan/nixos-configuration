@@ -86,6 +86,8 @@
           ./configuration.nix
           ./Razer/configuration.nix
           home-manager.nixosModules.home-manager
+          nixos-hardware.nixosModules.common-gpu-nvidia
+          nixos-hardware.nixosModules.common-pc-laptop-ssd
           nixos-cosmic.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
