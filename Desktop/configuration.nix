@@ -26,13 +26,6 @@
   #     size = 40 * 1024; #GB
   #   }
   # ];
-  # Enable OpenGL
-  hardware.graphics = {
-    enable = true;
-  };
-
-  # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia.open = true;
 }
