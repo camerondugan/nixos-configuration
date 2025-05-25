@@ -42,7 +42,9 @@ in {
       '';
 
       "waybar/config".source = ./DesktopEnvironments/HyprlandFiles/waybar.conf;
+      "waybar/config".onChange= "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
       "waybar/style.css".source = ./DesktopEnvironments/HyprlandFiles/waybar.css;
+      "waybar/style.css".onChange= "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
 
       "wofi/style.css".source = ./DesktopEnvironments/HyprlandFiles/wofi.css;
       "wofi/config".source = ./DesktopEnvironments/HyprlandFiles/wofi.conf; 
