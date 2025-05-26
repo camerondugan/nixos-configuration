@@ -53,8 +53,8 @@ in {
 
   # Set Cursor Theme
   home.pointerCursor = {
-    name = "DMZ-White";
-    package = pkgs.vanilla-dmz;
+    name = "Bibata-Modern-Ice";
+    package = pkgs.bibata-cursors;
     gtk.enable = true;
     x11.enable = true;
     size = 24;
@@ -193,10 +193,6 @@ in {
       name = "WhiteSur-Dark";
       package = pkgs.whitesur-gtk-theme;
     };
-    # cursorTheme = {
-    #   name = "DMZ-White";
-    #   package = pkgs.vanilla-dmz;
-    # };
     iconTheme = {
       name = "Adwaita";
       package = pkgs.adwaita-icon-theme;

@@ -13,7 +13,7 @@ update: add
 	nix flake update
 
 home: add
-	home-manager switch --flake . -b back
+	home-manager switch --flake . -b backup
 
 add:
 	git add .
