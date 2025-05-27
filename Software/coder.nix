@@ -27,6 +27,113 @@
         rm = "rmtrash";
         rmdir = "rmdirtrash";
         sl = "sl -ew";
+        arch = "coreutils arch";
+        base32 = "coreutils base32";
+        base64 = "coreutils base64";
+        basename = "coreutils basename";
+        basenc = "coreutils basenc";
+        cat = "coreutils cat";
+        chgrp = "coreutils chgrp";
+        chmod = "coreutils chmod";
+        chown = "coreutils chown";
+        chroot = "coreutils chroot";
+        cksum = "coreutils cksum";
+        comm = "coreutils comm";
+        cp = "coreutils cp";
+        csplit = "coreutils csplit";
+        cut = "coreutils cut";
+        date = "coreutils date";
+        dd = "coreutils dd";
+        df = "coreutils df";
+        dir = "coreutils dir";
+        dircolors = "coreutils dircolors";
+        dirname = "coreutils dirname";
+        du = "coreutils du";
+        echo = "coreutils echo";
+        env = "coreutils env";
+        expand = "coreutils expand";
+        expr = "coreutils expr";
+        factor = "coreutils factor";
+        false = "coreutils false";
+        fmt = "coreutils fmt";
+        fold = "coreutils fold";
+        groups = "coreutils groups";
+        hashsum = "coreutils hashsum";
+        md5sum = "coreutils md5sum";
+        sha1sum = "coreutils sha1sum";
+        sha224sum = "coreutils sha224sum";
+        sha256sum = "coreutils sha256sum";
+        sha384sum = "coreutils sha384sum";
+        sha512sum = "coreutils sha512sum";
+        sha3sum = "coreutils sha3sum";
+        shake128sum = "coreutils shake128sum";
+        shake256sum = "coreutils shake256sum";
+        b2sum = "coreutils b2sum";
+        b3sum = "coreutils b3sum";
+        head = "coreutils head";
+        hostid = "coreutils hostid";
+        hostname = "coreutils hostname";
+        id = "coreutils id";
+        install = "coreutils install";
+        join = "coreutils join";
+        kill = "coreutils kill";
+        link = "coreutils link";
+        ln = "coreutils ln";
+        logname = "coreutils logname";
+        ls = "coreutils ls";
+        mkdir = "coreutils mkdir";
+        mkfifo = "coreutils mkfifo";
+        mknod = "coreutils mknod";
+        mktemp = "coreutils mktemp";
+        more = "coreutils more";
+        mv = "coreutils mv";
+        nice = "coreutils nice";
+        nl = "coreutils nl";
+        nohup = "coreutils nohup";
+        nproc = "coreutils nproc";
+        numfmt = "coreutils numfmt";
+        od = "coreutils od";
+        paste = "coreutils paste";
+        pathchk = "coreutils pathchk";
+        pinky = "coreutils pinky";
+        pr = "coreutils pr";
+        printenv = "coreutils printenv";
+        printf = "coreutils printf";
+        ptx = "coreutils ptx";
+        pwd = "coreutils pwd";
+        readlink = "coreutils readlink";
+        realpath = "coreutils realpath";
+        seq = "coreutils seq";
+        shred = "coreutils shred";
+        shuf = "coreutils shuf";
+        sleep = "coreutils sleep";
+        sort = "coreutils sort";
+        split = "coreutils split";
+        stat = "coreutils stat";
+        stdbuf = "coreutils stdbuf";
+        sum = "coreutils sum";
+        sync = "coreutils sync";
+        tac = "coreutils tac";
+        tail = "coreutils tail";
+        tee = "coreutils tee";
+        timeout = "coreutils timeout";
+        touch = "coreutils touch";
+        tr = "coreutils tr";
+        true = "coreutils true";
+        truncate = "coreutils truncate";
+        tsort = "coreutils tsort";
+        tty = "coreutils tty";
+        uname = "coreutils uname";
+        unexpand = "coreutils unexpand";
+        uniq = "coreutils uniq";
+        unlink = "coreutils unlink";
+        uptime = "coreutils uptime";
+        users = "coreutils users";
+        vdir = "coreutils vdir";
+        wc = "coreutils wc";
+        who = "coreutils who";
+        whoami = "coreutils whoami";
+        yes = "coreutils yes";
       };
       shellAbbrs = {
         # Shows to the user the longer command
@@ -37,6 +144,7 @@
         grep = "rg";
         gi = "gi >> .gitignore"; # append to gitignore
         ns = "nix-shell";
+        du = "dust";
         # Kitty specific
         s = "kitten ssh";
       };
@@ -76,8 +184,15 @@
     unrar # unzip .rar
     rmtrash # trash when rm (needs alias)
     zoxide # better cd (needs setup)
+    xh # Friendly and fast tool for sending http requests
     lsd # better ls
+    dust # better du
+    delta # better git diff
     yazi # file explorer
+    hyperfine # benchmarking tool
+    bacon # rust diagnostic tool
+    tokei # project lang summary
+    just # just better make
     sl # Steam Locomotive
     mpv # View Media
     bat # better cat
