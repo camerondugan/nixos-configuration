@@ -13,6 +13,7 @@
       waybar # top bar
       # hyprnotify # notifications
       #wl-clip-persist # remember clipboard after app close
+      wl-clipboard-rs  
       grimblast # screenshot utility
       udiskie # auto-mount removable drives
       ianny # eyestrain prevention
