@@ -173,10 +173,6 @@
     noisetorch.enable = true;
   };
 
-  environment.systemPackages = with pkgs;[
-    uutils-coreutils-noprefix
-  ];
-
   system = {
     # Before changing this value read the documentation for this option
     # (e.g. man configuration.nix). Also remember to change home-manager's
