@@ -2,6 +2,7 @@
   environment = {
     systemPackages = with pkgs; [
       sirula # app launcher
+      nwg-dock-hyprland # dock
       wezterm # terminal
       kitty # backup term
       playerctl # media player shortcuts
