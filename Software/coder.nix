@@ -25,6 +25,9 @@
       shellAbbrs = {
         # Shows to the user the longer command
         # Force use of better commands
+        m = "make";
+        jm = "just -f makefile";
+        jM = "just -f Makefile";
         lg = "lazygit";
         cd = "z";
         np = "nix-shell --run fish -p";
