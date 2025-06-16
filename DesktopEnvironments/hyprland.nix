@@ -36,7 +36,7 @@
   };
   services = {
     # Login Manager
-    xserver.displayManager.gdm.enable = true;
+    displayManager.ly.enable = true;
 
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;

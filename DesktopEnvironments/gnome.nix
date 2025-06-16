@@ -5,8 +5,7 @@
     # desktopManager.cosmic.enable = true;
 
     # Enable a display manager.
-    xserver.displayManager.gdm.enable = true;
-    # xserver.displayManager.gdm.wayland.enable = true;
+    displayManager.gdm.enable = true;
     # displayManager.cosmic-greeter.enable = true;
   };
 

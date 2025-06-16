@@ -120,8 +120,8 @@
 
   services = {
     # Auto Login
-    displayManager.autoLogin.enable = true;
-    displayManager.autoLogin.user = "cam";
+    # displayManager.autoLogin.enable = true;
+    # displayManager.autoLogin.user = "cam";
 
     # Enable touchpad support (enabled default in most desktopManager).
     libinput.enable = true;
