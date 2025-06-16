@@ -18,6 +18,7 @@ in {
       # Helix
       "helix/config.toml".source = ./Software/CoderFiles/helix/config.toml;
       "helix/languages.toml".source = ./Software/CoderFiles/helix/languages.toml;
+      "helix/themes/transparent_bg.toml".source = ./Software/CoderFiles/helix/themes/transparent_bg.toml;
 
       # Set Config File Locations
       "wezterm/wezterm.lua".source =
