@@ -30,6 +30,12 @@
     options = ["fmask=0077" "dmask=0077"];
   };
 
+  fileSystems."/FireCuda"=
+  {
+    device = "/dev/disk/by-label/FireCuda";
+    fsType = "ext4";
+    options = [ "nofail" ];
+  };
   # swapDevices =
   #   [ { device = "/dev/disk/by-uuid/77ab49cd-6faa-456c-9455-82451d8b62cb"; }
   #   ];

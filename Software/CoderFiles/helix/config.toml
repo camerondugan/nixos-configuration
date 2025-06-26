@@ -6,8 +6,8 @@
 theme = "transparent_bg"
 
 [keys.normal.space.t]
-"l"= ":theme ayu_light"
-"d"= ":theme ayu_dark"
+"l"= ":theme solarized_light"
+"d"= ":theme solarized_dark"
 
 [editor]
 line-number = "relative"

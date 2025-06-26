@@ -1,2 +1,2 @@
-inherits = "ayu_dark"
+inherits = "solarized_dark"
 "ui.background" = {}
