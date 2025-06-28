@@ -88,7 +88,7 @@
     bat # better cat
     fzf # fuzzy finder
     ripgrep # RIP grep
-    devenv # developer env
+    # devenv # developer env
     git
     lazygit
     tmate
