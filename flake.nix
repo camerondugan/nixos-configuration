@@ -7,10 +7,10 @@
     # nixpkgs.follows = "nixos-cosmic/nixpkgs"; # reduces cosmic build time
     # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     home-manager = {
-        # url = "github:nix-community/home-manager";
-        url = "github:nix-community/home-manager/release-25.05";
-        # inputs.nixpkgs.follows = "nixpkgs";
-        # inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
+      # url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.05";
+      # inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
     };
     nixos-hardware.url = "github:Nixos/nixos-hardware/master";
     helix-flake.url = "github:helix-editor/helix";

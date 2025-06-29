@@ -1,4 +1,5 @@
-{ pkgs,
+{
+  pkgs,
   lib,
   ...
 }: {
@@ -23,6 +24,7 @@
     # ./nix-modules/desktop-environments/gnome.nix
     ./nix-modules/desktop-environments/hyprland.nix
     # ./nix-modules/desktop-environments/cosmic.nix
+    ./nix-modules
     ./nix-modules/fixes/betterCaps.nix
   ];
 
@@ -66,7 +68,7 @@
   security = {
     # Enable sound with pipe wire.
     rtkit.enable = true;
-    
+
     # Yubikey Optional Unlock
     pam.u2f = {
       enable = true;

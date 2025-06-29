@@ -1,4 +1,10 @@
-{pkgs, lib, config, types, ...}: {
+{
+  pkgs,
+  lib,
+  config,
+  types,
+  ...
+}: {
   options.coding = {
     enable = lib.mkEnableOption "enables coding software";
     terminalPrompt.enable = lib.mkEnableOption "enhanced terminal prompt";
@@ -12,21 +18,22 @@
   config = lib.mkIf config.coding.enable {
     # Program Config
     programs = {
-      starship.enable = config.coding.terminalPrompt.enable; 
+      starship.enable = config.coding.terminalPrompt.enable;
       fish = {
         enable = true;
-        interactiveShellInit = # bash
-        ''
-          set fish_greeting
-          fish_vi_key_bindings
-          bind --mode insert \cW 'fish_clipboard_copy' # disable ctrl+w
-          bind --mode insert \b 'backward-kill-bigword' # rebind to ctrl+backspace
-          fish_add_path /home/cam/.cargo/bin
-          zoxide init fish | source
-          direnv hook fish | source
-          enable_transience
-          set EDITOR $(which hx)
-        '';
+        interactiveShellInit =
+          # bash
+          ''
+            set fish_greeting
+            fish_vi_key_bindings
+            bind --mode insert \cW 'fish_clipboard_copy' # disable ctrl+w
+            bind --mode insert \b 'backward-kill-bigword' # rebind to ctrl+backspace
+            fish_add_path /home/cam/.cargo/bin
+            zoxide init fish | source
+            direnv hook fish | source
+            enable_transience
+            set EDITOR $(which hx)
+          '';
         shellAliases = {
           # doesn't show these changes to user
           # force safer rm
@@ -168,7 +175,7 @@
       yaml-language-server
       zls
       lldb
-        
+
       # Languages (no particular order)
       dotnet-sdk
       flutter
