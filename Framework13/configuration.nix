@@ -1,8 +1,7 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
-    ../Software/coder.nix
-    ../Software/gamer.nix
+    ../Software
   ];
 
   networking.hostName = "Framework13";
