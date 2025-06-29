@@ -1,5 +1,5 @@
 {pkgs, lib, config, types, ...}: {
-  options.coder = {
+  options.coding = {
     enable = lib.mkEnableOption "enables coding software";
     terminalPrompt.enable = lib.mkEnableOption "enhanced terminal prompt";
     editor = lib.mkOption {
@@ -9,13 +9,14 @@
     };
   };
 
-  config = lib.mkIf config.coder.enable {
+  config = lib.mkIf config.coding.enable {
     # Program Config
     programs = {
-      starship.enable = config.coder.terminalPrompt.enable; 
+      starship.enable = config.coding.terminalPrompt.enable; 
       fish = {
         enable = true;
-        interactiveShellInit = ''
+        interactiveShellInit = # bash
+        ''
           set fish_greeting
           fish_vi_key_bindings
           bind --mode insert \cW 'fish_clipboard_copy' # disable ctrl+w

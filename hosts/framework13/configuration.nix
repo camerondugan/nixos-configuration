@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./hardware-configuration.nix
-    ../Software
+    ../../home-modules
   ];
 
   networking.hostName = "Framework13";

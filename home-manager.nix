@@ -16,39 +16,39 @@ in {
   xdg = {
     configFile = {
       # Helix
-      "helix/config.toml".source = ./Software/CoderFiles/helix/config.toml;
-      "helix/languages.toml".source = ./Software/CoderFiles/helix/languages.toml;
-      "helix/themes/transparent_bg.toml".source = ./Software/CoderFiles/helix/themes/transparent_bg.toml;
+      "helix/config.toml".source = ./home-modules/Coding/helix/config.toml;
+      "helix/languages.toml".source = ./home-modules/Coding/helix/languages.toml;
+      "helix/themes/transparent_bg.toml".source = ./home-modules/Coding/helix/themes/transparent_bg.toml;
 
       # Set Config File Locations
       "wezterm/wezterm.lua".source =
-        ./Software/CoderFiles/wezterm.lua;
-      "ghostty/config".source = ./SoftwareConfig/ghostty.conf;
+        ./home-modules/Coding/wezterm.lua;
+      "ghostty/config".source = ./nix-modules/dot-config/ghostty.conf;
       "godot/text_editor_themes/godotTheme.tet".source =
-        ./Software/CoderFiles/godotTheme.tet;
+        ./home-modules/Coding/godotTheme.tet;
 
       # Set Sirula Config
-      "sirula/config.toml".source = ./SoftwareConfig/sirula-conf.toml;
-      "sirula/style.css".source = ./SoftwareConfig/sirula-style.css;
+      "sirula/config.toml".source = ./nix-modules/dot-config/sirula-conf.toml;
+      "sirula/style.css".source = ./nix-modules/dot-config/sirula-style.css;
 
       # Hyprland Config Files
-      "hypr/hyprland.conf".source = ./DesktopEnvironments/HyprlandFiles/hyprland.conf;
+      "hypr/hyprland.conf".source = ./nix-modules/desktop-environments/HyprlandFiles/hyprland.conf;
       "hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload"; # useful for hyprland
-      "hypr/hyprlock.conf".source = ./DesktopEnvironments/HyprlandFiles/hyprlock.conf;
-      "hypr/hypridle.conf".source = ./DesktopEnvironments/HyprlandFiles/hypridle.conf;
-      "wpaperd/config.toml".source = ./DesktopEnvironments/HyprlandFiles/wpaper.conf;
+      "hypr/hyprlock.conf".source = ./nix-modules/desktop-environments/HyprlandFiles/hyprlock.conf;
+      "hypr/hypridle.conf".source = ./nix-modules/desktop-environments/HyprlandFiles/hypridle.conf;
+      "wpaperd/config.toml".source = ./nix-modules/desktop-environments/HyprlandFiles/wpaper.conf;
       "hypr/hyprpaper.conf".text = ''
         preload = ~/.nixos/Assets/wallpaper.jpg
         wallpaper = ,~/.nixos/Assets/wallpaper.jpg
       '';
 
-      "waybar/config".source = ./DesktopEnvironments/HyprlandFiles/waybar.conf;
+      "waybar/config".source = ./nix-modules/desktop-environments/HyprlandFiles/waybar.conf;
       "waybar/config".onChange= "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
-      "waybar/style.css".source = ./DesktopEnvironments/HyprlandFiles/waybar.css;
+      "waybar/style.css".source = ./nix-modules/desktop-environments/HyprlandFiles/waybar.css;
       "waybar/style.css".onChange= "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
 
-      "wofi/style.css".source = ./DesktopEnvironments/HyprlandFiles/wofi.css;
-      "wofi/config".source = ./DesktopEnvironments/HyprlandFiles/wofi.conf; 
+      "wofi/style.css".source = ./nix-modules/desktop-environments/HyprlandFiles/wofi.css;
+      "wofi/config".source = ./nix-modules/desktop-environments/HyprlandFiles/wofi.conf; 
     };
   };
 

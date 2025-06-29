@@ -20,13 +20,10 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    # DesktopEnvironments/gnome.nix
-    DesktopEnvironments/hyprland.nix
-    # DesktopEnvironments/cosmic.nix
-    ./HardwareFixes/betterCaps.nix
-    # Add the commented entries to ThisDevice/configuration.nix if this specific machine needs it.
-    # gaming.nix
-    # coding.nix
+    # ./nix-modules/desktop-environments/gnome.nix
+    ./nix-modules/desktop-environments/hyprland.nix
+    # ./nix-modules/desktop-environments/cosmic.nix
+    ./nix-modules/fixes/betterCaps.nix
   ];
 
   fonts.packages = with pkgs; [

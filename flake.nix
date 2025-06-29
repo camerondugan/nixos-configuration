@@ -44,24 +44,24 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          ./Desktop/configuration.nix
+          ./hosts/desktop/configuration.nix
           home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
           nixos-hardware.nixosModules.common-pc
           nixos-hardware.nixosModules.common-pc-ssd
           nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
           # nixos-cosmic.nixosModules.default
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-          }
         ];
       };
       framework13 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          ./Framework13/configuration.nix
+          ./hosts/framework13/configuration.nix
           home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.framework-13-7040-amd
           # nixos-cosmic.nixosModules.default
@@ -75,7 +75,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          ./ThinkPadX1Carbon/configuration.nix
+          ./hosts/thinkPadX1Carbon/configuration.nix
           home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
           # nixos-cosmic.nixosModules.default
@@ -89,7 +89,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          ./Razer/configuration.nix
+          ./hosts/razer/configuration.nix
           home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.common-gpu-nvidia
           nixos-hardware.nixosModules.common-pc-laptop-ssd

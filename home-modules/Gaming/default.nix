@@ -1,8 +1,8 @@
 {pkgs, lib, config, ...}: {
   options = {
-    gamer.enable = lib.mkEnableOption "enables gamer software";
+    gaming.enable = lib.mkEnableOption "enables gaming software";
   };
-  config = lib.mkIf config.gamer.enable {
+  config = lib.mkIf config.gaming.enable {
     programs = {
       steam = {
         enable = true;
@@ -16,7 +16,7 @@
     environment.systemPackages = with pkgs; [
       # itch # not working currently in stable or unstable... # Game store
       heroic
-      protonup-qt # Proton Downloader
+      # protonup-qt # Proton Downloader
       gamescope # View port emulation
       bottles # Runs Windows Games
     ];
