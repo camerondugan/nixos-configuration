@@ -13,6 +13,7 @@ in {
       "/home/${usr}/.system_node_modules/bin"
     ];
   };
+  services.batsignal.enable = true;
   xdg = {
     configFile = {
       # Helix
