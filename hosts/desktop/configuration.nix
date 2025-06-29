@@ -4,10 +4,10 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../Software
+    ../../home-modules
     # ../HardwareFixes/tlp.nix
   ];
-  gamer.enable = true;
+  gaming.enable = true;
 
   networking.hostName = "Desktop";
 
