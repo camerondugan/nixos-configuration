@@ -39,9 +39,6 @@
   };
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Boot Graphics.
-  boot.plymouth.enable = true;
-
   time.timeZone = "America/New_York";
 
   networking = {
@@ -102,7 +99,6 @@
       warp # file transfer
       impression # ISO USB writer
       audacity # Audio Editor
-      comma # better temporary shell
       home-manager # manage home config
       neovim # The best text editor (no bias)
       zellij # Tmux but newer
