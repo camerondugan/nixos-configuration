@@ -35,6 +35,9 @@ in {
       "helix/languages.toml".source = helix + "/languages.toml";
       "helix/themes/transparent_bg.toml".source = helix + "/themes/transparent_bg.toml";
 
+      # Zellij
+      "zellij/config.kdl".source = dot-config + "/zellij/config.kdl";
+
       # Set Config File Locations
       "wezterm/wezterm.lua".source = coding + "/wezterm.lua";
       "ghostty/config".source = dot-config + "/ghostty.conf";
