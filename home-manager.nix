@@ -42,19 +42,19 @@ in {
     lightModeScripts = {
       light = # bash
       ''
-        home-manager switch --flake /home/cam/.nixos -b backup
-        $(home-manager generations| head -1 | awk '{print $7}')/specialisation/light/activate
+        ${pkgs.home-manager}/bin/home-manager switch --flake /home/cam/.nixos -b backup
+        $(${pkgs.home-manager}/bin/home-manager generations| ${pkgs.coreutils}/bin/head -1 | awk '{print $7}')/specialisation/light/activate
         pkill waybar
-        waybar &
+        ${pkgs.waybar}/bin/waybar &
       '';
     };
     darkModeScripts = {
       dark = # bash
       ''
-        home-manager switch --flake /home/cam/.nixos -b backup
-        $(home-manager generations| head -1 | awk '{print $7}')/specialisation/dark/activate
+        ${pkgs.home-manager}/bin/home-manager switch --flake /home/cam/.nixos -b backup
+        $(${pkgs.home-manager}/bin/home-manager generations| ${pkgs.coreutils}/bin/head -1 | awk '{print $7}')/specialisation/dark/activate
         pkill waybar
-        waybar &
+        ${pkgs.waybar}/bin/waybar &
       '';
     };
   };
