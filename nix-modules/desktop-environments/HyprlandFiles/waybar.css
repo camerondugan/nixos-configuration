@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-  background-color: rgba(17,17,27,.9);
+  background-color: @panel;
   transition-property: background-color;
   transition-duration: 0.5s;
   border-radius: 0;
@@ -31,29 +31,29 @@ window#waybar.hidden {
   padding: 2px 18px;
   margin: 2px 3px;
   border-radius: 16px;
-  color: #cdd6f4;
-  background-color: #1e1e2e;
+  color: @button;
+  background-color: @module-bg;
 }
 
 #workspaces button.active {
-  color: #1e1e2e;
-  background-color: #b4befe;
+  color: @module-bg;
+  background-color: @bg;
 }
 
 #workspaces button.active:hover {
-  color: #1e1e2e;
-  background-color: #b4befe;
+  color: @module-bg;
+  background-color: @hover;
 }
 
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
-  color: #cdd6f4;
-  background-color: #313244;
+  color: @module-bg;
+  background-color: @hover;
 }
 
 #workspaces button.urgent {
-  background-color: #f38ba8;
+  background-color: @red;
 }
 
 #cpu,
@@ -71,7 +71,7 @@ window#waybar.hidden {
   margin: 3px 3px;
   padding: 3px 12px;
   /* background-color: rgba(24, 24, 37, 0.80); */
-  /* color: #cdd6f4; */
+  /* color: @button; */
 }
 #custom-power {
   opacity: 0.9;
@@ -87,42 +87,42 @@ window#waybar.hidden {
   margin-left: 5px;
   font-size: 15px;
   border-radius: 16px 0px 0px 8px;
-  color: #1793d1;
+  color: @fg;
 }
 
 #cpu {
   opacity: 0.9;
-  color: #a6e3a1;
+  color: @green;
 }
 #memory {
   opacity: 0.9;
-  color: #fab387;
+  color: @orange;
 }
 #idle_inhibitor {
   opacity: 0.9;
-  color: #cdd6f4;
+  color: @button;
   padding-left: 8px;
 }
 #temperature {
   opacity: 0.9;
-  color: #f38ba8;
+  color: @red;
 }
 #battery {
   opacity: 0.9;
-  color: #cdd6f4;
+  color: @button;
   padding-right: 16px;
 }
 
 @keyframes blink {
   to {
-    color: #cdd6f4;
+    color: @button;
   }
 }
 
 #battery.warning,
 #battery.critical,
 #battery.urgent {
-  color: #f38ba8;
+  color: @red;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -130,38 +130,38 @@ window#waybar.hidden {
   animation-direction: alternate;
 }
 #battery.charging {
-  color: #a6e3a1;
+  color: @yellow;
 }
 
 #backlight {
-  color: #fab387;
+  color: @purple;
 }
 
 #pulseaudio {
-  color: #f9e2af;
+  color: @yellow;
 }
 
 #network {
-  color: #94e2d5;
+  color: @dark-red;
   padding-right: 17px;
 }
 
 #clock {
   font-family: JetBrainsMono Nerd Font;
-  color: #cdd6f4;
+  color: @button;
 }
 
 #custom-power {
-  color: #f2cdcd;
+  color: @orange;
 }
 
 tooltip {
   border-radius: 16px;
   padding: 15px;
-  background-color: #131822;
+  background-color: @bg;
 }
 
 tooltip label {
   padding: 5px;
-  background-color: #131822;
+  background-color: @bg;
 }

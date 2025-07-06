@@ -30,7 +30,7 @@
     "monitor.alsa.rules" = [
       {
         matches = [
-          { "node.name" = "alsa_output.pci-0000_0a_00.1.hdmi-stereo";}
+          {"node.name" = "alsa_output.pci-0000_0a_00.1.hdmi-stereo";}
         ];
         actions.update-props = {
           "session.suspend-timeout-seconds" = 0;

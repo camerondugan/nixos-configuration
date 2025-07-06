@@ -21,7 +21,8 @@
       starship.enable = config.coding.terminalPrompt.enable;
       fish = {
         enable = true;
-        interactiveShellInit = # bash
+        interactiveShellInit =
+          # bash
           ''
             set fish_greeting
             fish_vi_key_bindings
@@ -35,7 +36,7 @@
             set ZELLIJ_AUTO_EXIT "true"
             if not set -q ZELLIJ
                 if test "$ZELLIJ_AUTO_ATTACH" = "true"
-                    zellij attach -c 
+                    zellij attach -c
                 else
                     zellij
                 end

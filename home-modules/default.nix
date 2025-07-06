@@ -1,6 +1,6 @@
 {lib, ...}: {
   imports = [
-    ./Gaming
+    # ./theme.nix
   ];
-  gaming.enable = lib.mkDefault false;
+  # theme.dark = lib.mkDefault false;
 }
