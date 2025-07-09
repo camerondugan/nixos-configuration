@@ -18,7 +18,7 @@
     stylix.url = "github:nix-community/stylix/release-25.05";
   };
 
-  outputs = inputs@{
+  outputs = {
     nixpkgs,
     home-manager,
     nixos-hardware,
@@ -26,20 +26,19 @@
     helix,
     stylix,
     ...
-  }: let
+  } @ inputs: let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
     common-modules = [
       ./configuration.nix
       home-manager.nixosModules.home-manager
-      {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-      }
     ];
+    pkgs = import nixpkgs {
+      inherit system;
+      config = { allowUnfree = true;};
+    };
   in {
     homeConfigurations.cam = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+      pkgs = pkgs;
 
       modules = [
         stylix.homeModules.stylix
@@ -51,41 +50,49 @@
       };
     };
     nixosConfigurations = {
+      inherit system;
       desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/desktop/configuration.nix
-          nixos-hardware.nixosModules.common-pc
-          nixos-hardware.nixosModules.common-pc-ssd
-          nixos-hardware.nixosModules.common-cpu-amd
-          nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
-          # nixos-cosmic.nixosModules.default
-        ]++ common-modules;
+        modules =
+          [
+            ./hosts/desktop/configuration.nix
+            nixos-hardware.nixosModules.common-pc
+            nixos-hardware.nixosModules.common-pc-ssd
+            nixos-hardware.nixosModules.common-cpu-amd
+            nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+            # nixos-cosmic.nixosModules.default
+          ]
+          ++ common-modules;
       };
       framework13 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/framework13/configuration.nix
-          nixos-hardware.nixosModules.framework-13-7040-amd
-          # nixos-cosmic.nixosModules.default
-        ]++ common-modules;
+        inherit system;
+        modules =
+          [
+            ./hosts/framework13/configuration.nix
+            nixos-hardware.nixosModules.framework-13-7040-amd
+            # nixos-cosmic.nixosModules.default
+          ]
+          ++ common-modules;
       };
       thinkpad = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/thinkPadX1Carbon/configuration.nix
-          nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
-          # nixos-cosmic.nixosModules.default
-        ]++ common-modules;
+        inherit system;
+        modules =
+          [
+            ./hosts/thinkPadX1Carbon/configuration.nix
+            nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
+            # nixos-cosmic.nixosModules.default
+          ]
+          ++ common-modules;
       };
       razer = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/razer/configuration.nix
-          nixos-hardware.nixosModules.common-gpu-nvidia
-          nixos-hardware.nixosModules.common-pc-laptop-ssd
-          # nixos-cosmic.nixosModules.default
-        ]++ common-modules;
+        inherit system;
+        modules =
+          [
+            ./hosts/razer/configuration.nix
+            nixos-hardware.nixosModules.common-gpu-nvidia
+            nixos-hardware.nixosModules.common-pc-laptop-ssd
+            # nixos-cosmic.nixosModules.default
+          ]
+          ++ common-modules;
       };
     };
   };

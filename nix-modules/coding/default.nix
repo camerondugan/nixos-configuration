@@ -32,6 +32,7 @@
             zoxide init fish | source
             direnv hook fish | source
             enable_transience
+            set NIXPKGS_ALLOW_UNFREE 1
             set EDITOR $(which hx)
             set ZELLIJ_AUTO_EXIT "true"
             if not set -q ZELLIJ
@@ -91,7 +92,6 @@
       fishPlugins.grc
       fishPlugins.pisces
       fishPlugins.puffer
-      fishPlugins.sponge
       fishPlugins.z
 
       # Terminal Emulator

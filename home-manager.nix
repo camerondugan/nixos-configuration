@@ -40,59 +40,67 @@ in {
   services.darkman = {
     enable = true;
     lightModeScripts = {
-      light = # bash
-      ''
-        ${pkgs.home-manager}/bin/home-manager switch --flake /home/cam/.nixos -b backup
-        $(${pkgs.home-manager}/bin/home-manager generations| ${pkgs.coreutils}/bin/head -1 | awk '{print $7}')/specialisation/light/activate
-        pkill waybar
-        ${pkgs.waybar}/bin/waybar &
-      '';
+      light =
+        # bash
+        ''
+          ${pkgs.home-manager}/bin/home-manager switch --flake /home/cam/.nixos -b backup
+          $(${pkgs.home-manager}/bin/home-manager generations| ${pkgs.coreutils}/bin/head -1 | awk '{print $7}')/specialisation/light/activate
+          pkill waybar
+          ${pkgs.waybar}/bin/waybar &
+        '';
     };
     darkModeScripts = {
-      dark = # bash
-      ''
-        ${pkgs.home-manager}/bin/home-manager switch --flake /home/cam/.nixos -b backup
-        $(${pkgs.home-manager}/bin/home-manager generations| ${pkgs.coreutils}/bin/head -1 | awk '{print $7}')/specialisation/dark/activate
-        pkill waybar
-        ${pkgs.waybar}/bin/waybar &
-      '';
+      dark =
+        # bash
+        ''
+          ${pkgs.home-manager}/bin/home-manager switch --flake /home/cam/.nixos -b backup
+          $(${pkgs.home-manager}/bin/home-manager generations| ${pkgs.coreutils}/bin/head -1 | awk '{print $7}')/specialisation/dark/activate
+          pkill waybar
+          ${pkgs.waybar}/bin/waybar &
+        '';
     };
   };
   services.batsignal.enable = true;
   xdg = {
     configFile = {
       # Helix
-      "helix/config.toml".text = # toml
-       ''
-        theme = "transparent_bg"
+      "helix/config.toml".text =
+        # toml
+        ''
+          theme = "${
+            if config.theme.dark
+            then "github_dark"
+            else "github_light"
+          }"
 
-        [keys.normal.space.t]
-        "l"= ":theme solarized_light"
-        "d"= ":theme solarized_dark"
+          [keys.normal.space.t]
+          "l"= ":theme solarized_light"
+          "d"= ":theme solarized_dark"
 
-        [editor]
-        line-number = "relative"
+          [editor]
+          line-number = "relative"
 
-        [editor.cursor-shape]
-        insert = "bar"
-      '';
-      "helix/languages.toml".text = # toml
-      ''
-        [[language]]
-        name = "gdscript"
-        file-types = ["gd"]
-        language-servers = ["gdscript"]
+          [editor.cursor-shape]
+          insert = "bar"
+        '';
+      "helix/languages.toml".text =
+        # toml
+        ''
+          [[language]]
+          name = "gdscript"
+          file-types = ["gd"]
+          language-servers = ["gdscript"]
 
-        [language-server.gdscript]
-        command = "nc"
-        args = [ "127.0.0.1", "6005" ] 
-        language-id = "gdscript"
-      '';
-      "helix/themes/transparent_bg.toml".text = # toml
-      ''
-        inherits = "${if config.theme.dark then "solarized_dark" else "solarized_light"}"
-        "ui.background" = {}
-      '';
+          [language-server.gdscript]
+          command = "nc"
+          args = [ "127.0.0.1", "6005" ]
+          language-id = "gdscript"
+        '';
+      # "helix/themes/transparent_bg.toml".text = # toml
+      # ''
+      #   inherits = "${if config.theme.dark then "solarized_dark" else "solarized_light"}"
+      #   "ui.background" = {}
+      # '';
 
       # Zellij
       "zellij/config.kdl".source = dot-config + "/zellij/config.kdl";
@@ -121,25 +129,26 @@ in {
 
       "waybar/config".source = hyprlandFiles + "/waybar.conf";
       "waybar/config".onChange = "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
-      "waybar/style.css".text = #css
-      ''
-         /* colors */
-        @define-color panel #${config.lib.stylix.colors.base00};
-        @define-color module-bg #${config.lib.stylix.colors.base01};
-        @define-color bg #${config.lib.stylix.colors.base02};
-        @define-color fg #${config.lib.stylix.colors.base05};
-        @define-color button #${config.lib.stylix.colors.base04};
-        @define-color hover #${config.lib.stylix.colors.base03};
-        @define-color red #${config.lib.stylix.colors.base08};
-        @define-color orange #${config.lib.stylix.colors.base09};
-        @define-color yellow #${config.lib.stylix.colors.base0A};
-        @define-color green #${config.lib.stylix.colors.base0B};
-        @define-color cyan #${config.lib.stylix.colors.base0C};
-        @define-color blue #${config.lib.stylix.colors.base0D};
-        @define-color purple #${config.lib.stylix.colors.base0E};
-        @define-color dark-red #${config.lib.stylix.colors.base0F};
-        ${builtins.readFile (hyprlandFiles + "/waybar.css")}
-      '';
+      "waybar/style.css".text =
+        #css
+        ''
+           /* colors */
+          @define-color panel #${config.lib.stylix.colors.base00};
+          @define-color module-bg #${config.lib.stylix.colors.base01};
+          @define-color bg #${config.lib.stylix.colors.base02};
+          @define-color fg #${config.lib.stylix.colors.base05};
+          @define-color button #${config.lib.stylix.colors.base04};
+          @define-color hover #${config.lib.stylix.colors.base03};
+          @define-color red #${config.lib.stylix.colors.base08};
+          @define-color orange #${config.lib.stylix.colors.base09};
+          @define-color yellow #${config.lib.stylix.colors.base0A};
+          @define-color green #${config.lib.stylix.colors.base0B};
+          @define-color cyan #${config.lib.stylix.colors.base0C};
+          @define-color blue #${config.lib.stylix.colors.base0D};
+          @define-color purple #${config.lib.stylix.colors.base0E};
+          @define-color dark-red #${config.lib.stylix.colors.base0F};
+          ${builtins.readFile (hyprlandFiles + "/waybar.css")}
+        '';
       # "waybar/style.css".source = hyprlandFiles + "/waybar.css";
       # "waybar/style.css".onChange = "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
 
