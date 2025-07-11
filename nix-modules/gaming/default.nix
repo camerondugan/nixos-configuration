@@ -24,6 +24,8 @@
       # protonup-qt # Proton Downloader
       gamescope # View port emulation
       bottles # Runs Windows Games
+      steam-tui
+      steamcmd # required for steam-tui
     ];
   };
 }

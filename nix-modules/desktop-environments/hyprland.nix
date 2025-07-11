@@ -23,6 +23,7 @@
       nautilus # file manager
       seahorse # secret manager
       gnome-keyring # keyring
+      hyprls # lsp for config editors
     ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";

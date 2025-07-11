@@ -11,7 +11,7 @@
   desktop-envs = nix-modules + "/desktop-environments";
   coding = nix-modules + "/coding";
   dot-config = nix-modules + "/dot-config";
-  hyprlandFiles = desktop-envs + "/HyprlandFiles";
+  hyprlandFiles = desktop-envs + "/hypr";
 in {
   imports = [
     ./home-modules/theme.nix
