@@ -1,7 +1,27 @@
 [[language]]
+name = "markdown"
+language-servers = ["marksman", "markdown-oxide", "codebook"]
+
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer", "codebook"]
+
+[[language]]
+name = "bash"
+language-servers = ["bash-language-server", "codebook"]
+
+[[language]]
+name = "nix"
+language-servers = ["nil", "nixd", "codebook"]
+
+[[language]]
 name = "gdscript"
 file-types = ["gd"]
 language-servers = ["gdscript"]
+
+[language-server.codebook]
+command = "codebook-lsp"
+args = ["serve"]
 
 [language-server.gdscript]
 command = "nc"

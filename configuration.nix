@@ -120,6 +120,9 @@
     # displayManager.autoLogin.enable = true;
     # displayManager.autoLogin.user = "cam";
 
+    # Basic location service
+    geoclue2.enable = true;
+
     # Enable touchpad support (enabled default in most desktopManager).
     libinput.enable = true;
 

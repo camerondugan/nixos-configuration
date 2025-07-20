@@ -97,6 +97,7 @@
       # Terminal Emulator
       ghostty
       helix
+      codebook
 
       # Terminal Commands
       zip # create .zip
@@ -119,7 +120,7 @@
       bat # better cat
       fzf # fuzzy finder
       ripgrep # RIP grep
-      # devenv # developer env
+      devenv # developer env
       git
       lazygit
       tmate
@@ -174,6 +175,7 @@
       terraform-ls
       jq-lsp
       texlab
+      vscode-langservers-extracted
       marksman
       nls
       ruff

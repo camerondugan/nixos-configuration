@@ -44,8 +44,8 @@ in {
         # bash
         ''
           ${pkgs.home-manager}/bin/home-manager switch --flake /home/cam/.nixos -b backup
-          $(${pkgs.home-manager}/bin/home-manager generations| ${pkgs.coreutils}/bin/head -1 | awk '{print $7}')/specialisation/light/activate
-          pkill waybar
+          $(${pkgs.home-manager}/bin/home-manager generations| ${pkgs.coreutils}/bin/head -1 | ${pkgs.gawk}/bin/awk '{print $7}')/specialisation/light/activate
+          ${pkgs.toybox}/bin/pkill waybar
           ${pkgs.waybar}/bin/waybar &
         '';
     };
@@ -54,8 +54,8 @@ in {
         # bash
         ''
           ${pkgs.home-manager}/bin/home-manager switch --flake /home/cam/.nixos -b backup
-          $(${pkgs.home-manager}/bin/home-manager generations| ${pkgs.coreutils}/bin/head -1 | awk '{print $7}')/specialisation/dark/activate
-          pkill waybar
+          $(${pkgs.home-manager}/bin/home-manager generations| ${pkgs.coreutils}/bin/head -1 | ${pkgs.gawk}/bin/awk '{print $7}')/specialisation/dark/activate
+          ${pkgs.toybox}/bin/pkill waybar
           ${pkgs.waybar}/bin/waybar &
         '';
     };
@@ -83,19 +83,7 @@ in {
           [editor.cursor-shape]
           insert = "bar"
         '';
-      "helix/languages.toml".text =
-        # toml
-        ''
-          [[language]]
-          name = "gdscript"
-          file-types = ["gd"]
-          language-servers = ["gdscript"]
-
-          [language-server.gdscript]
-          command = "nc"
-          args = [ "127.0.0.1", "6005" ]
-          language-id = "gdscript"
-        '';
+      "helix/languages.toml".source = ./nix-modules/coding/helix/languages.toml;
       # "helix/themes/transparent_bg.toml".text = # toml
       # ''
       #   inherits = "${if config.theme.dark then "solarized_dark" else "solarized_light"}"
