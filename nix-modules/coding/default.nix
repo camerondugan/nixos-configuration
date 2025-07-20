@@ -95,7 +95,6 @@
       fishPlugins.z
 
       # Terminal Emulator
-      ghostty
       helix
       codebook
 

@@ -26,17 +26,17 @@
   # hardware.nvidia.powerManagement.finegrained = true;
 
   # monitor audio prevent sleep
-  services.pipewire.wireplumber.extraConfig."99-disable-suspend" = {
-    "monitor.alsa.rules" = [
-      {
-        matches = [
-          {"node.name" = "alsa_output.pci-0000_0a_00.1.hdmi-stereo";}
-        ];
-        actions.update-props = {
-          "session.suspend-timeout-seconds" = 0;
-          "node.always-process" = true;
-        };
-      }
-    ];
-  };
+  # services.pipewire.wireplumber.extraConfig."99-disable-suspend" = {
+  #   "monitor.alsa.rules" = [
+  #     {
+  #       matches = [
+  #         {"node.name" = "alsa_output.pci-0000_0a_00.1.hdmi-stereo";}
+  #       ];
+  #       actions.update-props = {
+  #         "session.suspend-timeout-seconds" = 0;
+  #         "node.always-process" = true;
+  #       };
+  #     }
+  #   ];
+  # };
 }

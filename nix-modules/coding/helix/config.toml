@@ -3,11 +3,8 @@
 # default to have an lsp. This is to maintain compatability across environments
 # and for bragging rights. Have fun with near zero config editing!
 
+#UNUSED moved into home-manager
 theme = "transparent_bg"
-
-[keys.normal.space.t]
-"l"= ":theme solarized_light"
-"d"= ":theme solarized_dark"
 
 [editor]
 line-number = "relative"

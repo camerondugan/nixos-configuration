@@ -63,39 +63,9 @@ in {
   services.batsignal.enable = true;
   xdg = {
     configFile = {
-      # Helix
-      "helix/config.toml".text =
-        # toml
-        ''
-          theme = "${
-            if config.theme.dark
-            then "github_dark"
-            else "github_light"
-          }"
-
-          [keys.normal.space.t]
-          "l"= ":theme solarized_light"
-          "d"= ":theme solarized_dark"
-
-          [editor]
-          line-number = "relative"
-
-          [editor.cursor-shape]
-          insert = "bar"
-        '';
-      "helix/languages.toml".source = ./nix-modules/coding/helix/languages.toml;
-      # "helix/themes/transparent_bg.toml".text = # toml
-      # ''
-      #   inherits = "${if config.theme.dark then "solarized_dark" else "solarized_light"}"
-      #   "ui.background" = {}
-      # '';
-
-      # Zellij
-      "zellij/config.kdl".source = dot-config + "/zellij/config.kdl";
-
       # Set Config File Locations
       "wezterm/wezterm.lua".source = coding + "/wezterm.lua";
-      "ghostty/config".source = dot-config + "/ghostty.conf";
+      # "ghostty/config".source = dot-config + "/ghostty.conf";
       "godot/text_editor_themes/godotTheme.tet".source = coding + "/godotTheme.tet";
 
       # Set Sirula Config
@@ -149,6 +119,69 @@ in {
     helix = {
       enable = true;
       package = inputs.helix.packages.${pkgs.system}.default;
+      settings = {
+        editor = {
+          line-number = "relative";
+          cursor-shape = {
+            insert = "bar";
+          };
+        };
+      };
+      languages = {
+        language = [
+          {
+            name = "markdown";
+            language-servers = ["marksman" "markdown-oxide" "codebook"];
+          }
+          {
+            name = "rust";
+            language-servers = ["rust-analyzer" "codebook"];
+          }
+          {
+            name = "bash";
+            language-servers = ["bash-language-server" "codebook"];
+          }
+          {
+          name = "nix";
+            language-servers = ["nil" "nixd" "codebook"];
+          }
+          {
+          name = "gdscript";
+            file-types = ["gd"];
+            language-servers = ["gdscript" "codebook"];
+          }
+        ];
+
+        language-server = {
+          codebook = {
+            command = "${pkgs.codebook}/bin/codebook-lsp";
+            args = ["serve"];
+          };
+          gdscript = {
+            language-id = "gdscript";
+            command = "${pkgs.netcat}/bin/nc";
+            args = ["127.0.0.1" "6005"];
+          };
+        };
+      };
+    };
+
+    ghostty = {
+      enable = true;
+      settings = {
+        font-size=12;
+        font-family="JetBrainsMono Nerd Font Mono";
+        # theme="light:Builtin Solarized Light,dark:Builtin Solarized Dark";
+        # theme = "stylix";
+        keybind= "ctrl+;=toggle_quick_terminal";
+        # background-opacity=0.85;
+        background-blur=true;
+        shell-integration = "fish";
+      };
+    };
+
+    zellij = {
+      enable = true;
     };
 
     git = {

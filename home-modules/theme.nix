@@ -11,21 +11,16 @@
 
   config = {
     stylix.enable = true;
-    stylix.polarity =
-      if config.theme.dark
-      then "dark"
-      else "light";
-    stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/github${
-      if config.theme.dark
-      then "-dark"
-      else ""
-    }.yaml";
+    stylix.polarity = if config.theme.dark then "dark" else "light";
+    # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/one${ if config.theme.dark then "dark" else "-light" }.yaml";
+    # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/solarized-${ if config.theme.dark then "dark" else "light" }.yaml";
+    stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/selenized-${ if config.theme.dark then "dark" else "light" }.yaml";
+    # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/github${ if config.theme.dark then "-dark" else "" }.yaml";
     stylix.autoEnable = true;
-    stylix.opacity.terminal = 0.9;
-    stylix.targets.helix.enable = false;
+    stylix.opacity.terminal = 0.8;
+
     stylix.targets.waybar.enable = false;
-    stylix.targets.ghostty.enable = false;
-    stylix.targets.zellij.enable = false;
+
     stylix.iconTheme = {
       enable = true;
       package = pkgs.adwaita-icon-theme;

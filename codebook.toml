@@ -1,5 +1,6 @@
 words = [
     "abbrs",
+    "adwaita",
     "avahi",
     "beh",
     "bigword",
@@ -35,6 +36,8 @@ words = [
     "texlab",
     "thinkpad",
     "txtpbfmt",
+    "vreg",
+    "waybar",
     "wjrk",
     "yog",
 ]
