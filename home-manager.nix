@@ -120,10 +120,18 @@ in {
       enable = true;
       package = inputs.helix.packages.${pkgs.system}.default;
       settings = {
+        theme =
+          if config.theme.dark
+          then "gruvbox_dark_hard"
+          else "gruvbox_light_hard";
         editor = {
           line-number = "relative";
           cursor-shape = {
             insert = "bar";
+          };
+          end-of-line-diagnostics = "hint";
+          inline-diagnostics = {
+            cursor-line = "warning";
           };
         };
       };
@@ -142,11 +150,11 @@ in {
             language-servers = ["bash-language-server" "codebook"];
           }
           {
-          name = "nix";
+            name = "nix";
             language-servers = ["nil" "nixd" "codebook"];
           }
           {
-          name = "gdscript";
+            name = "gdscript";
             file-types = ["gd"];
             language-servers = ["gdscript" "codebook"];
           }
@@ -169,13 +177,13 @@ in {
     ghostty = {
       enable = true;
       settings = {
-        font-size=12;
-        font-family="JetBrainsMono Nerd Font Mono";
+        font-size = 12;
+        font-family = "JetBrainsMono Nerd Font Mono";
         # theme="light:Builtin Solarized Light,dark:Builtin Solarized Dark";
         # theme = "stylix";
-        keybind= "ctrl+;=toggle_quick_terminal";
+        keybind = "ctrl+;=toggle_quick_terminal";
         # background-opacity=0.85;
-        background-blur=true;
+        background-blur = true;
         shell-integration = "fish";
       };
     };

@@ -34,7 +34,7 @@
     ];
     pkgs = import nixpkgs {
       inherit system;
-      config = { allowUnfree = true;};
+      config = {allowUnfree = true;};
     };
   in {
     homeConfigurations.cam = home-manager.lib.homeManagerConfiguration {
