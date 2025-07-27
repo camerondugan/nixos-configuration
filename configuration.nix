@@ -1,4 +1,5 @@
-{ pkgs,
+{
+  pkgs,
   lib,
   ...
 }: {
@@ -18,15 +19,14 @@
     '';
   };
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = pkg: true;
 
   imports = [
-    # DesktopEnvironments/gnome.nix
-    DesktopEnvironments/hyprland.nix
-    # DesktopEnvironments/cosmic.nix
-    ./HardwareFixes/betterCaps.nix
-    # Add the commented entries to ThisDevice/configuration.nix if this specific machine needs it.
-    # gaming.nix
-    # coding.nix
+    # ./nix-modules/desktop-environments/gnome.nix
+    ./nix-modules/desktop-environments/hyprland.nix
+    # ./nix-modules/desktop-environments/cosmic.nix
+    ./nix-modules
+    ./nix-modules/fixes/betterCaps.nix
   ];
 
   fonts.packages = with pkgs; [
@@ -39,9 +39,6 @@
     efi.canTouchEfiVariables = true;
   };
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  # Boot Graphics.
-  boot.plymouth.enable = true;
 
   time.timeZone = "America/New_York";
 
@@ -69,7 +66,7 @@
   security = {
     # Enable sound with pipe wire.
     rtkit.enable = true;
-    
+
     # Yubikey Optional Unlock
     pam.u2f = {
       enable = true;
@@ -103,7 +100,6 @@
       warp # file transfer
       impression # ISO USB writer
       audacity # Audio Editor
-      comma # better temporary shell
       home-manager # manage home config
       neovim # The best text editor (no bias)
       zellij # Tmux but newer
@@ -122,6 +118,9 @@
     # Auto Login
     # displayManager.autoLogin.enable = true;
     # displayManager.autoLogin.user = "cam";
+
+    # Basic location service
+    geoclue2.enable = true;
 
     # Enable touchpad support (enabled default in most desktopManager).
     libinput.enable = true;

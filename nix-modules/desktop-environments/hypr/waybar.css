@@ -1,0 +1,167 @@
+* {
+  border: none;
+  border-radius: 16px;
+  min-height: 0;
+  font-family:
+    JetBrainsMono Nerd Font,
+    Material Design Icons;
+  font-size: 13px;
+}
+
+window#waybar {
+  background-color: @panel;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-radius: 0;
+}
+
+window#waybar.hidden {
+  opacity: 0.5;
+}
+
+#workspaces {
+  background-color: transparent;
+}
+
+#workspaces button {
+  opacity: 0.9;
+  all: initial; /* Remove GTK theme values (waybar #1351) */
+  min-width: 0; /* Fix weird spacing in materia (waybar #450) */
+  box-shadow: inset 0 -3px transparent; /* Use box-shadow instead of border so the text isn't offset */
+  padding: 2px 18px;
+  margin: 2px 3px;
+  border-radius: 16px;
+  color: @button;
+  background-color: @module-bg;
+}
+
+#workspaces button.active {
+  color: @module-bg;
+  background-color: @bg;
+}
+
+#workspaces button.active:hover {
+  color: @module-bg;
+  background-color: @hover;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: @module-bg;
+  background-color: @hover;
+}
+
+#workspaces button.urgent {
+  background-color: @red;
+}
+
+#cpu,
+#memory,
+#idle_inhibitor,
+#temperature,
+#custom-power,
+#battery,
+#backlight,
+#pulseaudio,
+#network,
+#clock,
+#window,
+#tray {
+  margin: 3px 3px;
+  padding: 3px 12px;
+  /* background-color: rgba(24, 24, 37, 0.80); */
+  /* color: @button; */
+}
+#custom-power {
+  opacity: 0.9;
+  opacity: 1.0;
+  margin-right: 6px;
+}
+
+#custom-logo {
+  opacity: 0.9;
+  opacity: 1.0;
+  padding-right: 7px;
+  padding-left: 7px;
+  margin-left: 5px;
+  font-size: 15px;
+  border-radius: 16px 0px 0px 8px;
+  color: @fg;
+}
+
+#cpu {
+  opacity: 0.9;
+  color: @green;
+}
+#memory {
+  opacity: 0.9;
+  color: @orange;
+}
+#idle_inhibitor {
+  opacity: 0.9;
+  color: @button;
+  padding-left: 8px;
+}
+#temperature {
+  opacity: 0.9;
+  color: @red;
+}
+#battery {
+  opacity: 0.9;
+  color: @button;
+  padding-right: 16px;
+}
+
+@keyframes blink {
+  to {
+    color: @button;
+  }
+}
+
+#battery.warning,
+#battery.critical,
+#battery.urgent {
+  color: @red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#battery.charging {
+  color: @yellow;
+}
+
+#backlight {
+  color: @purple;
+}
+
+#pulseaudio {
+  color: @yellow;
+}
+
+#network {
+  color: @dark-red;
+  padding-right: 17px;
+}
+
+#clock {
+  font-family: JetBrainsMono Nerd Font;
+  color: @button;
+}
+
+#custom-power {
+  color: @orange;
+}
+
+tooltip {
+  border-radius: 16px;
+  padding: 15px;
+  background-color: @bg;
+}
+
+tooltip label {
+  padding: 5px;
+  background-color: @bg;
+}
