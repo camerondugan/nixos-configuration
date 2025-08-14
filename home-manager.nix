@@ -63,10 +63,16 @@ in {
   services.batsignal.enable = true;
   xdg = {
     configFile = {
-      # Set Config File Locations
       "wezterm/wezterm.lua".source = coding + "/wezterm.lua";
       # "ghostty/config".source = dot-config + "/ghostty.conf";
       "godot/text_editor_themes/godotTheme.tet".source = coding + "/godotTheme.tet";
+
+      "lazygit/config.yml".text = #yaml
+      ''
+        git:
+          paging:
+            externalDiffCommand: ${pkgs.difftastic}/bin/difft --display side-by-side
+      '';
 
       # Set Sirula Config
       "sirula/config.toml".source = dot-config + "/sirula-conf.toml";

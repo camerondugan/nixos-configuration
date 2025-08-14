@@ -7,19 +7,12 @@ config.enable_wayland = false -- Fixes copy/paste for me
 config.front_end = "WebGpu"
 
 -- Visuals
+config.font_size = 14.0
 config.font = wezterm.font 'JetBrains Mono'
--- config.color_scheme = 'Catppuccin Mocha'
-config.color_scheme = 'NvimDark'
 config.hide_tab_bar_if_only_one_tab = true
 
 -- Bell
 config.audible_bell = "Disabled"
-config.visual_bell = {
-  fade_in_function = 'EaseIn',
-  fade_in_duration_ms = 250,
-  fade_out_function = 'EaseOut',
-  fade_out_duration_ms = 250,
-}
 -- config.colors = {
 --   visual_bell = '#f38ba8',
 -- }

@@ -108,7 +108,7 @@
       xh # Friendly and fast tool for sending http requests
       lsd # better ls
       dust # better du
-      delta # better git diff
+      difftastic # better diff
       yazi # file explorer
       hyperfine # benchmarking tool
       bacon # rust diagnostic tool
