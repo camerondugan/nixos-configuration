@@ -72,6 +72,9 @@ in {
       "sirula/config.toml".source = dot-config + "/sirula-conf.toml";
       "sirula/style.css".source = dot-config + "/sirula-style.css";
 
+      # Zellij
+      "zellij/config.kdl".source = dot-config + "/zellij/config.kdl";
+
       # Hyprland Config Files
       "hypr/hyprland.conf".source = hyprlandFiles + "/hyprland.conf";
       "hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload"; # useful for hyprland
