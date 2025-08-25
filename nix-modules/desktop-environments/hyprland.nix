@@ -35,6 +35,7 @@
     hyprlock.enable = true;
     dconf.enable = true;
   };
+
   services = {
     # Login Manager
     displayManager.ly.enable = true;

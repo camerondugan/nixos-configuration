@@ -210,7 +210,7 @@ in {
       difftastic.enableAsDifftool = true;
       extraConfig = {
         core.editor = "hx";
-        pull.rebase = false;
+        pull.rebase = true;
       };
     };
 
