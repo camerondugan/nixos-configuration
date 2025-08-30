@@ -103,6 +103,7 @@
       neovim # The best text editor (no bias)
       zellij # Tmux but newer
       direnv # environment by directory
+      kdePackages.kleopatra # OpenPGP
     ];
   };
 
