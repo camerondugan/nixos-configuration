@@ -83,7 +83,7 @@ in {
 
       # Hyprland Config Files
       "hypr/hyprland.conf".source = hyprlandFiles + "/hyprland.conf";
-      "hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload"; # useful for hyprland
+      "hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload || echo 'Error occurred, is hyprland running?'"; # useful for hyprland
       "hypr/hyprlock.conf".source = hyprlandFiles + "/hyprlock.conf";
       "hypr/hypridle.conf".source = hyprlandFiles + "/hypridle.conf";
       "wpaperd/config.toml".source = hyprlandFiles + "/wpaper.conf";
