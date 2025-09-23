@@ -114,6 +114,7 @@
       bacon # rust diagnostic tool
       tokei # project lang summary
       just # just better make
+      watchexec # better entr
       sl # Steam Locomotive
       mpv # View Media
       bat # better cat
