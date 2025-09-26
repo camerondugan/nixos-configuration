@@ -90,7 +90,6 @@
     packages = with pkgs; [
       # Desktop Software
       google-chrome # Browser
-      discord # Calling
       libreoffice # Office Suite
       papers # pdf
       image-roll # images
