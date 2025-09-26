@@ -1,5 +1,5 @@
 {
-  description = "flake for cam (me)";
+  description = "NixOS with Cameron Dugan";
 
   inputs = {
     # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

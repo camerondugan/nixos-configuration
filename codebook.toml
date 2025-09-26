@@ -38,6 +38,7 @@ words = [
     "slint",
     "snakefmt",
     "sourcekit",
+    "specialisation",
     "stylix",
     "stylua",
     "templ",
@@ -49,5 +50,6 @@ words = [
     "webkitgtk",
     "wezterm",
     "wjrk",
+    "yml",
     "yog",
 ]

@@ -67,6 +67,7 @@ in {
       # "ghostty/config".source = dot-config + "/ghostty.conf";
       "godot/text_editor_themes/godotTheme.tet".source = coding + "/godotTheme.tet";
 
+      # note to future self, this is intentionally yml, not yaml
       "lazygit/config.yml".text = #yaml
       ''
         git:
@@ -82,6 +83,7 @@ in {
       "zellij/config.kdl".source = dot-config + "/zellij/config.kdl";
 
       # Hyprland Config Files
+      "hypr/hyprsunset.conf".source = hyprlandFiles + "/hyprsunset.conf";
       "hypr/hyprland.conf".source = hyprlandFiles + "/hyprland.conf";
       "hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload || echo 'Error occurred, is hyprland running?'"; # useful for hyprland
       "hypr/hyprlock.conf".source = hyprlandFiles + "/hyprlock.conf";

@@ -24,6 +24,7 @@
       seahorse # secret manager
       gnome-keyring # keyring
       hyprls # lsp for config editors
+      hyprsunset
     ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";
