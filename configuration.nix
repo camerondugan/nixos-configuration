@@ -44,6 +44,14 @@
   networking = {
     # Enable networking
     networkmanager.enable = true;
+    networkmanager.wifi.backend = "iwd";
+    wireless.iwd.enable = true;
+    wireless.iwd.settings = {
+      Settings = {
+        AutoConnect = true;
+      };
+      IPv6.Enabled = true;
+    };
     firewall = {
       allowedTCPPortRanges = [
         {

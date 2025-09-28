@@ -131,10 +131,10 @@ in {
       enable = true;
       package = inputs.helix.packages.${pkgs.system}.default;
       settings = {
-        theme =
-          if config.theme.dark
-          then "gruvbox_dark_hard"
-          else "gruvbox_light_hard";
+        # theme =
+        #   if config.theme.dark
+        #   then "gruvbox_dark_hard"
+        #   else "gruvbox_light_hard";
         editor = {
           line-number = "relative";
           cursor-shape = {
@@ -191,7 +191,7 @@ in {
         font-size = 12;
         font-family = "JetBrainsMono Nerd Font Mono";
         # theme="light:Builtin Solarized Light,dark:Builtin Solarized Dark";
-        # theme = "stylix";
+        theme = "stylix";
         keybind = "ctrl+;=toggle_quick_terminal";
         # background-opacity=0.85;
         background-blur = true;

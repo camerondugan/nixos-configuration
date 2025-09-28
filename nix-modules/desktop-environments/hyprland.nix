@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   environment = {
     systemPackages = with pkgs; [
-      sirula # app launcher
+      fuzzel # Stupid fast wayland app launcher
       nwg-dock-hyprland # dock
       wezterm # terminal
       kitty # backup term
@@ -25,6 +25,7 @@
       gnome-keyring # keyring
       hyprls # lsp for config editors
       hyprsunset
+      bluetui # tui for bluetooth control
     ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";
