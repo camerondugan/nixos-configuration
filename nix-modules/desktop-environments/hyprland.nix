@@ -17,8 +17,7 @@
       wl-clipboard-rs
       grimblast # screenshot utility
       udiskie # auto-mount removable drives
-      ianny # eyestrain prevention
-      pavucontrol
+      # pavucontrol
       networkmanagerapplet
       nautilus # file manager
       seahorse # secret manager
@@ -26,6 +25,7 @@
       hyprls # lsp for config editors
       hyprsunset
       bluetui # tui for bluetooth control
+      pulsemixer # tui that replaces pavucontrol
     ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";
