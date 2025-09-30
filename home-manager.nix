@@ -187,6 +187,7 @@ in {
 
     ghostty = {
       enable = true;
+      enableFishIntegration = true;
       settings = {
         font-size = 12;
         font-family = "JetBrainsMono Nerd Font Mono";
@@ -195,7 +196,7 @@ in {
         keybind = "ctrl+;=toggle_quick_terminal";
         # background-opacity=0.85;
         background-blur = true;
-        shell-integration = "fish";
+        confirm-close-surface = false;
       };
     };
 
