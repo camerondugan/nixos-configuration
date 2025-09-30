@@ -26,7 +26,8 @@
     # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/selenized-${ if config.theme.dark then "dark" else "white" }.yaml";
     # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/github${ if config.theme.dark then "-dark" else "" }.yaml";
     # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/chinoiserie.yaml";
-    stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/${ if config.theme.dark then "onedark" else "nord-light" }.yaml";
+    # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/${ if config.theme.dark then "onedark" else "nord-light" }.yaml";
+    stylix.image = ../assets/FW12_Wallpaper_Sage.png;
     stylix.autoEnable = true;
     stylix.opacity.terminal = 0.9;
 

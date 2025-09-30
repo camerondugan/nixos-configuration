@@ -131,10 +131,10 @@ in {
       enable = true;
       package = inputs.helix.packages.${pkgs.system}.default;
       settings = {
-        # theme =
-        #   if config.theme.dark
-        #   then "gruvbox_dark_hard"
-        #   else "gruvbox_light_hard";
+        theme =
+          if config.theme.dark
+          then "onedarker"
+          else "zed_onelight";
         editor = {
           line-number = "relative";
           cursor-shape = {
