@@ -29,11 +29,8 @@
             bind --mode insert \cW 'fish_clipboard_copy' # disable ctrl+w
             bind --mode insert \b 'backward-kill-bigword' # rebind to ctrl+backspace
             fish_add_path /home/cam/.cargo/bin
-            zoxide init fish | source
-            direnv hook fish | source
             enable_transience
             set NIXPKGS_ALLOW_UNFREE 1
-            set EDITOR $(which hx)
             # set ZELLIJ_AUTO_EXIT "true"
             if not set -q ZELLIJ
               if test "$ZELLIJ_AUTO_ATTACH" = "true"
@@ -69,6 +66,7 @@
           du = "dust";
           # Kitty specific
           s = "kitten ssh";
+          "-" = "cd -";
         };
       };
       neovim = {
