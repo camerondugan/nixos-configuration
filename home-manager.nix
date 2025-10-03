@@ -83,7 +83,6 @@ in {
       "zellij/config.kdl".source = dot-config + "/zellij/config.kdl";
 
       # Hyprland Config Files
-      "hypr/hyprsunset.conf".source = hyprlandFiles + "/hyprsunset.conf";
       "hypr/hyprland.conf".source = hyprlandFiles + "/hyprland.conf";
       "hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload || echo 'Error occurred, is hyprland running?'"; # useful for hyprland
       "hypr/hyprlock.conf".source = hyprlandFiles + "/hyprlock.conf";
@@ -221,7 +220,7 @@ in {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
         obs-backgroundremoval
-        obs-webkitgtk
+        # obs-webkitgtk
       ];
     };
   };

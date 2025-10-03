@@ -23,9 +23,10 @@
       seahorse # secret manager
       gnome-keyring # keyring
       hyprls # lsp for config editors
-      hyprsunset
       bluetui # tui for bluetooth control
       pulsemixer # tui that replaces pavucontrol
+      sunsetr
+      hyprsunset
     ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";

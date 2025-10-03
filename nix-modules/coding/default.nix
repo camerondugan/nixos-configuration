@@ -58,7 +58,7 @@
           jm = "just -f makefile";
           jM = "just -f Makefile";
           lg = "lazygit";
-          cd = "z";
+          # cd = "z";
           np = "nix-shell --run fish -p";
           grep = "rg";
           gi = "gi >> .gitignore"; # append to gitignore

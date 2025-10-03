@@ -123,16 +123,16 @@
     "gnome-shell": {
       "flake": false,
       "locked": {
-        "lastModified": 1744584021,
-        "narHash": "sha256-0RJ4mJzf+klKF4Fuoc8VN8dpQQtZnKksFmR2jhWE1Ew=",
+        "lastModified": 1748186689,
+        "narHash": "sha256-UaD7Y9f8iuLBMGHXeJlRu6U1Ggw5B9JnkFs3enZlap0=",
         "owner": "GNOME",
         "repo": "gnome-shell",
-        "rev": "52c517c8f6c199a1d6f5118fae500ef69ea845ae",
+        "rev": "8c88f917db0f1f0d80fa55206c863d3746fa18d0",
         "type": "github"
       },
       "original": {
         "owner": "GNOME",
-        "ref": "48.1",
+        "ref": "48.2",
         "repo": "gnome-shell",
         "type": "github"
       }
@@ -157,7 +157,9 @@
     },
     "helix-flake": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
@@ -176,19 +178,20 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1758463745,
-        "narHash": "sha256-uhzsV0Q0I9j2y/rfweWeGif5AWe0MGrgZ/3TjpDYdGA=",
+        "lastModified": 1759337100,
+        "narHash": "sha256-CcT3QvZ74NGfM+lSOILcCEeU+SnqXRvl1XCRHenZ0Us=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3b955f5f0a942f9f60cdc9cacb7844335d0f21c3",
+        "rev": "004753ae6b04c4b18aa07192c1106800aaacf6c3",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-25.05",
         "repo": "home-manager",
         "type": "github"
       }
@@ -227,64 +230,16 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1740560979,
-        "narHash": "sha256-Vr3Qi346M+8CjedtbyUevIGDZW8LcA1fTG0ugPY/Hic=",
-        "owner": "nixos",
+        "lastModified": 1759381078,
+        "narHash": "sha256-gTrEEp5gEspIcCOx9PD8kMaF1iEmfBcTbO0Jag2QhQs=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5135c59491985879812717f4c9fea69604e7f26f",
+        "rev": "7df7ff7d8e00218376575f0acdcc5d66741351ee",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
+        "owner": "NixOS",
         "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
-        "lastModified": 1753345091,
-        "narHash": "sha256-CdX2Rtvp5I8HGu9swBmYuq+ILwRxpXdJwlpg8jvN4tU=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "3ff0e34b1383648053bba8ed03f201d3466f90c9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-25.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_4": {
-      "locked": {
-        "lastModified": 1759281824,
-        "narHash": "sha256-FIBE1qXv9TKvSNwst6FumyHwCRH3BlWDpfsnqRDCll0=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "5b5be50345d4113d04ba58c444348849f5585b4a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-25.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_5": {
-      "locked": {
-        "lastModified": 1751211869,
-        "narHash": "sha256-1Cu92i1KSPbhPCKxoiVG5qnoRiKTgR5CcGSRyLpOd7Y=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "b43c397f6c213918d6cfe6e3550abfe79b5d1c51",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-25.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -321,7 +276,7 @@
         "helix-flake": "helix-flake",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_2",
         "stylix": "stylix"
       }
     },
@@ -376,7 +331,9 @@
         "firefox-gnome-theme": "firefox-gnome-theme",
         "flake-parts": "flake-parts",
         "gnome-shell": "gnome-shell",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "nur": "nur",
         "systems": "systems",
         "tinted-foot": "tinted-foot",
@@ -386,16 +343,15 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1759050585,
-        "narHash": "sha256-Mj99rGy+K9jaQ85U2YWydZ9OKCIAdkxClrJlfG04GxU=",
+        "lastModified": 1759404594,
+        "narHash": "sha256-k9hd15rLqG7x3OCUPrcQtpleDlOyQjy16ZEseruypNQ=",
         "owner": "nix-community",
         "repo": "stylix",
-        "rev": "3f71498ed14405aea347b9f5b7f56d97e64e904c",
+        "rev": "3f70c5855572004f9c630ed4a92aa186755361be",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-25.05",
         "repo": "stylix",
         "type": "github"
       }
