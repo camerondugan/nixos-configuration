@@ -107,7 +107,7 @@
       impression # ISO USB writer
       audacity # Audio Editor
       home-manager # manage home config
-      neovim # The best text editor (no bias)
+      neovim-unwrapped # The best text editor (no bias)
       zellij # Tmux but newer
       direnv # environment by directory
       kdePackages.kleopatra # OpenPGP

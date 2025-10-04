@@ -12,10 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       # inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
     };
-    nixos-hardware = {
-        url = "github:Nixos/nixos-hardware/master";
-        inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixos-hardware.url = "github:Nixos/nixos-hardware/master";
     helix-flake = {
         url = "github:helix-editor/helix";
         inputs.nixpkgs.follows = "nixpkgs";

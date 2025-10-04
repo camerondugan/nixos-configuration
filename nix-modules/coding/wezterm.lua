@@ -7,7 +7,7 @@ config.enable_wayland = false -- Fixes copy/paste for me
 config.front_end = "WebGpu"
 
 -- Visuals
-config.font_size = 14.0
+config.font_size = 13.0
 config.font = wezterm.font 'JetBrains Mono'
 config.hide_tab_bar_if_only_one_tab = true
 

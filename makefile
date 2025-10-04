@@ -14,7 +14,6 @@ update: add
 
 home: add
 	home-manager switch --flake . -b backup
-	systemctl restart darkman --user
 
 add:
 	git add .
