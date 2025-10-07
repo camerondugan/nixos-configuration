@@ -96,6 +96,8 @@
       helix
       codebook
 
+      cachix
+
       # Terminal Commands
       zip # create .zip
       unzip # unzip .zip
