@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   inputs,
   config,
   ...
@@ -16,14 +15,15 @@ in {
   imports = [
     ./home-modules/theme.nix
   ];
-  specialisation = {
-    dark.configuration = {
-      theme.dark = lib.mkDefault true;
-    };
-    light.configuration = {
-      theme.dark = lib.mkDefault false;
-    };
-  };
+  # specialisation = {
+  #   dark.configuration = {
+  #     theme.dark = lib.mkDefault true;
+  #   };
+  #   light.configuration = {
+  #     theme.dark = lib.mkDefault false;
+  #   };
+  # };
+  theme.dark = true;
 
   home = {
     username = "cam";
@@ -37,29 +37,29 @@ in {
       "/home/${usr}/.system_node_modules/bin"
     ];
   };
-  services.darkman = {
-    enable = true;
-    lightModeScripts = {
-      light =
-        # bash
-        ''
-          ${pkgs.home-manager}/bin/home-manager switch --flake /home/cam/.nixos -b backup
-          $(${pkgs.home-manager}/bin/home-manager generations| ${pkgs.coreutils}/bin/head -1 | ${pkgs.gawk}/bin/awk '{print $7}')/specialisation/light/activate
-          ${pkgs.toybox}/bin/pkill waybar
-          ${pkgs.waybar}/bin/waybar &
-        '';
-    };
-    darkModeScripts = {
-      dark =
-        # bash
-        ''
-          ${pkgs.home-manager}/bin/home-manager switch --flake /home/cam/.nixos -b backup
-          $(${pkgs.home-manager}/bin/home-manager generations| ${pkgs.coreutils}/bin/head -1 | ${pkgs.gawk}/bin/awk '{print $7}')/specialisation/dark/activate
-          ${pkgs.toybox}/bin/pkill waybar
-          ${pkgs.waybar}/bin/waybar &
-        '';
-    };
-  };
+  # services.darkman = {
+  #   enable = true;
+  #   lightModeScripts = {
+  #     light =
+  #       # bash
+  #       ''
+  #         ${pkgs.home-manager}/bin/home-manager switch --flake /home/cam/.nixos -b backup
+  #         $(${pkgs.home-manager}/bin/home-manager generations| ${pkgs.coreutils}/bin/head -1 | ${pkgs.gawk}/bin/awk '{print $7}')/specialisation/light/activate
+  #         ${pkgs.toybox}/bin/pkill waybar
+  #         ${pkgs.waybar}/bin/waybar &
+  #       '';
+  #   };
+  #   darkModeScripts = {
+  #     dark =
+  #       # bash
+  #       ''
+  #         ${pkgs.home-manager}/bin/home-manager switch --flake /home/cam/.nixos -b backup
+  #         $(${pkgs.home-manager}/bin/home-manager generations| ${pkgs.coreutils}/bin/head -1 | ${pkgs.gawk}/bin/awk '{print $7}')/specialisation/dark/activate
+  #         ${pkgs.toybox}/bin/pkill waybar
+  #         ${pkgs.waybar}/bin/waybar &
+  #       '';
+  #   };
+  # };
   services.batsignal.enable = true;
   xdg = {
     configFile = {
