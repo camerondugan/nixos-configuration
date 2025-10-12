@@ -203,6 +203,8 @@ in {
       enable = true;
     };
 
+    zoxide.enable = true;
+
     git = {
       enable = true;
       userName = "Cameron Dugan";
