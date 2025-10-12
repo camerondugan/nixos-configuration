@@ -57,10 +57,11 @@
           m = "make";
           jm = "just -f makefile";
           jM = "just -f Makefile";
-          lg = "lazygit";
+          g = "lazygit";
           # cd = "z";
+          ls = "eza --icons";
+          lt = "eza --icons -TL2";
           np = "nix-shell --run fish -p";
-          grep = "rg";
           gi = "gi >> .gitignore"; # append to gitignore
           ns = "nix-shell";
           du = "dust";
@@ -123,6 +124,7 @@
       devenv # developer env
       git
       lazygit
+      eza
       tmate
       ffmpeg
       cargo
