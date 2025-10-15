@@ -31,6 +31,8 @@
     stylix.autoEnable = true;
     stylix.opacity.terminal = 0.9;
 
+    stylix.targets.wezterm.enable = false;
+    stylix.targets.ghostty.enable = false;
     stylix.targets.waybar.enable = false;
     stylix.targets.helix.enable = false;
 

@@ -58,6 +58,7 @@
           jm = "just -f makefile";
           jM = "just -f Makefile";
           g = "lazygit";
+          lg = "lazygit";
           # cd = "z";
           ls = "eza --icons";
           lt = "eza --icons -TL2";
@@ -207,6 +208,7 @@
           pip
           pynvim
         ]))
+      libresprite
     ];
   };
 }

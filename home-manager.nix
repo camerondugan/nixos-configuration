@@ -133,16 +133,27 @@ in {
         theme =
           if config.theme.dark
           then "onedarker"
-          else "zed_onelight";
+          else "flatwhite";
         editor = {
           line-number = "relative";
           cursor-shape = {
             insert = "bar";
           };
-          end-of-line-diagnostics = "hint";
-          inline-diagnostics = {
-            cursor-line = "warning";
+          # end-of-line-diagnostics = "hint";
+          # inline-diagnostics = {
+          #   cursor-line = "warning";
+          # };
+          # indent-guides = {
+          #   render = true;
+          # };
+          auto-save = {
+            focus-lost = true;
+            after-delay.enable = true;
           };
+        };
+        keys.normal = {
+          C-j = ["extend_to_line_bounds" "delete_selection" "paste_after" "goto_line_start"];
+          C-k = ["extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" "goto_line_start"];
         };
       };
       languages = {
@@ -191,7 +202,7 @@ in {
         font-size = 12;
         font-family = "JetBrainsMono Nerd Font Mono";
         # theme="light:Builtin Solarized Light,dark:Builtin Solarized Dark";
-        theme = "stylix";
+        # theme = "stylix";
         keybind = "ctrl+;=toggle_quick_terminal";
         # background-opacity=0.85;
         background-blur = true;
