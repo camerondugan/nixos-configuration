@@ -152,6 +152,7 @@ in {
           };
         };
         keys.normal = {
+          ret = ["goto_word"];
           C-j = ["extend_to_line_bounds" "delete_selection" "paste_after" "goto_line_start"];
           C-k = ["extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" "goto_line_start"];
         };
