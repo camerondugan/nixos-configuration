@@ -139,6 +139,7 @@ in {
           cursor-shape = {
             insert = "bar";
           };
+          rulers = [120 80];
           # end-of-line-diagnostics = "hint";
           # inline-diagnostics = {
           #   cursor-line = "warning";
