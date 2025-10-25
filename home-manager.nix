@@ -1,4 +1,5 @@
 {
+
   pkgs,
   inputs,
   config,
@@ -156,6 +157,9 @@ in {
           ret = ["goto_word"];
           C-j = ["extend_to_line_bounds" "delete_selection" "paste_after" "goto_line_start"];
           C-k = ["extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" "goto_line_start"];
+        };
+        keys.normal.Z = {
+          Z = ["wclose"]; # could not use write_quit since it doesn't exist :(
         };
       };
       languages = {
