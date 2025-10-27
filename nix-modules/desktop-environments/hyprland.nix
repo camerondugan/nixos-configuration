@@ -28,6 +28,9 @@
       pulsemixer # tui that replaces pavucontrol
       sunsetr
       hyprsunset
+      hyprpicker
+      rofimoji
+      unipicker
     ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";

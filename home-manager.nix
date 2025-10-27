@@ -148,6 +148,7 @@ in
           lsp = {
             goto-reference-include-declaration = false;
             display-progress-messages = true;
+            display-inlay-hints = true;
           };
           # end-of-line-diagnostics = "hint";
           # inline-diagnostics = {
@@ -164,6 +165,7 @@ in
           };
         };
         keys.normal = {
+          ret = [ "goto_word" ];
           C-j = [
             "extend_to_line_bounds"
             "delete_selection"
