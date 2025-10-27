@@ -1,3 +1,4 @@
+
 {
   description = "NixOS with Cameron Dugan";
 
@@ -16,8 +17,8 @@
     helix-flake = {
         url = "github:helix-editor/helix";
         inputs.nixpkgs.follows = "nixpkgs";
+        # inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
     };
-    # helix-flake.inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
     stylix = {
       # url = "github:nix-community/stylix/release-25.05";
       url = "github:nix-community/stylix";

@@ -26,4 +26,4 @@ machine.
    your hardware-specific changes in this-device.nix as it gets ignored by
    .gitignore
 
-Good luck :) **(I am not responsible for what you do to your computer)**
+**(I am not responsible for what you do to your computer)** Good luck :) 

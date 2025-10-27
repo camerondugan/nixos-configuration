@@ -4,7 +4,8 @@
   inputs,
   config,
   ...
-}: let
+}:
+let
   usr = "cam";
   # home-modules = ./home-modules;
   nix-modules = ./nix-modules;
@@ -12,7 +13,8 @@
   coding = nix-modules + "/coding";
   dot-config = nix-modules + "/dot-config";
   hyprlandFiles = desktop-envs + "/hypr";
-in {
+in
+{
   imports = [
     ./home-modules/theme.nix
   ];
@@ -69,12 +71,12 @@ in {
       "godot/text_editor_themes/godotTheme.tet".source = coding + "/godotTheme.tet";
 
       # note to future self, this is intentionally yml, not yaml
-      "lazygit/config.yml".text = #yaml
-      ''
-        git:
-          paging:
-            externalDiffCommand: ${pkgs.difftastic}/bin/difft --display side-by-side
-      '';
+      "lazygit/config.yml".text = # yaml
+        ''
+          git:
+            paging:
+              externalDiffCommand: ${pkgs.difftastic}/bin/difft --display side-by-side
+        '';
 
       # Set Sirula Config
       "sirula/config.toml".source = dot-config + "/sirula-conf.toml";
@@ -85,7 +87,8 @@ in {
 
       # Hyprland Config Files
       "hypr/hyprland.conf".source = hyprlandFiles + "/hyprland.conf";
-      "hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload || echo 'Error occurred, is hyprland running?'"; # useful for hyprland
+      "hypr/hyprland.conf".onChange =
+        "/run/current-system/sw/bin/hyprctl reload || echo 'Error occurred, is hyprland running?'"; # useful for hyprland
       "hypr/hyprlock.conf".source = hyprlandFiles + "/hyprlock.conf";
       "hypr/hypridle.conf".source = hyprlandFiles + "/hypridle.conf";
       "wpaperd/config.toml".source = hyprlandFiles + "/wpaper.conf";
@@ -97,7 +100,8 @@ in {
         '';
 
       "waybar/config".source = hyprlandFiles + "/waybar.conf";
-      "waybar/config".onChange = "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
+      "waybar/config".onChange =
+        "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
       "waybar/style.css".text =
         #css
         ''
@@ -131,16 +135,22 @@ in {
       enable = true;
       package = inputs.helix.packages.${pkgs.system}.default;
       settings = {
-        theme =
-          if config.theme.dark
-          then "onedarker"
-          else "flatwhite";
+        theme = if config.theme.dark then "doom-one" else "flatwhite";
         editor = {
           line-number = "relative";
           cursor-shape = {
             insert = "bar";
           };
-          rulers = [120 80];
+          rulers = [
+            120
+            80
+          ];
+          bufferline = "multiple";
+          lsp = {
+            goto-reference-include-declaration = false;
+            display-progress-messages = true;
+            display-inlay-hints = true;
+          };
           # end-of-line-diagnostics = "hint";
           # inline-diagnostics = {
           #   cursor-line = "warning";
@@ -148,54 +158,92 @@ in {
           # indent-guides = {
           #   render = true;
           # };
+          popup-border = "all";
+          auto-format = true;
           auto-save = {
             focus-lost = true;
             after-delay.enable = true;
           };
         };
         keys.normal = {
-          ret = ["goto_word"];
-          C-j = ["extend_to_line_bounds" "delete_selection" "paste_after" "goto_line_start"];
-          C-k = ["extend_to_line_bounds" "delete_selection" "move_line_up" "paste_before" "goto_line_start"];
+          ret = [ "goto_word" ];
+          C-j = [
+            "extend_to_line_bounds"
+            "delete_selection"
+            "paste_after"
+            "goto_line_start"
+          ];
+          C-k = [
+            "extend_to_line_bounds"
+            "delete_selection"
+            "move_line_up"
+            "paste_before"
+            "goto_line_start"
+          ];
         };
         keys.normal.Z = {
-          Z = ["wclose"]; # could not use write_quit since it doesn't exist :(
+          Z = [ "wclose" ]; # could not use write_quit since it doesn't exist :(
         };
       };
       languages = {
         language = [
           {
             name = "markdown";
-            language-servers = ["marksman" "markdown-oxide" "codebook"];
+            language-servers = [
+              "marksman"
+              "markdown-oxide"
+              "codebook"
+            ];
+            soft-wrap = {
+              enable = true;
+              wrap-at-text-width = true;
+            };
           }
           {
             name = "rust";
-            language-servers = ["rust-analyzer" "codebook"];
+            language-servers = [
+              "rust-analyzer"
+              "codebook"
+            ];
           }
           {
             name = "bash";
-            language-servers = ["bash-language-server" "codebook"];
+            language-servers = [
+              "bash-language-server"
+              "codebook"
+            ];
           }
           {
             name = "nix";
-            language-servers = ["nil" "nixd" "codebook"];
+            language-servers = [
+              "nil"
+              "nixd"
+              "codebook"
+            ];
+            auto-format = true;
           }
           {
             name = "gdscript";
-            file-types = ["gd"];
-            language-servers = ["gdscript" "codebook"];
+            file-types = [ "gd" ];
+            language-servers = [
+              "gdscript"
+              "codebook"
+            ];
           }
         ];
 
         language-server = {
           codebook = {
             command = "${pkgs.codebook}/bin/codebook-lsp";
-            args = ["serve"];
+            args = [ "serve" ];
           };
           gdscript = {
             language-id = "gdscript";
             command = "${pkgs.netcat}/bin/nc";
-            args = ["127.0.0.1" "6005"];
+            args = [
+              "127.0.0.1"
+              "6005"
+            ];
           };
         };
       };
