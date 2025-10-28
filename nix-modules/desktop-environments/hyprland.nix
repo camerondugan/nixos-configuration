@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   environment = {
     systemPackages = with pkgs; [
       fuzzel # Stupid fast wayland app launcher
@@ -53,8 +54,11 @@
     udisks2.enable = true; # Enable mounting service.
   };
 
-  # kde connect
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk pkgs.kdePackages.xdg-desktop-portal-kde];
+  # KDE connect
+  xdg.portal.extraPortals = [
+    pkgs.xdg-desktop-portal-gtk
+    pkgs.kdePackages.xdg-desktop-portal-kde
+  ];
   networking.firewall.interfaces.enp42s0 = {
     allowedUDPPortRanges = [
       {

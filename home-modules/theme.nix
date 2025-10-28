@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options.theme = {
     dark = lib.mkEnableOption "enables dark mode";
     terminalPrompt.enable = lib.mkEnableOption "enhanced terminal prompt";
@@ -11,10 +12,7 @@
 
   config = {
     stylix.enable = true;
-    stylix.polarity =
-      if config.theme.dark
-      then "dark"
-      else "light";
+    stylix.polarity = if config.theme.dark then "dark" else "light";
     # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest${ if config.theme.dark then "-dark-hard" else "" }.yaml";
     # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-${
     #   if config.theme.dark
@@ -27,7 +25,7 @@
     # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/github${ if config.theme.dark then "-dark" else "" }.yaml";
     # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/chinoiserie.yaml";
     # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/${ if config.theme.dark then "onedark" else "nord-light" }.yaml";
-    stylix.image = ../assets/FW12_Wallpaper_Sage.png;
+    stylix.image = ../assets/topdownforest.jpg;
     stylix.autoEnable = true;
     stylix.opacity.terminal = 0.9;
 
@@ -45,10 +43,7 @@
 
     # Set Cursor Theme
     home.pointerCursor = {
-      name =
-        if config.theme.dark
-        then "Bibata-Modern-Ice"
-        else "Bibata-Moden-Classic";
+      name = if config.theme.dark then "Bibata-Modern-Ice" else "Bibata-Moden-Classic";
       package = pkgs.bibata-cursors;
       gtk.enable = true;
       x11.enable = true;
@@ -81,7 +76,7 @@
       };
       "org/gnome/desktop/media-handling" = {
         # Ask what to do instead of auto running software from USB
-        autorun-x-content-start-app = ["x-content/ostree-repository"];
+        autorun-x-content-start-app = [ "x-content/ostree-repository" ];
         autorun-never = false;
       };
       "org/gnome/desktop/peripherals/touchpad" = {
@@ -96,23 +91,23 @@
         ];
       };
       "org/gnome/desktop/wm/preferences" = {
-        focus-mode = "mouse"; #sloppy, mouse, click
+        focus-mode = "mouse"; # sloppy, mouse, click
         auto-raise = false;
         button-layout = "appmenu:minimize,maximize,close";
         resize-with-right-button = true;
       };
       "org/gnome/desktop/wm/keybindings" = {
-        minimize = []; #["<Super>j"];
-        close = ["<Super>q"];
+        minimize = [ ]; # ["<Super>j"];
+        close = [ "<Super>q" ];
         # Disabled because pop-shell
-        switch-to-workspace-left = ["<Alt><Super>h"];
-        switch-to-workspace-right = ["<Alt><Super>l"];
-        move-to-workspace-left = ["<Control><Super>h"];
-        move-to-workspace-right = ["<Control><Super>l"];
-        toggle-fullscreen = ["<Super>f"];
+        switch-to-workspace-left = [ "<Alt><Super>h" ];
+        switch-to-workspace-right = [ "<Alt><Super>l" ];
+        move-to-workspace-left = [ "<Control><Super>h" ];
+        move-to-workspace-right = [ "<Control><Super>l" ];
+        toggle-fullscreen = [ "<Super>f" ];
         # toggle-on-all-workspaces = ["<Super>p"];
-        toggle-message-tray = ["<Super>v"];
-        show-desktop = ["<Super>d"];
+        toggle-message-tray = [ "<Super>v" ];
+        show-desktop = [ "<Super>d" ];
       };
       "org/gnome/Console" = {
         use-system-font = false;
@@ -137,10 +132,10 @@
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
         ];
-        www = ["<Super>b"];
-        search = ["<Super>r"];
+        www = [ "<Super>b" ];
+        search = [ "<Super>r" ];
         #calculator = ["<Super>m"]; #m = math
-        logout = ["<Super><Shift>m"];
+        logout = [ "<Super><Shift>m" ];
         screensaver = "unset";
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
@@ -159,12 +154,30 @@
         name = "Launch File Explorer";
       };
       "org/gnome/shell/keybindings" = {
-        focus-active-notification = ["<Shift><Super>n"];
+        focus-active-notification = [ "<Shift><Super>n" ];
       };
       "org/gnome/shell" = {
-        favorite-apps = ["firefox.desktop" "neovide.desktop" "anki.desktop" "org.gnome.Console.desktop" "org.gnome.Nautilus.desktop" "org.gnome.Music.desktop" "gnome-system-monitor.desktop"];
-        enabled-extensions = ["espresso@coadmunkee.github.com" "rounded-window-corners@yilozt" "Rounded_Corners@lennart-k" "pop-shell@system76.com" "pip-on-top@rafostar.github.com" "trayIconsReloaded@selfmade.pl" "drive-menu@gnome-shell-extensions.gcampax.github.com" "dash-to-dock@micxgx.gmail.com" "blur-my-shell@aunetx"];
-        disabled-extensions = [];
+        favorite-apps = [
+          "firefox.desktop"
+          "neovide.desktop"
+          "anki.desktop"
+          "org.gnome.Console.desktop"
+          "org.gnome.Nautilus.desktop"
+          "org.gnome.Music.desktop"
+          "gnome-system-monitor.desktop"
+        ];
+        enabled-extensions = [
+          "espresso@coadmunkee.github.com"
+          "rounded-window-corners@yilozt"
+          "Rounded_Corners@lennart-k"
+          "pop-shell@system76.com"
+          "pip-on-top@rafostar.github.com"
+          "trayIconsReloaded@selfmade.pl"
+          "drive-menu@gnome-shell-extensions.gcampax.github.com"
+          "dash-to-dock@micxgx.gmail.com"
+          "blur-my-shell@aunetx"
+        ];
+        disabled-extensions = [ ];
       };
       "org/gnome/shell/extensions/espresso" = {
         show-indicator = false;

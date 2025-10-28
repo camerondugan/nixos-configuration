@@ -1,3 +1,18 @@
+/* @define-color panel #11111b; */
+/* @define-color module-bg #1e1e2e; */
+/* @define-color bg #b4befe; */
+/* @define-color fg #1793d1; */
+/* @define-color button #cdd6f4; */
+/* @define-color hover #b4befe; */
+/* @define-color red #f38ba8; */
+/* @define-color orange #fab387; */
+/* @define-color yellow #a6e3a1; */
+/* @define-color green #a6e3a1; */
+/* @define-color cyan #FFFFFF; */
+/* @define-color blue #FFFFFF; */
+/* @define-color purple #fab387; */
+/* @define-color dark-red #94e2d5; */
+
 * {
   border: none;
   border-radius: 16px;

@@ -1,5 +1,4 @@
 {
-
   pkgs,
   inputs,
   config,
@@ -95,8 +94,8 @@ in
       "hypr/hyprpaper.conf".text =
         # conf
         ''
-          preload = ~/.nixos/Assets/wallpaper.jpg
-          wallpaper = ,~/.nixos/Assets/wallpaper.jpg
+          preload = ~/.nixos/assets/topdownforest.jpg
+          wallpaper = ,~/.nixos/assets/topdownforest.jpg
         '';
 
       "waybar/config".source = hyprlandFiles + "/waybar.conf";
@@ -183,9 +182,9 @@ in
           # ret = [ "goto_word" ];
           W = ":update";
           B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}";
-          m = ":sh zellij run -f    -- make";
-          j = ":sh zellij run -f    -- just"; # overrides jump search
-          n = ":sh zellij run -f    -- nix build";
+          m = ":sh zellij run -d right -- make";
+          j = ":sh zellij run -d right -- just"; # overrides jump search
+          n = ":sh zellij run -d right -- nix build";
           l = ":sh zellij run -i -c -- lazygit";
         };
         # Toggle
