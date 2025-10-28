@@ -149,7 +149,6 @@ in
           lsp = {
             goto-reference-include-declaration = false;
             display-progress-messages = true;
-            display-inlay-hints = true;
           };
           # end-of-line-diagnostics = "hint";
           # inline-diagnostics = {
@@ -166,7 +165,6 @@ in
           };
         };
         keys.normal = {
-          ret = [ "goto_word" ];
           C-j = [
             "extend_to_line_bounds"
             "delete_selection"
@@ -180,6 +178,26 @@ in
             "paste_before"
             "goto_line_start"
           ];
+        };
+        keys.normal.space = {
+          # ret = [ "goto_word" ];
+          W = ":update";
+          B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}";
+          m = ":sh zellij run -f    -- make";
+          j = ":sh zellij run -f    -- just"; # overrides jump search
+          n = ":sh zellij run -f    -- nix build";
+          l = ":sh zellij run -i -c -- lazygit";
+        };
+        # Toggle
+        keys.normal.space.t = {
+          i = ":toggle lsp.display-inlay-hints";
+          s = ":toggle soft-wrap.enable";
+          w = ":toggle soft-wrap.wrap-at-text-width";
+          g = ":toggle indent-guides.render";
+          h = ":toggle file-picker.git-ignore";
+          f = ":toggle auto-format";
+          o = ":toggle auto-info";
+          b = ":toggle bufferline never multiple";
         };
         keys.normal.Z = {
           Z = [ "wclose" ]; # could not use write_quit since it doesn't exist :(
@@ -272,15 +290,19 @@ in
 
     git = {
       enable = true;
-      userName = "Cameron Dugan";
-      userEmail = "cameron.dugan@protonmail.com";
       lfs.enable = true;
-      difftastic.enable = true;
-      difftastic.enableAsDifftool = true;
-      extraConfig = {
+      settings = {
+        user.name = "Cameron Dugan";
+        user.email = "cameron.dugan@protonmail.com";
         core.editor = "hx";
         pull.rebase = true;
       };
+    };
+
+    difftastic = {
+      enable = true;
+      git.enable = true;
+      git.diffToolMode = true;
     };
 
     obs-studio = {
