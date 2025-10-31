@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   options = {
     gaming.enable = lib.mkEnableOption "enables gaming software";
   };
@@ -24,8 +25,6 @@
       # protonup-qt # Proton Downloader
       gamescope # View port emulation
       bottles # Runs Windows Games
-      steam-tui
-      steamcmd # required for steam-tui
     ];
   };
 }

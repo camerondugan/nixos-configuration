@@ -1,15 +1,14 @@
-
 {
   description = "NixOS with Cameron Dugan";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     # nixpkgs.follows = "nixos-cosmic/nixpkgs"; # reduces cosmic build time
     # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     home-manager = {
-      url = "github:nix-community/home-manager";
-      # url = "github:nix-community/home-manager/release-25.05";
+      # url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
       # inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
     };
@@ -20,8 +19,8 @@
       # inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
     };
     stylix = {
-      # url = "github:nix-community/stylix/release-25.05";
-      url = "github:nix-community/stylix";
+      url = "github:nix-community/stylix/release-25.05";
+      # url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

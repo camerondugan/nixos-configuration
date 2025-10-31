@@ -1,8 +1,9 @@
 {
- pkgs,
+  pkgs,
   lib,
   ...
-}: {
+}:
+{
   nix = {
     settings = {
       substituters = [
@@ -93,7 +94,15 @@
   users.users.cam = {
     isNormalUser = true;
     description = "Cameron Dugan";
-    extraGroups = ["networkmanager" "wheel" "input" "docker" "libvirtd" "kvm" "qemu-libvirtd"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+      "docker"
+      "libvirtd"
+      "kvm"
+      "qemu-libvirtd"
+    ];
     shell = pkgs.fish;
     packages = with pkgs; [
       # Desktop Software
@@ -111,6 +120,8 @@
       zellij # Tmux but newer
       direnv # environment by directory
       kdePackages.kleopatra # OpenPGP
+      gnome-disk-utility
+      baobab
     ];
   };
 
@@ -196,7 +207,13 @@
   nix.optimise.automatic = true;
 
   nix.settings = {
-    trusted-users = ["root" "cam"];
-    experimental-features = ["nix-command" "flakes"];
+    trusted-users = [
+      "root"
+      "cam"
+    ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 }

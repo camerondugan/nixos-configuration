@@ -292,19 +292,23 @@ in
     git = {
       enable = true;
       lfs.enable = true;
-      settings = {
-        user.name = "Cameron Dugan";
-        user.email = "cameron.dugan@protonmail.com";
-        core.editor = "hx";
-        pull.rebase = true;
-      };
+      userName = "Cameron Dugan";
+      userEmail = "cameron.dugan@protonmail.com";
+      # editor = "hx";
+      difftastic.enable = true;
+      # settings = {
+      # user.name = "Cameron Dugan";
+      # user.email = "cameron.dugan@protonmail.com";
+      # core.editor = "hx";
+      # pull.rebase = true;
+      # };
     };
 
-    difftastic = {
-      enable = true;
-      git.enable = true;
-      git.diffToolMode = true;
-    };
+    # difftastic = {
+    #   enable = true;
+    #   git.enable = true;
+    #   git.diffToolMode = true;
+    # };
 
     obs-studio = {
       enable = true;

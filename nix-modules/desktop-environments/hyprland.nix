@@ -26,7 +26,7 @@
       hyprls # lsp for config editors
       bluetui # tui for bluetooth control
       pulsemixer # tui that replaces pavucontrol
-      sunsetr
+      # sunsetr
       hyprsunset
       hyprpicker
       rofimoji
