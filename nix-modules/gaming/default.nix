@@ -24,9 +24,7 @@
       heroic
       # protonup-qt # Proton Downloader
       gamescope # View port emulation
-      bottles.override {
-        removeWarningPopup = true;
-      } # Runs Windows Games
+      (bottles.override { removeWarningPopup = true;})
     ];
   };
 }
