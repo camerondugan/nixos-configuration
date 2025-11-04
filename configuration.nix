@@ -5,6 +5,7 @@
 }:
 {
   nix = {
+    package = pkgs.lixPackageSets.stable.lix;
     settings = {
       substituters = [
         "https://cosmic.cachix.org/"
@@ -120,8 +121,8 @@
       zellij # Tmux but newer
       direnv # environment by directory
       kdePackages.kleopatra # OpenPGP
-      gnome-disk-utility
-      baobab
+      gnome-disk-utility # disk partitioning tool
+      baobab # disk usage viewer
     ];
   };
 
