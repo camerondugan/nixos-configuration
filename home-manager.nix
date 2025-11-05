@@ -82,7 +82,7 @@ in
       "sirula/style.css".source = dot-config + "/sirula-style.css";
 
       # Zellij
-      "zellij/config.kdl".source = dot-config + "/zellij/config.kdl";
+      # "zellij/config.kdl".source = dot-config + "/zellij/config.kdl";
 
       # Hyprland Config Files
       "hypr/hyprland.conf".source = hyprlandFiles + "/hyprland.conf";

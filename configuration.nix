@@ -121,8 +121,8 @@
       zellij # Tmux but newer
       direnv # environment by directory
       kdePackages.kleopatra # OpenPGP
-      gnome-disk-utility # disk partitioning tool
       baobab # disk usage viewer
+      gnome-disk-utility # disk partitioning tool
     ];
   };
 

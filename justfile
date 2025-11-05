@@ -3,6 +3,7 @@ all: add home
 alias s := switch
 alias b := boot
 alias u := update
+alias h := home
 alias a := add
 
 switch SYSTEM: add home
