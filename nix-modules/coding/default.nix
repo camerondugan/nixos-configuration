@@ -66,6 +66,7 @@
           gi = "gi >> .gitignore"; # append to gitignore
           ns = "nix-shell";
           du = "dust";
+          j = "just";
           # Kitty specific
           s = "kitten ssh";
           "-" = "cd -";

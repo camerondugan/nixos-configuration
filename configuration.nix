@@ -5,7 +5,6 @@
 }:
 {
   nix = {
-    package = pkgs.lixPackageSets.stable.lix;
     settings = {
       substituters = [
         "https://cosmic.cachix.org/"
