@@ -294,6 +294,9 @@ in
       lfs.enable = true;
       userName = "Cameron Dugan";
       userEmail = "cameron.dugan@protonmail.com";
+      ## desktop only setup rn
+      signing.key = "5A39B85F7BEE2BB880AF0F72A6E4FD72C9C868ED";
+      extraConfig.commit.gpgsign = true;
       # editor = "hx";
       difftastic.enable = true;
       # settings = {

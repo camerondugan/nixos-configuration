@@ -86,6 +86,10 @@
     };
   };
 
+  programs.gnupg.agent = {
+    enable = true;
+  };
+
   virtualisation = {
     docker.enable = true;
   };
