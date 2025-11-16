@@ -75,7 +75,7 @@
     # Enable sound with pipe wire.
     rtkit.enable = true;
 
-    # Yubikey Optional Unlock
+    # YubiKey Optional Unlock
     pam.u2f = {
       enable = true;
       settings.cue = true;
@@ -112,7 +112,7 @@
       # Desktop Software
       google-chrome # Browser
       libreoffice # Office Suite
-      papers # pdf
+      papers # PDF
       image-roll # images
       gimp # 2d Art
       prusa-slicer # 3d printer slicer
@@ -121,7 +121,7 @@
       audacity # Audio Editor
       home-manager # manage home config
       neovim-unwrapped # The best text editor (no bias)
-      zellij # Tmux but newer
+      zellij # terminal multiplexer
       direnv # environment by directory
       kdePackages.kleopatra # OpenPGP
       baobab # disk usage viewer
@@ -188,7 +188,7 @@
   };
   powerManagement.enable = true;
 
-  # Kde Connect
+  # KDE Connect
   programs = {
     kdeconnect.enable = true;
     noisetorch.enable = true;

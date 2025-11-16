@@ -211,7 +211,7 @@ in
             language-servers = [
               "marksman"
               "markdown-oxide"
-              "codebook"
+              "harper-ls"
             ];
             soft-wrap = {
               enable = true;
@@ -222,14 +222,14 @@ in
             name = "rust";
             language-servers = [
               "rust-analyzer"
-              "codebook"
+              "harper-ls"
             ];
           }
           {
             name = "bash";
             language-servers = [
               "bash-language-server"
-              "codebook"
+              "harper-ls"
             ];
           }
           {
@@ -237,24 +237,39 @@ in
             language-servers = [
               "nil"
               "nixd"
-              "codebook"
+              "harper-ls"
             ];
             auto-format = true;
+          }
+          {
+            name = "go";
+            language-servers = [
+              "gopls"
+              "golangci-lint-langserver"
+              "harper-ls"
+            ];
+          }
+          {
+            name = "zig";
+            language-servers = [
+              "zls"
+              "harper-ls"
+            ];
           }
           {
             name = "gdscript";
             file-types = [ "gd" ];
             language-servers = [
               "gdscript"
-              "codebook"
+              "harper-ls"
             ];
           }
         ];
 
         language-server = {
-          codebook = {
-            command = "${pkgs.codebook}/bin/codebook-lsp";
-            args = [ "serve" ];
+          harper-ls = {
+            command = "${pkgs.harper}/bin/harper-ls";
+            args = [ "--stdio" ];
           };
           gdscript = {
             language-id = "gdscript";

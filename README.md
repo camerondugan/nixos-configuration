@@ -8,7 +8,7 @@ provides other NixOS users a starting point for what their configuration can be.
 
 1. Download the GUI NixOS install ISO and flash it to a USB
 2. Install NixOS on your machine with swap, hibernate, and preferably encrypted
-   disk, but for getting started and easy debugging starting unencrypted is ok too.
+   disk, but for getting started and easy debugging starting unencrypted is OK too.
 3. ??? <you may need to search this part on your own>
 4. Profit
 
