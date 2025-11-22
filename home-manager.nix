@@ -295,6 +295,7 @@ in
         # background-opacity=0.85;
         background-blur = true;
         confirm-close-surface = false;
+        custom-shader = "/home/cam/.nixos/home-modules/shaders/cursor_smear.glsl";
       };
     };
 
@@ -310,7 +311,7 @@ in
       userName = "Cameron Dugan";
       userEmail = "me@camerondugan.com";
       ## desktop only setup rn
-      signing.key = "5A39B85F7BEE2BB880AF0F72A6E4FD72C9C868ED";
+      signing.key = "9AD68502106F18FE70366D588C05FD8A4BD9ABF4";
       extraConfig.commit.gpgsign = true;
       # editor = "hx";
       difftastic.enable = true;
