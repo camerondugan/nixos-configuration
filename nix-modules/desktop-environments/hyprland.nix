@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   environment = {
     systemPackages = with pkgs; [
@@ -31,6 +31,8 @@
       hyprpicker
       rofimoji
       unipicker
+      inputs.caelestia-shell.packages.${pkgs.system}.default
+      inputs.caelestia-cli.packages.${pkgs.system}.default
     ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";

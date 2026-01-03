@@ -14,9 +14,18 @@
     };
     nixos-hardware.url = "github:Nixos/nixos-hardware/master";
     helix-flake = {
-      url = "github:helix-editor/helix";
+      url = "github:camerondugan/helix-fork-for-pr-requests";
       inputs.nixpkgs.follows = "nixpkgs";
       # inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
+    };
+    # Make Hyprland more like a Desktop Environment
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      # inputs.nixpkgs.follows = "nixpkgs"; # comment out if breaks
+    };
+    caelestia-cli= {
+      url = "github:caelestia-dots/cli";
+      # inputs.nixpkgs.follows = "nixpkgs"; # comment out if breaks
     };
     stylix = {
       url = "github:nix-community/stylix/release-25.05";
@@ -32,6 +41,7 @@
       nixos-hardware,
       # nixos-cosmic,
       helix,
+      caelestia-shell,
       stylix,
       ...
     }@inputs:
@@ -73,6 +83,9 @@
             # nixos-cosmic.nixosModules.default
           ]
           ++ common-modules;
+          specialArgs = {
+            inherit inputs;
+          };
         };
         framework13 = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -82,6 +95,9 @@
             # nixos-cosmic.nixosModules.default
           ]
           ++ common-modules;
+          specialArgs = {
+            inherit inputs;
+          };
         };
         thinkpad = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -91,6 +107,9 @@
             # nixos-cosmic.nixosModules.default
           ]
           ++ common-modules;
+          specialArgs = {
+            inherit inputs;
+          };
         };
         razer = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -101,6 +120,9 @@
             # nixos-cosmic.nixosModules.default
           ]
           ++ common-modules;
+          specialArgs = {
+            inherit inputs;
+          };
         };
       };
     };

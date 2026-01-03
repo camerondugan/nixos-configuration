@@ -22,6 +22,9 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowUnfreePredicate = pkg: true;
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-36.9.5"
+  ];
   imports = [
     # ./nix-modules/desktop-environments/gnome.nix
     ./nix-modules/desktop-environments/hyprland.nix
@@ -109,6 +112,7 @@
     ];
     shell = pkgs.fish;
     packages = with pkgs; [
+      beyond-all-reason
       # Desktop Software
       google-chrome # Browser
       libreoffice # Office Suite
@@ -131,6 +135,7 @@
 
   hardware = {
     bluetooth.enable = true;
+    bluetooth.settings.General.FastConnectable = true;
     graphics.enable = true;
     graphics.enable32Bit = true;
     enableAllFirmware = true;

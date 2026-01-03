@@ -83,6 +83,19 @@ in
 
       # Zellij
       # "zellij/config.kdl".source = dot-config + "/zellij/config.kdl";
+      
+      # caelestia-dots config
+      "caelestia/shell.json".text = ''
+        {
+          "border": {
+            "thickness": 1
+          },
+          "paths": {
+            "sessionGif": "~/.nixos/assets/waddle.gif",
+            "wallpaperDir": "~/.nixos/assets/wallpapers/"
+          }
+        }
+      '';
 
       # Hyprland Config Files
       "hypr/hyprland.conf".source = hyprlandFiles + "/hyprland.conf";
@@ -94,8 +107,8 @@ in
       "hypr/hyprpaper.conf".text =
         # conf
         ''
-          preload = ~/.nixos/assets/topdownforest.jpg
-          wallpaper = ,~/.nixos/assets/topdownforest.jpg
+          preload = ~/.nixos/assets/wallpapers/topdownforest.jpg
+          wallpaper = ,~/.nixos/assets/wallpapers/topdownforest.jpg
         '';
 
       "waybar/config".source = hyprlandFiles + "/waybar.conf";
@@ -201,10 +214,13 @@ in
           b = ":toggle bufferline never multiple";
         };
         keys.normal.Z = {
-          Z = [ "wclose" ]; # could not use write_quit since it doesn't exist :(
+          Z = [ "wclose" ]; # Could not use write_quit since it doesn't exist :(
         };
       };
       languages = {
+        global-language-servers = [
+          "harper-ls"
+        ];
         language = [
           {
             name = "markdown";
@@ -222,8 +238,10 @@ in
             name = "rust";
             language-servers = [
               "rust-analyzer"
+              # "..."
               "harper-ls"
             ];
+            # ignore-global-language-servers = true;
           }
           {
             name = "bash";

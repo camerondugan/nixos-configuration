@@ -25,7 +25,7 @@
     # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/github${ if config.theme.dark then "-dark" else "" }.yaml";
     # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/chinoiserie.yaml";
     # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/${ if config.theme.dark then "onedark" else "nord-light" }.yaml";
-    stylix.image = ../assets/topdownforest.jpg;
+    stylix.image = ../assets/wallpapers/topdownforest.jpg;
     stylix.autoEnable = true;
     stylix.opacity.terminal = 0.9;
 
