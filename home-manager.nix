@@ -84,19 +84,6 @@ in
       # Zellij
       # "zellij/config.kdl".source = dot-config + "/zellij/config.kdl";
       
-      # caelestia-dots config
-      "caelestia/shell.json".text = ''
-        {
-          "border": {
-            "thickness": 1
-          },
-          "paths": {
-            "sessionGif": "~/.nixos/assets/waddle.gif",
-            "wallpaperDir": "~/.nixos/assets/wallpapers/"
-          }
-        }
-      '';
-
       # Hyprland Config Files
       "hypr/hyprland.conf".source = hyprlandFiles + "/hyprland.conf";
       "hypr/hyprland.conf".onChange =
@@ -352,6 +339,17 @@ in
         obs-backgroundremoval
         # obs-webkitgtk
       ];
+    };
+
+    ## Makes Hyprland a Desktop Environment
+    caelestia = {
+      enable = true;
+      settings = {
+        border.thickness = 1;
+        paths.sessionGif = "~/.nixos/assets/waddle.gif";
+        paths.wallpaperDir = "~/.nixos/assets/wallpapers/";
+        launcher.showOnHover = true;
+      };
     };
   };
 }

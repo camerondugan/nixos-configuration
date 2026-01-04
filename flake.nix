@@ -64,6 +64,7 @@
 
         modules = [
           stylix.homeModules.stylix
+          caelestia-shell.homeManagerModules.default
           ./home-manager.nix
         ];
 
