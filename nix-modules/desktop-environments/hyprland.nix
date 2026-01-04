@@ -9,10 +9,10 @@
       playerctl # media player shortcuts
       brightnessctl # screen brightness shortcuts
       pamixer # audio shortcuts
-      swaynotificationcenter # notifications
+      # swaynotificationcenter # notifications
       swayosd # audio shortcut visuals
       wpaperd # wallpaper
-      waybar # top bar
+      # waybar # top bar
       # hyprnotify # notifications
       wl-clip-persist # remember clipboard after app close
       wl-clipboard-rs
