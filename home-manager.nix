@@ -345,10 +345,31 @@ in
     caelestia = {
       enable = true;
       settings = {
+        border.rounding = 15;
         border.thickness = 1;
         paths.sessionGif = "~/.nixos/assets/waddle.gif";
         paths.wallpaperDir = "~/.nixos/assets/wallpapers/";
         launcher.showOnHover = true;
+        bar.status.showAudio = true;
+        bar.status.showMicrophone = true;
+        bar.tray.recolour = true;
+        idle.lockBeforeSleep = true;
+        idle.inhibitWhenAudio = true;
+        idle.timeouts = [
+          {
+            timeout = 180;
+            idleAction = "lock";
+          }
+          {
+            timeout = 300;
+            idleAction = "dpms off";
+            returnAction = "dpms on";
+          } 
+          {
+            timeout = 600;
+            idleAction = ["systemctl" "suspend-then-hibernate"];
+          }
+        ];
       };
     };
   };
