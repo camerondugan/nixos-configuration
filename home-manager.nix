@@ -351,7 +351,7 @@ in
         paths.wallpaperDir = "~/.nixos/assets/wallpapers/";
         launcher.showOnHover = true;
         bar.status.showAudio = true;
-        bar.status.showMicrophone = true;
+        # bar.status.showMicrophone = true;
         bar.tray.recolour = true;
         idle.lockBeforeSleep = true;
         idle.inhibitWhenAudio = true;
