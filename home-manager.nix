@@ -38,6 +38,10 @@ in
       "/home/${usr}/.go/current/bin/"
       "/home/${usr}/.system_node_modules/bin"
     ];
+    packages = with pkgs; [
+      anki-bin
+      blanket
+    ];
   };
   # services.darkman = {
   #   enable = true;
@@ -355,21 +359,6 @@ in
         bar.tray.recolour = true;
         idle.lockBeforeSleep = true;
         idle.inhibitWhenAudio = true;
-        idle.timeouts = [
-          {
-            timeout = 180;
-            idleAction = "lock";
-          }
-          {
-            timeout = 300;
-            idleAction = "dpms off";
-            returnAction = "dpms on";
-          } 
-          {
-            timeout = 600;
-            idleAction = ["systemctl" "suspend-then-hibernate"];
-          }
-        ];
       };
     };
   };
