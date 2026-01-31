@@ -141,6 +141,8 @@
     enableAllFirmware = true;
   };
 
+  xdg.portal.enable = true;
+
   services = {
     # Auto Login
     # displayManager.autoLogin.enable = true;

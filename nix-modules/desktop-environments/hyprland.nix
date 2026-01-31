@@ -41,7 +41,8 @@
 
   programs = {
     hyprland.enable = true;
-    hyprlock.enable = true;
+    # Disabled because using other shell
+    # hyprlock.enable = true;
     dconf.enable = true;
   };
 
@@ -54,12 +55,13 @@
 
     pipewire.enable = true;
     pipewire.wireplumber.enable = true;
-    hypridle.enable = true; # Screen lock and shutdown
+    # hypridle.enable = true; # Screen lock and shutdown
     blueman.enable = true; # Bluetooth
     udisks2.enable = true; # Enable mounting service.
   };
 
   # KDE connect
+  xdg.portal.config.common.default = "gtk";
   xdg.portal.extraPortals = [
     pkgs.xdg-desktop-portal-gtk
     pkgs.kdePackages.xdg-desktop-portal-kde
