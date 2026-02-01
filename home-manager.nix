@@ -93,10 +93,10 @@ in
       "hypr/hyprland.conf".onChange =
         "/run/current-system/sw/bin/hyprctl reload || echo 'Error occurred, is hyprland running?'"; # useful for hyprland
       "hypr/hyprlock.conf".source = hyprlandFiles + "/hyprlock.conf";
-      "hypr/hypridle.conf".source = hyprlandFiles + "/hypridle.conf";
+      # "hypr/hypridle.conf".source = hyprlandFiles + "/hypridle.conf";
       "wpaperd/config.toml".source = hyprlandFiles + "/wpaper.conf";
       "hypr/hyprpaper.conf".text =
-        # conf
+        # hyprlang
         ''
           preload = ~/.nixos/assets/wallpapers/topdownforest.jpg
           wallpaper = ,~/.nixos/assets/wallpapers/topdownforest.jpg
@@ -138,7 +138,8 @@ in
       enable = true;
       package = inputs.helix.packages.${pkgs.system}.default;
       settings = {
-        theme = if config.theme.dark then "doom-one" else "flatwhite";
+        # theme = if config.theme.dark then "doom-one" else "flatwhite";
+        theme = "base16_default";
         editor = {
           line-number = "relative";
           cursor-shape = {
@@ -170,6 +171,7 @@ in
         };
         keys.normal = {
           ret = [ "goto_word" ];
+          X = [ "extend_line_above" ];
           C-j = [
             "extend_to_line_bounds"
             "delete_selection"
