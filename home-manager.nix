@@ -185,6 +185,14 @@ in
             "paste_before"
             "goto_line_start"
           ];
+          "A-s" = "@ms]";
+          "A-D" = "@mdm";
+          "A-q" = "@ms\"";
+          "A-[" = "@ms]";
+          "A-]" = "@ms]";
+          "A-0" = "@ms(";
+          "A-9" = "@ms)";
+          "A-{" = "@ms{";
         };
         keys.normal.space = {
           # ret = [ "goto_word" ];
@@ -205,6 +213,7 @@ in
           f = ":toggle auto-format";
           o = ":toggle auto-info";
           b = ":toggle bufferline never multiple";
+          l = ":toggle line-number relative absolute";
         };
         keys.normal.Z = {
           Z = [ "wclose" ]; # Could not use write_quit since it doesn't exist :(

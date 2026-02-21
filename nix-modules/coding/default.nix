@@ -181,6 +181,7 @@
       texlab
       vscode-langservers-extracted
       marksman
+      markdown-oxide
       nls
       ruff
       lldb
