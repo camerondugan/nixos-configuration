@@ -185,7 +185,6 @@ in
             "paste_before"
             "goto_line_start"
           ];
-          "A-s" = "@ms]";
           "A-D" = "@mdm";
           "A-q" = "@ms\"";
           "A-[" = "@ms]";
@@ -359,6 +358,9 @@ in
     ## Makes Hyprland a Desktop Environment
     caelestia = {
       enable = true;
+      cli = {
+        enable = true;
+      };
       settings = {
         border.rounding = 15;
         border.thickness = 1;
@@ -368,8 +370,29 @@ in
         bar.status.showAudio = true;
         # bar.status.showMicrophone = true;
         bar.tray.recolour = true;
-        idle.lockBeforeSleep = true;
-        idle.inhibitWhenAudio = true;
+        general.idle.lockBeforeSleep = true;
+        general.idle.inhibitWhenAudio = true;
+        general.idle.timeouts = [
+          {
+            timeout = 180;
+            idleAction = "lock";
+          }
+          {
+            timeout = 300;
+            idleAction = "dpms off";
+            returnAction = "dpms on";
+          }
+          {
+            timeout = 600;
+            idleAction = ["systemctl" "suspend-then-hibernate"];
+          }
+          { # Handles cases where suspend-then-hibernate doesn't work
+            # Haven't tested yet on systems where suspend-then-hibernate does work
+            # Assumption: system will be paused and time-out below won't be hit on resume
+            timeout = 700;
+            idleAction = ["systemctl" "poweroff"];
+          }
+        ];
       };
     };
   };
