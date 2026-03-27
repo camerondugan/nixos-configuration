@@ -32,6 +32,10 @@
       # url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    customized-pulsemixer = {
+      url = "github:camerondugan/pulsemixer/combined";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -43,6 +47,7 @@
       helix,
       caelestia-shell,
       stylix,
+      customized-pulsemixer,
       ...
     }@inputs:
     let

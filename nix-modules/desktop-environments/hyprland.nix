@@ -25,7 +25,8 @@
       gnome-keyring # keyring
       hyprls # lsp for config editors
       bluetui # tui for bluetooth control
-      pulsemixer # tui that replaces pavucontrol
+      # pulsemixer # tui that replaces pavucontrol
+      inputs.customized-pulsemixer.packages.${pkgs.system}.default
       # sunsetr
       hyprsunset
       hyprpicker

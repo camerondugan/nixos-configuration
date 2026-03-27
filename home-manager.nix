@@ -323,6 +323,14 @@ in
 
     zoxide.enable = true;
 
+    ssh = {
+      matchBlocks = {
+        "*" = {
+          identityFile = [ "~/.ssh/id_ed25519" ];
+        };
+      };
+    };
+
     git = {
       enable = true;
       lfs.enable = true;
@@ -382,14 +390,14 @@ in
             idleAction = "dpms off";
             returnAction = "dpms on";
           }
-          {
-            timeout = 600;
-            idleAction = ["systemctl" "suspend-then-hibernate"];
-          }
+          # {
+          #   timeout = 600;
+          #   idleAction = ["systemctl" "suspend-then-hibernate"];
+          # }
           { # Handles cases where suspend-then-hibernate doesn't work
             # Haven't tested yet on systems where suspend-then-hibernate does work
             # Assumption: system will be paused and time-out below won't be hit on resume
-            timeout = 700;
+            timeout = 610;
             idleAction = ["systemctl" "poweroff"];
           }
         ];
