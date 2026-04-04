@@ -40,6 +40,9 @@ in {
       anki-bin
       blanket
       fd
+      # TTY
+      lynx
+      ddgr
     ];
   };
   # services.darkman = {
