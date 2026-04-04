@@ -3,8 +3,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   options = {
     gaming.enable = lib.mkEnableOption "enables gaming software";
   };
@@ -24,7 +23,7 @@
       heroic
       # protonup-qt # Proton Downloader
       gamescope # View port emulation
-      (bottles.override { removeWarningPopup = true;})
+      (bottles.override {removeWarningPopup = true;})
       # games
       beyond-all-reason
     ];

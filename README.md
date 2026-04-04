@@ -16,14 +16,14 @@ provides other NixOS users a starting point for what their configuration can be.
 
 1. Your /etc/nixos/configuration.nix will now be a shortcut to
    ~/.nixos/configuration.nix
-2. If you are using the encrypted hard-drive feature (which you probably
+1. If you are using the encrypted hard-drive feature (which you probably
    should), ~/.nixos/this-device.nix is essential for your machine to reboot. If
-it fails you can always choose a previous config on startup to restore your
-machine.
-3. Updates your nix system to unstable, which you may not want, feel free to
+   it fails you can always choose a previous config on startup to restore your
+   machine.
+1. Updates your nix system to unstable, which you may not want, feel free to
    edit the one-time-setup.sh script to exclude that step.
 4. I recommend if you want to manage your own repository of this that you keep
    your hardware-specific changes in this-device.nix as it gets ignored by
    .gitignore
 
-**(I am not responsible for what you do to your computer)** Good luck :) 
+**(I am not responsible for what you do to your computer)** Good luck :)

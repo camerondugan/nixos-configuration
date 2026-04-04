@@ -3,8 +3,7 @@
   inputs,
   config,
   ...
-}:
-let
+}: let
   usr = "cam";
   # home-modules = ./home-modules;
   nix-modules = ./nix-modules;
@@ -12,8 +11,7 @@ let
   coding = nix-modules + "/coding";
   dot-config = nix-modules + "/dot-config";
   hyprlandFiles = desktop-envs + "/hypr";
-in
-{
+in {
   imports = [
     ./home-modules/theme.nix
   ];
@@ -41,6 +39,7 @@ in
     packages = with pkgs; [
       anki-bin
       blanket
+      fd
     ];
   };
   # services.darkman = {
@@ -74,7 +73,8 @@ in
       "godot/text_editor_themes/godotTheme.tet".source = coding + "/godotTheme.tet";
 
       # note to future self, this is intentionally yml, not yaml
-      "lazygit/config.yml".text = # yaml
+      "lazygit/config.yml".text =
+        # yaml
         ''
           git:
             paging:
@@ -87,11 +87,10 @@ in
 
       # Zellij
       # "zellij/config.kdl".source = dot-config + "/zellij/config.kdl";
-      
+
       # Hyprland Config Files
       "hypr/hyprland.conf".source = hyprlandFiles + "/hyprland.conf";
-      "hypr/hyprland.conf".onChange =
-        "/run/current-system/sw/bin/hyprctl reload || echo 'Error occurred, is hyprland running?'"; # useful for hyprland
+      "hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload || echo 'Error occurred, is hyprland running?'"; # useful for hyprland
       "hypr/hyprlock.conf".source = hyprlandFiles + "/hyprlock.conf";
       # "hypr/hypridle.conf".source = hyprlandFiles + "/hypridle.conf";
       "wpaperd/config.toml".source = hyprlandFiles + "/wpaper.conf";
@@ -103,8 +102,7 @@ in
         '';
 
       "waybar/config".source = hyprlandFiles + "/waybar.conf";
-      "waybar/config".onChange =
-        "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
+      "waybar/config".onChange = "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
       "waybar/style.css".text =
         #css
         ''
@@ -170,8 +168,8 @@ in
           };
         };
         keys.normal = {
-          ret = [ "goto_word" ];
-          X = [ "extend_line_above" ];
+          ret = ["goto_word"];
+          X = ["extend_line_above"];
           C-j = [
             "extend_to_line_bounds"
             "delete_selection"
@@ -215,7 +213,7 @@ in
           l = ":toggle line-number relative absolute";
         };
         keys.normal.Z = {
-          Z = [ "wclose" ]; # Could not use write_quit since it doesn't exist :(
+          Z = ["wclose"]; # Could not use write_quit since it doesn't exist :(
         };
       };
       languages = {
@@ -230,6 +228,10 @@ in
               "markdown-oxide"
               "harper-ls"
             ];
+            formatter = {
+              command = "${pkgs.dprint}/bin/dprint";
+              args = ["fmt" "--stdin" "md"];
+            };
             soft-wrap = {
               enable = true;
               wrap-at-text-width = true;
@@ -277,7 +279,7 @@ in
           }
           {
             name = "gdscript";
-            file-types = [ "gd" ];
+            file-types = ["gd"];
             language-servers = [
               "gdscript"
               "harper-ls"
@@ -288,7 +290,7 @@ in
         language-server = {
           harper-ls = {
             command = "${pkgs.harper}/bin/harper-ls";
-            args = [ "--stdio" ];
+            args = ["--stdio"];
           };
           gdscript = {
             language-id = "gdscript";
@@ -326,7 +328,7 @@ in
     ssh = {
       matchBlocks = {
         "*" = {
-          identityFile = [ "~/.ssh/id_ed25519" ];
+          identityFile = ["~/.ssh/id_ed25519"];
         };
       };
     };
@@ -394,7 +396,8 @@ in
           #   timeout = 600;
           #   idleAction = ["systemctl" "suspend-then-hibernate"];
           # }
-          { # Handles cases where suspend-then-hibernate doesn't work
+          {
+            # Handles cases where suspend-then-hibernate doesn't work
             # Haven't tested yet on systems where suspend-then-hibernate does work
             # Assumption: system will be paused and time-out below won't be hit on resume
             timeout = 610;

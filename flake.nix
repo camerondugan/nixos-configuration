@@ -23,7 +23,7 @@
       url = "github:caelestia-dots/shell";
       # inputs.nixpkgs.follows = "nixpkgs"; # comment out if breaks
     };
-    caelestia-cli= {
+    caelestia-cli = {
       url = "github:caelestia-dots/cli";
       # inputs.nixpkgs.follows = "nixpkgs"; # comment out if breaks
     };
@@ -38,49 +38,47 @@
     };
   };
 
-  outputs =
-    {
-      nixpkgs,
-      home-manager,
-      nixos-hardware,
-      # nixos-cosmic,
-      helix,
-      caelestia-shell,
-      stylix,
-      customized-pulsemixer,
-      ...
-    }@inputs:
-    let
-      system = "x86_64-linux";
-      common-modules = [
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
+  outputs = {
+    nixpkgs,
+    home-manager,
+    nixos-hardware,
+    # nixos-cosmic,
+    helix,
+    caelestia-shell,
+    stylix,
+    customized-pulsemixer,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    common-modules = [
+      ./configuration.nix
+      home-manager.nixosModules.home-manager
+    ];
+    pkgs = import nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
+      };
+    };
+  in {
+    homeConfigurations.cam = home-manager.lib.homeManagerConfiguration {
+      pkgs = pkgs;
+
+      modules = [
+        stylix.homeModules.stylix
+        caelestia-shell.homeManagerModules.default
+        ./home-manager.nix
       ];
-      pkgs = import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-        };
-      };
-    in
-    {
-      homeConfigurations.cam = home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgs;
 
-        modules = [
-          stylix.homeModules.stylix
-          caelestia-shell.homeManagerModules.default
-          ./home-manager.nix
-        ];
-
-        extraSpecialArgs = {
-          inherit inputs;
-        };
+      extraSpecialArgs = {
+        inherit inputs;
       };
-      nixosConfigurations = {
-        inherit system;
-        desktop = nixpkgs.lib.nixosSystem {
-          modules = [
+    };
+    nixosConfigurations = {
+      inherit system;
+      desktop = nixpkgs.lib.nixosSystem {
+        modules =
+          [
             ./hosts/desktop/configuration.nix
             nixos-hardware.nixosModules.common-pc
             nixos-hardware.nixosModules.common-pc-ssd
@@ -89,47 +87,50 @@
             # nixos-cosmic.nixosModules.default
           ]
           ++ common-modules;
-          specialArgs = {
-            inherit inputs;
-          };
+        specialArgs = {
+          inherit inputs;
         };
-        framework13 = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
+      };
+      framework13 = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules =
+          [
             ./hosts/framework13/configuration.nix
             nixos-hardware.nixosModules.framework-13-7040-amd
             # nixos-cosmic.nixosModules.default
           ]
           ++ common-modules;
-          specialArgs = {
-            inherit inputs;
-          };
+        specialArgs = {
+          inherit inputs;
         };
-        thinkpad = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
+      };
+      thinkpad = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules =
+          [
             ./hosts/thinkPadX1Carbon/configuration.nix
             nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
             # nixos-cosmic.nixosModules.default
           ]
           ++ common-modules;
-          specialArgs = {
-            inherit inputs;
-          };
+        specialArgs = {
+          inherit inputs;
         };
-        razer = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
+      };
+      razer = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules =
+          [
             ./hosts/razer/configuration.nix
             nixos-hardware.nixosModules.common-gpu-nvidia
             nixos-hardware.nixosModules.common-pc-laptop-ssd
             # nixos-cosmic.nixosModules.default
           ]
           ++ common-modules;
-          specialArgs = {
-            inherit inputs;
-          };
+        specialArgs = {
+          inherit inputs;
         };
       };
     };
+  };
 }

@@ -9,10 +9,10 @@
   networking.hostName = "Desktop";
 
   environment.sessionVariables = {
-    LIBVA_DRIVER_NAME="nvidia";
-    GBM_BACKEND="nvidia-drm";
-    __GLX_VENDOR_LIBRARY_NAME="nvidia"; # remove if firefox crashes
-    NVD_BACKEND="direct";
+    LIBVA_DRIVER_NAME = "nvidia";
+    GBM_BACKEND = "nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia"; # remove if firefox crashes
+    NVD_BACKEND = "direct";
   };
   # swapDevices = [
   #   {

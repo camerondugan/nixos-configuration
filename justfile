@@ -27,5 +27,8 @@ update: add
 home: add
 	home-manager switch --flake . -b hm-backup
 
+format:
+	alejandra .
+
 add:
 	git add .
