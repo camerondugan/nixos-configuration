@@ -1,9 +1,14 @@
-{...}: {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
     ../../home-modules
     # ../HardwareFixes/tlp.nix
   ];
+  nix.settings = {
+    substituters = [ "https://cache.nixos-cuda.org" ];
+    trusted-public-keys = [ "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M" ];
+  };
+  nixpkgs.config.cudaSupport = true;
   gaming.enable = true;
 
   networking.hostName = "Desktop";
@@ -26,6 +31,12 @@
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     "nvidia.NVreg_TemporaryFilePath=/tmp"
   ];
+
+  services.ollama.enable = true;
+  environment.systemPackages = with pkgs; [
+    ollama-cuda
+  ];
+
   hardware.nvidia.powerManagement.enable = true;
 
   hardware.nvidia.open = true;
