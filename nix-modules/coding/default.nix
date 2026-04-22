@@ -130,17 +130,9 @@
       git
       lazygit
       eza
-      tmate
-      ffmpeg
       cargo
-      cmake
       gnumake
-      php
-      nodePackages.npm
       wget
-      ruby
-      grc
-      sshfs
 
       # # Android
       # android-tools
