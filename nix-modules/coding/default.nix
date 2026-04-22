@@ -85,7 +85,7 @@
     services.udev.extraRules = ''
       KERNEL=="ttyACM0", MODE:="666"
     '';
-    services.udev.packages = [ pkgs.platformio pkgs.openocd ];
+    services.udev.packages = [pkgs.platformio pkgs.openocd];
 
     environment.systemPackages = with pkgs; [
       # Shell
