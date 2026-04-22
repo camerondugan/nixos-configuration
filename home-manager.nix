@@ -193,6 +193,7 @@ in {
           "A-0" = "@ms(";
           "A-9" = "@ms)";
           "A-{" = "@ms{";
+          "M" = "@mam";
         };
         keys.normal.space = {
           # ret = [ "goto_word" ];
