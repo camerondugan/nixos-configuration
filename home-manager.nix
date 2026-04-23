@@ -3,7 +3,8 @@
   inputs,
   config,
   ...
-}: let
+}:
+let
   usr = "cam";
   # home-modules = ./home-modules;
   nix-modules = ./nix-modules;
@@ -11,7 +12,8 @@
   coding = nix-modules + "/coding";
   dot-config = nix-modules + "/dot-config";
   hyprlandFiles = desktop-envs + "/hypr";
-in {
+in
+{
   imports = [
     ./home-modules/theme.nix
   ];
@@ -80,8 +82,8 @@ in {
         # yaml
         ''
           git:
-            paging:
-              externalDiffCommand: ${pkgs.difftastic}/bin/difft --display side-by-side
+            pagers:
+              - externalDiffCommand: ${pkgs.difftastic}/bin/difft --display side-by-side
         '';
 
       # Set Sirula Config
@@ -93,7 +95,8 @@ in {
 
       # Hyprland Config Files
       "hypr/hyprland.conf".source = hyprlandFiles + "/hyprland.conf";
-      "hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload || echo 'Error occurred, is hyprland running?'"; # useful for hyprland
+      "hypr/hyprland.conf".onChange =
+        "/run/current-system/sw/bin/hyprctl reload || echo 'Error occurred, is hyprland running?'"; # useful for hyprland
       "hypr/hyprlock.conf".source = hyprlandFiles + "/hyprlock.conf";
       # "hypr/hypridle.conf".source = hyprlandFiles + "/hypridle.conf";
       "wpaperd/config.toml".source = hyprlandFiles + "/wpaper.conf";
@@ -105,7 +108,8 @@ in {
         '';
 
       "waybar/config".source = hyprlandFiles + "/waybar.conf";
-      "waybar/config".onChange = "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
+      "waybar/config".onChange =
+        "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
       "waybar/style.css".text =
         #css
         ''
@@ -171,8 +175,8 @@ in {
           };
         };
         keys.normal = {
-          ret = ["goto_word"];
-          X = ["extend_line_above"];
+          ret = [ "goto_word" ];
+          X = [ "extend_line_above" ];
           C-j = [
             "extend_to_line_bounds"
             "delete_selection"
@@ -217,7 +221,7 @@ in {
           l = ":toggle line-number relative absolute";
         };
         keys.normal.Z = {
-          Z = ["wclose"]; # Could not use write_quit since it doesn't exist :(
+          Z = [ "wclose" ]; # Could not use write_quit since it doesn't exist :(
         };
       };
       languages = {
@@ -234,7 +238,11 @@ in {
             ];
             formatter = {
               command = "${pkgs.dprint}/bin/dprint";
-              args = ["fmt" "--stdin" "md"];
+              args = [
+                "fmt"
+                "--stdin"
+                "md"
+              ];
             };
             soft-wrap = {
               enable = true;
@@ -283,7 +291,7 @@ in {
           }
           {
             name = "gdscript";
-            file-types = ["gd"];
+            file-types = [ "gd" ];
             language-servers = [
               "gdscript"
               "harper-ls"
@@ -294,7 +302,7 @@ in {
         language-server = {
           harper-ls = {
             command = "${pkgs.harper}/bin/harper-ls";
-            args = ["--stdio"];
+            args = [ "--stdio" ];
           };
           gdscript = {
             language-id = "gdscript";
@@ -332,7 +340,7 @@ in {
     ssh = {
       matchBlocks = {
         "*" = {
-          identityFile = ["~/.ssh/id_ed25519"];
+          identityFile = [ "~/.ssh/id_ed25519" ];
         };
       };
     };
@@ -340,13 +348,15 @@ in {
     git = {
       enable = true;
       lfs.enable = true;
-      userName = "Cameron Dugan";
-      userEmail = "me@camerondugan.com";
+      settings = {
+        user.name = "Cameron Dugan";
+        user.email = "me@camerondugan.com";
+      };
+      signing.format = null;
       ## desktop only setup rn
       # signing.key = "5A39B85F7BEE2BB880AF0F72A6E4FD72C9C868ED";
       # extraConfig.commit.gpgsign = true;
       # editor = "hx";
-      difftastic.enable = true;
       # settings = {
       # user.name = "Cameron Dugan";
       # user.email = "cameron.dugan@protonmail.com";
@@ -355,11 +365,11 @@ in {
       # };
     };
 
-    # difftastic = {
-    #   enable = true;
-    #   git.enable = true;
-    #   git.diffToolMode = true;
-    # };
+    difftastic = {
+      enable = true;
+      git.enable = true;
+      git.diffToolMode = true;
+    };
 
     obs-studio = {
       enable = true;
@@ -405,7 +415,10 @@ in {
             # Haven't tested yet on systems where suspend-then-hibernate does work
             # Assumption: system will be paused and time-out below won't be hit on resume
             timeout = 610;
-            idleAction = ["systemctl" "poweroff"];
+            idleAction = [
+              "systemctl"
+              "poweroff"
+            ];
           }
         ];
       };
