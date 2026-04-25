@@ -79,6 +79,7 @@
       };
       nixosConfigurations = {
         inherit system;
+        pkgs = pkgs;
         desktop = nixpkgs.lib.nixosSystem {
           modules = [
             ./hosts/desktop/configuration.nix
@@ -95,6 +96,7 @@
         };
         framework13 = nixpkgs.lib.nixosSystem {
           inherit system;
+          pkgs = pkgs;
           modules = [
             ./hosts/framework13/configuration.nix
             nixos-hardware.nixosModules.framework-13-7040-amd
@@ -107,6 +109,7 @@
         };
         thinkpad = nixpkgs.lib.nixosSystem {
           inherit system;
+          pkgs = pkgs;
           modules = [
             ./hosts/thinkPadX1Carbon/configuration.nix
             nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
@@ -119,6 +122,7 @@
         };
         razer = nixpkgs.lib.nixosSystem {
           inherit system;
+          pkgs = pkgs;
           modules = [
             ./hosts/razer/configuration.nix
             nixos-hardware.nixosModules.common-gpu-nvidia
