@@ -59,7 +59,9 @@
         let
           system = "x86_64-linux";
           common-modules = [
-            ./configuration.nix
+            self.nixosModules.configuration
+            self.nixosModules.hypr
+            self.nixosModules.gaming
             home-manager.nixosModules.home-manager
           ];
           pkgs = import nixpkgs {
@@ -89,7 +91,6 @@
             desktop = nixpkgs.lib.nixosSystem {
               modules = [
                 ./hosts/desktop/configuration.nix
-                self.nixosModules.gaming
                 nixos-hardware.nixosModules.common-pc
                 nixos-hardware.nixosModules.common-pc-ssd
                 nixos-hardware.nixosModules.common-cpu-amd
