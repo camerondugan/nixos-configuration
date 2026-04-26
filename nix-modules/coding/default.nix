@@ -139,69 +139,69 @@
       # android-studio
 
       # Keyboard programming
-      qmk
+      # qmk
 
       # Arduino
-      platformio
+      # platformio
 
       # Neovim Extras
-      bottom
-      gdu
-      luajit
-      luajitPackages.luarocks-nix
-      nodejs-slim
-      php82Packages.composer
-      tree-sitter
-      imv
+      # bottom
+      # gdu
+      # luajit
+      # luajitPackages.luarocks-nix
+      # nodejs-slim
+      # php82Packages.composer
+      # tree-sitter
+      # imv
       # Lsp support
-      stylua
+      # stylua
       nixd # Nix
       nil
       alejandra
-      typos-lsp
-      gdtoolkit_4
-      awk-language-server
+      # typos-lsp
+      # gdtoolkit_4
+      # awk-language-server
       bash-language-server
-      texlab
-      bibtex-tidy
-      netcoredbg
-      clang-tools
-      dfmt
+      # texlab
+      # bibtex-tidy
+      # netcoredbg
+      # clang-tools
+      # dfmt
       docker-compose-language-service
-      dot-language-server
-      typescript-language-server
-      prettierd
-      gopls
-      delve
-      haskell-language-server
-      terraform-ls
-      jq-lsp
-      texlab
-      vscode-langservers-extracted
+      # dot-language-server
+      # typescript-language-server
+      # prettierd
+      # gopls
+      # delve
+      # haskell-language-server
+      # terraform-ls
+      # jq-lsp
+      # texlab
+      # vscode-langservers-extracted
       marksman
       markdown-oxide
-      nls
-      ruff
-      lldb
-      slint-lsp
-      snakefmt
-      sourcekit-lsp
-      templ
-      txtpbfmt
-      terraform-ls
-      yaml-language-server
-      zls
-      lldb
+      # nls
+      # ruff
+      # lldb
+      # slint-lsp
+      # snakefmt
+      # sourcekit-lsp
+      # templ
+      # txtpbfmt
+      # terraform-ls
+      # yaml-language-server
+      # zls
+      # lldb
 
       # Languages (no particular order)
-      dotnet-sdk
-      flutter
-      gcc
-      go
-      rustup
-      zig
-      jdk
-      clang
+      # dotnet-sdk
+      # flutter
+      # gcc
+      # go
+      # rustup
+      # zig
+      # jdk
+      # clang
       # Python
       (python3.withPackages (ps:
         with ps; [

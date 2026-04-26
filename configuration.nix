@@ -115,7 +115,7 @@
       beyond-all-reason
       # Desktop Software
       google-chrome # Browser
-      libreoffice # Office Suite
+      onlyoffice-desktopeditors # Office Suite
       papers # PDF
       image-roll # images
       gimp # 2d Art
