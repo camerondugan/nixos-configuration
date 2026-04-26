@@ -63,6 +63,7 @@
             self.nixosModules.keyd
             self.nixosModules.hypr
             self.nixosModules.gaming
+            self.nixosModules.distributedBuild
             home-manager.nixosModules.home-manager
           ];
           pkgs = import nixpkgs {

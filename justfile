@@ -18,7 +18,7 @@ framework: add home
 razer: add home
 	sudo nixos-rebuild switch --flake .#razer
 
-desktop: add # home
+desktop: add home
 	sudo nixos-rebuild switch --flake .#desktop
 
 update: add
