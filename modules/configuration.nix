@@ -25,12 +25,8 @@
       nixpkgs.config.allowUnfree = true;
       nixpkgs.config.allowUnfreePredicate = pkg: true;
 
-      nixpkgs.config.permittedInsecurePackages = [
-        "electron-36.9.5"
-      ];
       imports = [
         ../nix-modules
-        ../nix-modules/fixes/betterCaps.nix
       ];
 
       fonts.packages = with pkgs; [

@@ -60,6 +60,7 @@
           system = "x86_64-linux";
           common-modules = [
             self.nixosModules.configuration
+            self.nixosModules.keyd
             self.nixosModules.hypr
             self.nixosModules.gaming
             home-manager.nixosModules.home-manager
