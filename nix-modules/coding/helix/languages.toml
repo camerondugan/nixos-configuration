@@ -14,6 +14,7 @@ language-servers = ["bash-language-server", "codebook"]
 [[language]]
 name = "nix"
 language-servers = ["nil", "nixd", "codebook"]
+formatter = { command = "alejandra", args = ["."]}
 
 [[language]]
 name = "gdscript"

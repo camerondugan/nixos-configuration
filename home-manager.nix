@@ -126,6 +126,7 @@ in
       #     @define-color dark-red #${config.lib.stylix.colors.base0F};
       #     ${builtins.readFile (hyprlandFiles + "/waybar.css")}
       #   '';
+
       # "waybar/style.css".source = hyprlandFiles + "/waybar.css";
       # "waybar/style.css".onChange = "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
 

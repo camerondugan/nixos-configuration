@@ -67,6 +67,7 @@
             self.nixosModules.hypr
             self.nixosModules.gaming
             self.nixosModules.docker
+            self.nixosModules.fish
             self.nixosModules.distributedBuild
             home-manager.nixosModules.home-manager
           ];
