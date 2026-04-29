@@ -6,20 +6,25 @@ alias u := update
 alias h := home
 alias a := add
 
-switch SYSTEM: add home
+switch SYSTEM: add
 	sudo nixos-rebuild switch --flake .#{{SYSTEM}}
+	@just home
 
-boot SYSTEM: add home
+boot SYSTEM: add
 	sudo nixos-rebuild boot --flake .#{{SYSTEM}}
+	@just home
 
-framework: add home
+framework: add
 	sudo nixos-rebuild switch --flake .#framework13
+	@just home
 
-razer: add home
+razer: add
 	sudo nixos-rebuild switch --flake .#razer
+	@just home
 
-desktop: add home
+desktop: add
 	sudo nixos-rebuild switch --flake .#desktop
+	@just home
 
 update: add
 	nix flake update
