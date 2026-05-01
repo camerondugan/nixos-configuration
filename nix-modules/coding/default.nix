@@ -4,12 +4,16 @@
   config,
   types,
   ...
-}: {
+}:
+{
   options.coding = {
     enable = lib.mkEnableOption "enables coding software";
     terminalPrompt.enable = lib.mkEnableOption "enhanced terminal prompt";
     editor = lib.mkOption {
-      type = types.enum ["helix" "neovim"];
+      type = types.enum [
+        "helix"
+        "neovim"
+      ];
       default = "helix";
       description = "which editor do you use?";
     };
@@ -85,7 +89,10 @@
     services.udev.extraRules = ''
       KERNEL=="ttyACM0", MODE:="666"
     '';
-    services.udev.packages = [pkgs.platformio pkgs.openocd];
+    services.udev.packages = [
+      pkgs.platformio
+      pkgs.openocd
+    ];
 
     environment.systemPackages = with pkgs; [
       # Shell
@@ -105,6 +112,7 @@
       cachix
 
       # Terminal Commands
+      grc
       zip # create .zip
       unzip # unzip .zip
       rar # create .rar
@@ -203,11 +211,12 @@
       # jdk
       # clang
       # Python
-      (python3.withPackages (ps:
-        with ps; [
+      (python3.withPackages (
+        ps: with ps; [
           pip
           pynvim
-        ]))
+        ]
+      ))
       libresprite
     ];
   };
