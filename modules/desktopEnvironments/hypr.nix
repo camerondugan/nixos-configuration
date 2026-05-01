@@ -9,9 +9,8 @@
     {
       environment = {
         systemPackages = with pkgs; [
-          fuzzel # Stupid fast wayland app launcher
+          fuzzel # Stupid fast Wayland app launcher
           nwg-dock-hyprland # dock
-          wezterm # terminal
           kitty # backup term
           playerctl # media player shortcuts
           brightnessctl # screen brightness shortcuts

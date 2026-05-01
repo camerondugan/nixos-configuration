@@ -42,9 +42,6 @@ in
       anki-bin
       blanket
       fd
-      # TTY
-      lynx
-      ddgr
     ];
   };
   # services.darkman = {
@@ -73,9 +70,9 @@ in
   services.batsignal.enable = true;
   xdg = {
     configFile = {
-      "wezterm/wezterm.lua".source = coding + "/wezterm.lua";
+      # "wezterm/wezterm.lua".source = coding + "/wezterm.lua";
       # "ghostty/config".source = dot-config + "/ghostty.conf";
-      "godot/text_editor_themes/godotTheme.tet".source = coding + "/godotTheme.tet";
+      # "godot/text_editor_themes/godotTheme.tet".source = coding + "/godotTheme.tet";
 
       # note to future self, this is intentionally yml, not yaml
       "lazygit/config.yml".text =
@@ -87,8 +84,8 @@ in
         '';
 
       # Set Sirula Config
-      "sirula/config.toml".source = dot-config + "/sirula-conf.toml";
-      "sirula/style.css".source = dot-config + "/sirula-style.css";
+      # "sirula/config.toml".source = dot-config + "/sirula-conf.toml";
+      # "sirula/style.css".source = dot-config + "/sirula-style.css";
 
       # Zellij
       # "zellij/config.kdl".source = dot-config + "/zellij/config.kdl";
@@ -100,36 +97,35 @@ in
       "hypr/hyprlock.conf".source = hyprlandFiles + "/hyprlock.conf";
       # "hypr/hypridle.conf".source = hyprlandFiles + "/hypridle.conf";
       "wpaperd/config.toml".source = hyprlandFiles + "/wpaper.conf";
-      "hypr/hyprpaper.conf".text =
-        # hyprlang
-        ''
-          preload = ~/.nixos/assets/wallpapers/topdownforest.jpg
-          wallpaper = ,~/.nixos/assets/wallpapers/topdownforest.jpg
-        '';
+      # "hypr/hyprpaper.conf".text =
+      #   # hyprlang
+      #   ''
+      #     preload = ~/.nixos/assets/wallpapers/topdownforest.jpg
+      #     wallpaper = ,~/.nixos/assets/wallpapers/topdownforest.jpg
+      #   '';
 
-      "waybar/config".source = hyprlandFiles + "/waybar.conf";
-      "waybar/config".onChange =
-        "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
-      "waybar/style.css".text =
-        #css
-        ''
-           /* colors */
-          @define-color panel #${config.lib.stylix.colors.base00};
-          @define-color module-bg #${config.lib.stylix.colors.base01};
-          @define-color bg #${config.lib.stylix.colors.base02};
-          @define-color fg #${config.lib.stylix.colors.base05};
-          @define-color button #${config.lib.stylix.colors.base04};
-          @define-color hover #${config.lib.stylix.colors.base03};
-          @define-color red #${config.lib.stylix.colors.base08};
-          @define-color orange #${config.lib.stylix.colors.base09};
-          @define-color yellow #${config.lib.stylix.colors.base0A};
-          @define-color green #${config.lib.stylix.colors.base0B};
-          @define-color cyan #${config.lib.stylix.colors.base0C};
-          @define-color blue #${config.lib.stylix.colors.base0D};
-          @define-color purple #${config.lib.stylix.colors.base0E};
-          @define-color dark-red #${config.lib.stylix.colors.base0F};
-          ${builtins.readFile (hyprlandFiles + "/waybar.css")}
-        '';
+      # "waybar/config".source = hyprlandFiles + "/waybar.conf";
+      # "waybar/config".onChange = "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
+      # "waybar/style.css".text =
+      #   #css
+      #   ''
+      #      /* colors */
+      #     @define-color panel #${config.lib.stylix.colors.base00};
+      #     @define-color module-bg #${config.lib.stylix.colors.base01};
+      #     @define-color bg #${config.lib.stylix.colors.base02};
+      #     @define-color fg #${config.lib.stylix.colors.base05};
+      #     @define-color button #${config.lib.stylix.colors.base04};
+      #     @define-color hover #${config.lib.stylix.colors.base03};
+      #     @define-color red #${config.lib.stylix.colors.base08};
+      #     @define-color orange #${config.lib.stylix.colors.base09};
+      #     @define-color yellow #${config.lib.stylix.colors.base0A};
+      #     @define-color green #${config.lib.stylix.colors.base0B};
+      #     @define-color cyan #${config.lib.stylix.colors.base0C};
+      #     @define-color blue #${config.lib.stylix.colors.base0D};
+      #     @define-color purple #${config.lib.stylix.colors.base0E};
+      #     @define-color dark-red #${config.lib.stylix.colors.base0F};
+      #     ${builtins.readFile (hyprlandFiles + "/waybar.css")}
+      #   '';
       # "waybar/style.css".source = hyprlandFiles + "/waybar.css";
       # "waybar/style.css".onChange = "/run/current-system/sw/bin/pkill waybar && /run/current-system/sw/bin/waybar & disown";
 
@@ -353,7 +349,7 @@ in
         user.email = "me@camerondugan.com";
       };
       signing.format = null;
-      ## desktop only setup rn
+      ## Desktop only setup rn
       # signing.key = "5A39B85F7BEE2BB880AF0F72A6E4FD72C9C868ED";
       # extraConfig.commit.gpgsign = true;
       # editor = "hx";

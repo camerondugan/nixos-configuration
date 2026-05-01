@@ -4,8 +4,7 @@
   config,
   types,
   ...
-}:
-{
+}: {
   options.coding = {
     enable = lib.mkEnableOption "enables coding software";
     terminalPrompt.enable = lib.mkEnableOption "enhanced terminal prompt";
@@ -90,7 +89,6 @@
       KERNEL=="ttyACM0", MODE:="666"
     '';
     services.udev.packages = [
-      pkgs.platformio
       pkgs.openocd
     ];
 
@@ -148,9 +146,6 @@
 
       # Keyboard programming
       # qmk
-
-      # Arduino
-      # platformio
 
       # Neovim Extras
       # bottom
@@ -212,10 +207,11 @@
       # clang
       # Python
       (python3.withPackages (
-        ps: with ps; [
-          pip
-          pynvim
-        ]
+        ps:
+          with ps; [
+            pip
+            pynvim
+          ]
       ))
       libresprite
     ];

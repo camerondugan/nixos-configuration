@@ -51,7 +51,10 @@
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ (inputs.import-tree ./modules) ];
+      imports = [
+        (inputs.import-tree ./modules)
+        inputs.home-manager.flakeModules.home-manager
+      ];
       systems = [
         "x86_64-linux"
       ];
@@ -63,6 +66,7 @@
             self.nixosModules.keyd
             self.nixosModules.hypr
             self.nixosModules.gaming
+            self.nixosModules.docker
             self.nixosModules.distributedBuild
             home-manager.nixosModules.home-manager
           ];
