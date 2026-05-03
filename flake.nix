@@ -68,7 +68,8 @@
             self.nixosModules.gaming
             self.nixosModules.docker
             self.nixosModules.fish
-            self.nixosModules.distributedBuild
+            self.nixosModules.yttui
+            # self.nixosModules.distributedBuild
             home-manager.nixosModules.home-manager
           ];
           pkgs = import nixpkgs {
