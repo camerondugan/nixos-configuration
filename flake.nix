@@ -52,6 +52,7 @@
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
+        # todo remove everything else here and move into flake parts module files
         (inputs.import-tree ./modules)
         inputs.home-manager.flakeModules.home-manager
       ];
@@ -69,6 +70,8 @@
             self.nixosModules.docker
             self.nixosModules.fish
             self.nixosModules.yttui
+            self.nixosModules.whichkey
+
             # self.nixosModules.distributedBuild
             home-manager.nixosModules.home-manager
           ];

@@ -1,7 +1,7 @@
 {
   pkgs,
   inputs,
-  config,
+  # config,
   ...
 }:
 let
@@ -9,8 +9,8 @@ let
   # home-modules = ./home-modules;
   nix-modules = ./nix-modules;
   desktop-envs = nix-modules + "/desktop-environments";
-  coding = nix-modules + "/coding";
-  dot-config = nix-modules + "/dot-config";
+  # coding = nix-modules + "/coding";
+  # dot-config = nix-modules + "/dot-config";
   hyprlandFiles = desktop-envs + "/hypr";
 in
 {
@@ -132,6 +132,56 @@ in
 
       # "wofi/style.css".source = hyprlandFiles + "/wofi.css";
       # "wofi/config".source = hyprlandFiles + "/wofi.conf";
+      "wlr-which-key/config.yaml".text = # yaml
+        ''
+          menu:
+            - key: "p"
+              desc: Power
+              submenu:
+                - key: "s"
+                  desc: Sleep
+                  cmd: systemctl suspend
+                - key: "r"
+                  desc: Reboot
+                  cmd: reboot
+                - key: "o"
+                  desc: Off
+                  cmd: poweroff              
+            - key: "l"
+              desc: Learn
+              submenu:
+                - key: "a"
+                  desc: Anki
+                  cmd: anki-bin
+                - key: "d"
+                  desc: Duolingo
+                  cmd: google-chrome-stable --app=https://duolingo.com
+            - key: "m"
+              desc: Message
+              submenu:
+                - key: "w"
+                  desc: Whatsapp
+                  cmd: google-chrome-stable --app=https://web.whatsapp.com
+                - key: "d"
+                  desc: Discord
+                  cmd: google-chrome-stable --app=https://discord.com/app
+                - key: "m"
+                  desc: Messages
+                  cmd: google-chrome-stable --app=https://messages.google.com/web
+            - key: "w"
+              desc: Web
+              submenu:
+                - key: "b"
+                  desc: Browser
+                  cmd: google-chrome-stable
+                - key: "n"
+                  desc: NixOS
+                  cmd: google-chrome-stable --app=https://search.nixos.org
+                - key: "c"
+                  desc: Calendar
+                  cmd: google-chrome-stable --app=https://calendar.google.com
+              
+        '';
     };
   };
 
