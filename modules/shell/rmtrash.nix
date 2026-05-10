@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ ... }:
 {
   flake.nixosModules.rmtrash =
-    { ... }:
+    { pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [ rmtrash ];
 

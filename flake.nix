@@ -62,6 +62,14 @@
       flake =
         let
           system = "x86_64-linux";
+          pkgs = import nixpkgs {
+            inherit system;
+            config = {
+              allowUnfree = true;
+            };
+          };
+        in
+        let
           common-modules = [
             self.nixosModules.configuration
             self.nixosModules.keyd
@@ -71,16 +79,11 @@
             self.nixosModules.fish
             self.nixosModules.yttui
             self.nixosModules.whichkey
+            self.nixosModules.rmtrash
 
             # self.nixosModules.distributedBuild
             home-manager.nixosModules.home-manager
           ];
-          pkgs = import nixpkgs {
-            inherit system;
-            config = {
-              allowUnfree = true;
-            };
-          };
         in
         {
           homeConfigurations.cam = home-manager.lib.homeManagerConfiguration {

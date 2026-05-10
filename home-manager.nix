@@ -165,15 +165,15 @@ in
                 - key: "d"
                   desc: Discord
                   cmd: google-chrome-stable --app=https://discord.com/app
-                - key: "m"
-                  desc: Messages
+                - key: "g"
+                  desc: Google Messages
                   cmd: google-chrome-stable --app=https://messages.google.com/web
             - key: "w"
               desc: Web
               submenu:
                 - key: "b"
                   desc: Browser
-                  cmd: google-chrome-stable
+                  cmd: flatpak run app.zen_browser.zen
                 - key: "n"
                   desc: NixOS
                   cmd: google-chrome-stable --app=https://search.nixos.org

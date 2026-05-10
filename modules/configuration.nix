@@ -101,7 +101,6 @@
         ];
         shell = pkgs.fish;
         packages = with pkgs; [
-          beyond-all-reason
           # Desktop Software
           google-chrome # Browser
           onlyoffice-desktopeditors # Office Suite
