@@ -12,21 +12,6 @@
           fuzzel # Stupid fast Wayland app launcher
           nwg-dock-hyprland # dock
           kitty # backup term
-          playerctl # media player shortcuts
-          brightnessctl # screen brightness shortcuts
-          pamixer # audio shortcuts
-          # swaynotificationcenter # notifications
-          swayosd # audio shortcut visuals
-          wpaperd # wallpaper
-          # waybar # top bar
-          # hyprnotify # notifications
-          wl-clip-persist # remember clipboard after app close
-          wl-clipboard-rs
-          grimblast # screenshot utility
-          udiskie # auto-mount removable drives
-          # pavucontrol
-          networkmanagerapplet
-          nautilus # file manager
           seahorse # secret manager
           gnome-keyring # keyring
           hyprls # lsp for config editors
@@ -34,10 +19,7 @@
           # pulsemixer # tui that replaces pavucontrol
           inputs.customized-pulsemixer.packages.${pkgs.system}.default
           # sunsetr
-          hyprsunset
           hyprpicker
-          rofimoji
-          unipicker
           inputs.caelestia-shell.packages.${pkgs.system}.default
           inputs.caelestia-cli.packages.${pkgs.system}.default
         ];
