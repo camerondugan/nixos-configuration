@@ -47,7 +47,6 @@
       unzip # unzip .zip
       rar # create .rar
       unrar # unzip .rar
-      zoxide # better cd (needs setup)
       xh # Friendly and fast tool for sending http requests
       lsd # better ls
       dust # better du

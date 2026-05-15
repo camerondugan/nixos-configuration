@@ -910,8 +910,6 @@ in
       enable = true;
     };
 
-    zoxide.enable = true;
-
     ssh = {
       matchBlocks = {
         "*" = {
