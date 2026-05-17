@@ -73,7 +73,7 @@
           common-modules = [
             self.nixosModules.configuration
             self.nixosModules.keyd
-            self.nixosModules.hypr
+            self.nixosModules.cosmic
             self.nixosModules.gaming
             self.nixosModules.docker
             self.nixosModules.fish

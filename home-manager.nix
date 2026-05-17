@@ -954,9 +954,9 @@ in
 
     ## Makes Hyprland a Desktop Environment
     caelestia = {
-      enable = true;
+      enable = false;
       cli = {
-        enable = true;
+        enable = false;
       };
       settings = {
         border.rounding = 15;
