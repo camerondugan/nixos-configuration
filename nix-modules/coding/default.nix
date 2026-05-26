@@ -58,7 +58,7 @@
       just # just better make
       watchexec # better entr
       sl # Steam Locomotive
-      mpv # View Media
+      vlc # View Media
       bat # better cat
       fzf # fuzzy finder
       ripgrep # RIP grep

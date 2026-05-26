@@ -13,6 +13,7 @@
       # inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs";
     };
     nixos-hardware.url = "github:Nixos/nixos-hardware/master";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     helix-flake = {
       url = "github:camerondugan/helix-fork-for-pr-requests";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -46,6 +47,7 @@
       helix,
       home-manager,
       nixos-hardware,
+      nix-cachyos-kernel,
       self,
       stylix,
       ...

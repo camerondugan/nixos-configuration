@@ -43,8 +43,8 @@
           g = "lazygit";
           lg = "lazygit";
           # cd = "z";
-          ls = "eza --icons";
-          lt = "eza --icons -TL2";
+          ls = "eza --icons always";
+          lt = "eza --icons always -TL2";
           np = "nix-shell --run fish -p";
           gi = "gi >> .gitignore"; # append to gitignore
           ns = "nix-shell";

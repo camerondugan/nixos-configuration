@@ -4,6 +4,7 @@
     {
       pkgs,
       lib,
+      inputs,
       ...
     }:
     {
@@ -12,10 +13,12 @@
           substituters = [
             "https://cosmic.cachix.org/"
             "https://helix.cachix.org/"
+            "https://attic.xuyh0120.win/lantian" # cachyos
           ];
           trusted-public-keys = [
             "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
             "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+            "lantian:EeAUQ+W+6r7EtwnmYjeVwx5k0%EBpjlBfPlzG" # CachyOS
           ];
         };
         extraOptions = ''
@@ -30,6 +33,12 @@
       fonts.packages = with pkgs; [
         nerd-fonts.jetbrains-mono
       ];
+
+      # CachyOS Kernel
+      nixpkgs.overlays = [
+        inputs.nix-cachyos-kernel.overlays.pinned
+      ];
+      boot.kernelPackages = lib.mkDefault pkgs.cachyosKernels.linuxPackages-cachyos-latest;
 
       # Bootloader.
       boot.loader = {
