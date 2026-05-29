@@ -27,6 +27,7 @@
         sessionVariables.NIXOS_OZONE_WL = "1";
         sessionVariables.MOZ_ENABLE_WAYLAND = 1;
       };
+      wayland.windowManager.hyprland.configType = "hyprlang"; # too lazy to move to lua
 
       programs = {
         hyprland.enable = true;
@@ -51,9 +52,9 @@
 
       # KDE connect
       xdg.portal.config.common.default = "gtk";
-      xdg.portal.extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-        pkgs.kdePackages.xdg-desktop-portal-kde
+      xdg.portal.extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        kdePackages.xdg-desktop-portal-kde
       ];
       networking.firewall.interfaces.enp42s0 = {
         allowedUDPPortRanges = [

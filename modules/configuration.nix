@@ -18,7 +18,7 @@
           trusted-public-keys = [
             "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
             "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-            "lantian:EeAUQ+W+6r7EtwnmYjeVwx5k0%EBpjlBfPlzG" # CachyOS
+            "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" # CachyOS
           ];
         };
         extraOptions = ''
@@ -59,19 +59,14 @@
           };
           IPv6.Enabled = true;
         };
-        firewall = {
+        firewall = rec {
           allowedTCPPortRanges = [
             {
               from = 1714;
               to = 1764;
             } # KDEConnect
           ];
-          allowedUDPPortRanges = [
-            {
-              from = 1714;
-              to = 1764;
-            } # KDEConnect
-          ];
+          allowedUDPPortRanges = allowedTCPPortRanges;
         };
       };
 

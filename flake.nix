@@ -82,6 +82,7 @@
             self.nixosModules.yttui
             self.nixosModules.whichkey
             self.nixosModules.rmtrash
+            self.nixosModules.signal
 
             # self.nixosModules.distributedBuild
             home-manager.nixosModules.home-manager
