@@ -1,7 +1,7 @@
 {
   pkgs,
   inputs,
-  # config,
+  config,
   ...
 }:
 let
@@ -718,7 +718,9 @@ in
       package = inputs.helix.packages.${pkgs.system}.default;
       settings = {
         # theme = if config.theme.dark then "doom-one" else "flatwhite";
-        theme = "base16_default";
+        # theme = if config.theme.dark then "solarized_dark" else "solarized_light";
+        # theme = "base16_default";
+        theme = "solarized_dark"; # avoid flashbangs
         editor = {
           line-number = "relative";
           cursor-shape = {
@@ -792,7 +794,9 @@ in
           f = ":toggle auto-format";
           o = ":toggle auto-info";
           b = ":toggle bufferline never multiple";
-          l = ":toggle line-number relative absolute";
+          r = ":toggle line-number relative absolute";
+          l = ":theme solarized_light";
+          d = ":theme solarized_dark";
         };
         keys.normal.Z = {
           Z = [ "wclose" ]; # Could not use write_quit since it doesn't exist :(
