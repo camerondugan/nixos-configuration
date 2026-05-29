@@ -10,7 +10,6 @@ let
   nix-modules = ./nix-modules;
   desktop-envs = nix-modules + "/desktop-environments";
   # coding = nix-modules + "/coding";
-  # dot-config = nix-modules + "/dot-config";
   hyprlandFiles = desktop-envs + "/hypr";
 in
 {
@@ -895,9 +894,9 @@ in
       enable = true;
       enableFishIntegration = true;
       settings = {
-        font-size = 12;
+        font-size = 18;
         font-family = "JetBrainsMono Nerd Font Mono";
-        # theme="light:Builtin Solarized Light,dark:Builtin Solarized Dark";
+        theme = "light:Selenized Light,dark:Selenized Black";
         # theme = "stylix";
         keybind = "ctrl+;=toggle_quick_terminal";
         # background-opacity=0.85;
