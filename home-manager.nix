@@ -898,7 +898,7 @@ in
       enable = true;
       enableFishIntegration = true;
       settings = {
-        font-size = 18;
+        font-size = 16;
         font-family = "JetBrainsMono Nerd Font Mono";
         theme = "light:Selenized Light,dark:Selenized Black";
         # theme = "stylix";
