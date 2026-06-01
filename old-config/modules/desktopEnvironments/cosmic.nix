@@ -1,3 +1,4 @@
+{ ... }:
 {
   flake.nixosModules.cosmic =
     { pkgs, ... }:

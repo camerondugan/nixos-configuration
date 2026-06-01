@@ -1,12 +1,12 @@
+{ ... }:
 {
   flake.nixosModules.fish =
     { pkgs, ... }:
     {
-      programs.starship.enable = true;
       programs.fish = {
         enable = true;
         interactiveShellInit =
-          # fish
+          # bash
           ''
             set fish_greeting
             fish_vi_key_bindings
@@ -14,19 +14,18 @@
             bind --mode insert \b 'backward-kill-bigword' # rebind to ctrl+backspace
             fish_add_path /home/cam/.cargo/bin
             enable_transience
-            # ZELLIJ AUTOSTART
-            # # set ZELLIJ_AUTO_EXIT "true"
-            # if not set -q ZELLIJ
-            #   if test "$ZELLIJ_AUTO_ATTACH" = "true"
-            #     zellij attach -c
-            #   else
-            #     zellij
-            #   end
+            # set ZELLIJ_AUTO_EXIT "true"
+            if not set -q ZELLIJ
+              if test "$ZELLIJ_AUTO_ATTACH" = "true"
+                zellij attach -c
+              else
+                zellij
+              end
 
-            #   if test "$ZELLIJ_AUTO_EXIT" = "true"
-            #     kill $fish_pid
-            #   end
-            # end
+              if test "$ZELLIJ_AUTO_EXIT" = "true"
+                kill $fish_pid
+              end
+            end
           '';
         shellAliases = {
           # Doesn't show these changes to user
@@ -41,8 +40,8 @@
           m = "make";
           jm = "just -f makefile";
           jM = "just -f Makefile";
-          g = "${pkgs.lazygit}/bin/lazygit";
-          lg = "${pkgs.lazygit}/bin/lazygit";
+          g = "lazygit";
+          lg = "lazygit";
           # cd = "z";
           ls = "eza --icons always";
           lt = "eza --icons always -TL2";
@@ -59,9 +58,6 @@
         };
       };
       environment.systemPackages = with pkgs; [
-        grc
-        lazygit
-        just
         # Shell
         fishPlugins.colored-man-pages
         fishPlugins.done

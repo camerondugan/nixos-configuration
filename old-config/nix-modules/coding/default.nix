@@ -57,7 +57,6 @@
       tokei # project lang summary
       just # just better make
       watchexec # better entr
-      sl # Steam Locomotive
       vlc # View Media
       bat # better cat
       fzf # fuzzy finder
