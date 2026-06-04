@@ -4,11 +4,13 @@
     {
       programs.helix = {
         enable = true;
+        defaultEditor = true;
         settings = {
-          # theme = if config.theme.dark then "doom-one" else "flatwhite";
-          # theme = if config.theme.dark then "solarized_dark" else "solarized_light";
           # theme = "base16_default";
           theme = "solarized_dark"; # avoid flashbangs
+          # theme.dark = "solarized_dark"; # this should work, not sure why it doesn't.
+          # theme.light = "solarized_light";
+          # theme.fallback = "solarized_dark"; # avoid flashbangs
           editor = {
             line-number = "relative";
             cursor-shape = {
