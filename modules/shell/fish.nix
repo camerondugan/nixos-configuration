@@ -34,28 +34,23 @@
           rm = "rmtrash";
           rmdir = "rmdirtrash";
           sl = "sl -ew";
+          g = "${pkgs.lazygit}/bin/lazygit";
+          lg = "${pkgs.lazygit}/bin/lazygit";
+          j = "${pkgs.just}/bin/just";
+          jm = "${pkgs.just}/bin/just -f makefile";
+          jM = "${pkgs.just}/bin/just -f Makefile";
+          ls = "${pkgs.eza}/bin/eza --icons always";
+          lt = "${pkgs.eza}/bin/eza --icons always -TL2";
+          dg = "BROWSER=${pkgs.lynx}/bin/lynx ${pkgs.ddgr}/bin/ddgr";
         };
         shellAbbrs = {
           # Shows to the user the longer command
           # Force use of better commands
           m = "make";
-          jm = "just -f makefile";
-          jM = "just -f Makefile";
-          g = "${pkgs.lazygit}/bin/lazygit";
-          lg = "${pkgs.lazygit}/bin/lazygit";
           # cd = "z";
-          ls = "eza --icons always";
-          lt = "eza --icons always -TL2";
           np = "nix-shell --run fish -p";
-          gi = "gi >> .gitignore"; # append to gitignore
-          ns = "nix-shell";
-          du = "dust";
-          j = "just";
-          # Kitty specific
-          s = "kitten ssh";
           "-" = "cd -";
           # TTY web searching
-          dg = "BROWSER=lynx ddgr";
         };
       };
       environment.systemPackages = with pkgs; [

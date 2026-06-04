@@ -12,6 +12,7 @@
       self.nixosModules.bootLoader
       self.nixosModules.users
       self.nixosModules.shell
+      self.nixosModules.rmtrash
       self.nixosModules.time-zone
       self.nixosModules.scx
       # Chaotic Required

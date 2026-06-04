@@ -17,5 +17,9 @@
 
     hardware.nvidia.powerManagement.enable = true;
     hardware.nvidia.open = true;
+    hardware.graphics.enable = true;
+    hardware.graphics.enable32Bit = true;
+    hardware.nvidia.modesetting.enable = true;
+    # hardware.nvidia.package = config.boot.kernelPackagesnvidiaPackages.latest;
   };
 }
