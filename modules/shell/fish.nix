@@ -29,10 +29,6 @@
             # end
           '';
         shellAliases = {
-          # Doesn't show these changes to user
-          # force safer rm
-          rm = "rmtrash";
-          rmdir = "rmdirtrash";
           sl = "sl -ew";
           g = "${pkgs.lazygit}/bin/lazygit";
           lg = "${pkgs.lazygit}/bin/lazygit";
@@ -57,6 +53,7 @@
         grc
         lazygit
         just
+        fzf
         # Shell
         fishPlugins.colored-man-pages
         fishPlugins.done

@@ -15,11 +15,16 @@
       self.nixosModules.rmtrash
       self.nixosModules.time-zone
       self.nixosModules.scx
+      # Declare that this nixos system uses unfree software
+      self.nixosModules.unfree
       # Chaotic Required
       inputs.chaotic.nixosModules.default
       self.nixosModules.cachyos
-      # Optional
+      # Optional Services
       self.nixosModules.syncthing
+      self.nixosModules.ollama
+      self.nixosModules.ollama-cuda
+      # Optional Programs
       self.nixosModules.anki
       self.nixosModules.fish
       self.nixosModules.cosmic

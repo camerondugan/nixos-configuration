@@ -124,9 +124,6 @@
           gnome-disk-utility # disk partitioning tool
         ];
       };
-      environment.sessionVariables = {
-        EDITOR = "hx";
-      };
 
       hardware = {
         bluetooth.enable = true;
