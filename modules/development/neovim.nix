@@ -9,6 +9,7 @@
       nixd
       pyright
       ripgrep
+      tree-sitter
     ];
     programs.neovim = {
       enable = true;
@@ -35,9 +36,21 @@
           map("n", "<leader>a", vim.lsp.buf.code_action, { desc = "Pick a code action" })
 
           -- Plugins --
-          require("fidget").setup({})
-          require("blink-cmp").setup({})
-          require("mini.pairs").setup({})
+          require("fidget").setup({}) -- lsp load spinner
+          require("blink-cmp").setup({}) -- better completion
+          require("mini.pairs").setup({}) -- auto pairs
+
+          require("nvim-treesitter").setup({}) -- code grammar parsing intellijence
+          -- local highlight_langs = {'nix'}
+          vim.api.nvim_create_autocmd('FileType', {
+            -- pattern = highlight_langs,
+            callback = function() 
+              -- highlight using grammar ignore failures
+              pcall(vim.treesitter.start) 
+              -- indent expression use treesitter WARN: potential failure?
+              vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentExpr()"
+            end,
+          })
 
           local conform = require("conform")
           conform.setup({
@@ -97,7 +110,11 @@
         mini-pairs # auto pairs
         telescope-nvim # extensible fuzzy finder
         telescope-ui-select-nvim # telescope as ui select
-        everforest
+        everforest # theme
+        nvim-treesitter.withAllGrammars # treesitter grammars
+        nvim-treesitter-context # show surrounding area
+        nvim-treesitter-textobjects # more objects for motions
+        surround-nvim # change surrounding {('``')}
       ];
     };
   };
