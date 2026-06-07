@@ -2,6 +2,57 @@
   flake.homeModules.editor =
     { pkgs, ... }:
     {
+      home.packages = with pkgs; [
+        just-lsp
+        nil 
+        nixd
+        pyright
+      ];
+      programs.neovim = {
+        enable = true;
+        viAlias = true;
+        vimAlias = true;
+        withPython3 = false;
+        withRuby = false;
+	initLua = # lua
+        ''
+          -- Settings --
+          vim.opt.relativenumber = true
+          vim.opt.colorcolumn = "80,120"
+
+          -- KeyMaps --
+
+          -- Plugins --
+          require("fidget").setup({})
+
+          require("blink-cmp").setup({})
+
+          require("oil").setup({})
+          vim.keymap.set('n', '-', ':Oil<enter>')
+
+
+          -- LSP Settings --
+          vim.lsp.codelens.enable(true)
+          vim.lsp.inlay_hint.enable(true)
+          vim.lsp.inline_completion.enable(true)
+          vim.lsp.linked_editing_range.enable(true)
+
+          -- LSP Integrations --
+          -- using nvim-lspconfig --
+          vim.lsp.enable('just')
+          vim.lsp.enable('nixd')
+          vim.lsp.enable('nil_ls')
+          vim.lsp.enable('pyright')
+	'';
+        plugins = with pkgs.vimPlugins; [
+          vim-sleuth
+          gitsigns-nvim
+          fidget-nvim
+          blink-cmp
+          nvim-lspconfig
+          oil-nvim
+        ];
+      };
       programs.helix = {
         enable = true;
         defaultEditor = true;
