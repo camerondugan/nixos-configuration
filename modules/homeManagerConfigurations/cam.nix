@@ -6,6 +6,7 @@
     };
     modules = [
       inputs.self.homeModules.editor
+      inputs.self.homeModules.neovim
       inputs.self.homeModules.ghostty
       inputs.self.homeModules.zellij
       inputs.self.homeModules.git
