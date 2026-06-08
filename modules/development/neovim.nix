@@ -35,34 +35,6 @@
           -- leader
           map("n", "<leader>a", vim.lsp.buf.code_action, { desc = "Pick a code action" })
 
-          -- Plugins --
-          require("fidget").setup({}) -- lsp load spinner
-          require("blink-cmp").setup({}) -- better completion
-          require("mini.pairs").setup({}) -- auto pairs
-
-          require("nvim-treesitter").setup({}) -- code grammar parsing intellijence
-          -- local highlight_langs = {'nix'}
-          vim.api.nvim_create_autocmd('FileType', {
-            -- pattern = highlight_langs,
-            callback = function() 
-              -- highlight using grammar ignore failures
-              pcall(vim.treesitter.start) 
-              -- indent expression use treesitter WARN: potential failure?
-              vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentExpr()"
-            end,
-          })
-
-          local conform = require("conform")
-          conform.setup({
-            formatters_by_ft = {
-              nix = { "alejandra" },
-            },
-          })
-          map('n', '<leader>F', function() conform.format({ lsp_format = "fallback" }) end)
-
-          require("oil").setup({})
-          map('n', '-', '<cmd>Oil<enter>', { desc = "Open Oil" })
-
           -- telescope --
           require("telescope").setup({
             extensions = {
@@ -77,10 +49,15 @@
           local builtin = require('telescope.builtin')
           map('n', 'gr', '<cmd>Telescope lsp_references theme=cursor<enter>')
           map('n', 'gd', '<cmd>Telescope lsp_definitions theme=cursor<enter>')
+          map('n', '<leader>T', '<cmd>Telescope<enter>', { desc = "Telescope for Telescope"})
           map('n', '<leader>f', builtin.find_files, { desc = 'Telescope find files' })
           map('n', '<leader>/', builtin.live_grep, { desc = 'Telescope live grep' })
           map('n', '<leader>g', builtin.git_status, { desc = 'Telescope current changes' })
+          map('n', '<leader>c', builtin.git_commits, { desc = 'Telescope current changes' })
+          map('n', '<leader>s', builtin.git_status, { desc = 'Telescope current changes' })
           map('n', '<leader>b', builtin.buffers, { desc = 'Telescope current changes' })
+          map('n', '<leader>d', builtin.diagnostics, { desc = "Telescope diagnostics"})
+          map('n', '<leader>h', builtin.command_history, { desc = "Telescope history"})
 
           -- LSP Settings --
           vim.lsp.codelens.enable(true)
@@ -97,6 +74,36 @@
 
           -- Theme --
           vim.cmd('colorscheme everforest')
+
+          -- Plugins --
+          require("fidget").setup({}) -- lsp load spinner
+          require("blink-cmp").setup({}) -- better completion
+          require("mini.pairs").setup({}) -- auto pairs
+          require("nvim-surround").setup() -- better pair motions
+
+          require("nvim-treesitter").setup({}) -- code grammar parsing intellijence
+          require("nvim-treesitter-textobjects").setup({})
+          -- local highlight_langs = {'nix'}
+          vim.api.nvim_create_autocmd('FileType', {
+            -- pattern = highlight_langs,
+            callback = function()
+              -- highlight using grammar ignore failures
+              pcall(vim.treesitter.start)
+              -- indent expression use treesitter WARN: potential failure?
+              -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentExpr()"
+            end
+          })
+
+          local conform = require("conform")
+          conform.setup({
+            formatters_by_ft = {
+              nix = { "alejandra" },
+            },
+          })
+          map("n", "<leader>F", function() conform.format({ lsp_format = "fallback" }) end)
+
+          require("oil").setup({})
+          map("n", "-", "<cmd>Oil<enter>", { desc = "Open Oil" })
         '';
       plugins = with pkgs.vimPlugins; [
         vim-sleuth # tab/spaces indentation detection
@@ -114,7 +121,7 @@
         nvim-treesitter.withAllGrammars # treesitter grammars
         nvim-treesitter-context # show surrounding area
         nvim-treesitter-textobjects # more objects for motions
-        surround-nvim # change surrounding {('``')}
+        nvim-surround # change surround
       ];
     };
   };
