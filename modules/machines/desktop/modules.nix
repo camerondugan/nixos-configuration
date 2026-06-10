@@ -25,6 +25,7 @@
       self.nixosModules.ollama
       self.nixosModules.ollama-cuda
       # Optional Programs
+      self.nixosModules.browser
       self.nixosModules.anki
       self.nixosModules.fish
       self.nixosModules.cosmic
