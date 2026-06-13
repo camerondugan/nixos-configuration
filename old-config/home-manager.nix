@@ -2,16 +2,14 @@
   pkgs,
   inputs,
   ...
-}:
-let
+}: let
   usr = "cam";
   # home-modules = ./home-modules;
   nix-modules = ./nix-modules;
   desktop-envs = nix-modules + "/desktop-environments";
   # coding = nix-modules + "/coding";
   hyprlandFiles = desktop-envs + "/hypr";
-in
-{
+in {
   imports = [
     ./home-modules/theme.nix
   ];
@@ -90,8 +88,7 @@ in
 
       # Hyprland Config Files
       # "hypr/hyprland.conf".source = hyprlandFiles + "/hyprland.conf";
-      "hypr/hyprland.conf".onChange =
-        "/run/current-system/sw/bin/hyprctl reload || echo 'Error occurred, is hyprland running?'"; # useful for hyprland
+      "hypr/hyprland.conf".onChange = "/run/current-system/sw/bin/hyprctl reload || echo 'Error occurred, is hyprland running?'"; # useful for hyprland
       "hypr/hyprlock.conf".source = hyprlandFiles + "/hyprlock.conf";
       # "hypr/hypridle.conf".source = hyprlandFiles + "/hypridle.conf";
       "wpaperd/config.toml".source = hyprlandFiles + "/wpaper.conf";
@@ -130,7 +127,8 @@ in
 
       # "wofi/style.css".source = hyprlandFiles + "/wofi.css";
       # "wofi/config".source = hyprlandFiles + "/wofi.conf";
-      "wlr-which-key/config.yaml".text = # yaml
+      "wlr-which-key/config.yaml".text =
+        # yaml
         ''
           menu:
             - key: "U"
@@ -147,7 +145,7 @@ in
                   cmd: reboot
                 - key: "o"
                   desc: Off
-                  cmd: poweroff              
+                  cmd: poweroff
             - key: "l"
               desc: Learn
               submenu:
@@ -187,16 +185,16 @@ in
                 - key: "l"
                   desc: Launcher
                   cmd: ${
-                    inputs.caelestia-cli.packages.${pkgs.system}.default
-                  }/bin/caelestia shell drawers toggle launcher
+            inputs.caelestia-cli.packages.${pkgs.system}.default
+          }/bin/caelestia shell drawers toggle launcher
                 - key: "t"
                   desc: Terminal
                   cmd: ${pkgs.ghostty}/bin/ghostty
                 - key: "g"
                   desc: GameMode
                   cmd: ${
-                    inputs.caelestia-cli.packages.${pkgs.system}.default
-                  }/bin/caelestia shell gameMode toggle
+            inputs.caelestia-cli.packages.${pkgs.system}.default
+          }/bin/caelestia shell gameMode toggle
             - key: "w"
               desc: Web
               submenu:
@@ -209,10 +207,11 @@ in
                 - key: "c"
                   desc: Calendar
                   cmd: ${pkgs.flatpak}/bin/flatpak run app.zen_browser.zen -- --app=https://calendar.google.com
-              
+
         '';
 
-      "hypr/hyprland.conf".text = # hypr
+      "hypr/hyprland.conf".text =
+        # hypr
         ''
                   ################
           ### MONITORS ###
@@ -231,10 +230,10 @@ in
 
           # Set programs that you use
           $terminal = ${pkgs.ghostty}/bin/ghostty
-          # $browser = ${pkgs.flatpak}/bin/flatpak run app.zen_browser.zen -- # firefox 
+          # $browser = ${pkgs.flatpak}/bin/flatpak run app.zen_browser.zen -- # firefox
           $fileManager = ${pkgs.nautilus}/bin/nautilus
           # $dock = nwg-dock-hyprland
-          # $dockArgs = -c $menu $menuArgs -lp 'start' -d -hd 80 
+          # $dockArgs = -c $menu $menuArgs -lp 'start' -d -hd 80
 
           #################
           ### AUTOSTART ###
@@ -610,14 +609,14 @@ in
           # bind = $mainMod CTRL, P, keepaspectratio
 
           # Volume and Media Control
-           
+
           ## With on screen indicator
           # # Volume
           # binde = , XF86AudioRaiseVolume, exec, swayosdswayosd-client --brightness raise-client --output-volume raise
           # binde = , XF86AudioLowerVolume, exec, swayosd-client --output-volume lower
           # bind = , XF86AudioMute, exec, swayosd-client --output-volume mute-toggle
           # bind = , XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle
-           
+
           # # Caps Lock
           # bindr = CAPS, Caps_Lock, exec, swayosd-client --caps-lock
 
@@ -750,8 +749,8 @@ in
           };
         };
         keys.normal = {
-          ret = [ "goto_word" ];
-          X = [ "extend_line_above" ];
+          ret = ["goto_word"];
+          X = ["extend_line_above"];
           C-j = [
             "extend_to_line_bounds"
             "delete_selection"
@@ -798,7 +797,7 @@ in
           d = ":theme solarized_dark";
         };
         keys.normal.Z = {
-          Z = [ "wclose" ]; # Could not use write_quit since it doesn't exist :(
+          Z = ["wclose"]; # Could not use write_quit since it doesn't exist :(
         };
       };
       languages = {
@@ -868,7 +867,7 @@ in
           }
           {
             name = "gdscript";
-            file-types = [ "gd" ];
+            file-types = ["gd"];
             language-servers = [
               "gdscript"
               "harper-ls"
@@ -879,7 +878,7 @@ in
         language-server = {
           harper-ls = {
             command = "${pkgs.harper}/bin/harper-ls";
-            args = [ "--stdio" ];
+            args = ["--stdio"];
           };
           gdscript = {
             language-id = "gdscript";
@@ -915,7 +914,7 @@ in
     ssh = {
       matchBlocks = {
         "*" = {
-          identityFile = [ "~/.ssh/id_ed25519" ];
+          identityFile = ["~/.ssh/id_ed25519"];
         };
       };
     };

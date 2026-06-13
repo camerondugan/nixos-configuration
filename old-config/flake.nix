@@ -39,20 +39,19 @@
     };
   };
 
-  outputs =
-    inputs@{
-      nixpkgs,
-      flake-parts,
-      caelestia-shell,
-      helix,
-      home-manager,
-      nixos-hardware,
-      nix-cachyos-kernel,
-      self,
-      stylix,
-      ...
-    }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
+  outputs = inputs @ {
+    nixpkgs,
+    flake-parts,
+    caelestia-shell,
+    helix,
+    home-manager,
+    nixos-hardware,
+    nix-cachyos-kernel,
+    self,
+    stylix,
+    ...
+  }:
+    flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
         # todo remove everything else here and move into flake parts module files
         (inputs.import-tree ./modules)
@@ -61,52 +60,50 @@
       systems = [
         "x86_64-linux"
       ];
-      flake =
-        let
-          system = "x86_64-linux";
-          pkgs = import nixpkgs {
-            inherit system;
-            config = {
-              allowUnfree = true;
-            };
+      flake = let
+        system = "x86_64-linux";
+        pkgs = import nixpkgs {
+          inherit system;
+          config = {
+            allowUnfree = true;
           };
-        in
-        let
-          common-modules = [
-            self.nixosModules.configuration
-            self.nixosModules.keyd
-            self.nixosModules.cosmic
-            self.nixosModules.gaming
-            self.nixosModules.docker
-            self.nixosModules.fish
-            self.nixosModules.yttui
-            self.nixosModules.whichkey
-            self.nixosModules.rmtrash
-            self.nixosModules.signal
+        };
+      in let
+        common-modules = [
+          self.nixosModules.configuration
+          self.nixosModules.keyd
+          self.nixosModules.cosmic
+          self.nixosModules.gaming
+          self.nixosModules.docker
+          self.nixosModules.fish
+          self.nixosModules.yttui
+          self.nixosModules.whichkey
+          self.nixosModules.rmtrash
+          self.nixosModules.signal
 
-            # self.nixosModules.distributedBuild
-            home-manager.nixosModules.home-manager
+          # self.nixosModules.distributedBuild
+          home-manager.nixosModules.home-manager
+        ];
+      in {
+        homeConfigurations.cam = home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgs;
+
+          modules = [
+            stylix.homeModules.stylix
+            caelestia-shell.homeManagerModules.default
+            ./home-manager.nix
           ];
-        in
-        {
-          homeConfigurations.cam = home-manager.lib.homeManagerConfiguration {
-            pkgs = pkgs;
 
-            modules = [
-              stylix.homeModules.stylix
-              caelestia-shell.homeManagerModules.default
-              ./home-manager.nix
-            ];
-
-            extraSpecialArgs = {
-              inherit inputs;
-            };
+          extraSpecialArgs = {
+            inherit inputs;
           };
-          nixosConfigurations = {
-            inherit system;
-            pkgs = pkgs;
-            desktop = nixpkgs.lib.nixosSystem {
-              modules = [
+        };
+        nixosConfigurations = {
+          inherit system;
+          pkgs = pkgs;
+          desktop = nixpkgs.lib.nixosSystem {
+            modules =
+              [
                 ./hosts/desktop/configuration.nix
                 nixos-hardware.nixosModules.common-pc
                 nixos-hardware.nixosModules.common-pc-ssd
@@ -115,51 +112,54 @@
                 # nixos-cosmic.nixosModules.default
               ]
               ++ common-modules;
-              specialArgs = {
-                inherit inputs;
-              };
+            specialArgs = {
+              inherit inputs;
             };
-            framework13 = nixpkgs.lib.nixosSystem {
-              inherit system;
-              pkgs = pkgs;
-              modules = [
+          };
+          framework13 = nixpkgs.lib.nixosSystem {
+            inherit system;
+            pkgs = pkgs;
+            modules =
+              [
                 ./hosts/framework13/configuration.nix
                 nixos-hardware.nixosModules.framework-13-7040-amd
                 # nixos-cosmic.nixosModules.default
               ]
               ++ common-modules;
-              specialArgs = {
-                inherit inputs;
-              };
+            specialArgs = {
+              inherit inputs;
             };
-            thinkpad = nixpkgs.lib.nixosSystem {
-              inherit system;
-              pkgs = pkgs;
-              modules = [
+          };
+          thinkpad = nixpkgs.lib.nixosSystem {
+            inherit system;
+            pkgs = pkgs;
+            modules =
+              [
                 ./hosts/thinkPadX1Carbon/configuration.nix
                 nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
                 # nixos-cosmic.nixosModules.default
               ]
               ++ common-modules;
-              specialArgs = {
-                inherit inputs;
-              };
+            specialArgs = {
+              inherit inputs;
             };
-            razer = nixpkgs.lib.nixosSystem {
-              inherit system;
-              pkgs = pkgs;
-              modules = [
+          };
+          razer = nixpkgs.lib.nixosSystem {
+            inherit system;
+            pkgs = pkgs;
+            modules =
+              [
                 ./hosts/razer/configuration.nix
                 nixos-hardware.nixosModules.common-gpu-nvidia
                 nixos-hardware.nixosModules.common-pc-laptop-ssd
                 # nixos-cosmic.nixosModules.default
               ]
               ++ common-modules;
-              specialArgs = {
-                inherit inputs;
-              };
+            specialArgs = {
+              inherit inputs;
             };
           };
         };
+      };
     };
 }

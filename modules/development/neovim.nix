@@ -24,6 +24,7 @@
           vim.opt.relativenumber = true
           vim.opt.colorcolumn = "80,120"
           vim.opt.undofile = true
+          vim.opt.smartcase = true
 
           -- KeyMaps --
           local map = vim.keymap.set
@@ -104,6 +105,8 @@
 
           require("oil").setup({})
           map("n", "-", "<cmd>Oil<enter>", { desc = "Open Oil" })
+
+          map("n", "<leader>l", "<cmd>LazyGit<enter>", {desc = "Open LazyGit"})
         '';
       plugins = with pkgs.vimPlugins; [
         vim-sleuth # tab/spaces indentation detection
@@ -122,6 +125,7 @@
         nvim-treesitter-context # show surrounding area
         nvim-treesitter-textobjects # more objects for motions
         nvim-surround # change surround
+        lazygit-nvim # neovim
       ];
     };
   };

@@ -4,8 +4,7 @@
   config,
   types,
   ...
-}:
-{
+}: {
   options.coding = {
     enable = lib.mkEnableOption "enables coding software";
     terminalPrompt.enable = lib.mkEnableOption "enhanced terminal prompt";
@@ -136,10 +135,11 @@
       # clang
       # Python
       (python3.withPackages (
-        ps: with ps; [
-          pip
-          pynvim
-        ]
+        ps:
+          with ps; [
+            pip
+            pynvim
+          ]
       ))
       libresprite
     ];

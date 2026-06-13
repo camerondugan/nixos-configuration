@@ -1,9 +1,7 @@
 {
-  flake.nixosModules.anki =
-    { pkgs, ... }:
-    {
-      environment.systemPackages = with pkgs; [
-        anki
-      ];
-    };
+  flake.nixosModules.anki = {pkgs, ...}: {
+    environment.systemPackages = with pkgs; [
+      anki
+    ];
+  };
 }

@@ -1,223 +1,220 @@
-{ ... }:
-{
-  flake.nixosModules.configuration =
-    {
-      pkgs,
-      lib,
-      inputs,
-      ...
-    }:
-    {
-      nix = {
-        settings = {
-          substituters = [
-            "https://cosmic.cachix.org/"
-            "https://helix.cachix.org/"
-            "https://attic.xuyh0120.win/lantian" # cachyos
-          ];
-          trusted-public-keys = [
-            "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-            "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
-            "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" # CachyOS
-          ];
-        };
-        extraOptions = ''
-          experimental-features = nix-command flakes
-        '';
-      };
-
-      imports = [
-        ../nix-modules
-      ];
-
-      fonts.packages = with pkgs; [
-        nerd-fonts.jetbrains-mono
-      ];
-
-      # CachyOS Kernel
-      nixpkgs.overlays = [
-        inputs.nix-cachyos-kernel.overlays.pinned
-      ];
-      boot.kernelPackages = lib.mkDefault pkgs.cachyosKernels.linuxPackages-cachyos-latest;
-
-      # Bootloader.
-      boot.loader = {
-        systemd-boot.enable = true;
-        efi.canTouchEfiVariables = true;
-      };
-
-      time.timeZone = "America/New_York";
-
-      networking = {
-        # Enable networking
-        networkmanager.enable = true;
-        networkmanager.wifi.backend = "iwd";
-        wireless.iwd.enable = true;
-        wireless.iwd.settings = {
-          Settings = {
-            AutoConnect = true;
-          };
-          IPv6.Enabled = true;
-        };
-        firewall = rec {
-          allowedTCPPortRanges = [
-            {
-              from = 1714;
-              to = 1764;
-            } # KDEConnect
-          ];
-          allowedUDPPortRanges = allowedTCPPortRanges;
-        };
-      };
-
-      systemd.services.NetworkManager-wait-online.enable = false;
-
-      security = {
-        # Enable sound with pipe wire.
-        rtkit.enable = true;
-
-        # YubiKey Optional Unlock
-        pam.u2f = {
-          enable = true;
-          settings.cue = true;
-        };
-        pam.services = {
-          login.u2fAuth = true;
-          sudo.u2fAuth = true;
-        };
-      };
-
-      programs.gnupg.agent = {
-        enable = true;
-      };
-
-      # Define a user account.
-      users.users.cam = {
-        isNormalUser = true;
-        description = "Cameron Dugan";
-        extraGroups = [
-          "networkmanager"
-          "wheel"
-          "input"
-          "libvirtd"
-          "kvm"
-          "qemu-libvirtd"
+{...}: {
+  flake.nixosModules.configuration = {
+    pkgs,
+    lib,
+    inputs,
+    ...
+  }: {
+    nix = {
+      settings = {
+        substituters = [
+          "https://cosmic.cachix.org/"
+          "https://helix.cachix.org/"
+          "https://attic.xuyh0120.win/lantian" # cachyos
         ];
-        shell = pkgs.fish;
-        packages = with pkgs; [
-          # Desktop Software
-          google-chrome # Browser
-          onlyoffice-desktopeditors # Office Suite
-          papers # PDF
-          image-roll # images
-          gimp # 2d Art
-          prusa-slicer # 3d printer slicer
-          warp # file transfer
-          impression # ISO USB writer
-          audacity # Audio Editor
-          home-manager # manage home config
-          neovim-unwrapped # The best text editor (no bias)
-          zellij # terminal multiplexer
-          direnv # environment by directory
-          kdePackages.kleopatra # OpenPGP
-          baobab # disk usage viewer
-          gnome-disk-utility # disk partitioning tool
+        trusted-public-keys = [
+          "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+          "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs="
+          "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" # CachyOS
         ];
       };
+      extraOptions = ''
+        experimental-features = nix-command flakes
+      '';
+    };
 
-      hardware = {
-        bluetooth.enable = true;
-        bluetooth.settings.General.FastConnectable = true;
-        graphics.enable = true;
-        graphics.enable32Bit = true;
-        enableAllFirmware = true;
-      };
+    imports = [
+      ../nix-modules
+    ];
 
-      xdg.portal.enable = true;
+    fonts.packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+    ];
 
-      services = {
-        # Auto Login
-        # displayManager.autoLogin.enable = true;
-        # displayManager.autoLogin.user = "cam";
+    # CachyOS Kernel
+    nixpkgs.overlays = [
+      inputs.nix-cachyos-kernel.overlays.pinned
+    ];
+    boot.kernelPackages = lib.mkDefault pkgs.cachyosKernels.linuxPackages-cachyos-latest;
 
-        # Basic location service
-        geoclue2.enable = true;
+    # Bootloader.
+    boot.loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
 
-        # Enable touchpad support (enabled default in most desktopManager).
-        libinput.enable = true;
+    time.timeZone = "America/New_York";
 
-        # Enable {}CUPS to print documents.
-        printing.enable = true;
-        # Auto discover printers
-        avahi = {
-          enable = true;
-          nssmdns4 = true;
-          openFirewall = true;
+    networking = {
+      # Enable networking
+      networkmanager.enable = true;
+      networkmanager.wifi.backend = "iwd";
+      wireless.iwd.enable = true;
+      wireless.iwd.settings = {
+        Settings = {
+          AutoConnect = true;
         };
-        pipewire = {
-          enable = true;
-          alsa.enable = true;
-          alsa.support32Bit = true;
-          pulse.enable = true;
-          jack.enable = true;
-        };
-
-        # Flatpak for other software you can't find on NixOS
-        flatpak.enable = true;
-
-        # List services that you want to enable:
-        tailscale.enable = true;
-
-        # Firmware Updater
-        fwupd.enable = true;
-
-        # SyncThing
-        syncthing = {
-          enable = true;
-          user = "cam";
-          dataDir = "/home/cam"; # wiki bad
-          configDir = "/home/cam/.config/syncthing"; # my config better
-        };
-
-        # power-profiles-daemon.enable = true;
-        upower.enable = true;
-
-        # AD Block + DNS
-        # blocky.enable = true;
+        IPv6.Enabled = true;
       };
-      powerManagement.enable = true;
-
-      # KDE Connect
-      programs = {
-        kdeconnect.enable = true;
-        noisetorch.enable = true;
-      };
-
-      system = {
-        # Before changing this value read the documentation for this option
-        # (e.g. man configuration.nix). Also remember to change home-manager's
-        # version.
-        stateVersion = "23.05"; # Did you read the comment?
-      };
-
-      # Enable Optimization.
-      nix.gc = {
-        automatic = lib.mkDefault true;
-        dates = "daily";
-        options = "--delete-older-than 7d";
-      };
-
-      nix.optimise.automatic = true;
-
-      nix.settings = {
-        trusted-users = [
-          "root"
-          "cam"
+      firewall = rec {
+        allowedTCPPortRanges = [
+          {
+            from = 1714;
+            to = 1764;
+          } # KDEConnect
         ];
-        experimental-features = [
-          "nix-command"
-          "flakes"
-        ];
+        allowedUDPPortRanges = allowedTCPPortRanges;
       };
     };
+
+    systemd.services.NetworkManager-wait-online.enable = false;
+
+    security = {
+      # Enable sound with pipe wire.
+      rtkit.enable = true;
+
+      # YubiKey Optional Unlock
+      pam.u2f = {
+        enable = true;
+        settings.cue = true;
+      };
+      pam.services = {
+        login.u2fAuth = true;
+        sudo.u2fAuth = true;
+      };
+    };
+
+    programs.gnupg.agent = {
+      enable = true;
+    };
+
+    # Define a user account.
+    users.users.cam = {
+      isNormalUser = true;
+      description = "Cameron Dugan";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "input"
+        "libvirtd"
+        "kvm"
+        "qemu-libvirtd"
+      ];
+      shell = pkgs.fish;
+      packages = with pkgs; [
+        # Desktop Software
+        google-chrome # Browser
+        onlyoffice-desktopeditors # Office Suite
+        papers # PDF
+        image-roll # images
+        gimp # 2d Art
+        prusa-slicer # 3d printer slicer
+        warp # file transfer
+        impression # ISO USB writer
+        audacity # Audio Editor
+        home-manager # manage home config
+        neovim-unwrapped # The best text editor (no bias)
+        zellij # terminal multiplexer
+        direnv # environment by directory
+        kdePackages.kleopatra # OpenPGP
+        baobab # disk usage viewer
+        gnome-disk-utility # disk partitioning tool
+      ];
+    };
+
+    hardware = {
+      bluetooth.enable = true;
+      bluetooth.settings.General.FastConnectable = true;
+      graphics.enable = true;
+      graphics.enable32Bit = true;
+      enableAllFirmware = true;
+    };
+
+    xdg.portal.enable = true;
+
+    services = {
+      # Auto Login
+      # displayManager.autoLogin.enable = true;
+      # displayManager.autoLogin.user = "cam";
+
+      # Basic location service
+      geoclue2.enable = true;
+
+      # Enable touchpad support (enabled default in most desktopManager).
+      libinput.enable = true;
+
+      # Enable {}CUPS to print documents.
+      printing.enable = true;
+      # Auto discover printers
+      avahi = {
+        enable = true;
+        nssmdns4 = true;
+        openFirewall = true;
+      };
+      pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+        jack.enable = true;
+      };
+
+      # Flatpak for other software you can't find on NixOS
+      flatpak.enable = true;
+
+      # List services that you want to enable:
+      tailscale.enable = true;
+
+      # Firmware Updater
+      fwupd.enable = true;
+
+      # SyncThing
+      syncthing = {
+        enable = true;
+        user = "cam";
+        dataDir = "/home/cam"; # wiki bad
+        configDir = "/home/cam/.config/syncthing"; # my config better
+      };
+
+      # power-profiles-daemon.enable = true;
+      upower.enable = true;
+
+      # AD Block + DNS
+      # blocky.enable = true;
+    };
+    powerManagement.enable = true;
+
+    # KDE Connect
+    programs = {
+      kdeconnect.enable = true;
+      noisetorch.enable = true;
+    };
+
+    system = {
+      # Before changing this value read the documentation for this option
+      # (e.g. man configuration.nix). Also remember to change home-manager's
+      # version.
+      stateVersion = "23.05"; # Did you read the comment?
+    };
+
+    # Enable Optimization.
+    nix.gc = {
+      automatic = lib.mkDefault true;
+      dates = "daily";
+      options = "--delete-older-than 7d";
+    };
+
+    nix.optimise.automatic = true;
+
+    nix.settings = {
+      trusted-users = [
+        "root"
+        "cam"
+      ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+  };
 }

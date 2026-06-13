@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   flake.nixosModules.nix-settings = {
     nix.settings = {
       trusted-users = [
