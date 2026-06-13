@@ -28,9 +28,9 @@
           gamescopeSession.enable = true;
           remotePlay.openFirewall = true;
           dedicatedServer.openFirewall = true;
-          extraCompatPackages = with pkgs; [
-            proton-cachyos # Requires chaotic nix
-          ];
+          # extraCompatPackages = with pkgs; [
+            # proton-cachyos # Requires chaotic nix
+          # ];
         };
         gamemode.enable = true;
       };

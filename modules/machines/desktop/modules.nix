@@ -17,9 +17,10 @@
       self.nixosModules.scx
       # Declare that this nixos system uses unfree software
       self.nixosModules.unfree
-      # Chaotic Required
-      inputs.chaotic.nixosModules.default
-      self.nixosModules.cachyos
+      # Chaotic Required for
+      #inputs.chaotic.nixosModules.default
+      # CachyOS
+      # self.nixosModules.cachyos
       # Optional Services
       self.nixosModules.syncthing
       self.nixosModules.ollama
