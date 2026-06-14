@@ -2,7 +2,6 @@
   flake.homeModules.editor = {pkgs, ...}: {
     programs.helix = {
       enable = true;
-      defaultEditor = true;
       settings = {
         # theme = "base16_default";
         theme = "solarized_dark"; # avoid flashbangs

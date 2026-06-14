@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.fish = {pkgs, ...}: {
+  flake.nixosModules.fish = { pkgs, ... }: {
     programs.starship.enable = true;
     programs.fish = {
       enable = true;
@@ -11,6 +11,7 @@
           bind --mode insert \cW 'fish_clipboard_copy' # disable ctrl+w
           bind --mode insert \b 'backward-kill-bigword' # rebind to ctrl+backspace
           fish_add_path /home/cam/.cargo/bin
+          set -xg EDITOR nvim
           enable_transience
           # ZELLIJ AUTOSTART
           # # set ZELLIJ_AUTO_EXIT "true"
