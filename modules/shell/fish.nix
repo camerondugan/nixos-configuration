@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.fish = { pkgs, ... }: {
+  flake.nixosModules.fish = {pkgs, ...}: {
     programs.starship.enable = true;
     programs.fish = {
       enable = true;
