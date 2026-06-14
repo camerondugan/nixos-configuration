@@ -32,6 +32,7 @@
       self.nixosModules.browser
       self.nixosModules.anki
       self.nixosModules.fish
+      self.nixosModules.direnv
       self.nixosModules.cosmic
       self.nixosModules.office
       self.nixosModules.gaming
