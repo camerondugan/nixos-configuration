@@ -26,6 +26,7 @@
       # self.nixosModules.cachyos
       # Optional Services
       self.nixosModules.syncthing
+      self.nixosModules.tailscale
       self.nixosModules.ollama
       self.nixosModules.ollama-cuda
       # Optional Programs
