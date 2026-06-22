@@ -4,7 +4,7 @@
       system = "x86_64-linux";
     };
     modules = [
-      inputs.self.homeModules.editor
+      inputs.self.homeModules.helix
       inputs.self.homeModules.neovim
       inputs.self.homeModules.ghostty
       inputs.self.homeModules.zellij

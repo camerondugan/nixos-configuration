@@ -10,6 +10,7 @@
       pyright
       ripgrep
       tree-sitter
+      wordnet # blink dictionary definition
     ];
     programs.neovim = {
       enable = true;
@@ -86,6 +87,7 @@
                     map('n', '<leader>b', builtin.buffers, { desc = 'Telescope current changes' })
                     map('n', '<leader>d', builtin.diagnostics, { desc = "Telescope diagnostics"})
                     map('n', '<leader>h', builtin.command_history, { desc = "Telescope history"})
+                    map('n', "<leader>'", builtin.resume, { desc = "Telescope resume"})
 
                     -- LSP Settings --
                     vim.lsp.codelens.enable(true)
@@ -103,7 +105,7 @@
                     vim.lsp.enable('rust_analyzer')
 
                     -- Theme --
-                    vim.cmd('colorscheme everforest')
+                    vim.cmd('colorscheme zenbones')
 
                     -- Plugins --
                     require("fidget").setup({}) -- lsp load spinner
@@ -115,9 +117,16 @@
                       mode = 'topline'
                     })
 
-                    require("nvim-treesitter").setup({}) -- code grammar parsing intellijence
+                    require("nvim-treesitter").setup({}) -- code grammar parsing intelligence sdf
                     require("nvim-treesitter-textobjects").setup({})
                     -- local highlight_langs = {'nix'}
+                    vim.api.nvim_create_autocmd('FileType', {
+                      pattern = {'markdown'}, -- spelling enabled file types
+                      callback = function()
+                        vim.opt_local.spell=true
+                        vim.opt_local.spelllang="en_us"
+                      end
+                    })
                     vim.api.nvim_create_autocmd('FileType', {
                       -- pattern = highlight_langs,
                       callback = function()
@@ -158,6 +167,8 @@
         telescope-nvim # extensible fuzzy finder
         telescope-ui-select-nvim # telescope as ui select
         everforest # theme
+        zenbones-nvim # theme
+        lush-nvim # required by zenbones
         nvim-treesitter.withAllGrammars # treesitter grammars
         nvim-treesitter-context # show surrounding area
         nvim-treesitter-textobjects # more objects for motions

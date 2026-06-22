@@ -1,5 +1,5 @@
 {
-  flake.homeModules.editor = {pkgs, ...}: {
+  flake.homeModules.helix = {pkgs, ...}: {
     programs.helix = {
       enable = true;
       settings = {
