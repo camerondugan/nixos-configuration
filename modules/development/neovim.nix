@@ -107,6 +107,7 @@
             max_lines = 5,
             mode = 'topline'
           })
+          require("lualine").setup({})
 
           require("nvim-treesitter").setup({}) -- code grammar parsing intelligence sdf
           require("nvim-treesitter-textobjects").setup({})
@@ -165,6 +166,7 @@
         nvim-treesitter-textobjects # more objects for motions
         nvim-surround # change surround
         lazygit-nvim # neovim
+        lualine-nvim
       ];
     };
   };
