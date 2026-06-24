@@ -28,7 +28,7 @@
       self.nixosModules.syncthing
       self.nixosModules.tailscale
       self.nixosModules.ollama
-      self.nixosModules.ollama-cuda
+      # self.nixosModules.ollama-cuda
       # Optional Programs
       self.nixosModules.browser
       self.nixosModules.anki

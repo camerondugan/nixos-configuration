@@ -11,7 +11,7 @@
         theme = "light:Zenbones Light,dark:Zenbones Dark";
         # theme = "stylix";
         keybind = "ctrl+;=toggle_quick_terminal";
-        # background-opacity=0.85;
+        background-opacity=0.85;
         background-blur = true;
         confirm-close-surface = false;
       };
