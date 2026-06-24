@@ -167,6 +167,7 @@
         nvim-surround # change surround
         lazygit-nvim # neovim
         lualine-nvim
+        diffview-nvim
       ];
     };
   };
