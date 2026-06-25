@@ -4,13 +4,15 @@
       # gui
       neovide
       # dependencies
+      tree-sitter
+      ripgrep
+      wordnet # blink dictionary definition
+      ## LSP
       just-lsp
       nil
       nixd
       pyright
-      ripgrep
-      tree-sitter
-      wordnet # blink dictionary definition
+      lua-language-server
     ];
     programs.neovim = {
       enable = true;
@@ -27,6 +29,8 @@
           vim.opt.undofile = true
           vim.opt.ignorecase = true
           vim.opt.smartcase = true
+          vim.opt.tabstop = 4
+          vim.opt.shiftwidth = 4
 
           -- Behavior change --
           local function on_jump(diagnostic, bufnr)
@@ -90,6 +94,7 @@
           vim.lsp.enable('nil_ls')
           vim.lsp.enable('pyright')
           vim.lsp.enable('rust_analyzer')
+          vim.lsp.enable('lua_ls')
 
           -- Theme --
           vim.cmd('colorscheme zenbones')
