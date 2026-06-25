@@ -18,6 +18,7 @@
       self.nixosModules.rmtrash
       self.nixosModules.time-zone
       self.nixosModules.scx
+      self.nixosModules.keyd
       # Declare that this nixos system uses unfree software
       self.nixosModules.unfree
       # Chaotic Required for
