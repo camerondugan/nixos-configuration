@@ -6,5 +6,9 @@
     services.desktopManager.cosmic.enable = true;
     services.displayManager.cosmic-greeter.enable = true;
     services.system76-scheduler.enable = false;
+
+    # unsure
+    xdg.portal.enable = true;
+    xdg.portal.wlr.enable = true;
   };
 }
