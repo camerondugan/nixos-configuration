@@ -3,12 +3,13 @@
     pkgs = import inputs.nixpkgs {
       system = "x86_64-linux";
     };
-    modules = [
-      inputs.self.homeModules.helix
-      inputs.self.homeModules.neovim
-      inputs.self.homeModules.ghostty
-      inputs.self.homeModules.zellij
-      inputs.self.homeModules.git
+    modules = with inputs.self.homeModules; [
+      helix
+      neovim
+      ghostty
+      zellij
+      git
+      super-prod
       {
         home = {
           username = "cam";
