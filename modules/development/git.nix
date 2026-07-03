@@ -1,11 +1,23 @@
 {
-  flake.homeModules.git = {
+  flake.homeModules.git = {pkgs, ...}: {
     # Ensure we use the right key
     programs.ssh = {
       matchBlocks = {
         "*" = {
           identityFile = ["~/.ssh/id_ed25519"];
         };
+      };
+    };
+
+    home.packages = with pkgs; [
+      jjui
+    ];
+    programs.jujutsu = {
+      enable = true;
+      settings = {
+        user.name = "Cameron Dugan";
+        user.email = "me@camerondugan.com";
+        ui.default-command = "log";
       };
     };
 
