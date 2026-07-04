@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.0.0] - 2026-07-03
+## [unreleased]
 
 ### 🚀 Features
 
@@ -158,6 +158,7 @@ All notable changes to this project will be documented in this file.
 - *(nvim)* Lua_ls
 - *(xdg-portals)* No idea if this is good, will test later
 - *(productivity)* Add organisation system
+- *(git-cliff)* Setup for this repo and add a flake-parts module
 
 ### 💼 Other
 

@@ -1,6 +1,5 @@
 {
   flake.nixosModules.desktopConf = {
-    services.pipewire.alsa.support32Bit = false; # Temporary
     networking.hostName = "Desktop";
 
     # NVIDIA Fixes
