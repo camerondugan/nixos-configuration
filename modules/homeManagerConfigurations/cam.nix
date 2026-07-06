@@ -10,6 +10,7 @@
       zellij
       git
       super-prod
+      privacy
       {
         home = {
           username = "cam";

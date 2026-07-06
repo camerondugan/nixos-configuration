@@ -159,6 +159,7 @@ All notable changes to this project will be documented in this file.
 - *(xdg-portals)* No idea if this is good, will test later
 - *(productivity)* Add organisation system
 - *(git-cliff)* Setup for this repo and add a flake-parts module
+- *(steam)* Undo temporary changes after build started working again on stable
 
 ### 💼 Other
 
