@@ -37,7 +37,6 @@
       # protonup-qt # Proton Downloader
       # steam # Temporary
       gamescope # View port emulation
-      gamescope-wsi # HDR?
       gamemode
       dxvk
       # (bottles.override {removeWarningPopup = true;})

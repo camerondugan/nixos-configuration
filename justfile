@@ -7,7 +7,7 @@ alias h := home
 alias a := add
 
 switch SYSTEM: add
-	sudo nixos-rebuild switch --flake .#{{SYSTEM}}
+	sudo nixos-rebuild switch --flake .#{{SYSTEM}} --max-jobs 4 --cores 4
 	@just home
 
 boot SYSTEM: add
@@ -15,16 +15,13 @@ boot SYSTEM: add
 	@just home
 
 framework: add
-	sudo nixos-rebuild switch --flake .#framework13
-	@just home
+	just switch framework13
 
 razer: add
-	sudo nixos-rebuild switch --flake .#razer
-	@just home
+	just switch razer
 
 desktop: add
-	sudo nixos-rebuild switch --flake .#desktop
-	@just home
+	just switch desktop
 
 update: add
 	nix flake update
