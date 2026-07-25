@@ -2,6 +2,7 @@
   flake.nixosModules.cosmic = {pkgs, ...}: {
     environment.systemPackages = with pkgs; [
       wl-clipboard-rs
+      wayland-protocols
     ];
     services.desktopManager.cosmic.enable = true;
     services.displayManager.cosmic-greeter.enable = true;
