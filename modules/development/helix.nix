@@ -1,10 +1,11 @@
 {
-  flake.homeModules.helix = {pkgs, ...}: {
+  flake.homeModules.helix = { pkgs, ... }: {
     programs.helix = {
       enable = true;
       settings = {
         # theme = "base16_default";
-        theme = "solarized_dark"; # avoid flashbangs
+        theme = "base16_transparent";
+        # theme = "solarized_dark"; # avoid flashbangs
         # theme.dark = "solarized_dark"; # this should work, not sure why it doesn't.
         # theme.light = "solarized_light";
         # theme.fallback = "solarized_dark"; # avoid flashbangs
@@ -38,8 +39,8 @@
           };
         };
         keys.normal = {
-          ret = ["goto_word"];
-          X = ["extend_line_above"];
+          ret = [ "goto_word" ];
+          X = [ "extend_line_above" ];
           C-j = [
             "extend_to_line_bounds"
             "delete_selection"
@@ -86,7 +87,7 @@
           d = ":theme solarized_dark";
         };
         keys.normal.Z = {
-          Z = ["wclose"]; # Could not use write_quit since it doesn't exist :(
+          Z = [ "wclose" ]; # Could not use write_quit since it doesn't exist :(
         };
       };
       languages = {
@@ -156,7 +157,7 @@
           }
           {
             name = "gdscript";
-            file-types = ["gd"];
+            file-types = [ "gd" ];
             language-servers = [
               "gdscript"
               "harper-ls"
@@ -167,7 +168,7 @@
         language-server = {
           harper-ls = {
             command = "${pkgs.harper}/bin/harper-ls";
-            args = ["--stdio"];
+            args = [ "--stdio" ];
           };
           gdscript = {
             language-id = "gdscript";

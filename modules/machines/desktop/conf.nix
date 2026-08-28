@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.desktopConf = {config, ...}: {
+  flake.nixosModules.desktopConf = { config, ... }: {
     networking.hostName = "Desktop";
 
     # NVIDIA Fixes
@@ -17,7 +17,7 @@
 
     # hardware.nvidia.powerManagement.enable = true;
     hardware.nvidia.open = true;
-    # services.xserver.videoDrivers = [ "nvidia" ];
+    services.xserver.videoDrivers = [ "nvidia" ];
     hardware.graphics.enable = true;
     hardware.graphics.enable32Bit = true;
     hardware.nvidia.modesetting.enable = true;
