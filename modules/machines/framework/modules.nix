@@ -27,11 +27,6 @@
       #inputs.chaotic.nixosModules.default
       # CachyOS
       # cachyos
-      # Optional Services
-      syncthing
-      tailscale
-      ollama
-      # ollama-cuda
       # Optional Programs
       browser
       anki
@@ -42,6 +37,12 @@
       gaming
       flatpak
       nix-dev
+      freetube
+      # Optional Services
+      syncthing
+      tailscale
+      ollama
+      # ollama-cuda
     ];
   };
 }
