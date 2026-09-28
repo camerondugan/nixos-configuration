@@ -3,7 +3,6 @@
     home.packages = with pkgs; [
       tor-browser
       tractor
-      wireguard
     ];
   };
 }

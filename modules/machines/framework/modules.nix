@@ -42,6 +42,7 @@
       syncthing
       tailscale
       ollama
+      wireguard
       # ollama-cuda
     ];
   };
