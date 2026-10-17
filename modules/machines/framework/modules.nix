@@ -11,6 +11,7 @@
       frameworkHardware
       # Required
       nix-settings
+      noctalia # desktop environment
       home-manager
       stateVersion
       bootLoader
@@ -32,7 +33,6 @@
       anki
       fish
       direnv
-      cosmic
       office
       gaming
       flatpak
