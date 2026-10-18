@@ -10,6 +10,7 @@
       orca
       playerctl
       brightnessctl
+      xwayland-satellite
     ];
     programs.niri.enable = true;
     programs.nm-applet.enable = true;
