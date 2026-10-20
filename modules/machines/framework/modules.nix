@@ -11,7 +11,7 @@
       frameworkHardware
       # Required
       nix-settings
-      noctalia # desktop environment
+      cosmic # desktop environment
       home-manager
       stateVersion
       bootLoader
@@ -28,6 +28,8 @@
       #inputs.chaotic.nixosModules.default
       # CachyOS
       # cachyos
+      # Optional Settings
+      font
       # Optional Programs
       browser
       anki
