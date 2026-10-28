@@ -45,6 +45,7 @@
       tailscale
       ollama
       wireguard
+      fingerprint
       # ollama-cuda
     ];
   };
